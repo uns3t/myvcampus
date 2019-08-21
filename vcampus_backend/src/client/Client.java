@@ -23,7 +23,7 @@ public class Client{
             LoginMessage temp = new LoginMessage();
             temp.setLogin_id(id);
             temp.setLogin_pwd(pwd);
-            Message Login_message = new Message(0,"Login",temp);
+            Message Login_message = new Message("0","Login",temp);
             return sendMessage(Login_message);
         }catch (Exception e){
             isConnected = false;
