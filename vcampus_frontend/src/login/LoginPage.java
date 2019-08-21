@@ -6,10 +6,10 @@ import java.awt.event.ActionEvent;
 
 public class LoginPage extends JFrame {
     public LoginPage(){
-
         super();
         this.setLayout(new GridLayout(4,1));
 
+        this.setTitle("用户登录界面");
         JPanel c1 = new JPanel();
         JPanel c2 = new JPanel();
         JPanel c3 = new JPanel();
