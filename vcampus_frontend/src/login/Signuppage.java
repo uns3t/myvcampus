@@ -1,4 +1,4 @@
 package login;
 
-public class Signuppage {
+public class SignupPage {
 }
