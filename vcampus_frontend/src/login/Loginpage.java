@@ -4,8 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-public class loginpage extends JFrame {
-    public loginpage(){
+public class LoginPage extends JFrame {
+    public LoginPage(){
 
         super();
         this.setLayout(new GridLayout(4,1));
@@ -28,7 +28,7 @@ public class loginpage extends JFrame {
         c1.add(tf1);
         c2.add(j2);
         c2.add(tf2);
-        c3.add(new loginUsers());
+        c3.add(new LoginUsers());
 
         JPanel cpane = new JPanel();
         this.add(cpane);
