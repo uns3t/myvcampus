@@ -1,3 +1,22 @@
+# Compiled class file
 *.class
 
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# .idea#
 /vcampus_moon/.idea/
+/vcampus_moon/out/
