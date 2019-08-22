@@ -18,5 +18,5 @@
 *.rar
 
 # .idea#
-/vcampus_moon/.idea/
-/vcampus_moon/out/
+/vcampus_moon/.idea
+/vcampus_moon/out
