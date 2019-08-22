@@ -46,7 +46,7 @@ public class ServerThread extends Thread {
     public ServerThread(Server server, int max) {
         this.server = server;
         this.max = max;
-        getAccessConnection("C:\\Users\\uns3t\\Desktop\\summer\\java\\Usrtbl.accdb", "", "");
+        getAccessConnection("C:\\Users\\uns3t\\Desktop\\summer\\java\\idea\\myvcampus\\vcampus_moon\\database\\vcampus.accdb", "", "");
 
     }
 
