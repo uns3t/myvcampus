@@ -23,7 +23,7 @@ public class Client{
             LoginMessage temp = new LoginMessage();
             temp.setLogin_id(id);
             temp.setLogin_pwd(pwd);
-            Message Login_message = new Message("0","Login",temp);
+            Message Login_message = new Message("Login",temp);
             return sendMessage(Login_message);
         }catch (Exception e){
             isConnected = false;
@@ -46,6 +46,38 @@ public class Client{
             return true;
         } catch (IOException e) {
             e.printStackTrace();
+            return false;
+        }
+    }
+
+    public ObjectInputStream getOb_is(){ return ob_is; }
+    public ObjectOutputStream getOb_os(){ return  ob_os; }
+
+    public Message getMessage(){
+        Message message = null;
+        try {
+            message = (Message)ob_is.readObject();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return message;
+    }
+
+    public boolean handleLoginMessage(String L_id, String L_pwd, String L_cardid){
+        LoginMessage loginMessage = new LoginMessage();
+        loginMessage.setLogin_id(L_id);
+        loginMessage.setLogin_pwd(L_pwd);
+        loginMessage.setLogin_cardID(L_cardid);
+        Message message = new Message("Login",loginMessage);
+        if (sendMessage(message)){
+            System.out.println("发送成功");
+            return true;
+        }
+        else {
+            System.out.println("发送失败");
             return false;
         }
     }
