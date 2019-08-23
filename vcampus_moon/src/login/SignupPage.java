@@ -7,29 +7,35 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class SignupPage extends JFrame {
-    private JPanel c1, c2, c3, c4, c5;
-    private JLabel j1, j2, j3, j4;
+    private JPanel c, c1, c2, c3, c4, c5;
+    private JLabel j, j1, j2, j3, j4;
     private JTextField tf1, tf2;
     private JPasswordField tf3, tf4;
     private JButton b1;
+    private JRadioButton rad;
 
-    public SignupPage(){
+    public SignupPage() {
         super();
-        this.setLayout(new GridLayout(5,1));
+        this.setLayout(new GridLayout(6,1));
 
         this.setTitle("用户注册界面");
+        c = new JPanel();
         c1 = new JPanel();
         c2 = new JPanel();
         c3 = new JPanel();
         c4 = new JPanel();
         c5 = new JPanel();
 
+        this.add(c);
         this.add(c1);
         this.add(c2);
         this.add(c3);
         this.add(c4);
         this.add(c5);
 
+        j = new JLabel("用户类型:");
+        rad = new JRadioButton("学生");
+        
         j1 = new JLabel("用户名   :");
         j2 = new JLabel("一卡通号 :");
         j3 = new JLabel("密码     :");
@@ -97,8 +103,7 @@ public class SignupPage extends JFrame {
 
         tf3.addMouseListener(new MouseListener(){
             @Override
-            public void mouseClicked(MouseEvent e) {
-                tf3.setText("");
+            public void mouseClicked(MouseEvent e) { tf3.setText("");
             }
 
             @Override
@@ -151,6 +156,8 @@ public class SignupPage extends JFrame {
         }
         );
 
+        c.add(j);
+        c.add(rad);
         c1.add(j1);
         c1.add(tf1);
         c2.add(j2);
@@ -165,8 +172,8 @@ public class SignupPage extends JFrame {
         b1.addActionListener(new java.awt.event.ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                SignupSuccess success = new SignupSuccess();
-                success.setVisible(true);
+                JOptionPane.showMessageDialog(new JFrame().getContentPane(), "注册成功","注册提示页面", JOptionPane.INFORMATION_MESSAGE);
+
             }
         }
         );

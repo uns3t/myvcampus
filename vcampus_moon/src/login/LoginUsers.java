@@ -10,7 +10,6 @@ public class LoginUsers extends JPanel {
     ButtonGroup  bg=new ButtonGroup();
 
     public LoginUsers() {
-        //setLayout(new GridLayout(5, 1));
         add(jl);
         bg.add(rad1);
         bg.add(rad2);
@@ -18,5 +17,17 @@ public class LoginUsers extends JPanel {
         add(rad1);
         add(rad2);
         add(rad3);
+    }
+    
+    public int getCount() {
+    	int choButton = 0;
+    	if(rad1.isSelected() == true)
+    		choButton = 1;
+    	else if(rad2.isSelected() == true)
+    		choButton = 2;
+    	else if(rad3.isSelected() == true)
+    		choButton = 3;
+    	
+    	return choButton;
     }
 }
