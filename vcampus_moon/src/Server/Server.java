@@ -3,43 +3,94 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.net.BindException;
 import java.net.ServerSocket;
+import java.util.Vector;
+import java.net.Socket;
 
 
-public class Server {
-    private ServerSocket serverSocket;
-    private ServerThread serverThread;
-    private boolean isStart = false;
+public class Server extends Thread {
+    private ServerSocket server;
+    private Vector<ServerThread> manyserver;
 
-
-    public static void main(String[] args) {
+    public Server() {
         try {
-            new Server().startServer(30, 10001);
-        } catch (BindException e) {
+            server = new ServerSocket(10001);
+            System.out.println("主线程开始监听10001");
+            manyserver = new Vector<ServerThread>();
+            this.start();
+        }
+        catch(Exception e) {
             e.printStackTrace();
         }
     }
 
-    public boolean IsStarted() {
-        return isStart;
-    }
+    public void run() {
+        //当服务器在运行
+        while(!server.isClosed()) {
+            try {
+                Socket client = server.accept();//监听新的客户端
 
-    public ServerSocket getServerSocket(){
-        return this.serverSocket;
-    }
+                ServerThread current = new ServerThread(client, this);
+                current.start();
 
-    public void startServer(int max, int port) throws java.net.BindException {
-        try {
-            serverSocket = new ServerSocket(port);
-            serverThread = new ServerThread(this, max);
-            serverThread.start();
-            isStart = true;
-        } catch (BindException e) {
-            isStart = false;
-            throw new BindException("端口号已被占用，请换一个！");
-        } catch (Exception e1) {
-            e1.printStackTrace();
-            isStart = false;
-            throw new BindException("启动服务器异常！");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
+
+    public void close() {
+        //如果服务器Socket已被打开
+        if (server != null) {
+            try {
+                server.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * 返回当前已连接客户端数量
+     */
+    public int getSize() {
+        return manyserver.size();
+    }
+
+    /**
+     * 向向量中添加新的客户端
+     */
+    public int addClientConnection(ServerThread ct) {
+        manyserver.add(ct);
+
+        return manyserver.size();
+    }
+
+    /**
+     * 从向量中移除关闭的客户端
+     *
+     * @param ct 要关闭的客户端线程
+     * @return 关闭状态
+     */
+    public boolean closeClientConnection(ServerThread ct) {
+        if (manyserver.contains(ct)) {
+            manyserver.remove(ct);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * 在向量中按登录用户ID寻找客户端
+     */
+//    public boolean searchClientConnection(String curUser) {
+//        for (ServerThread ct: manyserver) {
+//            if (ct.curUser != null && ct.curUser.equals(curUser)) {
+//                return true;
+//            }
+//        }
+//
+//        return false;
+//    }
 }

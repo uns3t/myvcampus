@@ -11,10 +11,14 @@ import java.sql.Statement;
 
 
 public class DAOlogin {
-    private Connection con;
+    private static Connection con;
+    public void setcon(Connection c){
+        this.con=c;
+    }
 
-    public boolean Logincheck(Connection connection, String name,String pwd) throws Exception {
-        Statement statement = connection.createStatement();
+
+    public boolean Logincheck(String name,String pwd) throws Exception {
+        Statement statement = con.createStatement();
         ResultSet result = statement.executeQuery("select * from Usrtbl where Uname="+"'"+name+"'");
         while (result.next()) {
             String temppwd=result.getString("pwd") ;
