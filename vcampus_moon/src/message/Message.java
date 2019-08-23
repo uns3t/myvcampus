@@ -8,7 +8,7 @@ public class Message implements Serializable{
     private Object data;
     private static int uid = 0;
     private boolean response = false;
-
+    //sssss
     public void setType(String t){ this.type = t; }
     public String getType(){ return this.type; }
     public void setData(Object d){ this.data = d; }
