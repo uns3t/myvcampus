@@ -71,7 +71,7 @@ public class Client{
         loginMessage.setLogin_id(L_id);
         loginMessage.setLogin_pwd(L_pwd);
         loginMessage.setLogin_cardID(L_cardid);
-        Message message = new Message("Login",loginMessage);
+        Message message = new Message(loginMessage.getType(),loginMessage);
         if (sendMessage(message)){
             System.out.println("发送成功");
             return true;
