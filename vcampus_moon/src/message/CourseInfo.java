@@ -6,6 +6,7 @@ public class CourseInfo implements Serializable {
     private String Course_name;
     private String Course_id;
     private String Course_teacher;
+    private String Course_time;
 
 
 
@@ -21,6 +22,9 @@ public class CourseInfo implements Serializable {
         Course_teacher = course_teacher;
     }
 
+    public void setCourse_time(String course_time) {
+        Course_time = course_time;
+    }
 
 
 
@@ -34,6 +38,9 @@ public class CourseInfo implements Serializable {
 
     public String getCourse_teacher() {
         return Course_teacher;
+    }
+    public String getCourse_time() {
+        return Course_time;
     }
 
 

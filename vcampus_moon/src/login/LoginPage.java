@@ -15,7 +15,7 @@ public class LoginPage extends JFrame {
     private JTextField tf1, tf3;
     private JPasswordField tf2;
     private JButton registe, login;
-    
+
     LoginUsers logUser = new LoginUsers();
 
     public LoginPage(){
@@ -41,7 +41,7 @@ public class LoginPage extends JFrame {
         tf1 = new JTextField("请输入用户名",20);//用户名
         tf2 = new JPasswordField("请输入密码",20);//密码
         tf3 = new JTextField("请输入一卡通号",20);//一卡通号
-        
+
         tf1.addMouseListener(new MouseListener(){
             public void mouseClicked(MouseEvent arg0) {
                 tf1.setText("");
@@ -133,7 +133,7 @@ public class LoginPage extends JFrame {
 
         c5 = new JPanel();
         this.add(c5);
-        
+
         registe = new JButton("注册");
         c5.add(registe);
         registe.addActionListener(new java.awt.event.ActionListener() {
@@ -143,12 +143,11 @@ public class LoginPage extends JFrame {
             	regInfo.setLogin_id(tf1.getText().toString());
             	String str_psw = String.valueOf(tf2.getPassword());
                 regInfo.setLogin_pwd(str_psw);
-                regInfo.setLogin_cardID(tf3.getText().toString());
-                
+
                /* System.out.println(logInfo.getLogin_id());
                 System.out.println(logInfo.getLogin_pwd());
                 System.out.println(logInfo.getLogin_cardID());*/
-            	
+
                 SignupPage sPage = new SignupPage();
                 sPage.setVisible(true);
             }
@@ -166,15 +165,15 @@ public class LoginPage extends JFrame {
             	case 1:
             	new TeacherPage();
             	break;
-            	
+
             	case 2:
             	new StudentPage();
             	break;
-            	
+
             	case 3:
             	new MangerPage();
             	break;
-            	
+
             	default:
             		break;
             	}
