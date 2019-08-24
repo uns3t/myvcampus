@@ -15,6 +15,9 @@ public class BookMessage implements Serializable {
     public void addBookInfo(BookInfo b){
         bookInfo.add(b);
     }
+    public ArrayList getbook(){
+        return bookInfo;
+    }
 
     public String getType() {
         return type;

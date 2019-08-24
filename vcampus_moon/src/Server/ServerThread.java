@@ -120,7 +120,15 @@ public class ServerThread extends Thread {
     //--------------------------------------------------------------------------------------------
     public void Login(Message message){
         LoginMessage loginMessage=(LoginMessage) message.getData();
+        try {
+            if(con.getlogin().Logincheck(loginMessage.getLogin_id(),loginMessage.getLogin_pwd())){
+                message.setResponse(true);
+                oos.writeObject(message);
+                oos.flush();
+            }
+        }catch (Exception e){
 
+        }
     }
 
     public void Library(){

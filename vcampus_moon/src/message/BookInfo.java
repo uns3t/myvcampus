@@ -6,10 +6,7 @@ public class BookInfo implements Serializable {
     private String Book_name;
     private String Book_id;
     private String Book_author;
-    private String Book_press;
     private int Book_total;
-    private int Book_keep;
-    private int Book_ordered;
     private int Book_borrowed;
     private boolean Book_available;
     private String Book_introduction;
@@ -38,13 +35,6 @@ public class BookInfo implements Serializable {
         return Book_author;
     }
 
-    public void setBook_press(String book_press) {
-        Book_press = book_press;
-    }
-
-    public String getBook_press() {
-        return Book_press;
-    }
 
     public void setBook_total(int book_total) {
         Book_total = book_total;
@@ -54,21 +44,7 @@ public class BookInfo implements Serializable {
         return Book_total;
     }
 
-    public void setBook_keep(int book_keep) {
-        Book_keep = book_keep;
-    }
 
-    public int getBook_keep() {
-        return Book_keep;
-    }
-
-    public void setBook_ordered(int book_ordered) {
-        Book_ordered = book_ordered;
-    }
-
-    public int getBook_ordered() {
-        return Book_ordered;
-    }
 
     public void setBook_borrowed(int book_borrowed) {
         Book_borrowed = book_borrowed;

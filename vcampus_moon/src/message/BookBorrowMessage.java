@@ -4,26 +4,15 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class BookBorrowMessage implements Serializable {
-    private String Book_name;
     private String Book_id;
-    private static int Borrow_id = 0;
-    private long StartTime;
-    private int TimeLimit;
+    private Date StartTime;
+    private String Usr_id;
     private String type = "BookBorrow";
 
     public BookBorrowMessage(){
-        Date Time = new Date();
-        StartTime = Time.getTime();
-        Borrow_id++;
+        this.StartTime = new Date();
     }
 
-    public void setBook_name(String book_name) {
-        Book_name = book_name;
-    }
-
-    public String getBook_name() {
-        return Book_name;
-    }
 
     public void setBook_id(String book_id) {
         Book_id = book_id;
@@ -33,19 +22,23 @@ public class BookBorrowMessage implements Serializable {
         return Book_id;
     }
 
-    public static int getBorrow_id() {
-        return Borrow_id;
+    public void setusr_id(String usr_id) {
+        Usr_id = usr_id;
     }
 
-    public void setTimeLimit(int timeLimit) {
-        TimeLimit = timeLimit;
+    public String getusr_id() {
+        return Usr_id;
     }
 
-    public int getTimeLimit() {
-        return TimeLimit;
-    }
+//    public void setTimeLimit(int timeLimit) {
+//        TimeLimit = timeLimit;
+//    }
+//
+//    public int getTimeLimit() {
+//        return TimeLimit;
+//    }
 
-    public long getStartTime() {
+    public Date getStartTime() {
         return StartTime;
     }
 
