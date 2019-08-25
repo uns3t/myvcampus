@@ -46,4 +46,14 @@ public class DAOcourse {
         }
         return courselist;
     }
+
+
+    public boolean addCourseSelect(String course_id,String usr_id) throws Exception{
+        sql = con.prepareStatement("insert into CourseSelecttbl (Usr_id,Course_id) values (?,?)");
+
+        sql.setString(1, usr_id);
+        sql.setString(2, course_id);
+        sql.executeUpdate();
+        return true;
+    }
 }

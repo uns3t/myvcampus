@@ -10,10 +10,12 @@ public class ToAccess {
     private DAOusr usr=new DAOusr();
     private DAOstudent student=new DAOstudent();
     private DAOshop shop=new DAOshop();
+    private DAObook book=new DAObook();
+    private DAOcourse course=new DAOcourse();
     // more
 
 
-    public DAOusr getlogin(){
+    public DAOusr getusr(){
         return usr;
     }
     public DAOstudent getstudent(){
@@ -22,6 +24,14 @@ public class ToAccess {
     public DAOshop getshop(){
         return shop;
     }
+    public DAObook getBook(){
+        return book;
+    }
+    public DAOcourse getCourse(){
+        return course;
+    }
+
+
     //more
 
     public void getcon() {
@@ -39,6 +49,8 @@ public class ToAccess {
             usr.setcon(con);
             student.setcon(con);
             shop.setcon(con);
+            book.setcon(con);
+            course.setcon(con);
             //more
 
             System.out.println("数据库初始化终了");
@@ -55,7 +67,7 @@ public class ToAccess {
 //            toAccess.getstudent().addStudent("123","123","231","123");
 //            toAccess.getstudent().listStudent();
 //            toAccess.getstudent().deleteStudent("123");
-            System.out.println("添加完毕");
+            System.out.println("完毕");
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
