@@ -15,11 +15,18 @@ public class BookMessage implements Serializable {
     public void addBookInfo(BookInfo b){
         bookInfo.add(b);
     }
+    public void setBooklist(ArrayList<BookInfo> booklist){
+        bookInfo=booklist;
+    }
     public ArrayList getbook(){
         return bookInfo;
     }
 
     public String getType() {
         return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

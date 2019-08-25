@@ -5,20 +5,27 @@ import java.util.ArrayList;
 
 public class StudentMessage implements Serializable {
     private String type = "Student";
-    private ArrayList<Studentinfo> Studentinfo = null;
+    private ArrayList<Studentinfo> studentinfo = null;
 
     public StudentMessage(){
-        Studentinfo = new ArrayList<Studentinfo>();
+        studentinfo = new ArrayList<Studentinfo>();
     }
     public void addStudentInfo(Studentinfo s){
-        Studentinfo.add(s);
+        studentinfo.add(s);
+    }
+    public void setStudentlist(ArrayList<Studentinfo> studentlist){
+        studentinfo=studentlist;
     }
 
     public ArrayList getStudent(){
-        return Studentinfo;
+        return studentinfo;
     }
 
     public String getType() {
         return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

@@ -13,7 +13,15 @@ public class CourseMessage implements Serializable {
     public void addCourseInfo(CourseInfo c){
         courseInfo.add(c);
     }
+    public void setCourselist(ArrayList<CourseInfo> courselist){
+        courseInfo=courselist;
+    }
+
     public ArrayList getCourse(){
         return courseInfo;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

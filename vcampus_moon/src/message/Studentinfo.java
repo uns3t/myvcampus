@@ -16,6 +16,6 @@ public class Studentinfo implements Serializable {
     public void setStudent_name(String name){ this.Student_name = name; }
     public String getStudent_name(){ return this.Student_name; }
     public void setStudent_age(int age){ this.Student_age = age; }
-    public int getStudent_int(){ return this.Student_age; }
+    public int getStudent_age(){ return this.Student_age; }
 
 }
