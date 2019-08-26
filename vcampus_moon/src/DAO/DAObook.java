@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import message.*;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DAObook {
     private static Connection con;
@@ -15,7 +16,7 @@ public class DAObook {
         this.con=c;
     }
 
-    public boolean addBook(String book_name,String book_id,String book_author,String book_total,String book_borrowed,String book_available,String book_introduction) throws Exception{
+    public boolean addBook(String book_name,String book_id,String book_author,String book_total,String book_borrowed,String book_introduction) throws Exception{
         sql = con.prepareStatement("insert into Booktbl (Book_name, Book_id, Book_author,Book_total,Book_borrowed,Book_available,Book_introduction) values (?, ?, ?,?,?,?)");
 
         sql.setString(1, book_name);
@@ -23,8 +24,7 @@ public class DAObook {
         sql.setString(3, book_author);
         sql.setString(4, book_total);
         sql.setString(5, book_borrowed);
-        sql.setString(6, book_available);
-        sql.setString(7, book_introduction);
+        sql.setString(6, book_introduction);
         sql.executeUpdate();
         return true;
     }
@@ -46,10 +46,35 @@ public class DAObook {
             temp.setBook_author(result.getString("Book_author"));
             temp.setBook_total(result.getInt("Book_total"));
             temp.setBook_borrowed(result.getInt("Book_borrowed"));
-            temp.setBook_available(result.getBoolean("Book_available"));
             temp.setBook_introduction(result.getString("Book_introduction"));
             booklist.add(temp);
         }
         return booklist;
+    }
+
+    public void borrowBook(String book_id,String usr_id) throws Exception{
+        sql=con.prepareStatement("select * from Booktbl where Book_id="+"'"+book_id+"'");
+        result=sql.executeQuery();
+        int borrowed_num=result.getInt("Book_borrowed");
+        int total_num=result.getInt("Book_total");
+        if(total_num-borrowed_num>0){
+            borrowed_num++;
+            sql=con.prepareStatement("update Booktbl set Book_borrowed=? where Book_id=?");
+            sql.setString(1,borrowed_num+"");
+            sql.setString(2,usr_id);
+            sql.executeUpdate();
+            addBookborrow(book_id,usr_id);
+        }
+    }
+
+    public boolean addBookborrow(String book_id,String usr_id) throws Exception{
+        String time=new Date().toString();
+        sql = con.prepareStatement("insert into Borrowtbl (Book_id, StartTime,Usr_id) values (?,?,?)");
+
+        sql.setString(1, book_id);
+        sql.setString(2, time);
+        sql.setString(3, usr_id);
+        sql.executeUpdate();
+        return true;
     }
 }

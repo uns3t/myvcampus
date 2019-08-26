@@ -13,8 +13,18 @@ public class ShopMessage implements Serializable {
     public void addGoodsInfo(GoodsInfo g){
         goodsInfo.add(g);
     }
+    public void setGoodslist(ArrayList<GoodsInfo> goodslist){
+        goodsInfo=goodslist;
+    }
+    public ArrayList<GoodsInfo> getGoodsInfo(){
+        return goodsInfo;
+    }
 
     public String getType() {
         return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

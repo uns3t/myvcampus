@@ -8,7 +8,6 @@ public class BookInfo implements Serializable {
     private String Book_author;
     private int Book_total;
     private int Book_borrowed;
-    private boolean Book_available;
     private String Book_introduction;
 
     public void setBook_name(String book_name) {
@@ -54,13 +53,7 @@ public class BookInfo implements Serializable {
         return Book_borrowed;
     }
 
-    public void setBook_available(boolean book_available) {
-        Book_available = book_available;
-    }
 
-    public boolean getBook_available(){
-        return Book_available;
-    }
 
     public void setBook_introduction(String book_introduction) {
         Book_introduction = book_introduction;
