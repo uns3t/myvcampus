@@ -1,6 +1,9 @@
 package login;
 
 import javax.swing.*;
+
+import message.SignupMessage;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
@@ -36,7 +39,7 @@ public class SignupPage extends JFrame {
         j = new JLabel("用户类型:");
         rad = new JRadioButton("学生");
         
-        j1 = new JLabel("用户名   :");
+        j1 = new JLabel("用户名:");
         j2 = new JLabel("一卡通号 :");
         j3 = new JLabel("密码     :");
         j4 = new JLabel("密码确认 :");
@@ -46,33 +49,41 @@ public class SignupPage extends JFrame {
         tf3 = new JPasswordField("请输入密码",20);//密码
         tf4 = new JPasswordField("请确认密码",20);//密码确认
 
-        tf1.addMouseListener(new MouseListener(){
-            public void mouseClicked(MouseEvent e) {
-                tf1.setText("");
-            }
+        tf1.addMouseListener(new MouseListener() {
 
-            @Override
-            public void mousePressed(MouseEvent e) {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				tf1.setText("");
+				
+			}
 
-            }
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
 
-            @Override
-            public void mouseReleased(MouseEvent e) {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
 
-            }
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
 
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+        	
         }
         );
-
+        
         tf2.addMouseListener(new MouseListener(){
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -173,12 +184,18 @@ public class SignupPage extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(new JFrame().getContentPane(), "注册成功","注册提示页面", JOptionPane.INFORMATION_MESSAGE);
-
+              
+                SignupMessage siupInfo = new SignupMessage();
+                siupInfo.setSignup_name(tf1.getText().toString());//用户名
+                siupInfo.setSignup_id(tf2.getText().toString());//一卡通
+                String str_psw = String.valueOf(tf3.getPassword());//密码
+                siupInfo.setSignup_pwd(str_psw);
+                
             }
         }
         );
 
-        setSize(300,200);
+        setSize(700,500);
         setVisible(true);
     }
 }
