@@ -8,6 +8,15 @@ import java.io.ObjectOutputStream;
 import message.*;
 
 public class Client{
+
+    public static void main(String[] args) {
+        Client client = new Client("192.121.1.1",100001);
+
+    }
+
+    public Client(String hospIp,int port){
+        connectServer(hospIp,port);
+    }
     private Socket socket;
 
     private boolean isConnected = false;

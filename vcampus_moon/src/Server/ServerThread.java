@@ -71,11 +71,11 @@ public class ServerThread extends Thread {
                     Login(message);
                     break;
 
-                case "Signup":
+                case "SignUp":
                     Signup(message);
                     break;
 
-                case "Usrdelete":
+                case "UsrDelete":
                     deleteusr(message);
                     break;
 
@@ -85,11 +85,11 @@ public class ServerThread extends Thread {
                     Studentlist();
                     break;
 
-                case "addStudent":
+                case "AddStudent":
                     addstudent(message);
                     break;
 
-                case "deleteStudent":
+                case "DeleteStudent":
                     deletestudent(message);
                     break;
 
@@ -103,11 +103,11 @@ public class ServerThread extends Thread {
                     bookBorrow(message);
                     break;
 
-                case "Bookadd":
+                case "AddBook":
                     addbook(message);
                     break;
 
-                case "Bookdelete":
+                case "DeleteBook":
                     deletebook(message);
                     break;
 
@@ -116,15 +116,15 @@ public class ServerThread extends Thread {
                     Shoplist();
                     break;
 
-                case "buy":
+                case "Buy":
                     buyshop(message);
                     break;
 
-                case "shopadd":
+                case "AddGood":
                     addshop(message);
                     break;
 
-                case "shopdelete":
+                case "DeleteGood":
                     deleteshop(message);
                     break;
 
@@ -134,15 +134,15 @@ public class ServerThread extends Thread {
                     Courselist();
                     break;
 
-                case "courseadd":
+                case "AddCourse":
                     addcourse(message);
                     break;
 
-                case "coursedelete":
+                case "DeleteCourse":
                     deletecourse(message);
                     break;
 
-                case "courseselect":
+                case "CourseSelect":
                     selectcourse(message);
                     break;
             }

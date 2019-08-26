@@ -31,7 +31,7 @@ public class ClientThread extends Thread {
                     //读不到指令，说明已登出
                     return;
                 }
-
+                isWaiting = false;
             }
 
         }
@@ -85,11 +85,11 @@ public class ClientThread extends Thread {
         }
     }
 
-    public boolean handleSignupMessage(String S_id, String S_pwd, String S_name){
+    public boolean handleSignUpMessage(String S_id, String S_pwd, String S_name){
         UsrMessage signupMessage = new UsrMessage();
         signupMessage.setUsr_id(S_id);
         signupMessage.setUsr_pwd(S_pwd);
-        signupMessage.setType("Signup");
+        signupMessage.setType("SignUp");
         signupMessage.setUsr_name(S_name);
         Message message = new Message(signupMessage.getType(),signupMessage);
         if (sendMessage(message)){
@@ -106,7 +106,7 @@ public class ClientThread extends Thread {
     public boolean handleUsrDeleteMessage(String delete_id){
         UsrMessage usrMessage = new UsrMessage();
         usrMessage.setUsr_id(delete_id);
-        usrMessage.setType("Usrdelete");
+        usrMessage.setType("UsrDelete");
         Message message = new Message(usrMessage.getType(),usrMessage);
         if (sendMessage(message)){
             System.out.println("发送成功");
@@ -142,7 +142,7 @@ public class ClientThread extends Thread {
         studentinfo.setStudent_college(S_college);
         StudentMessage studentMessage= new StudentMessage();
         studentMessage.addStudentInfo(studentinfo);
-        studentMessage.setType("addStudent");
+        studentMessage.setType("AddStudent");
         Message message = new Message(studentMessage.getType(),studentMessage);
         if (sendMessage(message)){
             System.out.println("发送成功");
@@ -160,7 +160,7 @@ public class ClientThread extends Thread {
         studentinfo.setStudent_id(S_id);
         StudentMessage studentMessage= new StudentMessage();
         studentMessage.addStudentInfo(studentinfo);
-        studentMessage.setType("deleteStudent");
+        studentMessage.setType("DeleteStudent");
         Message message = new Message(studentMessage.getType(),studentMessage);
         if (sendMessage(message)){
             System.out.println("发送成功");
@@ -182,7 +182,7 @@ public class ClientThread extends Thread {
         bookInfo.setBook_borrowed(borrowed);
         bookInfo.setBook_introduction(introduction);
         BookMessage bookMessage = new BookMessage();
-        bookMessage.setType("Bookadd");
+        bookMessage.setType("AddBook");
         bookMessage.addBookInfo(bookInfo);
         Message message = new Message(bookMessage.getType(),bookMessage);
         if (sendMessage(message)){
@@ -200,7 +200,7 @@ public class ClientThread extends Thread {
         BookInfo bookInfo = new BookInfo();
         bookInfo.setBook_id(id);
         BookMessage bookMessage = new BookMessage();
-        bookMessage.setType("Bookdelete");
+        bookMessage.setType("DeleteBook");
         bookMessage.addBookInfo(bookInfo);
         Message message = new Message(bookMessage.getType(),bookMessage);
         if (sendMessage(message)){
@@ -287,7 +287,7 @@ public class ClientThread extends Thread {
         goodsInfo.setGoods_price(price);
         goodsInfo.setGoods_quantity(quantity);
         ShopMessage shopMessage = new ShopMessage();
-        shopMessage.setType("shopadd");
+        shopMessage.setType("AddGood");
         shopMessage.addGoodsInfo(goodsInfo);
         Message message = new Message(shopMessage.getType(),shopMessage);
         if (sendMessage(message)){
@@ -304,7 +304,7 @@ public class ClientThread extends Thread {
     public boolean handleDeleteGoodMessage(String id){
         GoodsInfo goodsInfo = new GoodsInfo();
         ShopMessage shopMessage = new ShopMessage();
-        shopMessage.setType("shopdelete");
+        shopMessage.setType("DeleteGood");
         shopMessage.addGoodsInfo(goodsInfo);
         Message message = new Message(shopMessage.getType(),shopMessage);
         if (sendMessage(message)){
@@ -358,7 +358,7 @@ public class ClientThread extends Thread {
         courseInfo.setCourse_teacher(teacher);
         courseInfo.setCourse_time(time);
         CourseMessage courseMessage = new CourseMessage();
-        courseMessage.setType("courseadd");
+        courseMessage.setType("AddCourse");
         courseMessage.addCourseInfo(courseInfo);
         Message message = new Message(courseMessage.getType(),courseMessage);
         if (sendMessage(message)){
@@ -376,7 +376,7 @@ public class ClientThread extends Thread {
         CourseInfo courseInfo = new CourseInfo();
         courseInfo.setCourse_id(id);
         CourseMessage courseMessage = new CourseMessage();
-        courseMessage.setType("coursedelete");
+        courseMessage.setType("DeleteCourse");
         courseMessage.addCourseInfo(courseInfo);
         Message message = new Message(courseMessage.getType(),courseMessage);
         if (sendMessage(message)){
