@@ -24,4 +24,8 @@ public class CourseMessage implements Serializable {
     public void setType(String type) {
         this.type = type;
     }
+
+    public String getType() {
+        return type;
+    }
 }
