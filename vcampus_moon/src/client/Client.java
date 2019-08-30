@@ -9,7 +9,7 @@ import message.*;
 
 public class Client{
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Client client = new Client("127.0.0.1",10001);
         ClientThread test = new ClientThread(client);
         test.handleBuyMessage("111",111);

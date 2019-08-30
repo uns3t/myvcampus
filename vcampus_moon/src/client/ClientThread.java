@@ -15,10 +15,15 @@ public class ClientThread extends Thread {
     private Message reMessage = null;
 
 
-    public ClientThread(Client client) throws IOException {
+    public ClientThread(Client client) {
         this.client = client;
-        ob_is = new ObjectInputStream(client.getSocket().getInputStream());
-        ob_os = new ObjectOutputStream(client.getSocket().getOutputStream());
+        try {
+            ob_is = new ObjectInputStream(client.getSocket().getInputStream());
+            ob_os = new ObjectOutputStream(client.getSocket().getOutputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        this.start();
     }
 
     public void run(){
