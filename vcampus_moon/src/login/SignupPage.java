@@ -2,7 +2,12 @@ package login;
 
 import javax.swing.*;
 
+<<<<<<< HEAD
+import client.Client;
+import client.ClientThread;
+=======
 //import message.SignupMessage;
+>>>>>>> 98730a5186493ed675cb254784703c9d70912135
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -19,6 +24,7 @@ public class SignupPage extends JFrame {
 
     public SignupPage() {
         super();
+    //  ClientThread newthread = new ClientThread(client);
         this.setLayout(new GridLayout(6,1));
 
         this.setTitle("用户注册界面");
@@ -184,12 +190,24 @@ public class SignupPage extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(new JFrame().getContentPane(), "注册成功","注册提示页面", JOptionPane.INFORMATION_MESSAGE);
+<<<<<<< HEAD
+                
+//                SignupMessage siupInfo = new SignupMessage();
+//                siupInfo.setSignup_name(tf1.getText().toString());//用户名
+//                siupInfo.setSignup_id(tf2.getText().toString());//一卡通
+//                String str_psw = String.valueOf(tf3.getPassword());//密码
+//                siupInfo.setSignup_pwd(str_psw);
+                
+//                newthread.handle();
+//                Message message = newthread.getClass();
+=======
               
                /* SignupMessage siupInfo = new SignupMessage();
                 siupInfo.setSignup_name(tf1.getText().toString());//用户名
                 siupInfo.setSignup_id(tf2.getText().toString());//一卡通
                 String str_psw = String.valueOf(tf3.getPassword());//密码
                 siupInfo.setSignup_pwd(str_psw);*/
+>>>>>>> 98730a5186493ed675cb254784703c9d70912135
                 
             }
         }

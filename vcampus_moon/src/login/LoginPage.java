@@ -2,6 +2,9 @@ package login;
 
 import javax.swing.*;
 
+import client.Client;
+import client.ClientThread;
+
 //import message.LoginMessage;
 
 import java.awt.*;
@@ -10,62 +13,75 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 public class LoginPage extends JFrame {
-	private JPanel c1, c2, c3, c4, c5;
-    private JLabel j1, j2, j3;
-    private JTextField tf1, tf3;
+	private JPanel c1, c2, c4, c5;
+    private JLabel j1, j2;
+    private JTextField tf1;
     private JPasswordField tf2;
     private JButton registe, login;
 
-    LoginUsers logUser = new LoginUsers();
-
-    public LoginPage(){
-
+    public LoginPage(Client logClient){
         super();
-        this.setLayout(new GridLayout(5,1));
+     //   ClientThread newThread = new ClientThread(logClient,100);
+        this.setLayout(new GridLayout(4,1));
+       
+//        //Ìí¼Ó±³¾°Í¼Æ¬
+//        ImageIcon img = new ImageIcon("photo1.jpg");
+//        JLabel label = new JLabel(img);
+//        this.getLayeredPane().setLayout(null);
+//        label.setBounds(0, 0, 1000, 1000);
+//        this.getLayeredPane().add(label);
 
-        this.setTitle("ç”¨æˆ·ç™»é™†ç•Œé¢");
+        this.setTitle("ÓÃ»§µÇÂ½½çÃæ");
         c1 = new JPanel();
         c2 = new JPanel();
-        c3 = new JPanel();
         c4 = new JPanel();
 
         this.add(c1);
         this.add(c2);
-        this.add(c3);
         this.add(c4);
+        
+//        c1.setOpaque(false);
+//        c2.setOpaque(false);
+//        c4.setOpaque(false);
 
-        j1 = new JLabel("ç”¨æˆ·å  :");
-        j2 = new JLabel("å¯†ç     :");
-        j3 = new JLabel("ä¸€å¡é€šå· :");
+        j1 = new JLabel("Ò»¿¨Í¨ºÅ  :");
+        j2 = new JLabel("ÃÜÂë    :");
 
-        tf1 = new JTextField("è¯·è¾“å…¥ç”¨æˆ·å",20);//ç”¨æˆ·å
-        tf2 = new JPasswordField("è¯·è¾“å…¥å¯†ç ",20);//å¯†ç 
-        tf3 = new JTextField("è¯·è¾“å…¥ä¸€å¡é€šå·",20);//ä¸€å¡é€šå·
+        tf1 = new JTextField("ÇëÊäÈëÒ»¿¨Í¨ºÅ",20);//Ò»¿¨Í¨ºÅ
+        tf2 = new JPasswordField("ÇëÊäÈëÃÜÂë",20);//ÃÜÂë
 
-        tf1.addMouseListener(new MouseListener(){
-            public void mouseClicked(MouseEvent arg0) {
-                tf1.setText("");
-            }
+        tf1.addMouseListener(new MouseListener() {
 
-            @Override
-            public void mousePressed(MouseEvent e) {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				tf1.setText("");
+				
+			}
 
-            }
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
 
-            @Override
-            public void mouseReleased(MouseEvent e) {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
 
-            }
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
 
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+        	
         }
         );
 
@@ -96,49 +112,25 @@ public class LoginPage extends JFrame {
         }
         );
 
-        tf3.addMouseListener(new MouseListener(){
-            public void mouseClicked(MouseEvent e) {
-                tf3.setText("");
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        }
-        );
-
         c1.add(j1);
         c1.add(tf1);
         c2.add(j2);
         c2.add(tf2);
-        c3.add(j3);
-        c3.add(tf3);
+
+        LoginUsers logUser = new LoginUsers();
         c4.add(logUser);
 
         c5 = new JPanel();
         this.add(c5);
+      //  c5.setOpaque(false);
 
-        registe = new JButton("æ³¨å†Œ");
+        registe = new JButton("×¢²á");
         c5.add(registe);
         registe.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
+
+            	
 //            	LoginMessage regInfo = new  LoginMessage();
 //            	regInfo.setLogin_id(tf1.getText().toString());
 //            	String str_psw = String.valueOf(tf2.getPassword());
@@ -148,17 +140,18 @@ public class LoginPage extends JFrame {
                 System.out.println(logInfo.getLogin_pwd());
                 System.out.println(logInfo.getLogin_cardID());*/
 
-                SignupPage sPage = new SignupPage();
+
+				SignupPage sPage = new SignupPage();
                 sPage.setVisible(true);
             }
         });
 
-        login = new JButton("ç™»å½•");
+        login = new JButton("µÇÂ¼");
         c5.add(login);
         login.addActionListener(new java.awt.event.ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                //æ ¹æ®ä¸åŒç™»é™†è€…çš„èº«ä»½è·³å‡ºä¸åŒçš„ç•Œé¢
+                //¸ù¾İ²»Í¬µÇÂ½ÕßµÄÉí·İÌø³ö²»Í¬µÄ½çÃæ
             	int choiceButton = logUser.getCount();
             	switch(choiceButton)
             	{
@@ -171,7 +164,7 @@ public class LoginPage extends JFrame {
             	break;
 
             	case 3:
-            	new MangerPage();
+            	new ManagerPage();
             	break;
 
             	default:
@@ -181,7 +174,7 @@ public class LoginPage extends JFrame {
         }
         );
 
-        setSize(300,200);
+        setSize(700,500);
         setVisible(true);
     }
 }
