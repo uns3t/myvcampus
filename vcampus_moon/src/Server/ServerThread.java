@@ -280,7 +280,8 @@ public class ServerThread extends Thread {
         Studentinfo studentinfo=(Studentinfo) studentMessage.getStudent().get(0);
         try {
             toAccess.getstudent().addStudent(studentinfo.getStudent_id(),studentinfo.getStudent_name(),studentinfo.getStudent_college()
-            ,studentinfo.getStudent_age()+"");
+            ,studentinfo.getStudent_onecardid(),studentinfo.getStudent_phone(),studentinfo.getStudent_card_type(),studentinfo.getStudent_card_id(),studentinfo.getStudent_ins(),
+            studentinfo.getStudent_birthday(),studentinfo.getStudent_shengyuandi(),studentinfo.getStudent_sex());
             message.setResponse(true);
             oos.writeObject(message);
             oos.flush();
@@ -388,7 +389,7 @@ public class ServerThread extends Thread {
         ShopMessage shopMessage=(ShopMessage) message.getData();
         GoodsInfo goodsInfo=(GoodsInfo)shopMessage.getGoodsInfo().get(0);
         try {
-            toAccess.getshop().buygoods(goodsInfo.getGoods_id());
+            toAccess.getshop().buygoods(goodsInfo.getGoods_id(),goodsInfo.getGoods_quantity());
             message.setResponse(true);
             sendmsg(message);
         }catch (Exception e){

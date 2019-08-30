@@ -23,6 +23,10 @@ public class Server extends Thread {
         }
     }
 
+    public static void main(String[] args) {
+        new Server();
+    }
+
     public void run() {
         //当服务器在运行
         while(!server.isClosed()) {
