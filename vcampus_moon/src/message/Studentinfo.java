@@ -6,7 +6,6 @@ public class Studentinfo implements Serializable {
     private String Student_id;
     private String Student_name;
     private String Student_college;
-    private int Student_age;
     public String Student_sex;
     public String Student_birthday;
     public String Student_shengyuandi;
@@ -15,8 +14,24 @@ public class Studentinfo implements Serializable {
     public String Student_phone;
     public String Student_card_type;
     public String Student_card_id;
+    public String Student_place;
+    public String Student_ins;  //简介
 
+    public void setStudent_ins(String student_ins) {
+        Student_ins = student_ins;
+    }
 
+    public void setStudent_place(String student_place) {
+        Student_place = student_place;
+    }
+
+    public String getStudent_ins() {
+        return Student_ins;
+    }
+
+    public String getStudent_place() {
+        return Student_place;
+    }
 
     public void setStudent_id(String id){ this.Student_id = id; }
     public String getStudent_id(){ return this.Student_id; }
@@ -24,8 +39,6 @@ public class Studentinfo implements Serializable {
     public String getStudent_college(){ return this.Student_college; }
     public void setStudent_name(String name){ this.Student_name = name; }
     public String getStudent_name(){ return this.Student_name; }
-    public void setStudent_age(int age){ this.Student_age = age; }
-    public int getStudent_age(){ return this.Student_age; }
 
     public void setStudent_birthday(String student_birthday) {
         Student_birthday = student_birthday;
