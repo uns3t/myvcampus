@@ -143,9 +143,9 @@ public class ClientThread extends Thread {
         }
     }
 
-    public boolean handleAddStudentMessage(String S_id,String S_name,String S_college,String S_onecardid, String S_card_type,
-                                           String S_card_id,String S_sex, String S_shengyuandi,
-                                           String S_yuanxi, String S_phone, String S_content,String S_birthday){
+    public boolean handleAddStudentMessage(String S_id,String S_name,String S_college,String S_onecardid,
+                                           String S_card_type, String S_card_id,String S_sex, String S_shengyuandi,
+                                            String S_phone, String S_content,String S_birthday){
         Studentinfo studentinfo = new Studentinfo();
         studentinfo.setStudent_id(S_id);
         studentinfo.setStudent_name(S_name);
@@ -157,7 +157,6 @@ public class ClientThread extends Thread {
         studentinfo.setStudent_phone(S_phone);
         studentinfo.setStudent_shengyuandi(S_shengyuandi);
         studentinfo.setStudent_college(S_college);
-        studentinfo.setStudent_yuanxi(S_yuanxi);
         studentinfo.setStudent_ins(S_content);
         StudentMessage studentMessage= new StudentMessage();
         studentMessage.addStudentInfo(studentinfo);
