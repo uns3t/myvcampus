@@ -13,6 +13,7 @@ public class ClientThread extends Thread {
     private ObjectOutputStream ob_os = null;
     private boolean isWaiting = false;
     private Message reMessage = null;
+    private MessageBuffer messageBuffer = null;
 
 
     public ClientThread(Client client) {
@@ -31,9 +32,8 @@ public class ClientThread extends Thread {
             if (isWaiting){
                 try {
                     reMessage = (Message) ob_is.readObject();
+                    messageBuffer = new MessageBuffer(reMessage);
                     System.out.println(reMessage.getType());
-                    ClientThread.sleep(10);
-                    reMessage = null;
                 } catch (Exception e) {
                     //读不到指令，说明已登出
                     return;
@@ -63,12 +63,9 @@ public class ClientThread extends Thread {
         }
     }
 
-    public Message getREMessage(){
-        while (reMessage == null){
-            continue;
-        }
-        return reMessage;
-    }
+   public Message getREMessage(){
+       return messageBuffer.getMessage();
+   }
 
 
 
