@@ -365,7 +365,7 @@ public class ServerThread extends Thread {
         GoodsInfo goodsInfo=(GoodsInfo)shopMessage.getGoodsInfo().get(0);
         try {
             toAccess.getshop().addShop(goodsInfo.getGoods_id(),goodsInfo.getGoods_name(),goodsInfo.getGoods_price()+"",
-                    goodsInfo.getGoods_quantity()+"");
+                    goodsInfo.getGoods_quantity()+"",goodsInfo.getGoods_sales()+"");
             message.setResponse(true);
             sendmsg(message);
         }catch (Exception e){

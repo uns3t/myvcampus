@@ -7,27 +7,27 @@ import java.lang.Exception;
 public class ToAccess {
     private static Connection con=null;
 
-    private DAOusr usr=new DAOusr();
-    private DAOstudent student=new DAOstudent();
-    private DAOshop shop=new DAOshop();
-    private DAObook book=new DAObook();
-    private DAOcourse course=new DAOcourse();
+    private usrDAO usr=new usrDAO();
+    private studentDAO student=new studentDAO();
+    private shopDAO shop=new shopDAO();
+    private bookDAO book=new bookDAO();
+    private courseDAO course=new courseDAO();
     // more
 
 
-    public DAOusr getusr(){
+    public usrDAO getusr(){
         return usr;
     }
-    public DAOstudent getstudent(){
+    public studentDAO getstudent(){
         return student;
     }
-    public DAOshop getshop(){
+    public shopDAO getshop(){
         return shop;
     }
-    public DAObook getBook(){
+    public bookDAO getBook(){
         return book;
     }
-    public DAOcourse getCourse(){
+    public courseDAO getCourse(){
         return course;
     }
 
@@ -67,6 +67,8 @@ public class ToAccess {
 //            toAccess.getstudent().addStudent("123","123","231","123");
 //            toAccess.getstudent().listStudent();
 //            toAccess.getstudent().deleteStudent("123");
+            toAccess.getstudent().addStudent("1","1","2","1","1","1"
+            ,"1","1","1","1","1");
             System.out.println("完毕");
         }catch (Exception e){
             System.out.println(e.getMessage());
