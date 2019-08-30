@@ -10,10 +10,12 @@ import message.*;
 public class Client{
 
     public static void main(String[] args) throws IOException {
-        Client client = new Client("127.0.0.1",100001);
+        Client client = new Client("127.0.0.1",10001);
         ClientThread test = new ClientThread(client);
         test.handleBuyMessage("111",111);
         Message message = test.getREMessage();
+        boolean response = message.getResponse();
+        System.out.println(response);
 
     }
 

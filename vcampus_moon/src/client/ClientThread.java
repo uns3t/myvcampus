@@ -265,7 +265,7 @@ public class ClientThread extends Thread {
         }
     }
 
-    //--------------------------------------------------商店--------------------------------------------------------
+    //--------------------------------------------商店------------------------------------------------
 
 
     public boolean handleShowGoodsMessage(){
@@ -304,12 +304,13 @@ public class ClientThread extends Thread {
         }
     }
 
-    public boolean handleAddGood(String name,String id,int price,int quantity){
+    public boolean handleAddGood(String name,String id,int price,int quantity,int sales){
         GoodsInfo goodsInfo = new GoodsInfo();
         goodsInfo.setGoods_name(name);
         goodsInfo.setGoods_id(id);
         goodsInfo.setGoods_price(price);
         goodsInfo.setGoods_quantity(quantity);
+        goodsInfo.setGoods_sales(sales);
         ShopMessage shopMessage = new ShopMessage();
         shopMessage.setType("AddGood");
         shopMessage.addGoodsInfo(goodsInfo);
@@ -417,3 +418,12 @@ public class ClientThread extends Thread {
         }
     }
 }
+
+//例如调用handleShowBookMessage()
+//调用getREMessage()
+//即Message message = getREMessage();
+//将获得的message解释为你需要的比如Message message = (ShopMessage)getREMessage();
+//通过ShopMessage的getGoodsList()函数得到你需要的list
+//再比如调用handleBuyMessage(... , ...);
+//之后又需调用getREMessage()并进行解释比如Message message = (ShopMessage)getREMessage();
+//然后通过message.getResponse()来获得购买是否成功的返回结果

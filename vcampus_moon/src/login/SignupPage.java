@@ -2,7 +2,7 @@ package login;
 
 import javax.swing.*;
 
-import message.SignupMessage;
+//import message.SignupMessage;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -185,11 +185,11 @@ public class SignupPage extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(new JFrame().getContentPane(), "注册成功","注册提示页面", JOptionPane.INFORMATION_MESSAGE);
               
-                SignupMessage siupInfo = new SignupMessage();
+               /* SignupMessage siupInfo = new SignupMessage();
                 siupInfo.setSignup_name(tf1.getText().toString());//用户名
                 siupInfo.setSignup_id(tf2.getText().toString());//一卡通
                 String str_psw = String.valueOf(tf3.getPassword());//密码
-                siupInfo.setSignup_pwd(str_psw);
+                siupInfo.setSignup_pwd(str_psw);*/
                 
             }
         }

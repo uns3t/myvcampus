@@ -2,7 +2,7 @@ package login;
 
 import javax.swing.*;
 
-import message.LoginMessage;
+//import message.LoginMessage;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -139,10 +139,10 @@ public class LoginPage extends JFrame {
         registe.addActionListener(new java.awt.event.ActionListener() {
             @Override
             public void actionPerformed(java.awt.event.ActionEvent e) {
-            	LoginMessage regInfo = new  LoginMessage();
-            	regInfo.setLogin_id(tf1.getText().toString());
-            	String str_psw = String.valueOf(tf2.getPassword());
-                regInfo.setLogin_pwd(str_psw);
+//            	LoginMessage regInfo = new  LoginMessage();
+//            	regInfo.setLogin_id(tf1.getText().toString());
+//            	String str_psw = String.valueOf(tf2.getPassword());
+//                regInfo.setLogin_pwd(str_psw);
 
                /* System.out.println(logInfo.getLogin_id());
                 System.out.println(logInfo.getLogin_pwd());
