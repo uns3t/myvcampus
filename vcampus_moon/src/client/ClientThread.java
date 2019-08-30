@@ -27,6 +27,8 @@ public class ClientThread extends Thread {
                 try {
                     reMessage = (Message) ob_is.readObject();
                     System.out.println(reMessage.getType());
+                    ClientThread.sleep(10);
+                    reMessage = null;
                 } catch (Exception e) {
                     //读不到指令，说明已登出
                     return;
@@ -65,7 +67,10 @@ public class ClientThread extends Thread {
 
 
 
-    //--------------------------------------------------------
+    //-----------------------------------------------------工具函数-------------------------------------------------------
+
+
+    //-----------------------------------------登陆注册----------------------------------------------
 
 
     public boolean handleLoginMessage(String L_id, String L_pwd){
@@ -119,6 +124,10 @@ public class ClientThread extends Thread {
         }
     }
 
+
+    //----------------------------------------------学籍管理-----------------------------------------------
+
+
     public boolean handleShowStudentMessage(){
         StudentMessage studentMessage = new StudentMessage();
         studentMessage.setType("Student");
@@ -134,12 +143,22 @@ public class ClientThread extends Thread {
         }
     }
 
-    public boolean handleAddStudentMessage(String S_id,String S_name,int S_age,String S_college){
+    public boolean handleAddStudentMessage(String S_id,String S_name,String S_college,String S_onecardid, String S_card_type,
+                                           String S_card_id,String S_sex, String S_shengyuandi,
+                                           String S_yuanxi, String S_phone, String S_content,String S_birthday){
         Studentinfo studentinfo = new Studentinfo();
         studentinfo.setStudent_id(S_id);
         studentinfo.setStudent_name(S_name);
-        studentinfo.setStudent_age(S_age);
+        studentinfo.setStudent_birthday(S_birthday);
+        studentinfo.setStudent_card_id(S_card_id);
+        studentinfo.setStudent_card_type(S_card_type);
+        studentinfo.setStudent_onecardid(S_onecardid);
+        studentinfo.setStudent_sex(S_sex);
+        studentinfo.setStudent_phone(S_phone);
+        studentinfo.setStudent_shengyuandi(S_shengyuandi);
         studentinfo.setStudent_college(S_college);
+        studentinfo.setStudent_yuanxi(S_yuanxi);
+        studentinfo.setStudent_ins(S_content);
         StudentMessage studentMessage= new StudentMessage();
         studentMessage.addStudentInfo(studentinfo);
         studentMessage.setType("AddStudent");
@@ -172,6 +191,9 @@ public class ClientThread extends Thread {
             return false;
         }
     }
+
+    //------------------------------------------------图书馆-------------------------------------------------
+
 
     public boolean handleAddBookMessage(String id,String name,String author,int total,int borrowed,String introduction){
         BookInfo bookInfo = new BookInfo();
@@ -243,6 +265,9 @@ public class ClientThread extends Thread {
             return false;
         }
     }
+
+    //--------------------------------------------------商店--------------------------------------------------------
+
 
     public boolean handleShowGoodsMessage(){
         ShopMessage shopMessage = new ShopMessage();
@@ -317,6 +342,9 @@ public class ClientThread extends Thread {
             return false;
         }
     }
+
+    //--------------------------------------------选课---------------------------------------------------
+
 
     public boolean handleCourseSelectMessage(String user_id,String course_id){
         CourseInfo courseInfo = new CourseInfo();

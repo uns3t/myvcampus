@@ -10,27 +10,26 @@ public class Studentinfo implements Serializable {
     public String Student_birthday;
     public String Student_shengyuandi;
     public String Student_onecardid;
-    public String Student_xuehao;
     public String Student_phone;
     public String Student_card_type;
     public String Student_card_id;
-    public String Student_place;
+    public String Student_yuanxi;
     public String Student_ins;  //简介
 
     public void setStudent_ins(String student_ins) {
         Student_ins = student_ins;
     }
 
-    public void setStudent_place(String student_place) {
-        Student_place = student_place;
+    public void setStudent_yuanxi(String student_place) {
+        Student_yuanxi = student_place;
     }
 
     public String getStudent_ins() {
         return Student_ins;
     }
 
-    public String getStudent_place() {
-        return Student_place;
+    public String getStudent_yuanxi() {
+        return Student_yuanxi;
     }
 
     public void setStudent_id(String id){ this.Student_id = id; }
@@ -68,9 +67,6 @@ public class Studentinfo implements Serializable {
         Student_shengyuandi = student_shengyuandi;
     }
 
-    public void setStudent_xuehao(String student_xuehao) {
-        Student_xuehao = student_xuehao;
-    }
 
     public String getStudent_birthday() {
         return Student_birthday;
@@ -100,7 +96,4 @@ public class Studentinfo implements Serializable {
         return Student_shengyuandi;
     }
 
-    public String getStudent_xuehao() {
-        return Student_xuehao;
-    }
 }

@@ -9,8 +9,11 @@ import message.*;
 
 public class Client{
 
-    public static void main(String[] args) {
-        Client client = new Client("192.121.1.1",100001);
+    public static void main(String[] args) throws IOException {
+        Client client = new Client("127.0.0.1",100001);
+        ClientThread test = new ClientThread(client);
+        test.handleBuyMessage("111",111);
+        Message message = test.getREMessage();
 
     }
 
