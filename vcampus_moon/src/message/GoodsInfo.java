@@ -7,8 +7,15 @@ public class GoodsInfo implements Serializable {
     private String Goods_name;
     private int Goods_price;
     private int Goods_quantity;
-    public int Goods_sales;
+    private int Goods_sales;
 
+    public int getGoods_sales() {
+        return Goods_sales;
+    }
+
+    public void setGoods_sales(int goods_sales) {
+        Goods_sales = goods_sales;
+    }
 
     public void setGoods_id(String goods_id) {
         Goods_id = goods_id;
@@ -34,13 +41,6 @@ public class GoodsInfo implements Serializable {
         return Goods_quantity;
     }
 
-    public void setGoods_sales(int goods_sales) {
-        Goods_sales = goods_sales;
-    }
-
-    public int getGoods_sales() {
-        return Goods_sales;
-    }
 
     public String getGoods_id() {
         return Goods_id;

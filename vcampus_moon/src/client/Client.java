@@ -5,17 +5,24 @@ import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+
 import message.*;
 
 public class Client{
 
     public static void main(String[] args) {
         Client client = new Client("127.0.0.1",10001);
+        System.out.println("客户端连接");
         ClientThread test = new ClientThread(client);
-        test.handleBuyMessage("111",111);
-        Message message = test.getREMessage();
-        boolean response = message.getResponse();
-        System.out.println(response);
+        System.out.println("客户端线程");
+        test.handleShowBookMessage();
+        BookMessage bookMessage = (BookMessage)test.getREMessage().getData();
+        System.out.println(bookMessage.getbook());
+        test.handleLoginMessage("abc","123456");
+        Message message=(Message)test.getREMessage();
+        System.out.println(message.getResponse());
+
 
     }
 
@@ -36,6 +43,7 @@ public class Client{
 
         }catch (Exception e){
             isConnected = false;
+            e.printStackTrace();
             return false;
         }
     }

@@ -21,11 +21,11 @@ public class CourseMessage implements Serializable {
         return courseInfo;
     }
 
-    public void setType(String type) {
-        this.type = type;
-    }
-
     public String getType() {
         return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

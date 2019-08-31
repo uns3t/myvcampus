@@ -13,14 +13,16 @@ public class ClientThread extends Thread {
     private ObjectOutputStream ob_os = null;
     private boolean isWaiting = false;
     private Message reMessage = null;
-    private MessageBuffer messageBuffer = null;
+
 
 
     public ClientThread(Client client) {
         this.client = client;
         try {
-            ob_is = new ObjectInputStream(client.getSocket().getInputStream());
             ob_os = new ObjectOutputStream(client.getSocket().getOutputStream());
+            ob_is = new ObjectInputStream(client.getSocket().getInputStream());
+
+            System.out.println("线程启动");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -29,17 +31,17 @@ public class ClientThread extends Thread {
 
     public void run(){
         while (true){
-            if (isWaiting){
-                try {
-                    reMessage = (Message) ob_is.readObject();
-                    messageBuffer = new MessageBuffer(reMessage);
-                    System.out.println(reMessage.getType());
-                } catch (Exception e) {
-                    //读不到指令，说明已登出
-                    return;
-                }
-                isWaiting = false;
-            }
+//            if (isWaiting){
+//                try {
+//                    reMessage = (Message) ob_is.readObject();
+//
+//                    System.out.println(reMessage.getType());
+//                } catch (Exception e) {
+//                    //读不到指令，说明已登出
+//                    return;
+//                }
+//                isWaiting = false;
+//            }
 
         }
     }
@@ -63,9 +65,16 @@ public class ClientThread extends Thread {
         }
     }
 
-   public Message getREMessage(){
-       return messageBuffer.getMessage();
-   }
+    public Message getREMessage(){
+        try {
+            reMessage = (Message) ob_is.readObject();
+            System.out.println(reMessage.getType());
+        } catch (Exception e) {
+            //读不到指令，说明已登出
+            e.printStackTrace();
+        }
+        return reMessage;
+    }
 
 
 
@@ -147,7 +156,7 @@ public class ClientThread extends Thread {
 
     public boolean handleAddStudentMessage(String S_id,String S_name,String S_college,String S_onecardid,
                                            String S_card_type, String S_card_id,String S_sex, String S_shengyuandi,
-                                            String S_phone, String S_content,String S_birthday){
+                                           String S_phone, String S_content,String S_birthday){
         Studentinfo studentinfo = new Studentinfo();
         studentinfo.setStudent_id(S_id);
         studentinfo.setStudent_name(S_name);

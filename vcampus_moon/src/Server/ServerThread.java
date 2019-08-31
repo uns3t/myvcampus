@@ -50,6 +50,7 @@ public class ServerThread extends Thread {
     }
 
     public void run() {
+        toAccess=new ToAccess();
         toAccess.getcon();
         Message message=null;
         while (true) {
@@ -58,7 +59,9 @@ public class ServerThread extends Thread {
                 message = (Message) ois.readObject();
                 System.out.println(message.getType());
             } catch (Exception e) {
-                //读不到指令，说明已登出
+//                e.printStackTrace();
+                //客户端已关闭
+                System.out.println("连接断开");
                 return;
             }
 
@@ -171,6 +174,8 @@ public class ServerThread extends Thread {
     public void sendmsg(Message message)throws Exception{
         oos.writeObject(message);
         oos.flush();
+        System.out.println("成功");
+
     }
 
     //------------------------------具体功能模块----------------------------------------------------
@@ -183,11 +188,10 @@ public class ServerThread extends Thread {
             if(toAccess.getusr().Logincheck(usrMessage.getUsr_id(), usrMessage.getUsr_pwd())){
                 theUsr= usrMessage.getUsr_id();
                 message.setResponse(true);
-                oos.writeObject(message);
-                oos.flush();
+                sendmsg(message);
             }
         }catch (Exception e){
-
+            e.printStackTrace();
         }
     }
 
@@ -386,6 +390,7 @@ public class ServerThread extends Thread {
     }
 
     public void buyshop(Message message){
+        System.out.println("buyshop function");
         ShopMessage shopMessage=(ShopMessage) message.getData();
         GoodsInfo goodsInfo=(GoodsInfo)shopMessage.getGoodsInfo().get(0);
         try {
@@ -393,7 +398,7 @@ public class ServerThread extends Thread {
             message.setResponse(true);
             sendmsg(message);
         }catch (Exception e){
-
+            e.printStackTrace();
         }
     }
 

@@ -21,11 +21,14 @@ public class usrDAO {
 
 
     public boolean Logincheck(String id,String pwd) throws Exception {
-        sql=con.prepareStatement("select * from Usrtbl where Ure_id="+"'"+id+"'");
+        System.out.println(id+" "+pwd);
+        sql=con.prepareStatement("select * from Usrtbl where Usr_id="+"'"+id+"'");
         result = sql.executeQuery();
         while (result.next()) {
             String temppwd=result.getString("pwd") ;
-            if(temppwd==pwd){
+            System.out.println(temppwd);
+            if(temppwd.equals(pwd)){
+                System.out.println("login suss");
                 return true;
             }
         }

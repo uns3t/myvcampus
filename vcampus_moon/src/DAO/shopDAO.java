@@ -50,10 +50,16 @@ public class shopDAO {
     }
 
     public void buygoods(String goods_id,int buy_num) throws Exception{
+        System.out.println("goods: "+goods_id);
+        int goods_num=0;
+        int goods_sales=0;
         sql=con.prepareStatement("select * from Shoptbl where Goods_id="+"'"+goods_id+"'");
         result=sql.executeQuery();
-        int goods_num=result.getInt("Goods_quantity");
-        int goods_sales=result.getInt("Goods_sales");
+        while (result.next()){
+            goods_num=result.getInt("Goods_quantity");
+            goods_sales=result.getInt("Goods_sales");
+        }
+
         if(goods_num-buy_num>0){
             goods_num-=buy_num;
             goods_sales+=buy_num;

@@ -67,8 +67,9 @@ public class ToAccess {
 //            toAccess.getstudent().addStudent("123","123","231","123");
 //            toAccess.getstudent().listStudent();
 //            toAccess.getstudent().deleteStudent("123");
-            toAccess.getstudent().addStudent("1","1","2","1","1","1"
-            ,"1","1","1","1","1");
+//            toAccess.getstudent().addStudent("1","1","2","1","1","1"
+//            ,"1","1","1","1","1");
+            toAccess.getshop().buygoods("111",111);
             System.out.println("完毕");
         }catch (Exception e){
             System.out.println(e.getMessage());
