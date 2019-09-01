@@ -1,180 +1,259 @@
 package login;
 
-import javax.swing.*;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import java.awt.Toolkit;
+import java.awt.Color;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import client.Client;
 import client.ClientThread;
 
-//import message.LoginMessage;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
+import java.awt.Font;
+import javax.swing.JPasswordField;
+import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JRadioButton;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
+import java.awt.event.ActionEvent;
+import javax.swing.JLayeredPane;
 
-public class LoginPage extends JFrame {
-	private JPanel c1, c2, c4, c5;
-    private JLabel j1, j2;
-    private JTextField tf1;
-    private JPasswordField tf2;
-    private JButton registe, login;
+public class LoginPage {
 
-    public LoginPage(Client logClient){
-        super();
-     //   ClientThread newThread = new ClientThread(logClient,100);
-        this.setLayout(new GridLayout(4,1));
-       
-//        //Ìí¼Ó±³¾°Í¼Æ¬
-//        ImageIcon img = new ImageIcon("photo1.jpg");
-//        JLabel label = new JLabel(img);
-//        this.getLayeredPane().setLayout(null);
-//        label.setBounds(0, 0, 1000, 1000);
-//        this.getLayeredPane().add(label);
+	private JFrame frame;
+	private JTextField textField;
+	private JPasswordField passwordField;
+	private ImageIcon image1;
+	private ButtonGroup bg;
 
-        this.setTitle("ÓÃ»§µÇÂ½½çÃæ");
-        c1 = new JPanel();
-        c2 = new JPanel();
-        c4 = new JPanel();
+	public LoginPage(/*Client clientLog*/) /*throws IOException*/ {
+		//ClientThread cthread = new ClientThread(clientLog);
+		initialize(/*cthread*/);
+	}
 
-        this.add(c1);
-        this.add(c2);
-        this.add(c4);
-        
-//        c1.setOpaque(false);
-//        c2.setOpaque(false);
-//        c4.setOpaque(false);
+	private void initialize(/*ClientThread cthread*/) {
+		frame = new JFrame();
+		frame.getContentPane().setBackground(new Color(240, 248, 255));
+		frame.setVisible(true);
+		frame.getContentPane().setLayout(null);
+		
+		JLayeredPane layeredPane = new JLayeredPane();
+		layeredPane.setBounds(0, 0, 537, 397);
+		frame.getContentPane().add(layeredPane);
+		
+		JLabel label = new JLabel("ä¸€å¡é€šå·ï¼š");
+		layeredPane.setLayer(label, 1);
+		label.setBounds(48, 28, 136, 46);
+		layeredPane.add(label);
+		label.setFont(new Font("å®‹ä½“", Font.BOLD, 14));
+		label.setHorizontalAlignment(SwingConstants.CENTER);
+		
+				textField = new JTextField();
+				textField.setOpaque(false);
+				layeredPane.setLayer(textField, 1);
+				textField.setBounds(211, 24, 257, 46);
+				layeredPane.add(textField);
+				textField.setText("è¯·è¾“å…¥ä¸€å¡é€šå·");
+				textField.setFont(new Font("å®‹ä½“", Font.BOLD, 14));
+				textField.setHorizontalAlignment(SwingConstants.LEFT);
+				textField.setColumns(10);
+				textField.addMouseListener(new MouseListener() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						if(textField.getText().equals("è¯·è¾“å…¥ä¸€å¡é€šå·"))
+							textField.setText("");
+					}
 
-        j1 = new JLabel("Ò»¿¨Í¨ºÅ  :");
-        j2 = new JLabel("ÃÜÂë    :");
+					@Override
+					public void mousePressed(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
 
-        tf1 = new JTextField("ÇëÊäÈëÒ»¿¨Í¨ºÅ",20);//Ò»¿¨Í¨ºÅ
-        tf2 = new JPasswordField("ÇëÊäÈëÃÜÂë",20);//ÃÜÂë
+					@Override
+					public void mouseReleased(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
 
-        tf1.addMouseListener(new MouseListener() {
+					@Override
+					public void mouseEntered(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
 
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				tf1.setText("");
+					@Override
+					public void mouseExited(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+				}
+				);
 				
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
+				JLabel label_1 = new JLabel("å¯†ç ï¼š");
+				layeredPane.setLayer(label_1, 1);
+				label_1.setBounds(50, 107, 136, 46);
+				layeredPane.add(label_1);
+				label_1.setFont(new Font("å®‹ä½“", Font.BOLD, 14));
+				label_1.setHorizontalAlignment(SwingConstants.CENTER);
 				
-			}
+				passwordField = new JPasswordField();
+				passwordField.setFont(new Font("å®‹ä½“", Font.BOLD, 12));
+				passwordField.setOpaque(false);
+				layeredPane.setLayer(passwordField, 1);
+				passwordField.setBounds(211, 103, 257, 46);
+				layeredPane.add(passwordField);
+				passwordField.setText("è¯·è¾“å…¥å¯†ç ");
+				passwordField.addMouseListener(new MouseListener() {
+					public void mouseClicked(MouseEvent e) {
+						char[] str = passwordField.getPassword();
+						String str_pwd = String.copyValueOf(str);
+						if(str_pwd.equals("è¯·è¾“å…¥å¯†ç "))
+							passwordField.setText("");
+					}
 
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
+					@Override
+					public void mousePressed(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					@Override
+					public void mouseReleased(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					@Override
+					public void mouseEntered(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					@Override
+					public void mouseExited(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+				}
+				);
 				
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
+				bg=new ButtonGroup();
+				JRadioButton radioButton = new JRadioButton("æ•™å¸ˆ");
+				radioButton.setOpaque(false);
+				layeredPane.setLayer(radioButton, 1);
+				radioButton.setBounds(148, 190, 87, 58);
+				layeredPane.add(radioButton);
+				radioButton.setBackground(new Color(240, 248, 255));
+				radioButton.setHorizontalAlignment(SwingConstants.CENTER);
+				radioButton.setFont(new Font("å®‹ä½“", Font.BOLD, 14));
+				bg.add(radioButton);
 				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
+				JRadioButton radioButton_1 = new JRadioButton("å­¦ç”Ÿ");
+				radioButton_1.setOpaque(false);
+				layeredPane.setLayer(radioButton_1, 1);
+				radioButton_1.setBounds(259, 190, 85, 58);
+				layeredPane.add(radioButton_1);
+				radioButton_1.setBackground(new Color(240, 248, 255));
+				radioButton_1.setFont(new Font("å®‹ä½“", Font.BOLD, 14));
+				radioButton_1.setHorizontalAlignment(SwingConstants.CENTER);
+				bg.add(radioButton_1);
 				
-			}
-        	
-        }
-        );
-
-        tf2.addMouseListener(new MouseListener(){
-            public void mouseClicked(MouseEvent e) {
-                tf2.setText("");
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        }
-        );
-
-        c1.add(j1);
-        c1.add(tf1);
-        c2.add(j2);
-        c2.add(tf2);
-
-        LoginUsers logUser = new LoginUsers();
-        c4.add(logUser);
-
-        c5 = new JPanel();
-        this.add(c5);
-      //  c5.setOpaque(false);
-
-        registe = new JButton("×¢²á");
-        c5.add(registe);
-        registe.addActionListener(new java.awt.event.ActionListener() {
-            @Override
-            public void actionPerformed(java.awt.event.ActionEvent e) {
-
-            	
-//            	LoginMessage regInfo = new  LoginMessage();
-//            	regInfo.setLogin_id(tf1.getText().toString());
-//            	String str_psw = String.valueOf(tf2.getPassword());
-//                regInfo.setLogin_pwd(str_psw);
-
-               /* System.out.println(logInfo.getLogin_id());
-                System.out.println(logInfo.getLogin_pwd());
-                System.out.println(logInfo.getLogin_cardID());*/
-
-
-				SignupPage sPage = new SignupPage();
-                sPage.setVisible(true);
-            }
-        });
-
-        login = new JButton("µÇÂ¼");
-        c5.add(login);
-        login.addActionListener(new java.awt.event.ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //¸ù¾İ²»Í¬µÇÂ½ÕßµÄÉí·İÌø³ö²»Í¬µÄ½çÃæ
-            	int choiceButton = logUser.getCount();
-            	switch(choiceButton)
-            	{
-            	case 1:
-            	new TeacherPage();
-            	break;
-
-            	case 2:
-            	new StudentPage();
-            	break;
-
-            	case 3:
-            	new ManagerPage();
-            	break;
-
-            	default:
-            		break;
-            	}
-            }
-        }
-        );
-
-        setSize(700,500);
-        setVisible(true);
-    }
+				JRadioButton radioButton_2 = new JRadioButton("ç³»ç»Ÿç®¡ç†å‘˜");
+				radioButton_2.setOpaque(false);
+				layeredPane.setLayer(radioButton_2, 1);
+				radioButton_2.setBounds(365, 187, 107, 58);
+				layeredPane.add(radioButton_2);
+				radioButton_2.setBackground(new Color(240, 248, 255));
+				radioButton_2.setHorizontalAlignment(SwingConstants.CENTER);
+				radioButton_2.setFont(new Font("å®‹ä½“", Font.BOLD, 14));
+				bg.add(radioButton_2);
+				
+				JLabel label_2 = new JLabel("ç”¨æˆ·ç±»å‹ï¼š");
+				layeredPane.setLayer(label_2, 1);
+				label_2.setBounds(47, 189, 87, 58);
+				layeredPane.add(label_2);
+				label_2.setHorizontalAlignment(SwingConstants.CENTER);
+				label_2.setFont(new Font("å®‹ä½“", Font.BOLD, 14));
+				
+				JButton button = new JButton("æ³¨å†Œ");
+				button.setBackground(new Color(50, 205, 50));
+				button.setOpaque(false);
+				layeredPane.setLayer(button, 1);
+				button.setBounds(130, 287, 85, 38);
+				layeredPane.add(button);
+				button.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						
+						String id = textField.getText();
+						String pwd = String.copyValueOf(passwordField.getPassword());
+						//cthread.handleLoginMessage(id,pwd);
+						
+					//	Client c1 = new Client("ç”¨æˆ·",100);
+						new SignupPage(/*c1*/);
+					}
+				});
+				button.setFont(new Font("å®‹ä½“", Font.BOLD, 14));
+				
+				JButton button_1 = new JButton("ç™»é™†");
+				button_1.setBackground(new Color(50, 205, 50));
+				button_1.setOpaque(false);
+				layeredPane.setLayer(button_1, 1);
+				button_1.setBounds(303, 287, 87, 38);
+				layeredPane.add(button_1);
+				button_1.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent e) {
+						
+						String str1 = textField.getText();
+						char[] str_2 = passwordField.getPassword();
+						String str2 = String.copyValueOf(str_2);
+						
+						if((str1.equals(null)) || (str1.equals("")) || (str1.equals("è¯·è¾“å…¥ä¸€å¡é€šå·")))
+							JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ä¸€å¡é€šå·ä¸èƒ½ä¸ºç©º","ç™»é™†æç¤ºé¡µé¢", JOptionPane.INFORMATION_MESSAGE);
+						else if((str2.equals(null)) || (str2.equals("")) || (str2.equals("è¯·è¾“å…¥å¯†ç ")))
+							JOptionPane.showMessageDialog(new JFrame().getContentPane(), "å¯†ç ä¸èƒ½ä¸ºç©º","ç™»é™†æç¤ºé¡µé¢", JOptionPane.INFORMATION_MESSAGE);
+						else//è¾“å…¥å†…å®¹ä¸ä¸ºç©º
+						{
+							if(radioButton.isSelected() == true)
+							{
+								new TeacherPage();
+								frame.dispose();
+							}
+							else if(radioButton_1.isSelected() == true)
+							{
+								new StudentPage();
+								frame.dispose();
+							}
+							else if(radioButton_2.isSelected() == true)
+							{
+								new ManagerPage();
+								frame.dispose();
+							}
+						}
+					}
+				});
+				button_1.setFont(new Font("å®‹ä½“", Font.BOLD, 14));
+				
+				image1 = new ImageIcon("images/login_photo1.jpg");
+				JLabel label_3 = new JLabel(image1);
+				label_3.setBounds(0, 0, 537, 397);
+				layeredPane.add(label_3);
+	
+		frame.setBackground(new Color(240, 248, 255));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\å¤§ä¸‰javaé¡¹ç›®\\myvcampus\\vcampus_moon\\images\\windows.jpg"));
+		frame.setTitle("ç”¨æˆ·ç™»é™†ç•Œé¢");
+		frame.setBounds(100, 100, 551, 434);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+	}
 }

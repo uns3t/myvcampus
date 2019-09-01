@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import java.awt.BorderLayout;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -14,10 +15,13 @@ import java.awt.Font;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.Toolkit;
+import java.awt.Color;
+import javax.swing.JLayeredPane;
 
 public class TeacherPage {
 
 	private JFrame frame;
+	private ImageIcon image1;
 
 	public TeacherPage() {
 		initialize();
@@ -25,39 +29,45 @@ public class TeacherPage {
 
 	private void initialize() {
 		frame = new JFrame();
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\\u5927\u4E09java\u9879\u76EE\\myvcampus\\vcampus_moon\\photo1.jpg"));
-		frame.getContentPane().addComponentListener(new ComponentAdapter() {
-			@Override
-			public void componentShown(ComponentEvent e) {
-				
-				
-				
-			}
-		});
-		frame.getContentPane().setFont(new Font("ËÎÌå", Font.PLAIN, 14));
+		frame.getContentPane().setBackground(new Color(248, 248, 255));
+		frame.setBackground(new Color(248, 248, 255));
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\å¤§ä¸‰javaé¡¹ç›®\\myvcampus\\vcampus_moon\\images\\windows.jpg"));
+		
+		frame.getContentPane().setFont(new Font("å®‹ä½“", Font.PLAIN, 14));
 		frame.setTitle("\u6559\u5E08\u767B\u9646\u754C\u9762");
-		frame.setBounds(100, 100, 761, 651);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setBounds(100, 100, 743, 637);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		frame.setVisible(true);
 		
+		JLayeredPane layeredPane = new JLayeredPane();
+		layeredPane.setBounds(0, 0, 729, 600);
+		frame.getContentPane().add(layeredPane);
+		
 		
 		JButton btnNewButton = new JButton("\u56FE\u4E66\u9986");
-		btnNewButton.setFont(new Font("ËÎÌå", Font.PLAIN, 14));
-		btnNewButton.addActionListener(new ActionListener() {//½øÈëÍ¼Êé¹İ
+		btnNewButton.setOpaque(false);
+		layeredPane.setLayer(btnNewButton, 1);
+		btnNewButton.setBounds(187, 171, 155, 79);
+		layeredPane.add(btnNewButton);
+		btnNewButton.setBackground(new Color(175, 238, 238));
+		btnNewButton.setFont(new Font("å®‹ä½“", Font.BOLD, 18));
+		btnNewButton.addActionListener(new ActionListener() {//è¿›å…¥å›¾ä¹¦é¦†
 			public void actionPerformed(ActionEvent e) {
 				
 				
 				
 			}
 		});
-		btnNewButton.setBounds(116, 273, 144, 79);
-		frame.getContentPane().add(btnNewButton);
 		
 		
 		JButton btnNewButton_1 = new JButton("\u6821\u56ED\u5546\u5E97");
-		btnNewButton_1.setFont(new Font("ËÎÌå", Font.PLAIN, 14));
-		btnNewButton_1.addActionListener(new ActionListener() {//½øÈëĞ£Ô°ÉÌµê
+		btnNewButton_1.setOpaque(false);
+		btnNewButton_1.setBounds(393, 171, 144, 79);
+		layeredPane.add(btnNewButton_1);
+		btnNewButton_1.setBackground(new Color(175, 238, 238));
+		btnNewButton_1.setFont(new Font("å®‹ä½“", Font.BOLD, 18));
+		btnNewButton_1.addActionListener(new ActionListener() {//è¿›å…¥æ ¡å›­å•†åº—
 			public void actionPerformed(ActionEvent e) {
 				
 				
@@ -65,46 +75,57 @@ public class TeacherPage {
 				
 			}
 		});
-		btnNewButton_1.setBounds(406, 273, 144, 79);
-		frame.getContentPane().add(btnNewButton_1);
 		
 		
 		JButton btnNewButton_2 = new JButton("\u9009\u8BFE\u7CFB\u7EDF");
-		btnNewButton_2.addActionListener(new ActionListener() {//½øÈë¿Î³ÌÏµÍ³
+		btnNewButton_2.setOpaque(false);
+		layeredPane.setLayer(btnNewButton_2, 1);
+		btnNewButton_2.setBounds(393, 40, 144, 79);
+		layeredPane.add(btnNewButton_2);
+		btnNewButton_2.setBackground(new Color(175, 238, 238));
+		btnNewButton_2.addActionListener(new ActionListener() {//è¿›å…¥è¯¾ç¨‹ç³»ç»Ÿ
 			public void actionPerformed(ActionEvent e) {
 				
 				
 				
 			}
 		});
-		btnNewButton_2.setFont(new Font("ËÎÌå", Font.PLAIN, 14));
-		btnNewButton_2.setBounds(406, 71, 144, 79);
-		frame.getContentPane().add(btnNewButton_2);
+		btnNewButton_2.setFont(new Font("å®‹ä½“", Font.BOLD, 18));
 		
 		
 		JButton btnNewButton_3 = new JButton("\u9000\u51FA\u767B\u5F55");
-		btnNewButton_3.setFont(new Font("ËÎÌå", Font.PLAIN, 14));
-		btnNewButton_3.addActionListener(new ActionListener() {//ÍË³öµÇÂ¼
+		//btnNewButton_3.setOpaque(false);
+		btnNewButton_3.setBounds(290, 520, 126, 56);
+		layeredPane.add(btnNewButton_3);
+		btnNewButton_3.setBackground(new Color(216, 191, 216));
+		btnNewButton_3.setFont(new Font("å®‹ä½“", Font.BOLD, 16));
+		btnNewButton_3.addActionListener(new ActionListener() {//é€€å‡ºç™»å½•
 			public void actionPerformed(ActionEvent e) {
-				
-				
+				new LoginPage();
+				frame.dispose();
 				
 			}
 		});
-		btnNewButton_3.setBounds(264, 472, 126, 56);
-		frame.getContentPane().add(btnNewButton_3);
 		
 		
 		JButton button = new JButton("\u5B66\u7C4D\u7BA1\u7406\u7CFB\u7EDF");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {//Ñ§¼®¹ÜÀí
+		button.setOpaque(false);
+		layeredPane.setLayer(button, 1);
+		button.setBounds(187, 40, 155, 79);
+		layeredPane.add(button);
+		button.setBackground(new Color(175, 238, 238));
+		button.addActionListener(new ActionListener() {//å­¦ç±ç®¡ç†
+			public void actionPerformed(ActionEvent e) {
 				
 				
 			}
 		});
-		button.setFont(new Font("ËÎÌå", Font.PLAIN, 14));
-		button.setBounds(116, 71, 144, 79);
-		frame.getContentPane().add(button);
+		button.setFont(new Font("å®‹ä½“", Font.BOLD, 18));
+		
+		image1 = new ImageIcon("images/teacher_photo.jpg");
+		JLabel lblNewLabel = new JLabel(image1);
+		lblNewLabel.setBounds(0, 0, 739, 600);
+		layeredPane.add(lblNewLabel);
 		
 	}
 }
