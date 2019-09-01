@@ -29,12 +29,13 @@ public class StudentsPage extends JFrame{
 	
 	public StudentsPage(Client client) throws IOException {
 		ClientThread cthread  = new ClientThread(client);
-		//StudentMessage smessage = cthread.handleShowStudentMessage();
+		StudentMessage list = (StudentMessage)cthread.getREMessage().getData();
 		initialize();
 	}
 
 
 	private void initialize() {
+
 		getContentPane().setBackground(new Color(224, 255, 255));
 		setBounds(100, 100, 1124, 791);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -345,19 +346,7 @@ public class StudentsPage extends JFrame{
 		btnNewButton = new JButton("\u4FEE\u6539");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textField_10.setEditable(true);
-				textField_11.setEditable(true);
-				textField_13.setEditable(true);
-				textField_15.setEditable(true);
-				textField_20.setEditable(true);
-				textField_21.setEditable(true);
-				textField_22.setEditable(true);
-				textField_23.setEditable(true);
-				textField_24.setEditable(true);
-				textField_25.setEditable(true);
-				textField_26.setEditable(true);
-				button.setEnabled(true);
-				button_1.setEnabled(true);
+				OnBeClickedEdit();
 			}
 		});
 		
@@ -433,10 +422,15 @@ public class StudentsPage extends JFrame{
 		layeredPane.add(btnNewButton);
 		
 		button = new JButton("\u786E\u5B9A");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				OnBeClickedConfirm();
+			}
+		});
 		button.setEnabled(false);
 		layeredPane.setLayer(button, 2);
 		button.setFont(new Font("华文中宋", Font.PLAIN, 22));
-		button.setBounds(580, 556, 108, 38);
+		button.setBounds(802, 556, 108, 38);
 		layeredPane.add(button);
 		
 		button_1 = new JButton("\u8FD8\u539F");
@@ -447,8 +441,56 @@ public class StudentsPage extends JFrame{
 		button_1.setEnabled(false);
 		layeredPane.setLayer(button_1, 2);
 		button_1.setFont(new Font("华文中宋", Font.PLAIN, 22));
-		button_1.setBounds(773, 556, 108, 38);
+		button_1.setBounds(595, 556, 108, 38);
 		layeredPane.add(button_1);
 		setVisible(true);
+	}
+	
+	
+	private void OnBeClickedEdit() {
+		textField_10.setEditable(true);
+		textField_11.setEditable(true);
+		textField_13.setEditable(true);
+		textField_15.setEditable(true);
+		textField_20.setEditable(true);
+		textField_21.setEditable(true);
+		textField_22.setEditable(true);
+		textField_23.setEditable(true);
+		textField_24.setEditable(true);
+		textField_25.setEditable(true);
+		textField_26.setEditable(true);
+		
+		button.setEnabled(true);
+		button_1.setEnabled(true);
+	}
+	
+	
+	private void OnBeClickedConfirm() {
+		name = textField_10.getText();
+		sex = textField_11.getText();
+		birthday = textField_11.getText();
+		shengyuandi = textField_11.getText();
+		id = textField_11.getText();
+		onecardid = textField_11.getText();
+		college = textField_11.getText();
+		phone = textField_11.getText();
+		cardtype = textField_11.getText();
+		cardid = textField_11.getText();
+		ins = textField_11.getText();
+		
+		textField_10.setEditable(false);
+		textField_11.setEditable(false);
+		textField_13.setEditable(false);
+		textField_15.setEditable(false);
+		textField_20.setEditable(false);
+		textField_21.setEditable(false);
+		textField_22.setEditable(false);
+		textField_23.setEditable(false);
+		textField_24.setEditable(false);
+		textField_25.setEditable(false);
+		textField_26.setEditable(false);
+		
+		button.setEnabled(false);
+		button_1.setEnabled(false);
 	}
 }
