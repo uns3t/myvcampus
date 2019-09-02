@@ -26,18 +26,18 @@ public class StudentsPage extends JFrame{
 	private String name, sex, birthday, shengyuandi, id, onecardid, college, phone, cardtype, cardid, ins;
 	private JButton btnNewButton, button, button_1;
 	private JTextArea textArea;
-	private JPanel panel;
 
 	
 	public StudentsPage(/*Client client*/)/* throws IOException*/ {
 //		ClientThread cthread  = new ClientThread(client);
 //		StudentMessage list = (StudentMessage)cthread.getREMessage().getData();
-		initialize();
+		initialize(/*cthread*/);
 	}
 
 
-	private void initialize() {
-
+	private void initialize(/*ClientThread cthread*/) {
+//		InitializeText(cthread);
+		
 		getContentPane().setBackground(new Color(224, 255, 255));
 		setBounds(100, 100, 1124, 717);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -427,7 +427,7 @@ public class StudentsPage extends JFrame{
 		button = new JButton("\u786E\u5B9A");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				OnBeClickedConfirm();
+				OnBeClickedConfirm(/*cthread*/);
 			}
 		});
 		button.setEnabled(false);
@@ -454,11 +454,7 @@ public class StudentsPage extends JFrame{
 		textArea.setFont(new Font("»ªÎÄ·ÂËÎ", Font.PLAIN, 18));
 		layeredPane.setLayer(textArea, 4);
 		textArea.setBounds(455, 378, 583, 110);
-		layeredPane.add(textArea);
-		panel = new JPanel();
-		panel.add(new JScrollPane(textArea));
-		layeredPane.add(panel);
-		
+		layeredPane.add(textArea);	
 	}
 	
 	
@@ -481,7 +477,7 @@ public class StudentsPage extends JFrame{
 	}
 	
 	
-	private void OnBeClickedConfirm() {
+	private void OnBeClickedConfirm(/*ClientThread cthread*/) {
 		name = textField_10.getText();
 		sex = textField_11.getText();
 		birthday = textField_11.getText();
@@ -493,6 +489,7 @@ public class StudentsPage extends JFrame{
 		cardtype = textField_11.getText();
 		cardid = textField_11.getText();
 		ins = textField_11.getText();
+//		cthread.handleUpdateStudentMessage(id, name, college, onecardid, cardtype, cardid, sex, shengyuandi, phone, ins, birthday);
 		
 		textField_10.setEditable(false);
 		textField_11.setEditable(false);
@@ -508,5 +505,11 @@ public class StudentsPage extends JFrame{
 		
 		button.setEnabled(false);
 		button_1.setEnabled(false);
+	}
+	
+	
+	private void InitializeText(ClientThread cthread) {
+		StudentMessage smessage = (StudentMessage)cthread.getREMessage().getData();
+		
 	}
 }
