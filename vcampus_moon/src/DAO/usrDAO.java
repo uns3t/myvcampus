@@ -48,6 +48,16 @@ public class usrDAO {
         return true;
     }
 
+    public boolean updateusr(String name,String pwd,String id) throws Exception{
+        sql = con.prepareStatement("update Usrtbl set Usr_id=?, pwd=?, Usr_name=? where Usr_id=?");
+        sql.setString(1, id);
+        sql.setString(2, pwd);
+        sql.setString(3, name);
+        sql.setString(4, id);
+        sql.executeUpdate();
+        return true;
+    }
+
     public void deleteUsr(String usr_id) throws Exception {
         System.out.println("删除"+usr_id);
         sql=con.prepareStatement("DELETE FROM Usrtbl WHERE Student_id"+"="+"'"+usr_id+"'");

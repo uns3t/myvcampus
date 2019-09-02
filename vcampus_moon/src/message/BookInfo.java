@@ -6,9 +6,18 @@ public class BookInfo implements Serializable {
     private String Book_name;
     private String Book_id;
     private String Book_author;
+    private String Book_press;
     private int Book_total;
     private int Book_borrowed;
     private String Book_introduction;
+
+    public void setBook_press(String book_press) {
+        Book_press = book_press;
+    }
+
+    public String getBook_press() {
+        return Book_press;
+    }
 
     public void setBook_name(String book_name) {
         Book_name = book_name;

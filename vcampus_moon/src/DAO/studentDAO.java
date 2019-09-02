@@ -34,6 +34,26 @@ public class studentDAO {
         return true;
     }
 
+    public boolean updateStudent(String student_id,String student_name,String student_college,String student_card,String student_phone,String student_type,
+                              String student_uid,String student_ins,String student_brith,String student_place,String student_sex) throws Exception{
+        sql = con.prepareStatement("update Studenttbl set Student_id=?, Student_name=?, Student_college=?,Student_card=?,Student_phone=?,Student_type=?,Student_uid=?,Student_ins=?,Student_brith=?,Student_place=?,Student_sex=?  where Student_id=?");
+
+        sql.setString(1, student_id);
+        sql.setString(2, student_name);
+        sql.setString(3, student_college);
+        sql.setString(4, student_card);
+        sql.setString(5, student_phone);
+        sql.setString(6, student_type);
+        sql.setString(7, student_uid);
+        sql.setString(8, student_ins);
+        sql.setString(9, student_brith);
+        sql.setString(10, student_place);
+        sql.setString(11, student_sex);
+        sql.setString(12, student_id);
+        sql.executeUpdate();
+        return true;
+    }
+
     public void deleteStudent(String student_id) throws Exception {
         System.out.println("删除"+student_id);
         sql=con.prepareStatement("DELETE FROM Studenttbl WHERE Student_id"+"="+"'"+student_id+"'");

@@ -69,10 +69,10 @@ public class ToAccess {
 //            toAccess.getstudent().deleteStudent("123");
 //            toAccess.getstudent().addStudent("1","1","2","1","1","1"
 //            ,"1","1","1","1","1");
-            toAccess.getshop().buygoods("111",111);
+            toAccess.getBook().updateBook("好的写真","00001","老何","506","10000","0","test");
             System.out.println("完毕");
         }catch (Exception e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 

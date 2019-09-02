@@ -27,6 +27,19 @@ public class shopDAO {
         return true;
     }
 
+    public boolean updateShop(String goods_id,String goods_name,String goods_price,String goods_quantity,String good_sales) throws Exception{
+        sql = con.prepareStatement("update Shoptbl set Goods_id=?, Goods_name=?, Goods_price=?,Goods_quantity=?,Goods_sales=? where Goods_id=?");
+
+        sql.setString(1, goods_id);
+        sql.setString(2, goods_name);
+        sql.setString(3, goods_price);
+        sql.setString(4, goods_quantity);
+        sql.setString(5, good_sales);
+        sql.setString(6, goods_id);
+        sql.executeUpdate();
+        return true;
+    }
+
     public void deleteShop(String shop_id) throws Exception {
         System.out.println("删除"+shop_id);
         sql=con.prepareStatement("DELETE FROM Shoptbl WHERE Goods_id"+"="+"'"+shop_id+"'");

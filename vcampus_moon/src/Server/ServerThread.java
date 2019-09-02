@@ -82,6 +82,10 @@ public class ServerThread extends Thread {
                     deleteusr(message);
                     break;
 
+                case "UsrUpdate":
+                    updateusr(message);
+                    break;
+
 
                 //学籍管理模块
                 case "Student":
@@ -96,6 +100,9 @@ public class ServerThread extends Thread {
                     deletestudent(message);
                     break;
 
+                case "UpdateStudent":
+                    updatestudent(message);
+                    break;
 
                 //图书馆模块
                 case "Book":
@@ -114,6 +121,11 @@ public class ServerThread extends Thread {
                     deletebook(message);
                     break;
 
+                case "UpdateBook":
+                    updatebook(message);
+                    break;
+
+
                 //商店模块
                 case "Shop":
                     Shoplist();
@@ -131,6 +143,9 @@ public class ServerThread extends Thread {
                     deleteshop(message);
                     break;
 
+                case "UpdateGood":
+                    updateshop(message);
+                    break;
 
                 //课程选择模块
                 case "course":
@@ -147,6 +162,10 @@ public class ServerThread extends Thread {
 
                 case "CourseSelect":
                     selectcourse(message);
+                    break;
+
+                case "UpdateCourse":
+                    updatecourse(message);
                     break;
             }
         }
@@ -231,6 +250,18 @@ public class ServerThread extends Thread {
         }
     }
 
+    public void updateusr(Message message){
+        UsrMessage signupMessage=(UsrMessage)message.getData();
+        try {
+            toAccess.getusr().updateusr(signupMessage.getUsr_name(),signupMessage.getUsr_id(),signupMessage.getUsr_pwd());
+            message.setResponse(true);
+            oos.writeObject(message);
+            oos.flush();
+        }catch (Exception e){
+
+        }
+    }
+
 //    -----------------------------图书馆模块--------------------------------------------
     public void Librarylist(){
         BookMessage bookMessage=new BookMessage();
@@ -260,7 +291,7 @@ public class ServerThread extends Thread {
         BookMessage bookMessage=(BookMessage) message.getData();
         BookInfo bookInfo=(BookInfo) bookMessage.getbook().get(0);
         try {
-            toAccess.getBook().addBook(bookInfo.getBook_name(),bookInfo.getBook_id(),bookInfo.getBook_author(),
+            toAccess.getBook().addBook(bookInfo.getBook_name(),bookInfo.getBook_id(),bookInfo.getBook_author(),bookInfo.getBook_press(),
                     bookInfo.getBook_total()+"",bookInfo.getBook_borrowed()+"",bookInfo.getBook_introduction());
             message.setResponse(true);
             oos.writeObject(message);
@@ -273,6 +304,18 @@ public class ServerThread extends Thread {
         BookInfo bookInfo=(BookInfo) bookMessage.getbook().get(0);
         try {
             toAccess.getBook().deleteBook(bookInfo.getBook_id());
+            message.setResponse(true);
+            oos.writeObject(message);
+            oos.flush();
+        }catch (Exception e){}
+    }
+
+    public void updatebook(Message message){
+        BookMessage bookMessage=(BookMessage) message.getData();
+        BookInfo bookInfo=(BookInfo) bookMessage.getbook().get(0);
+        try {
+            toAccess.getBook().updateBook(bookInfo.getBook_name(),bookInfo.getBook_id(),bookInfo.getBook_author(),bookInfo.getBook_press(),
+                    bookInfo.getBook_total()+"",bookInfo.getBook_borrowed()+"",bookInfo.getBook_introduction());
             message.setResponse(true);
             oos.writeObject(message);
             oos.flush();
@@ -316,6 +359,20 @@ public class ServerThread extends Thread {
         }catch (Exception e){}
     }
 
+
+    public void updatestudent(Message message){
+        StudentMessage studentMessage=(StudentMessage) message.getData();
+        Studentinfo studentinfo=(Studentinfo) studentMessage.getStudent().get(0);
+        try {
+            toAccess.getstudent().updateStudent(studentinfo.getStudent_id(),studentinfo.getStudent_name(),studentinfo.getStudent_college()
+                    ,studentinfo.getStudent_onecardid(),studentinfo.getStudent_phone(),studentinfo.getStudent_card_type(),studentinfo.getStudent_card_id(),studentinfo.getStudent_ins(),
+                    studentinfo.getStudent_birthday(),studentinfo.getStudent_shengyuandi(),studentinfo.getStudent_sex());
+            message.setResponse(true);
+            oos.writeObject(message);
+            oos.flush();
+        }catch (Exception e){}
+
+    }
     //-----------------------------------课程模块-------------------------------------------
     public void Courselist(){
         CourseMessage courseMessage=new CourseMessage();
@@ -355,6 +412,17 @@ public class ServerThread extends Thread {
         CourseInfo courseInfo=(CourseInfo) courseMessage.getCourse().get(0);
         try {
             toAccess.getCourse().addCourseSelect(theUsr,courseInfo.getCourse_id());
+            message.setResponse(true);
+            sendmsg(message);
+        }catch (Exception e){
+        }
+    }
+
+    public void updatecourse(Message message){
+        CourseMessage courseMessage=(CourseMessage) message.getData();
+        CourseInfo courseInfo=(CourseInfo) courseMessage.getCourse().get(0);
+        try {
+            toAccess.getCourse().updatecourse(courseInfo.getCourse_name(),courseInfo.getCourse_id(),courseInfo.getCourse_teacher(),courseInfo.getCourse_time());
             message.setResponse(true);
             sendmsg(message);
         }catch (Exception e){
@@ -411,6 +479,19 @@ public class ServerThread extends Thread {
             sendmsg(message);
         }catch (Exception e){
             e.printStackTrace();
+        }
+    }
+
+    public void updateshop(Message message){
+        ShopMessage shopMessage=(ShopMessage) message.getData();
+        GoodsInfo goodsInfo=(GoodsInfo)shopMessage.getGoodsInfo().get(0);
+        try {
+            toAccess.getshop().updateShop(goodsInfo.getGoods_id(),goodsInfo.getGoods_name(),goodsInfo.getGoods_price()+"",
+                    goodsInfo.getGoods_quantity()+"",goodsInfo.getGoods_sales()+"");
+            message.setResponse(true);
+            sendmsg(message);
+        }catch (Exception e){
+
         }
     }
 
