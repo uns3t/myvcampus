@@ -21,15 +21,17 @@ public class StudentsPage extends JFrame{
 	private ImageIcon image1, image2;
 	private JTextField textField, textField_1, textField_2, textField_3, textField_4, textField_5, textField_6, textField_7, textField_8, textField_9, textField_10, 
 	textField_11, textField_12, textField_13, textField_14, textField_15, textField_16, textField_17, textField_18, textField_19, textField_20, textField_21, 
-	textField_22, textField_23, textField_24, textField_25, textField_26, textField_28, textField_29, textField_30, textField_31, textField_36, textField_37;
+	textField_22, textField_23, textField_24, textField_25, textField_28, textField_29, textField_30, textField_31, textField_36, textField_37;
 	private JLabel label, label_1, label_2, label_3, label_4, label_6, label_8, label_9, label_14, label_15, label_18;
-	String name, sex, birthday, shengyuandi, id, onecardid, college, phone, cardtype, cardid, ins;
-	JButton btnNewButton, button, button_1;
+	private String name, sex, birthday, shengyuandi, id, onecardid, college, phone, cardtype, cardid, ins;
+	private JButton btnNewButton, button, button_1;
+	private JTextArea textArea;
+	private JPanel panel;
 
 	
-	public StudentsPage(Client client) throws IOException {
-		ClientThread cthread  = new ClientThread(client);
-		StudentMessage list = (StudentMessage)cthread.getREMessage().getData();
+	public StudentsPage(/*Client client*/)/* throws IOException*/ {
+//		ClientThread cthread  = new ClientThread(client);
+//		StudentMessage list = (StudentMessage)cthread.getREMessage().getData();
 		initialize();
 	}
 
@@ -37,22 +39,22 @@ public class StudentsPage extends JFrame{
 	private void initialize() {
 
 		getContentPane().setBackground(new Color(224, 255, 255));
-		setBounds(100, 100, 1124, 791);
+		setBounds(100, 100, 1124, 717);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		
 		lblNewLabel = new JLabel("\u4E2A\u4EBA\u57FA\u672C\u4FE1\u606F\u7EF4\u62A4");
-		lblNewLabel.setFont(new Font("华文楷体", Font.PLAIN, 29));
+		lblNewLabel.setFont(new Font("华文楷体", Font.BOLD, 29));
 		lblNewLabel.setBounds(408, 25, 356, 29);
 		getContentPane().add(lblNewLabel);
 		
 		image1 = new ImageIcon("images/timg.jpg");
 		lblNewLabel_1 = new JLabel(image1);
-		lblNewLabel_1.setBounds(0, 472, 1110, 282);
+		lblNewLabel_1.setBounds(0, 413, 1110, 267);
 		
 		layeredPane = new JLayeredPane();
 		layeredPane.setBackground(new Color(224, 255, 255));
-		layeredPane.setBounds(0, 0, 1110, 754);
+		layeredPane.setBounds(0, 0, 1110, 680);
 		layeredPane.add(lblNewLabel_1, JLayeredPane.DEFAULT_LAYER);
 		getContentPane().add(layeredPane);
 		
@@ -245,6 +247,7 @@ public class StudentsPage extends JFrame{
 		layeredPane.add(textField_37);
 		
 		textField_10 = new JTextField();
+		textField_10.setFont(new Font("华文仿宋", Font.PLAIN, 18));
 		textField_10.setBorder(null);
 		textField_10.setBackground(Color.WHITE);
 		textField_10.setEditable(false);
@@ -254,6 +257,7 @@ public class StudentsPage extends JFrame{
 		textField_10.setColumns(10);
 		
 		textField_11 = new JTextField();
+		textField_11.setFont(new Font("华文仿宋", Font.PLAIN, 18));
 		layeredPane.setLayer(textField_11, 4);
 		textField_11.setEditable(false);
 		textField_11.setColumns(10);
@@ -263,6 +267,7 @@ public class StudentsPage extends JFrame{
 		layeredPane.add(textField_11);
 		
 		textField_13 = new JTextField();
+		textField_13.setFont(new Font("华文仿宋", Font.PLAIN, 18));
 		layeredPane.setLayer(textField_13, 4);
 		textField_13.setEditable(false);
 		textField_13.setColumns(10);
@@ -272,6 +277,7 @@ public class StudentsPage extends JFrame{
 		layeredPane.add(textField_13);
 		
 		textField_15 = new JTextField();
+		textField_15.setFont(new Font("华文仿宋", Font.PLAIN, 18));
 		layeredPane.setLayer(textField_15, 4);
 		textField_15.setEditable(false);
 		textField_15.setColumns(10);
@@ -281,6 +287,7 @@ public class StudentsPage extends JFrame{
 		layeredPane.add(textField_15);
 		
 		textField_20 = new JTextField();
+		textField_20.setFont(new Font("华文仿宋", Font.PLAIN, 18));
 		layeredPane.setLayer(textField_20, 4);
 		textField_20.setEditable(false);
 		textField_20.setColumns(10);
@@ -290,6 +297,7 @@ public class StudentsPage extends JFrame{
 		layeredPane.add(textField_20);
 		
 		textField_21 = new JTextField();
+		textField_21.setFont(new Font("华文仿宋", Font.PLAIN, 18));
 		layeredPane.setLayer(textField_21, 4);
 		textField_21.setEditable(false);
 		textField_21.setColumns(10);
@@ -299,6 +307,7 @@ public class StudentsPage extends JFrame{
 		layeredPane.add(textField_21);
 		
 		textField_22 = new JTextField();
+		textField_22.setFont(new Font("华文仿宋", Font.PLAIN, 18));
 		layeredPane.setLayer(textField_22, 4);
 		textField_22.setEditable(false);
 		textField_22.setColumns(10);
@@ -308,6 +317,7 @@ public class StudentsPage extends JFrame{
 		layeredPane.add(textField_22);
 		
 		textField_23 = new JTextField();
+		textField_23.setFont(new Font("华文仿宋", Font.PLAIN, 18));
 		layeredPane.setLayer(textField_23, 4);
 		textField_23.setEditable(false);
 		textField_23.setColumns(10);
@@ -317,6 +327,7 @@ public class StudentsPage extends JFrame{
 		layeredPane.add(textField_23);
 		
 		textField_24 = new JTextField();
+		textField_24.setFont(new Font("华文仿宋", Font.PLAIN, 18));
 		layeredPane.setLayer(textField_24, 4);
 		textField_24.setEditable(false);
 		textField_24.setColumns(10);
@@ -326,6 +337,7 @@ public class StudentsPage extends JFrame{
 		layeredPane.add(textField_24);
 		
 		textField_25 = new JTextField();
+		textField_25.setFont(new Font("华文仿宋", Font.PLAIN, 18));
 		layeredPane.setLayer(textField_25, 4);
 		textField_25.setEditable(false);
 		textField_25.setColumns(10);
@@ -333,15 +345,6 @@ public class StudentsPage extends JFrame{
 		textField_25.setBackground(Color.WHITE);
 		textField_25.setBounds(869, 328, 181, 33);
 		layeredPane.add(textField_25);
-		
-		textField_26 = new JTextField();
-		layeredPane.setLayer(textField_26, 4);
-		textField_26.setEditable(false);
-		textField_26.setColumns(10);
-		textField_26.setBorder(null);
-		textField_26.setBackground(Color.WHITE);
-		textField_26.setBounds(455, 378, 595, 108);
-		layeredPane.add(textField_26);
 		
 		btnNewButton = new JButton("\u4FEE\u6539");
 		btnNewButton.addActionListener(new ActionListener() {
@@ -443,7 +446,19 @@ public class StudentsPage extends JFrame{
 		button_1.setFont(new Font("华文中宋", Font.PLAIN, 22));
 		button_1.setBounds(595, 556, 108, 38);
 		layeredPane.add(button_1);
-		setVisible(true);
+		
+		textArea = new JTextArea("", 583, 110);
+		textArea.setLineWrap(true);
+		textArea.setWrapStyleWord(true);
+		textArea.setEditable(false);
+		textArea.setFont(new Font("华文仿宋", Font.PLAIN, 18));
+		layeredPane.setLayer(textArea, 4);
+		textArea.setBounds(455, 378, 583, 110);
+		layeredPane.add(textArea);
+		panel = new JPanel();
+		panel.add(new JScrollPane(textArea));
+		layeredPane.add(panel);
+		
 	}
 	
 	
@@ -458,7 +473,8 @@ public class StudentsPage extends JFrame{
 		textField_23.setEditable(true);
 		textField_24.setEditable(true);
 		textField_25.setEditable(true);
-		textField_26.setEditable(true);
+		textArea.setEditable(true);
+	
 		
 		button.setEnabled(true);
 		button_1.setEnabled(true);
@@ -488,7 +504,7 @@ public class StudentsPage extends JFrame{
 		textField_23.setEditable(false);
 		textField_24.setEditable(false);
 		textField_25.setEditable(false);
-		textField_26.setEditable(false);
+		textArea.setEditable(false);
 		
 		button.setEnabled(false);
 		button_1.setEnabled(false);
