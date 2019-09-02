@@ -202,7 +202,7 @@ public class ClientThread extends Thread {
         studentinfo.setStudent_ins(S_content);
         StudentMessage studentMessage= new StudentMessage();
         studentMessage.addStudentInfo(studentinfo);
-        studentMessage.setType("AddStudent");
+        studentMessage.setType("UpdateStudent");
         Message message = new Message(studentMessage.getType(),studentMessage);
         if (sendMessage(message)){
             System.out.println("发送成功");
@@ -268,7 +268,7 @@ public class ClientThread extends Thread {
         bookInfo.setBook_borrowed(borrowed);
         bookInfo.setBook_introduction(introduction);
         BookMessage bookMessage = new BookMessage();
-        bookMessage.setType("AddBook");
+        bookMessage.setType("UpdateBook");
         bookMessage.addBookInfo(bookInfo);
         Message message = new Message(bookMessage.getType(),bookMessage);
         if (sendMessage(message)){
@@ -399,7 +399,7 @@ public class ClientThread extends Thread {
         goodsInfo.setGoods_quantity(quantity);
         goodsInfo.setGoods_sales(sales);
         ShopMessage shopMessage = new ShopMessage();
-        shopMessage.setType("AddGood");
+        shopMessage.setType("UpdateGood");
         shopMessage.addGoodsInfo(goodsInfo);
         Message message = new Message(shopMessage.getType(),shopMessage);
         if (sendMessage(message)){
@@ -473,7 +473,7 @@ public class ClientThread extends Thread {
         courseInfo.setCourse_teacher(teacher);
         courseInfo.setCourse_time(time);
         CourseMessage courseMessage = new CourseMessage();
-        courseMessage.setType("AddCourse");
+        courseMessage.setType("UpdateCourse");
         courseMessage.addCourseInfo(courseInfo);
         Message message = new Message(courseMessage.getType(),courseMessage);
         if (sendMessage(message)){
