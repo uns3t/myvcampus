@@ -148,7 +148,7 @@ public class ServerThread extends Thread {
                     break;
 
                 //课程选择模块
-                case "course":
+                case "Course":
                     Courselist();
                     break;
 
@@ -229,7 +229,7 @@ public class ServerThread extends Thread {
     public void Signup(Message message){
         UsrMessage signupMessage=(UsrMessage)message.getData();
         try {
-            toAccess.getusr().signup(signupMessage.getUsr_name(),signupMessage.getUsr_id(),signupMessage.getUsr_pwd());
+            toAccess.getusr().signup(signupMessage.getUsr_name(),signupMessage.getUsr_pwd(),signupMessage.getUsr_id());
             message.setResponse(true);
             oos.writeObject(message);
             oos.flush();
@@ -243,8 +243,7 @@ public class ServerThread extends Thread {
         try {
             toAccess.getusr().deleteUsr(usrMessage.getUsr_id());
             message.setResponse(true);
-            oos.writeObject(message);
-            oos.flush();
+            sendmsg(message);
         }catch (Exception e){
 
         }
@@ -253,10 +252,9 @@ public class ServerThread extends Thread {
     public void updateusr(Message message){
         UsrMessage signupMessage=(UsrMessage)message.getData();
         try {
-            toAccess.getusr().updateusr(signupMessage.getUsr_name(),signupMessage.getUsr_id(),signupMessage.getUsr_pwd());
+            toAccess.getusr().updateusr(signupMessage.getUsr_name(),signupMessage.getUsr_pwd(),signupMessage.getUsr_id());
             message.setResponse(true);
-            oos.writeObject(message);
-            oos.flush();
+            sendmsg(message);
         }catch (Exception e){
 
         }
@@ -280,8 +278,7 @@ public class ServerThread extends Thread {
         try {
             toAccess.getBook().addBookborrow(bookBorrowMessage.getBook_id(),theUsr);
             message.setResponse(true);
-            oos.writeObject(message);
-            oos.flush();
+            sendmsg(message);
         }catch (Exception e){
 
         }
@@ -378,9 +375,11 @@ public class ServerThread extends Thread {
         CourseMessage courseMessage=new CourseMessage();
         try {
             courseMessage.setCourselist(toAccess.getCourse().listcourse());
+            System.out.println("测试1");
             Message msg=new Message("Course",courseMessage);
             msg.setResponse(true);
-            sendmsg(msg);
+            oos.writeObject(msg);
+            oos.flush();
         }catch (Exception e){
         }
     }
@@ -393,6 +392,7 @@ public class ServerThread extends Thread {
             message.setResponse(true);
             sendmsg(message);
         }catch (Exception e){
+
         }
     }
 
@@ -411,7 +411,7 @@ public class ServerThread extends Thread {
         CourseMessage courseMessage=(CourseMessage) message.getData();
         CourseInfo courseInfo=(CourseInfo) courseMessage.getCourse().get(0);
         try {
-            toAccess.getCourse().addCourseSelect(theUsr,courseInfo.getCourse_id());
+            toAccess.getCourse().addCourseSelect(courseInfo.getCourse_id(),theUsr);
             message.setResponse(true);
             sendmsg(message);
         }catch (Exception e){

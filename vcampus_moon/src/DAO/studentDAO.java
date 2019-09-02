@@ -34,6 +34,7 @@ public class studentDAO {
         return true;
     }
 
+
     public boolean updateStudent(String student_id,String student_name,String student_college,String student_card,String student_phone,String student_type,
                               String student_uid,String student_ins,String student_brith,String student_place,String student_sex) throws Exception{
         sql = con.prepareStatement("update Studenttbl set Student_id=?, Student_name=?, Student_college=?,Student_card=?,Student_phone=?,Student_type=?,Student_uid=?,Student_ins=?,Student_brith=?,Student_place=?,Student_sex=?  where Student_id=?");

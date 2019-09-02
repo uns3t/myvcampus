@@ -84,12 +84,11 @@ public class ClientThread extends Thread {
     //-----------------------------------------登陆注册----------------------------------------------
 
 
-    public boolean handleLoginMessage(String L_id, String L_pwd,boolean isadmin){
+    public boolean handleLoginMessage(String L_id, String L_pwd){
         UsrMessage loginMessage = new UsrMessage();
         loginMessage.setType("Login");
         loginMessage.setUsr_id(L_id);
         loginMessage.setUsr_pwd(L_pwd);
-        loginMessage.set_isadmin(isadmin);
         Message message = new Message(loginMessage.getType(),loginMessage);
         if (sendMessage(message)){
             System.out.println("发送成功");
@@ -119,6 +118,25 @@ public class ClientThread extends Thread {
             return false;
         }
     }
+
+    public boolean handleUpdateUsrMessage(String S_id, String S_pwd, String S_name){
+        UsrMessage signupMessage = new UsrMessage();
+        signupMessage.setUsr_id(S_id);
+        signupMessage.setUsr_pwd(S_pwd);
+        signupMessage.setType("UsrUpdate");
+        signupMessage.setUsr_name(S_name);
+        Message message = new Message(signupMessage.getType(),signupMessage);
+        if (sendMessage(message)){
+            System.out.println("发送成功");
+            isWaiting = true;
+            return true;
+        }
+        else {
+            System.out.println("发送失败");
+            return false;
+        }
+    }
+
 
     public boolean handleUsrDeleteMessage(String delete_id){
         UsrMessage usrMessage = new UsrMessage();
@@ -433,7 +451,7 @@ public class ClientThread extends Thread {
     //--------------------------------------------选课---------------------------------------------------
 
 
-    public boolean handleCourseSelectMessage(String user_id,String course_id){
+    public boolean handleCourseSelectMessage(String course_id){
         CourseInfo courseInfo = new CourseInfo();
         courseInfo.setCourse_id(course_id);
         CourseMessage courseSelectMessage = new CourseMessage();

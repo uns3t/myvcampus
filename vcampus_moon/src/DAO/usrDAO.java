@@ -60,7 +60,8 @@ public class usrDAO {
 
     public void deleteUsr(String usr_id) throws Exception {
         System.out.println("删除"+usr_id);
-        sql=con.prepareStatement("DELETE FROM Usrtbl WHERE Student_id"+"="+"'"+usr_id+"'");
+        sql=con.prepareStatement("DELETE FROM Usrtbl WHERE usr_id=?");
+        sql.setString(1,usr_id);
         sql.executeUpdate();
     }
 
