@@ -7,10 +7,11 @@ import java.awt.Image;
 import java.awt.SystemColor;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 import client.*;
-import message.StudentMessage;
+import message.*;
 
 
 
@@ -26,6 +27,7 @@ public class StuStudentsPage extends JFrame{
 	private String name, sex, birthday, shengyuandi, id, onecardid, college, phone, cardtype, cardid, ins;
 	private JButton btnNewButton, button, button_1;
 	private JTextArea textArea;
+	private boolean isAdd = false;
 
 	
 	public StuStudentsPage(/*Client client*/)/* throws IOException*/ {
@@ -48,7 +50,7 @@ public class StuStudentsPage extends JFrame{
 		lblNewLabel.setBounds(408, 25, 356, 29);
 		getContentPane().add(lblNewLabel);
 		
-		image1 = new ImageIcon("bk1.png");
+		image1 = new ImageIcon("images/bk1.png");
 		lblNewLabel_1 = new JLabel(image1);
 		lblNewLabel_1.setBounds(0, 0, 1110, 680);
 		
@@ -247,6 +249,7 @@ public class StuStudentsPage extends JFrame{
 		layeredPane.add(textField_37);
 		
 		textField_10 = new JTextField();
+		textField_10.setText(name);
 		textField_10.setFont(new Font("华文仿宋", Font.PLAIN, 18));
 		textField_10.setBorder(null);
 		textField_10.setBackground(Color.WHITE);
@@ -257,6 +260,7 @@ public class StuStudentsPage extends JFrame{
 		textField_10.setColumns(10);
 		
 		textField_11 = new JTextField();
+		textField_11.setText(sex);
 		textField_11.setFont(new Font("华文仿宋", Font.PLAIN, 18));
 		layeredPane.setLayer(textField_11, 4);
 		textField_11.setEditable(false);
@@ -267,6 +271,7 @@ public class StuStudentsPage extends JFrame{
 		layeredPane.add(textField_11);
 		
 		textField_13 = new JTextField();
+		textField_13.setText(birthday);
 		textField_13.setFont(new Font("华文仿宋", Font.PLAIN, 18));
 		layeredPane.setLayer(textField_13, 4);
 		textField_13.setEditable(false);
@@ -277,6 +282,7 @@ public class StuStudentsPage extends JFrame{
 		layeredPane.add(textField_13);
 		
 		textField_15 = new JTextField();
+		textField_15.setText(cardid);
 		textField_15.setFont(new Font("华文仿宋", Font.PLAIN, 18));
 		layeredPane.setLayer(textField_15, 4);
 		textField_15.setEditable(false);
@@ -287,6 +293,7 @@ public class StuStudentsPage extends JFrame{
 		layeredPane.add(textField_15);
 		
 		textField_20 = new JTextField();
+		textField_20.setText(id);
 		textField_20.setFont(new Font("华文仿宋", Font.PLAIN, 18));
 		layeredPane.setLayer(textField_20, 4);
 		textField_20.setEditable(false);
@@ -297,6 +304,7 @@ public class StuStudentsPage extends JFrame{
 		layeredPane.add(textField_20);
 		
 		textField_21 = new JTextField();
+		textField_21.setText(shengyuandi);
 		textField_21.setFont(new Font("华文仿宋", Font.PLAIN, 18));
 		layeredPane.setLayer(textField_21, 4);
 		textField_21.setEditable(false);
@@ -307,6 +315,7 @@ public class StuStudentsPage extends JFrame{
 		layeredPane.add(textField_21);
 		
 		textField_22 = new JTextField();
+		textField_22.setText(college);
 		textField_22.setFont(new Font("华文仿宋", Font.PLAIN, 18));
 		layeredPane.setLayer(textField_22, 4);
 		textField_22.setEditable(false);
@@ -317,6 +326,7 @@ public class StuStudentsPage extends JFrame{
 		layeredPane.add(textField_22);
 		
 		textField_23 = new JTextField();
+		textField_23.setText(phone);
 		textField_23.setFont(new Font("华文仿宋", Font.PLAIN, 18));
 		layeredPane.setLayer(textField_23, 4);
 		textField_23.setEditable(false);
@@ -327,6 +337,7 @@ public class StuStudentsPage extends JFrame{
 		layeredPane.add(textField_23);
 		
 		textField_24 = new JTextField();
+		textField_24.setText(cardtype);
 		textField_24.setFont(new Font("华文仿宋", Font.PLAIN, 18));
 		layeredPane.setLayer(textField_24, 4);
 		textField_24.setEditable(false);
@@ -337,6 +348,7 @@ public class StuStudentsPage extends JFrame{
 		layeredPane.add(textField_24);
 		
 		textField_25 = new JTextField();
+		textField_25.setText(cardid);
 		textField_25.setFont(new Font("华文仿宋", Font.PLAIN, 18));
 		layeredPane.setLayer(textField_25, 4);
 		textField_25.setEditable(false);
@@ -418,13 +430,14 @@ public class StuStudentsPage extends JFrame{
 		label_18.setFont(new Font("华文仿宋", Font.PLAIN, 19));
 		label_18.setBounds(250, 413, 103, 33);
 		layeredPane.add(label_18);
-		btnNewButton.setBackground(SystemColor.textInactiveText);
+		btnNewButton.setBackground(SystemColor.inactiveCaptionBorder);
 		btnNewButton.setFont(new Font("华文中宋", Font.PLAIN, 22));
 		layeredPane.setLayer(btnNewButton, 2);
 		btnNewButton.setBounds(392, 556, 108, 38);
 		layeredPane.add(btnNewButton);
 		
 		button = new JButton("\u786E\u5B9A");
+		button.setBackground(SystemColor.inactiveCaptionBorder);
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				OnBeClickedConfirm(/*cthread*/);
@@ -437,6 +450,7 @@ public class StuStudentsPage extends JFrame{
 		layeredPane.add(button);
 		
 		button_1 = new JButton("\u8FD8\u539F");
+		button_1.setBackground(SystemColor.inactiveCaptionBorder);
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -447,7 +461,7 @@ public class StuStudentsPage extends JFrame{
 		button_1.setBounds(595, 556, 108, 38);
 		layeredPane.add(button_1);
 		
-		textArea = new JTextArea("", 583, 110);
+		textArea = new JTextArea(ins, 583, 110);
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
 		textArea.setEditable(false);
@@ -480,16 +494,21 @@ public class StuStudentsPage extends JFrame{
 	private void OnBeClickedConfirm(/*ClientThread cthread*/) {
 		name = textField_10.getText();
 		sex = textField_11.getText();
-		birthday = textField_11.getText();
-		shengyuandi = textField_11.getText();
-		id = textField_11.getText();
-		onecardid = textField_11.getText();
-		college = textField_11.getText();
-		phone = textField_11.getText();
-		cardtype = textField_11.getText();
-		cardid = textField_11.getText();
-		ins = textField_11.getText();
-//		cthread.handleUpdateStudentMessage(id, name, college, onecardid, cardtype, cardid, sex, shengyuandi, phone, ins, birthday);
+		birthday = textField_13.getText();
+		shengyuandi = textField_21.getText();
+		id = textField_20.getText();
+		onecardid = textField_15.getText();
+		college = textField_22.getText();
+		phone = textField_23.getText();
+		cardtype = textField_24.getText();
+		cardid = textField_25.getText();
+		ins = textArea.getText();
+//		System.out.print(name+'\n'+sex+'\n'+birthday+'\n'+shengyuandi+'\n'+id+'\n'+onecardid+'\n'+college+'\n'+phone+'\n'+cardtype+'\n'+cardid+'\n'+ins+'\n');
+		
+//		if(isAdd)
+//			cthread.handleAddStudentMessage(id, name, college, onecardid, cardtype, cardid, sex, shengyuandi, phone, ins, birthday);
+//		else
+//			cthread.handleUpdateStudentMessage(id, name, college, onecardid, cardtype, cardid, sex, shengyuandi, phone, ins, birthday);
 		
 		textField_10.setEditable(false);
 		textField_11.setEditable(false);
@@ -509,7 +528,29 @@ public class StuStudentsPage extends JFrame{
 	
 	
 	private void InitializeText(ClientThread cthread) {
+		cthread.handleShowStudentMessage();
 		StudentMessage smessage = (StudentMessage)cthread.getREMessage().getData();
+		ArrayList<Studentinfo> studentinfo = smessage.getStudent();
 		
+		if(studentinfo.isEmpty()) {
+			JOptionPane.showMessageDialog(new JFrame().getContentPane(), "该用户没有学籍信息，请手动添加。","提示页面", JOptionPane.INFORMATION_MESSAGE);
+			isAdd = true;
+		}
+		else {
+			isAdd = false;
+			
+			Studentinfo sinfo = studentinfo.get(0);
+			id =sinfo.getStudent_id();
+			name = sinfo.getStudent_name();
+			college = sinfo.getStudent_college();
+			onecardid = sinfo.getStudent_onecardid();
+			cardtype = sinfo.getStudent_card_type();
+			cardid = sinfo.getStudent_card_id();
+			sex = sinfo.getStudent_sex();
+			shengyuandi = sinfo.getStudent_shengyuandi();
+			phone = sinfo.getStudent_phone();
+			ins = sinfo.getStudent_ins();
+			birthday = sinfo.getStudent_birthday();
+		}
 	}
 }
