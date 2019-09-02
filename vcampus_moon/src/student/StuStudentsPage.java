@@ -14,7 +14,7 @@ import message.StudentMessage;
 
 
 
-public class StudentsPage extends JFrame{
+public class StuStudentsPage extends JFrame{
 
 	private JLabel lblNewLabel, lblNewLabel_1, lblNewLabel_2, lblNewLabel_3;
 	private JLayeredPane layeredPane;
@@ -28,7 +28,7 @@ public class StudentsPage extends JFrame{
 	private JTextArea textArea;
 
 	
-	public StudentsPage(/*Client client*/)/* throws IOException*/ {
+	public StuStudentsPage(/*Client client*/)/* throws IOException*/ {
 //		ClientThread cthread  = new ClientThread(client);
 //		StudentMessage list = (StudentMessage)cthread.getREMessage().getData();
 		initialize(/*cthread*/);
@@ -48,9 +48,9 @@ public class StudentsPage extends JFrame{
 		lblNewLabel.setBounds(408, 25, 356, 29);
 		getContentPane().add(lblNewLabel);
 		
-		image1 = new ImageIcon("images/timg.jpg");
+		image1 = new ImageIcon("bk1.png");
 		lblNewLabel_1 = new JLabel(image1);
-		lblNewLabel_1.setBounds(0, 413, 1110, 267);
+		lblNewLabel_1.setBounds(0, 0, 1110, 680);
 		
 		layeredPane = new JLayeredPane();
 		layeredPane.setBackground(new Color(224, 255, 255));
