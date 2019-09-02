@@ -19,7 +19,7 @@ public class Client{
         test.handleShowBookMessage();
         BookMessage bookMessage = (BookMessage)test.getREMessage().getData();
         System.out.println(bookMessage.getbook());
-        test.handleLoginMessage("abc","123456");
+        test.handleLoginMessage("abc","123456",false);
         Message message=(Message)test.getREMessage();
         System.out.println(message.getResponse());
 
