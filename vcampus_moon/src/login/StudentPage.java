@@ -112,7 +112,7 @@ public class StudentPage {
 		button_2.setBackground(new Color(240, 248, 255));
 		button_2.addActionListener(new ActionListener() {//学籍管理
 			public void actionPerformed(ActionEvent e) {
-				new StudentsPage();
+				//new StudentsPage();
 				
 			}
 		});
