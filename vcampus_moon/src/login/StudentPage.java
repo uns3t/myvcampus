@@ -13,7 +13,6 @@ import java.awt.Color;
 import java.awt.Dialog.ModalExclusionType;
 import javax.swing.JToolBar;
 
-import student.StudentsPage;
 
 import java.awt.Toolkit;
 import javax.swing.JLayeredPane;
@@ -55,7 +54,7 @@ public class StudentPage {
 				frame.dispose();
 			}
 		});
-		btnNewButton.setFont(new Font("宋体", Font.BOLD, 16));
+		btnNewButton.setFont(new Font("宋体", Font.BOLD, 18));
 		
 		
 		JButton btnNewButton_1 = new JButton("\u9009\u8BFE\u7CFB\u7EDF");
@@ -70,7 +69,7 @@ public class StudentPage {
 				
 			}
 		});
-		btnNewButton_1.setFont(new Font("宋体", Font.BOLD, 18));
+		btnNewButton_1.setFont(new Font("宋体", Font.BOLD, 20));
 		
 		
 		JButton button = new JButton("\u56FE\u4E66\u9986");
@@ -85,7 +84,7 @@ public class StudentPage {
 				
 			}
 		});
-		button.setFont(new Font("宋体", Font.BOLD, 18));
+		button.setFont(new Font("宋体", Font.BOLD, 20));
 		
 		
 		JButton button_1 = new JButton("\u6821\u56ED\u5546\u5E97");
@@ -100,7 +99,7 @@ public class StudentPage {
 				
 			}
 		});
-		button_1.setFont(new Font("宋体", Font.BOLD, 18));
+		button_1.setFont(new Font("宋体", Font.BOLD, 20));
 		
 		
 		JButton button_2 = new JButton("\u5B66\u7C4D\u7BA1\u7406");
@@ -116,7 +115,7 @@ public class StudentPage {
 				
 			}
 		});
-		button_2.setFont(new Font("宋体", Font.BOLD, 18));
+		button_2.setFont(new Font("宋体", Font.BOLD, 20));
 		
 		image1 = new ImageIcon("images/teacher_photo.jpg");
 		JLabel lblNewLabel = new JLabel(image1);

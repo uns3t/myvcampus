@@ -55,7 +55,7 @@ public class LoginPage {
 		layeredPane.setLayer(label, 1);
 		label.setBounds(48, 28, 136, 46);
 		layeredPane.add(label);
-		label.setFont(new Font("宋体", Font.BOLD, 14));
+		label.setFont(new Font("宋体", Font.BOLD, 18));
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		
 				textField = new JTextField();
@@ -64,7 +64,7 @@ public class LoginPage {
 				textField.setBounds(211, 24, 257, 46);
 				layeredPane.add(textField);
 				textField.setText("请输入一卡通号");
-				textField.setFont(new Font("宋体", Font.BOLD, 14));
+				textField.setFont(new Font("宋体", Font.BOLD, 18));
 				textField.setHorizontalAlignment(SwingConstants.LEFT);
 				textField.setColumns(10);
 				textField.addMouseListener(new MouseListener() {
@@ -104,11 +104,11 @@ public class LoginPage {
 				layeredPane.setLayer(label_1, 1);
 				label_1.setBounds(50, 107, 136, 46);
 				layeredPane.add(label_1);
-				label_1.setFont(new Font("宋体", Font.BOLD, 14));
+				label_1.setFont(new Font("宋体", Font.BOLD, 18));
 				label_1.setHorizontalAlignment(SwingConstants.CENTER);
 				
 				passwordField = new JPasswordField();
-				passwordField.setFont(new Font("宋体", Font.BOLD, 12));
+				passwordField.setFont(new Font("宋体", Font.BOLD, 18));
 				passwordField.setOpaque(false);
 				layeredPane.setLayer(passwordField, 1);
 				passwordField.setBounds(211, 103, 257, 46);
@@ -156,7 +156,7 @@ public class LoginPage {
 				layeredPane.add(radioButton);
 				radioButton.setBackground(new Color(240, 248, 255));
 				radioButton.setHorizontalAlignment(SwingConstants.CENTER);
-				radioButton.setFont(new Font("宋体", Font.BOLD, 14));
+				radioButton.setFont(new Font("宋体", Font.BOLD, 18));
 				bg.add(radioButton);
 				
 				JRadioButton radioButton_1 = new JRadioButton("学生");
@@ -165,26 +165,26 @@ public class LoginPage {
 				radioButton_1.setBounds(259, 190, 85, 58);
 				layeredPane.add(radioButton_1);
 				radioButton_1.setBackground(new Color(240, 248, 255));
-				radioButton_1.setFont(new Font("宋体", Font.BOLD, 14));
+				radioButton_1.setFont(new Font("宋体", Font.BOLD, 18));
 				radioButton_1.setHorizontalAlignment(SwingConstants.CENTER);
 				bg.add(radioButton_1);
 				
 				JRadioButton radioButton_2 = new JRadioButton("系统管理员");
 				radioButton_2.setOpaque(false);
 				layeredPane.setLayer(radioButton_2, 1);
-				radioButton_2.setBounds(365, 187, 107, 58);
+				radioButton_2.setBounds(365, 187, 121, 58);
 				layeredPane.add(radioButton_2);
 				radioButton_2.setBackground(new Color(240, 248, 255));
 				radioButton_2.setHorizontalAlignment(SwingConstants.CENTER);
-				radioButton_2.setFont(new Font("宋体", Font.BOLD, 14));
+				radioButton_2.setFont(new Font("宋体", Font.BOLD, 18));
 				bg.add(radioButton_2);
 				
 				JLabel label_2 = new JLabel("用户类型：");
 				layeredPane.setLayer(label_2, 1);
-				label_2.setBounds(47, 189, 87, 58);
+				label_2.setBounds(27, 189, 107, 58);
 				layeredPane.add(label_2);
 				label_2.setHorizontalAlignment(SwingConstants.CENTER);
-				label_2.setFont(new Font("宋体", Font.BOLD, 14));
+				label_2.setFont(new Font("宋体", Font.BOLD, 18));
 				
 				JButton button = new JButton("注册");
 				button.setBackground(new Color(50, 205, 50));
@@ -203,7 +203,7 @@ public class LoginPage {
 						new SignupPage(/*c1*/);
 					}
 				});
-				button.setFont(new Font("宋体", Font.BOLD, 14));
+				button.setFont(new Font("宋体", Font.BOLD, 18));
 				
 				JButton button_1 = new JButton("登陆");
 				button_1.setBackground(new Color(50, 205, 50));
@@ -242,7 +242,7 @@ public class LoginPage {
 						}
 					}
 				});
-				button_1.setFont(new Font("宋体", Font.BOLD, 14));
+				button_1.setFont(new Font("宋体", Font.BOLD, 18));
 				
 				image1 = new ImageIcon("images/login_photo1.jpg");
 				JLabel label_3 = new JLabel(image1);

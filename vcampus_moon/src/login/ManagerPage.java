@@ -12,6 +12,9 @@ import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 import java.awt.Color;
 import javax.swing.JLayeredPane;
+
+import course.ManagerCoursePage;
+
 import javax.swing.JLabel;
 
 public class ManagerPage {
@@ -50,10 +53,10 @@ public class ManagerPage {
 						frame.dispose();
 					}
 				});
-				button.setFont(new Font("宋体", Font.BOLD, 16));
+				button.setFont(new Font("宋体", Font.BOLD, 18));
 				
 				
-				JButton button_1 = new JButton("\u9009\u8BFE\u7CFB\u7EDF");
+				JButton button_1 = new JButton("课程系统");
 				button_1.setOpaque(false);
 				layeredPane.setLayer(button_1, 1);
 				button_1.setBounds(356, 44, 142, 75);
@@ -61,11 +64,11 @@ public class ManagerPage {
 				button_1.setBackground(new Color(240, 248, 255));
 				button_1.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {//选课系统
-						
+						new ManagerCoursePage();
 						
 					}
 				});
-				button_1.setFont(new Font("宋体", Font.BOLD, 18));
+				button_1.setFont(new Font("宋体", Font.BOLD, 20));
 				
 				
 				JButton button_2 = new JButton("\u56FE\u4E66\u9986");
@@ -74,7 +77,7 @@ public class ManagerPage {
 				button_2.setBounds(204, 143, 142, 75);
 				layeredPane.add(button_2);
 				button_2.setBackground(new Color(240, 248, 255));
-				button_2.setFont(new Font("宋体", Font.BOLD, 18));
+				button_2.setFont(new Font("宋体", Font.BOLD, 20));
 				button_2.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {//图书馆
 						
@@ -86,7 +89,7 @@ public class ManagerPage {
 				JButton button_3 = new JButton("\u6821\u56ED\u5546\u5E97");
 				button_3.setOpaque(false);
 				layeredPane.setLayer(button_3, 1);
-				button_3.setBounds(363, 143, 133, 75);
+				button_3.setBounds(356, 143, 140, 75);
 				layeredPane.add(button_3);
 				button_3.setBackground(new Color(240, 248, 255));
 				button_3.addActionListener(new ActionListener() {
@@ -95,7 +98,7 @@ public class ManagerPage {
 						
 					}
 				});
-				button_3.setFont(new Font("宋体", Font.BOLD, 18));
+				button_3.setFont(new Font("宋体", Font.BOLD, 20));
 				
 				
 				JButton button_4 = new JButton("\u5B66\u7C4D\u7BA1\u7406");
@@ -110,7 +113,7 @@ public class ManagerPage {
 						
 					}
 				});
-				button_4.setFont(new Font("宋体", Font.BOLD, 18));
+				button_4.setFont(new Font("宋体", Font.BOLD, 20));
 				
 				image1 = new ImageIcon("images/teacher_photo.jpg");
 				JLabel lblNewLabel = new JLabel(image1);
