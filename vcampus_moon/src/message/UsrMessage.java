@@ -6,8 +6,12 @@ public class UsrMessage implements Serializable{
     private String Usr_id;
     private String Usr_pwd;
     private String Usr_name;
+    private boolean isadmin;
     private String type = "Login";
-
+    public void set_isadmin(boolean temp){
+        isadmin=temp;
+    }
+    public boolean get_isadmin(){return isadmin;}
     public void setUsr_id(String id){ this.Usr_id = id; }
     public String getUsr_id(){ return this.Usr_id; }
     public void setUsr_pwd(String pwd){ this.Usr_pwd = pwd; }

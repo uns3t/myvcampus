@@ -20,26 +20,30 @@ public class usrDAO {
     }
 
 
-    public boolean Logincheck(String id,String pwd) throws Exception {
+    public int Logincheck(String id,String pwd) throws Exception {
         System.out.println(id+" "+pwd);
         sql=con.prepareStatement("select * from Usrtbl where Usr_id="+"'"+id+"'");
         result = sql.executeQuery();
         while (result.next()) {
             String temppwd=result.getString("pwd") ;
+            boolean isadmin=result.getBoolean("isadmin");
             System.out.println(temppwd);
             if(temppwd.equals(pwd)){
+                if(isadmin)
+                    return 1;
                 System.out.println("login suss");
-                return true;
+                return 0;
             }
         }
-        return false;
+        return -1;
     }
 
     public boolean signup(String name,String pwd,String id) throws Exception{
-        sql = con.prepareStatement("insert into Usrtbl (Usr_id, pwd, Usr_name) values (?, ?, ?)");
+        sql = con.prepareStatement("insert into Usrtbl (Usr_id, pwd, Usr_name,isadmin) values (?, ?, ?,?)");
         sql.setString(1, id);
         sql.setString(2, pwd);
         sql.setString(3, name);
+        sql.setString(4, "false");
         sql.executeUpdate();
         return true;
     }

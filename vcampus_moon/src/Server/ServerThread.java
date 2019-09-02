@@ -185,9 +185,21 @@ public class ServerThread extends Thread {
     public void Login(Message message){
         UsrMessage usrMessage =(UsrMessage) message.getData();
         try {
-            if(toAccess.getusr().Logincheck(usrMessage.getUsr_id(), usrMessage.getUsr_pwd())){
+            int temp=toAccess.getusr().Logincheck(usrMessage.getUsr_id(), usrMessage.getUsr_pwd());
+            if(temp==1){
                 theUsr= usrMessage.getUsr_id();
+                usrMessage.set_isadmin(true);
+                message.setData(usrMessage);
                 message.setResponse(true);
+                sendmsg(message);
+            }else if(temp==0){
+                theUsr= usrMessage.getUsr_id();
+                usrMessage.set_isadmin(false);
+                message.setData(usrMessage);
+                message.setResponse(true);
+                sendmsg(message);
+            }else {
+                message.setResponse(false);
                 sendmsg(message);
             }
         }catch (Exception e){
