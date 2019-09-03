@@ -30,15 +30,15 @@ public class StuStudentsPage extends JFrame{
 	private boolean isAdd = false;
 
 	
-	public StuStudentsPage(/*Client client*/)/* throws IOException*/ {
-//		ClientThread cthread  = new ClientThread(client);
-//		StudentMessage list = (StudentMessage)cthread.getREMessage().getData();
-		initialize(/*cthread*/);
+	public StuStudentsPage(Client client) throws IOException {
+		ClientThread cthread  = new ClientThread(client);
+		StudentMessage list = (StudentMessage)cthread.getREMessage().getData();
+		initialize(cthread);
 	}
 
 
-	private void initialize(/*ClientThread cthread*/) {
-//		InitializeText(cthread);
+	private void initialize(ClientThread cthread) {
+		InitializeText(cthread);
 		
 		getContentPane().setBackground(new Color(224, 255, 255));
 		setBounds(100, 100, 1124, 717);
@@ -440,7 +440,7 @@ public class StuStudentsPage extends JFrame{
 		button.setBackground(SystemColor.inactiveCaptionBorder);
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				OnBeClickedConfirm(/*cthread*/);
+				OnBeClickedConfirm(cthread);
 			}
 		});
 		button.setEnabled(false);
@@ -453,6 +453,7 @@ public class StuStudentsPage extends JFrame{
 		button_1.setBackground(SystemColor.inactiveCaptionBorder);
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				OnBeClickedRenew();
 			}
 		});
 		button_1.setEnabled(false);
@@ -491,7 +492,7 @@ public class StuStudentsPage extends JFrame{
 	}
 	
 	
-	private void OnBeClickedConfirm(/*ClientThread cthread*/) {
+	private void OnBeClickedConfirm(ClientThread cthread) {
 		name = textField_10.getText();
 		sex = textField_11.getText();
 		birthday = textField_13.getText();
@@ -505,25 +506,46 @@ public class StuStudentsPage extends JFrame{
 		ins = textArea.getText();
 //		System.out.print(name+'\n'+sex+'\n'+birthday+'\n'+shengyuandi+'\n'+id+'\n'+onecardid+'\n'+college+'\n'+phone+'\n'+cardtype+'\n'+cardid+'\n'+ins+'\n');
 		
-//		if(isAdd)
-//			cthread.handleAddStudentMessage(id, name, college, onecardid, cardtype, cardid, sex, shengyuandi, phone, ins, birthday);
-//		else
-//			cthread.handleUpdateStudentMessage(id, name, college, onecardid, cardtype, cardid, sex, shengyuandi, phone, ins, birthday);
+		if(isAdd)
+			cthread.handleAddStudentMessage(id, name, college, onecardid, cardtype, cardid, sex, shengyuandi, phone, ins, birthday);
+		else
+			cthread.handleUpdateStudentMessage(id, name, college, onecardid, cardtype, cardid, sex, shengyuandi, phone, ins, birthday);
 		
-		textField_10.setEditable(false);
-		textField_11.setEditable(false);
-		textField_13.setEditable(false);
-		textField_15.setEditable(false);
-		textField_20.setEditable(false);
-		textField_21.setEditable(false);
-		textField_22.setEditable(false);
-		textField_23.setEditable(false);
-		textField_24.setEditable(false);
-		textField_25.setEditable(false);
-		textArea.setEditable(false);
-		
-		button.setEnabled(false);
-		button_1.setEnabled(false);
+		if(cthread.getREMessage().getResponse())
+		{
+			JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改成功！","提示页面", JOptionPane.INFORMATION_MESSAGE);
+			textField_10.setEditable(false);
+			textField_11.setEditable(false);
+			textField_13.setEditable(false);
+			textField_15.setEditable(false);
+			textField_20.setEditable(false);
+			textField_21.setEditable(false);
+			textField_22.setEditable(false);
+			textField_23.setEditable(false);
+			textField_24.setEditable(false);
+			textField_25.setEditable(false);
+			textArea.setEditable(false);
+			
+			button.setEnabled(false);
+			button_1.setEnabled(false);
+		}
+		else
+			JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改失败！","提示页面", JOptionPane.INFORMATION_MESSAGE);
+	}
+	
+	
+	private void OnBeClickedRenew() {
+		textField_10.setText(name);
+		textField_11.setText(sex);
+		textField_13.setText(birthday);
+		textField_21.setText(shengyuandi);
+		textField_20.setText(id);
+		textField_15.setText(onecardid);
+		textField_22.setText(college);
+		textField_23.setText(phone);
+		textField_24.setText(cardtype);
+		textField_25.setText(cardid);
+		textArea.setText(ins);
 	}
 	
 	
