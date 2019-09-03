@@ -1,11 +1,8 @@
 package login;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -15,13 +12,11 @@ import javax.swing.JLayeredPane;
 
 import client.Client;
 import client.ClientThread;
-import course.ManagerCoursePage;
 
 import javax.swing.JLabel;
 
-public class ManagerPage {
+public class ManagerPage extends JFrame{
 
-	private JFrame frame;
 	private ImageIcon image1;
 
 	public ManagerPage(Client client_manager) {
@@ -30,20 +25,19 @@ public class ManagerPage {
 
 	private void initialize(Client client_manager) {
 		ClientThread cthread = new ClientThread(client_manager);
-		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(248, 248, 255));
-		frame.setBackground(new Color(248, 248, 255));
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\大三java项目\\myvcampus\\vcampus_moon\\images\\windows.jpg"));
-		frame.setFont(new Font("宋体", Font.PLAIN, 14));
-		frame.setTitle("\u7BA1\u7406\u5458\u767B\u9646\u754C\u9762");
-		frame.setBounds(100, 100, 733, 613);
+		getContentPane().setBackground(new Color(248, 248, 255));
+		setBackground(new Color(248, 248, 255));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\大三java项目\\myvcampus\\vcampus_moon\\images\\windows.jpg"));
+		setFont(new Font("宋体", Font.PLAIN, 14));
+		setTitle("\u7BA1\u7406\u5458\u767B\u9646\u754C\u9762");
+		setBounds(100, 100, 733, 613);
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		frame.setVisible(true);
+		getContentPane().setLayout(null);
+		setVisible(true);
 		
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBounds(0, 0, 719, 576);
-		frame.getContentPane().add(layeredPane);
+		getContentPane().add(layeredPane);
 		
 				JButton button = new JButton("\u9000\u51FA\u767B\u5F55");
 				layeredPane.setLayer(button, 1);
@@ -53,7 +47,7 @@ public class ManagerPage {
 				button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {//退出登录
 						new LoginPage(client_manager);
-						frame.dispose();
+						dispose();
 					}
 				});
 				button.setFont(new Font("宋体", Font.BOLD, 18));
@@ -67,7 +61,7 @@ public class ManagerPage {
 				button_1.setBackground(new Color(240, 248, 255));
 				button_1.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {//选课系统
-						new ManagerCoursePage();
+						//new ManagerCoursePage();
 						
 					}
 				});

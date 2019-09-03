@@ -1,18 +1,12 @@
 package login;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
-import java.awt.Dialog.ModalExclusionType;
-import javax.swing.JToolBar;
-
 import client.Client;
 import client.ClientThread;
 
@@ -20,9 +14,8 @@ import java.awt.Toolkit;
 import javax.swing.JLayeredPane;
 import javax.swing.JLabel;
 
-public class StudentPage {
+public class StudentPage extends JFrame{
 
-	private JFrame frame;
 	private ImageIcon image1;
 
 	public StudentPage(Client client_stu) {
@@ -31,20 +24,19 @@ public class StudentPage {
 
 	private void initialize(Client client_stu) {
 		ClientThread cthread = new ClientThread(client_stu);
-		frame = new JFrame();
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\大三java项目\\myvcampus\\vcampus_moon\\images\\windows.jpg"));
-		frame.setForeground(new Color(224, 255, 255));
-		frame.getContentPane().setBackground(new Color(248, 248, 255));
-		frame.setBackground(new Color(248, 248, 255));
-		frame.setTitle("\u5B66\u751F\u767B\u9646\u754C\u9762");
-		frame.setBounds(100, 100, 723, 590);
+		setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\大三java项目\\myvcampus\\vcampus_moon\\images\\windows.jpg"));
+		setForeground(new Color(224, 255, 255));
+		getContentPane().setBackground(new Color(248, 248, 255));
+		setBackground(new Color(248, 248, 255));
+		setTitle("\u5B66\u751F\u767B\u9646\u754C\u9762");
+		setBounds(100, 100, 723, 590);
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
-		frame.setVisible(true);	
+		getContentPane().setLayout(null);
+		setVisible(true);	
 		
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBounds(0, 0, 709, 563);
-		frame.getContentPane().add(layeredPane);
+		getContentPane().add(layeredPane);
 		
 		JButton btnNewButton = new JButton("\u9000\u51FA\u767B\u5F55");
 		layeredPane.setLayer(btnNewButton, 1);
@@ -55,7 +47,7 @@ public class StudentPage {
 			public void actionPerformed(ActionEvent e) {
 				
 				new LoginPage(client_stu);
-				frame.dispose();
+				dispose();
 			}
 		});
 		btnNewButton.setFont(new Font("宋体", Font.BOLD, 18));
