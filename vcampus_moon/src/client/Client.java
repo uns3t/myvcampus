@@ -63,6 +63,15 @@ public class Client{
         }
     }
 
+    public boolean closeConnect(){
+        try {
+            socket.close();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
     public Socket getSocket() {
         return socket;
