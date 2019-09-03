@@ -23,9 +23,8 @@ import java.io.IOException;
 import java.awt.event.ActionEvent;
 import javax.swing.JLayeredPane;
 
-public class LoginPage {
+public class LoginPage extends JFrame{
 
-	private JFrame frame;
 	private JTextField textField;
 	private JPasswordField passwordField;
 	private ImageIcon image1;
@@ -36,14 +35,13 @@ public class LoginPage {
 
 	private void initialize(Client clientLog) {
 		ClientThread cthread = new ClientThread(clientLog);
-		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(240, 248, 255));
-		frame.setVisible(true);
-		frame.getContentPane().setLayout(null);
+		getContentPane().setBackground(new Color(240, 248, 255));
+		getContentPane().setLayout(null);
+		setVisible(true);
 		
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBounds(0, 0, 537, 397);
-		frame.getContentPane().add(layeredPane);
+		getContentPane().add(layeredPane);
 		
 		JLabel label = new JLabel("一卡通号：");
 		layeredPane.setLayer(label, 1);
@@ -152,7 +150,7 @@ public class LoginPage {
 				button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						new SignupPage(clientLog);
-						frame.dispose();
+						dispose();
 					}
 				});
 				button.setFont(new Font("宋体", Font.BOLD, 18));
@@ -187,13 +185,13 @@ public class LoginPage {
 								if(umessage.get_isadmin())
 								{
 									new ManagerPage(clientLog);
-									frame.dispose();
+									dispose();
 									
 								}
 								else
 								{
 									new StudentPage(clientLog);
-									frame.dispose();
+									dispose();
 								}
 							}
 						}
@@ -206,10 +204,10 @@ public class LoginPage {
 				label_3.setBounds(0, 0, 537, 311);
 				layeredPane.add(label_3);
 	
-		frame.setBackground(new Color(240, 248, 255));
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\大三java项目\\myvcampus\\vcampus_moon\\images\\windows.jpg"));
-		frame.setTitle("用户登陆界面");
-		frame.setBounds(100, 100, 553, 342);
+		setBackground(new Color(240, 248, 255));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\大三java项目\\myvcampus\\vcampus_moon\\images\\windows.jpg"));
+		setTitle("用户登陆界面");
+		setBounds(100, 100, 553, 342);
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}

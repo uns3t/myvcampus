@@ -22,9 +22,8 @@ import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLayeredPane;
 
-public class SignupPage {
+public class SignupPage extends JFrame{
 
-	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JPasswordField passwordField;
@@ -37,14 +36,13 @@ public class SignupPage {
 	
 	private void initialize(Client clientSign) {
 		ClientThread cthread = new ClientThread(clientSign);
-		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(240, 248, 255));
-		frame.getContentPane().setLayout(null);
-		frame.setVisible(true);
+		getContentPane().setBackground(new Color(240, 248, 255));
+		getContentPane().setLayout(null);
+		setVisible(true);
 		
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBounds(0, 0, 636, 513);
-		frame.getContentPane().add(layeredPane);
+		getContentPane().add(layeredPane);
 		
 		JLabel label = new JLabel("用户类型：");
 		layeredPane.setLayer(label, 1);
@@ -324,7 +322,7 @@ public class SignupPage {
 		layeredPane.add(button_1);
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();//关闭当前页面
+				dispose();//关闭当前页面
 				new LoginPage(clientSign);
 			}
 		});
@@ -336,10 +334,10 @@ public class SignupPage {
 		layeredPane.add(lblNewLabel);
 		
 		
-		frame.setBackground(new Color(240, 248, 255));
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\大三java项目\\myvcampus\\vcampus_moon\\images\\windows.jpg"));
-		frame.setTitle("用户注册界面");
-		frame.setBounds(100, 100, 650, 550);
+		setBackground(new Color(240, 248, 255));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\大三java项目\\myvcampus\\vcampus_moon\\images\\windows.jpg"));
+		setTitle("用户注册界面");
+		setBounds(100, 100, 650, 550);
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
