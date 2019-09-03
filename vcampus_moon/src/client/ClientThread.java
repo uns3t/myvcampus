@@ -101,6 +101,21 @@ public class ClientThread extends Thread {
         }
     }
 
+    public boolean handleLogOutMessage(){
+        UsrMessage loginMessage = new UsrMessage();
+        loginMessage.setType("LogOut");
+        Message message = new Message(loginMessage.getType(),loginMessage);
+        if (sendMessage(message)){
+            System.out.println("发送成功");
+            isWaiting = true;
+            return true;
+        }
+        else {
+            System.out.println("发送失败");
+            return false;
+        }
+    }
+
     public boolean handleSignUpMessage(String S_id, String S_pwd, String S_name){
         UsrMessage signupMessage = new UsrMessage();
         signupMessage.setUsr_id(S_id);
@@ -118,6 +133,25 @@ public class ClientThread extends Thread {
             return false;
         }
     }
+
+    public boolean handleUpdateUsrMessage(String S_id, String S_pwd, String S_name){
+        UsrMessage signupMessage = new UsrMessage();
+        signupMessage.setUsr_id(S_id);
+        signupMessage.setUsr_pwd(S_pwd);
+        signupMessage.setType("UsrUpdate");
+        signupMessage.setUsr_name(S_name);
+        Message message = new Message(signupMessage.getType(),signupMessage);
+        if (sendMessage(message)){
+            System.out.println("发送成功");
+            isWaiting = true;
+            return true;
+        }
+        else {
+            System.out.println("发送失败");
+            return false;
+        }
+    }
+
 
     public boolean handleUsrDeleteMessage(String delete_id){
         UsrMessage usrMessage = new UsrMessage();
@@ -184,6 +218,36 @@ public class ClientThread extends Thread {
         }
     }
 
+    public boolean handleUpdateStudentMessage(String S_id,String S_name,String S_college,String S_onecardid,
+                                           String S_card_type, String S_card_id,String S_sex, String S_shengyuandi,
+                                           String S_phone, String S_content,String S_birthday){
+        Studentinfo studentinfo = new Studentinfo();
+        studentinfo.setStudent_id(S_id);
+        studentinfo.setStudent_name(S_name);
+        studentinfo.setStudent_birthday(S_birthday);
+        studentinfo.setStudent_card_id(S_card_id);
+        studentinfo.setStudent_card_type(S_card_type);
+        studentinfo.setStudent_onecardid(S_onecardid);
+        studentinfo.setStudent_sex(S_sex);
+        studentinfo.setStudent_phone(S_phone);
+        studentinfo.setStudent_shengyuandi(S_shengyuandi);
+        studentinfo.setStudent_college(S_college);
+        studentinfo.setStudent_ins(S_content);
+        StudentMessage studentMessage= new StudentMessage();
+        studentMessage.addStudentInfo(studentinfo);
+        studentMessage.setType("UpdateStudent");
+        Message message = new Message(studentMessage.getType(),studentMessage);
+        if (sendMessage(message)){
+            System.out.println("发送成功");
+            isWaiting = true;
+            return true;
+        }
+        else {
+            System.out.println("发送失败");
+            return false;
+        }
+    }
+
     public boolean handleDeleteStudentMessage(String S_id){
         Studentinfo studentinfo = new Studentinfo();
         studentinfo.setStudent_id(S_id);
@@ -215,6 +279,29 @@ public class ClientThread extends Thread {
         bookInfo.setBook_introduction(introduction);
         BookMessage bookMessage = new BookMessage();
         bookMessage.setType("AddBook");
+        bookMessage.addBookInfo(bookInfo);
+        Message message = new Message(bookMessage.getType(),bookMessage);
+        if (sendMessage(message)){
+            System.out.println("发送成功");
+            isWaiting = true;
+            return true;
+        }
+        else {
+            System.out.println("发送失败");
+            return false;
+        }
+    }
+
+    public boolean handleUpdateBookMessage(String id,String name,String author,int total,int borrowed,String introduction){
+        BookInfo bookInfo = new BookInfo();
+        bookInfo.setBook_id(id);
+        bookInfo.setBook_author(author);
+        bookInfo.setBook_name(name);
+        bookInfo.setBook_total(total);
+        bookInfo.setBook_borrowed(borrowed);
+        bookInfo.setBook_introduction(introduction);
+        BookMessage bookMessage = new BookMessage();
+        bookMessage.setType("UpdateBook");
         bookMessage.addBookInfo(bookInfo);
         Message message = new Message(bookMessage.getType(),bookMessage);
         if (sendMessage(message)){
@@ -337,6 +424,28 @@ public class ClientThread extends Thread {
         }
     }
 
+    public boolean handleUpdateGood(String name,String id,int price,int quantity,int sales){
+        GoodsInfo goodsInfo = new GoodsInfo();
+        goodsInfo.setGoods_name(name);
+        goodsInfo.setGoods_id(id);
+        goodsInfo.setGoods_price(price);
+        goodsInfo.setGoods_quantity(quantity);
+        goodsInfo.setGoods_sales(sales);
+        ShopMessage shopMessage = new ShopMessage();
+        shopMessage.setType("UpdateGood");
+        shopMessage.addGoodsInfo(goodsInfo);
+        Message message = new Message(shopMessage.getType(),shopMessage);
+        if (sendMessage(message)){
+            System.out.println("发送成功");
+            isWaiting = true;
+            return true;
+        }
+        else {
+            System.out.println("发送失败");
+            return false;
+        }
+    }
+
     public boolean handleDeleteGoodMessage(String id){
         GoodsInfo goodsInfo = new GoodsInfo();
         ShopMessage shopMessage = new ShopMessage();
@@ -357,7 +466,7 @@ public class ClientThread extends Thread {
     //--------------------------------------------选课---------------------------------------------------
 
 
-    public boolean handleCourseSelectMessage(String user_id,String course_id){
+    public boolean handleCourseSelectMessage(String course_id){
         CourseInfo courseInfo = new CourseInfo();
         courseInfo.setCourse_id(course_id);
         CourseMessage courseSelectMessage = new CourseMessage();
@@ -391,6 +500,27 @@ public class ClientThread extends Thread {
     }
 
     public boolean handleAddCourseMessage(String id,String name,String teacher,String time){
+        CourseInfo courseInfo = new CourseInfo();
+        courseInfo.setCourse_id(id);
+        courseInfo.setCourse_name(name);
+        courseInfo.setCourse_teacher(teacher);
+        courseInfo.setCourse_time(time);
+        CourseMessage courseMessage = new CourseMessage();
+        courseMessage.setType("UpdateCourse");
+        courseMessage.addCourseInfo(courseInfo);
+        Message message = new Message(courseMessage.getType(),courseMessage);
+        if (sendMessage(message)){
+            System.out.println("发送成功");
+            isWaiting = true;
+            return true;
+        }
+        else {
+            System.out.println("发送失败");
+            return false;
+        }
+    }
+
+    public boolean handleUpdateCourseMessage(String id,String name,String teacher,String time){
         CourseInfo courseInfo = new CourseInfo();
         courseInfo.setCourse_id(id);
         courseInfo.setCourse_name(name);
@@ -433,8 +563,8 @@ public class ClientThread extends Thread {
 //例如调用handleShowBookMessage()
 //调用getREMessage()
 //即Message message = getREMessage();
-//将获得的message解释为你需要的比如Message message = (ShopMessage)getREMessage();
+//将获得的message解释为你需要的比如ShopMessage message = (ShopMessage)message.getData();
 //通过ShopMessage的getGoodsList()函数得到你需要的list
-//再比如调用handleBuyMessage(... , ...);
-//之后又需调用getREMessage()并进行解释比如Message message = (ShopMessage)getREMessage();
+//再比如调用handleBuyMessage(… , …);
+//之后又需调用getREMessage()比如Message message = (Message)getREMessage();
 //然后通过message.getResponse()来获得购买是否成功的返回结果

@@ -26,6 +26,18 @@ public class courseDAO {
         return true;
     }
 
+    public boolean updatecourse(String course_name,String course_id,String course_teacher,String course_time) throws Exception{
+        sql = con.prepareStatement("update Coursetbl set Course_name=?, Course_id=?, Course_teacher=?,Course_time=? where Course_id=?");
+
+        sql.setString(1, course_name);
+        sql.setString(2, course_id);
+        sql.setString(3, course_teacher);
+        sql.setString(4, course_time);
+        sql.setString(5, course_id);
+        sql.executeUpdate();
+        return true;
+    }
+
     public void deletecourse(String course_id) throws Exception {
         System.out.println("删除"+course_id);
         sql=con.prepareStatement("DELETE FROM Coursetbl WHERE Course_id"+"="+"'"+course_id+"'");

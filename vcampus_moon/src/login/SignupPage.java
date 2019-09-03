@@ -1,62 +1,54 @@
 package login;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import java.awt.Toolkit;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
-import javax.swing.WindowConstants;
-
 import client.Client;
 import client.ClientThread;
+import message.Message;
 
 import java.awt.Font;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-import javax.swing.JTextArea;
 import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.IOException;
-import java.util.Arrays;
 import java.awt.event.ActionEvent;
 import javax.swing.JLayeredPane;
 
-public class SignupPage {
+public class SignupPage extends JFrame{
 
-	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
 	private JPasswordField passwordField;
 	private JPasswordField passwordField_1;
 	private ImageIcon image1;
 
-	public SignupPage(/*Client clientSign*/) /*throws IOException*/ {
-		//ClientThread cthread = new ClientThread(clientSign);
-		initialize(/*cthread*/);
+	public SignupPage(Client clientSign) {
+		initialize(clientSign);
 	}
 	
-	private void initialize(/*ClientThread cthread*/) {
-		frame = new JFrame();
-		frame.getContentPane().setBackground(new Color(240, 248, 255));
-		frame.getContentPane().setLayout(null);
-		frame.setVisible(true);
+	private void initialize(Client clientSign) {
+		ClientThread cthread = new ClientThread(clientSign);
+		getContentPane().setBackground(new Color(240, 248, 255));
+		getContentPane().setLayout(null);
+		setVisible(true);
 		
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBounds(0, 0, 636, 513);
-		frame.getContentPane().add(layeredPane);
+		getContentPane().add(layeredPane);
 		
 		JLabel label = new JLabel("用户类型：");
 		layeredPane.setLayer(label, 1);
 		label.setBounds(128, 10, 100, 54);
 		layeredPane.add(label);
-		label.setFont(new Font("宋体", Font.BOLD, 14));
+		label.setFont(new Font("宋体", Font.BOLD, 18));
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
 		
 		JRadioButton radioButton = new JRadioButton("学生");
@@ -65,7 +57,7 @@ public class SignupPage {
 		radioButton.setBounds(278, 12, 127, 51);
 		layeredPane.add(radioButton);
 		radioButton.setBackground(new Color(240, 248, 255));
-		radioButton.setFont(new Font("宋体", Font.BOLD, 14));
+		radioButton.setFont(new Font("宋体", Font.BOLD, 18));
 		radioButton.setHorizontalAlignment(SwingConstants.CENTER);
 		radioButton.setSelected(true);
 		radioButton.setEnabled(false);
@@ -75,14 +67,14 @@ public class SignupPage {
 		label_1.setBounds(138, 75, 90, 33);
 		layeredPane.add(label_1);
 		label_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_1.setFont(new Font("宋体", Font.BOLD, 14));
+		label_1.setFont(new Font("宋体", Font.BOLD, 18));
 		
 		textField = new JTextField();
 		textField.setOpaque(false);
 		layeredPane.setLayer(textField, 1);
 		textField.setBounds(278, 69, 224, 45);
 		layeredPane.add(textField);
-		textField.setFont(new Font("宋体", Font.BOLD, 14));
+		textField.setFont(new Font("宋体", Font.BOLD, 18));
 		textField.setText("请输入用户名");
 		textField.setColumns(10);
 		textField.addMouseListener(new MouseListener() {
@@ -126,7 +118,7 @@ public class SignupPage {
 		label_2.setBounds(128, 141, 99, 45);
 		layeredPane.add(label_2);
 		label_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_2.setFont(new Font("宋体", Font.BOLD, 14));
+		label_2.setFont(new Font("宋体", Font.BOLD, 18));
 		
 		textField_1 = new JTextField();
 		textField_1.setOpaque(false);
@@ -134,7 +126,7 @@ public class SignupPage {
 		textField_1.setBounds(278, 141, 224, 45);
 		layeredPane.add(textField_1);
 		textField_1.setToolTipText("");
-		textField_1.setFont(new Font("宋体", Font.BOLD, 14));
+		textField_1.setFont(new Font("宋体", Font.BOLD, 18));
 		textField_1.setText("请输入一卡通号");
 		textField_1.setColumns(10);
 		textField_1.addMouseListener(new MouseListener() {
@@ -177,14 +169,14 @@ public class SignupPage {
 		label_3.setBounds(128, 213, 100, 39);
 		layeredPane.add(label_3);
 		label_3.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_3.setFont(new Font("宋体", Font.BOLD, 14));
+		label_3.setFont(new Font("宋体", Font.BOLD, 18));
 		
 		passwordField_1 = new JPasswordField();
 		passwordField_1.setOpaque(false);
 		layeredPane.setLayer(passwordField_1, 1);
 		passwordField_1.setBounds(278, 210, 224, 45);
 		layeredPane.add(passwordField_1);
-		passwordField_1.setFont(new Font("宋体", Font.BOLD, 12));
+		passwordField_1.setFont(new Font("宋体", Font.BOLD, 18));
 		passwordField_1.setText("请输入密码");
 		passwordField_1.addMouseListener(new MouseListener() {
 
@@ -229,14 +221,14 @@ public class SignupPage {
 		label_4.setBounds(128, 285, 100, 45);
 		layeredPane.add(label_4);
 		label_4.setHorizontalAlignment(SwingConstants.RIGHT);
-		label_4.setFont(new Font("宋体", Font.BOLD, 14));
+		label_4.setFont(new Font("宋体", Font.BOLD, 18));
 		
 		passwordField = new JPasswordField();
 		passwordField.setOpaque(false);
 		layeredPane.setLayer(passwordField, 1);
 		passwordField.setBounds(278, 285, 224, 45);
 		layeredPane.add(passwordField);
-		passwordField.setFont(new Font("宋体", Font.BOLD, 12));
+		passwordField.setFont(new Font("宋体", Font.BOLD, 18));
 		passwordField.setText("请确认密码");
 		passwordField.addMouseListener(new MouseListener() {
 
@@ -280,7 +272,7 @@ public class SignupPage {
 		button.setBackground(new Color(50, 205, 50));
 		button.setOpaque(false);
 		layeredPane.setLayer(button, 1);
-		button.setBounds(191, 358, 100, 51);
+		button.setBounds(175, 358, 120, 51);
 		layeredPane.add(button);
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -308,27 +300,33 @@ public class SignupPage {
 					if(str1.equals(str2) == false)
 						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "密码不一致，注册失败！","注册提示页面", JOptionPane.INFORMATION_MESSAGE);
 					else
-						//cthread.handleSignUpMessage(S_id, S_pwd, S_name);
-						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "注册成功！","注册提示页面", JOptionPane.INFORMATION_MESSAGE);
+					{
+						cthread.handleSignUpMessage(S_id, S_pwd, S_name);
+						Message simessage = cthread.getREMessage();
+						if(simessage.getResponse() == false)
+							JOptionPane.showMessageDialog(new JFrame().getContentPane(), "注册失败！","注册提示页面", JOptionPane.INFORMATION_MESSAGE);
+						else
+							JOptionPane.showMessageDialog(new JFrame().getContentPane(), "注册成功！","注册提示页面", JOptionPane.INFORMATION_MESSAGE);
+					}
 				}
-				
 			}
 		});
-		button.setFont(new Font("宋体", Font.BOLD, 14));
+		button.setFont(new Font("宋体", Font.BOLD, 18));
 		
 		
 		JButton button_1 = new JButton("返回登陆");
 		button_1.setBackground(new Color(50, 205, 50));
 		button_1.setOpaque(false);
 		layeredPane.setLayer(button_1, 1);
-		button_1.setBounds(337, 358, 100, 51);
+		button_1.setBounds(337, 358, 120, 51);
 		layeredPane.add(button_1);
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();//关闭当前页面
+				dispose();//关闭当前页面
+				new LoginPage(clientSign);
 			}
 		});
-		button_1.setFont(new Font("宋体", Font.BOLD, 14));
+		button_1.setFont(new Font("宋体", Font.BOLD, 18));
 		
 		image1 = new ImageIcon("images/login_photo1.jpg");
 		JLabel lblNewLabel = new JLabel(image1);
@@ -336,10 +334,10 @@ public class SignupPage {
 		layeredPane.add(lblNewLabel);
 		
 		
-		frame.setBackground(new Color(240, 248, 255));
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\大三java项目\\myvcampus\\vcampus_moon\\images\\windows.jpg"));
-		frame.setTitle("用户注册界面");
-		frame.setBounds(100, 100, 650, 550);
+		setBackground(new Color(240, 248, 255));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\大三java项目\\myvcampus\\vcampus_moon\\images\\windows.jpg"));
+		setTitle("用户注册界面");
+		setBounds(100, 100, 650, 550);
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
