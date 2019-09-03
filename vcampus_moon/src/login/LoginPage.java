@@ -152,7 +152,7 @@ public class LoginPage {
 				button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						new SignupPage(clientLog);
-						
+						frame.dispose();
 					}
 				});
 				button.setFont(new Font("宋体", Font.BOLD, 18));
@@ -188,6 +188,7 @@ public class LoginPage {
 								{
 									new ManagerPage(clientLog);
 									frame.dispose();
+									
 								}
 								else
 								{
@@ -202,7 +203,7 @@ public class LoginPage {
 				
 				image1 = new ImageIcon("images/login_photo1.jpg");
 				JLabel label_3 = new JLabel(image1);
-				label_3.setBounds(0, 0, 537, 397);
+				label_3.setBounds(0, 0, 537, 311);
 				layeredPane.add(label_3);
 	
 		frame.setBackground(new Color(240, 248, 255));

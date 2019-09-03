@@ -325,6 +325,7 @@ public class SignupPage {
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();//关闭当前页面
+				new LoginPage(clientSign);
 			}
 		});
 		button_1.setFont(new Font("宋体", Font.BOLD, 18));
