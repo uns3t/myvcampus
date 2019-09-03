@@ -1,26 +1,21 @@
 package login;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import java.awt.Toolkit;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import client.Client;
-import client.ClientThread;
+import client.*;
+import message.*;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
 import javax.swing.JPasswordField;
-import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JRadioButton;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -34,14 +29,13 @@ public class LoginPage {
 	private JTextField textField;
 	private JPasswordField passwordField;
 	private ImageIcon image1;
-	private ButtonGroup bg;
 
-	public LoginPage(/*Client clientLog*/) /*throws IOException*/ {
-		//ClientThread cthread = new ClientThread(clientLog);
-		initialize(/*cthread*/);
+	public LoginPage(Client clientLog){
+		initialize(clientLog);
 	}
 
-	private void initialize(/*ClientThread cthread*/) {
+	private void initialize(Client clientLog) {
+		ClientThread cthread = new ClientThread(clientLog);
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(240, 248, 255));
 		frame.setVisible(true);
@@ -147,69 +141,28 @@ public class LoginPage {
 					}
 				}
 				);
-				
-				bg=new ButtonGroup();
-				JRadioButton radioButton = new JRadioButton("教师");
-				radioButton.setOpaque(false);
-				layeredPane.setLayer(radioButton, 1);
-				radioButton.setBounds(148, 190, 87, 58);
-				layeredPane.add(radioButton);
-				radioButton.setBackground(new Color(240, 248, 255));
-				radioButton.setHorizontalAlignment(SwingConstants.CENTER);
-				radioButton.setFont(new Font("宋体", Font.BOLD, 18));
-				bg.add(radioButton);
-				
-				JRadioButton radioButton_1 = new JRadioButton("学生");
-				radioButton_1.setOpaque(false);
-				layeredPane.setLayer(radioButton_1, 1);
-				radioButton_1.setBounds(259, 190, 85, 58);
-				layeredPane.add(radioButton_1);
-				radioButton_1.setBackground(new Color(240, 248, 255));
-				radioButton_1.setFont(new Font("宋体", Font.BOLD, 18));
-				radioButton_1.setHorizontalAlignment(SwingConstants.CENTER);
-				bg.add(radioButton_1);
-				
-				JRadioButton radioButton_2 = new JRadioButton("系统管理员");
-				radioButton_2.setOpaque(false);
-				layeredPane.setLayer(radioButton_2, 1);
-				radioButton_2.setBounds(365, 187, 121, 58);
-				layeredPane.add(radioButton_2);
-				radioButton_2.setBackground(new Color(240, 248, 255));
-				radioButton_2.setHorizontalAlignment(SwingConstants.CENTER);
-				radioButton_2.setFont(new Font("宋体", Font.BOLD, 18));
-				bg.add(radioButton_2);
-				
-				JLabel label_2 = new JLabel("用户类型：");
-				layeredPane.setLayer(label_2, 1);
-				label_2.setBounds(27, 189, 107, 58);
-				layeredPane.add(label_2);
-				label_2.setHorizontalAlignment(SwingConstants.CENTER);
-				label_2.setFont(new Font("宋体", Font.BOLD, 18));
+
 				
 				JButton button = new JButton("注册");
 				button.setBackground(new Color(50, 205, 50));
 				button.setOpaque(false);
 				layeredPane.setLayer(button, 1);
-				button.setBounds(130, 287, 85, 38);
+				button.setBounds(122, 203, 85, 38);
 				layeredPane.add(button);
 				button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						new SignupPage(clientLog);
 						
-						String id = textField.getText();
-						String pwd = String.copyValueOf(passwordField.getPassword());
-						//cthread.handleLoginMessage(id,pwd);
-						
-					//	Client c1 = new Client("用户",100);
-						new SignupPage(/*c1*/);
 					}
 				});
 				button.setFont(new Font("宋体", Font.BOLD, 18));
+				
 				
 				JButton button_1 = new JButton("登陆");
 				button_1.setBackground(new Color(50, 205, 50));
 				button_1.setOpaque(false);
 				layeredPane.setLayer(button_1, 1);
-				button_1.setBounds(303, 287, 87, 38);
+				button_1.setBounds(291, 203, 87, 38);
 				layeredPane.add(button_1);
 				button_1.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -224,20 +177,23 @@ public class LoginPage {
 							JOptionPane.showMessageDialog(new JFrame().getContentPane(), "密码不能为空","登陆提示页面", JOptionPane.INFORMATION_MESSAGE);
 						else//输入内容不为空
 						{
-							if(radioButton.isSelected() == true)
+							cthread.handleLoginMessage(str1, str2);
+							Message remessage = cthread.getREMessage();	
+							if(remessage.getResponse() == false)
+								JOptionPane.showMessageDialog(new JFrame().getContentPane(), "登录不成功!","登陆提示页面", JOptionPane.INFORMATION_MESSAGE);
+							else
 							{
-								new TeacherPage();
-								frame.dispose();
-							}
-							else if(radioButton_1.isSelected() == true)
-							{
-								new StudentPage();
-								frame.dispose();
-							}
-							else if(radioButton_2.isSelected() == true)
-							{
-								new ManagerPage();
-								frame.dispose();
+								UsrMessage umessage = (UsrMessage)remessage.getData();
+								if(umessage.get_isadmin())
+								{
+									new ManagerPage(clientLog);
+									frame.dispose();
+								}
+								else
+								{
+									new StudentPage(clientLog);
+									frame.dispose();
+								}
 							}
 						}
 					}
@@ -252,7 +208,7 @@ public class LoginPage {
 		frame.setBackground(new Color(240, 248, 255));
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\大三java项目\\myvcampus\\vcampus_moon\\images\\windows.jpg"));
 		frame.setTitle("用户登陆界面");
-		frame.setBounds(100, 100, 551, 434);
+		frame.setBounds(100, 100, 553, 342);
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}

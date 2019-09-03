@@ -1,30 +1,24 @@
 package login;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import java.awt.Toolkit;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
-import javax.swing.WindowConstants;
-
 import client.Client;
 import client.ClientThread;
+import message.Message;
 
 import java.awt.Font;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
-import javax.swing.JTextArea;
 import javax.swing.JPasswordField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.IOException;
-import java.util.Arrays;
 import java.awt.event.ActionEvent;
 import javax.swing.JLayeredPane;
 
@@ -37,12 +31,12 @@ public class SignupPage {
 	private JPasswordField passwordField_1;
 	private ImageIcon image1;
 
-	public SignupPage(/*Client clientSign*/) /*throws IOException*/ {
-		//ClientThread cthread = new ClientThread(clientSign);
-		initialize(/*cthread*/);
+	public SignupPage(Client clientSign) {
+		initialize(clientSign);
 	}
 	
-	private void initialize(/*ClientThread cthread*/) {
+	private void initialize(Client clientSign) {
+		ClientThread cthread = new ClientThread(clientSign);
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(240, 248, 255));
 		frame.getContentPane().setLayout(null);
@@ -308,10 +302,15 @@ public class SignupPage {
 					if(str1.equals(str2) == false)
 						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "密码不一致，注册失败！","注册提示页面", JOptionPane.INFORMATION_MESSAGE);
 					else
-						//cthread.handleSignUpMessage(S_id, S_pwd, S_name);
-						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "注册成功！","注册提示页面", JOptionPane.INFORMATION_MESSAGE);
+					{
+						cthread.handleSignUpMessage(S_id, S_pwd, S_name);
+						Message simessage = cthread.getREMessage();
+						if(simessage.getResponse() == false)
+							JOptionPane.showMessageDialog(new JFrame().getContentPane(), "注册失败！","注册提示页面", JOptionPane.INFORMATION_MESSAGE);
+						else
+							JOptionPane.showMessageDialog(new JFrame().getContentPane(), "注册成功！","注册提示页面", JOptionPane.INFORMATION_MESSAGE);
+					}
 				}
-				
 			}
 		});
 		button.setFont(new Font("宋体", Font.BOLD, 18));

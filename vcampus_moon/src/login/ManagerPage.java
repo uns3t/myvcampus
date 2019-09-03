@@ -13,6 +13,8 @@ import java.awt.Toolkit;
 import java.awt.Color;
 import javax.swing.JLayeredPane;
 
+import client.Client;
+import client.ClientThread;
 import course.ManagerCoursePage;
 
 import javax.swing.JLabel;
@@ -22,11 +24,12 @@ public class ManagerPage {
 	private JFrame frame;
 	private ImageIcon image1;
 
-	public ManagerPage() {
-		initialize();
+	public ManagerPage(Client client_manager) {
+		initialize(client_manager);
 	}
 
-	private void initialize() {
+	private void initialize(Client client_manager) {
+		ClientThread cthread = new ClientThread(client_manager);
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(248, 248, 255));
 		frame.setBackground(new Color(248, 248, 255));
@@ -49,7 +52,7 @@ public class ManagerPage {
 				button.setBackground(new Color(216, 191, 216));
 				button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {//退出登录
-						new LoginPage();
+						new LoginPage(client_manager);
 						frame.dispose();
 					}
 				});

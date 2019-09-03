@@ -13,6 +13,8 @@ import java.awt.Color;
 import java.awt.Dialog.ModalExclusionType;
 import javax.swing.JToolBar;
 
+import client.Client;
+import client.ClientThread;
 
 import java.awt.Toolkit;
 import javax.swing.JLayeredPane;
@@ -23,11 +25,12 @@ public class StudentPage {
 	private JFrame frame;
 	private ImageIcon image1;
 
-	public StudentPage() {
-		initialize();
+	public StudentPage(Client client_stu) {
+		initialize(client_stu);
 	}
 
-	private void initialize() {
+	private void initialize(Client client_stu) {
+		ClientThread cthread = new ClientThread(client_stu);
 		frame = new JFrame();
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\大三java项目\\myvcampus\\vcampus_moon\\images\\windows.jpg"));
 		frame.setForeground(new Color(224, 255, 255));
@@ -50,7 +53,8 @@ public class StudentPage {
 		btnNewButton.setBackground(new Color(216, 191, 216));
 		btnNewButton.addActionListener(new ActionListener() {//退出登录
 			public void actionPerformed(ActionEvent e) {
-				new LoginPage();
+				
+				new LoginPage(client_stu);
 				frame.dispose();
 			}
 		});
