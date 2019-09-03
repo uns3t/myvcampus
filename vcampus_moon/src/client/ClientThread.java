@@ -101,6 +101,21 @@ public class ClientThread extends Thread {
         }
     }
 
+    public boolean handleLogOutMessage(){
+        UsrMessage loginMessage = new UsrMessage();
+        loginMessage.setType("LogOut");
+        Message message = new Message(loginMessage.getType(),loginMessage);
+        if (sendMessage(message)){
+            System.out.println("发送成功");
+            isWaiting = true;
+            return true;
+        }
+        else {
+            System.out.println("发送失败");
+            return false;
+        }
+    }
+
     public boolean handleSignUpMessage(String S_id, String S_pwd, String S_name){
         UsrMessage signupMessage = new UsrMessage();
         signupMessage.setUsr_id(S_id);
