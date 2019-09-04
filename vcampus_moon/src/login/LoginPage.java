@@ -29,12 +29,11 @@ public class LoginPage extends JFrame{
 	private JPasswordField passwordField;
 	private ImageIcon image1;
 
-	public LoginPage(Client clientLog){
-		initialize(clientLog);
+	public LoginPage(ClientThread cthread){
+		initialize(cthread);
 	}
 
-	private void initialize(Client clientLog) {
-		ClientThread cthread = new ClientThread(clientLog);
+	private void initialize(ClientThread cthread) {
 		getContentPane().setBackground(new Color(240, 248, 255));
 		getContentPane().setLayout(null);
 		setVisible(true);
@@ -149,7 +148,7 @@ public class LoginPage extends JFrame{
 				layeredPane.add(button);
 				button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						new SignupPage(clientLog);
+						new SignupPage(cthread);
 						dispose();
 					}
 				});
@@ -184,13 +183,13 @@ public class LoginPage extends JFrame{
 								UsrMessage umessage = (UsrMessage)remessage.getData();
 								if(umessage.get_isadmin())
 								{
-									new ManagerPage(clientLog);
+									new ManagerPage(cthread);
 									dispose();
 									
 								}
 								else
 								{
-									new StudentPage(clientLog);
+									new StudentPage(cthread);
 									dispose();
 								}
 							}
@@ -205,7 +204,7 @@ public class LoginPage extends JFrame{
 				layeredPane.add(label_3);
 	
 		setBackground(new Color(240, 248, 255));
-		setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\大三java项目\\myvcampus\\vcampus_moon\\images\\windows.jpg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("images/windows.jpg"));
 		setTitle("用户登陆界面");
 		setBounds(100, 100, 553, 342);
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -30,12 +30,11 @@ public class SignupPage extends JFrame{
 	private JPasswordField passwordField_1;
 	private ImageIcon image1;
 
-	public SignupPage(Client clientSign) {
-		initialize(clientSign);
+	public SignupPage(ClientThread cthread) {
+		initialize(cthread);
 	}
 	
-	private void initialize(Client clientSign) {
-		ClientThread cthread = new ClientThread(clientSign);
+	private void initialize(ClientThread cthread) {
 		getContentPane().setBackground(new Color(240, 248, 255));
 		getContentPane().setLayout(null);
 		setVisible(true);
@@ -323,7 +322,7 @@ public class SignupPage extends JFrame{
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();//关闭当前页面
-				new LoginPage(clientSign);
+				new LoginPage(cthread);
 			}
 		});
 		button_1.setFont(new Font("宋体", Font.BOLD, 18));
@@ -335,7 +334,7 @@ public class SignupPage extends JFrame{
 		
 		
 		setBackground(new Color(240, 248, 255));
-		setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\大三java项目\\myvcampus\\vcampus_moon\\images\\windows.jpg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("images/windows.jpg"));
 		setTitle("用户注册界面");
 		setBounds(100, 100, 650, 550);
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

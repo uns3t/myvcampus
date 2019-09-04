@@ -30,9 +30,7 @@ public class StuStudentsPage extends JFrame{
 	private boolean isAdd = false;
 
 	
-	public StuStudentsPage(Client client) throws IOException {
-		ClientThread cthread  = new ClientThread(client);
-		StudentMessage list = (StudentMessage)cthread.getREMessage().getData();
+	public StuStudentsPage(ClientThread cthread) throws IOException {
 		initialize(cthread);
 	}
 

@@ -19,15 +19,14 @@ public class ManagerPage extends JFrame{
 
 	private ImageIcon image1;
 
-	public ManagerPage(Client client_manager) {
-		initialize(client_manager);
+	public ManagerPage(ClientThread cthread) {
+		initialize(cthread);
 	}
 
-	private void initialize(Client client_manager) {
-		ClientThread cthread = new ClientThread(client_manager);
+	private void initialize(ClientThread cthread) {
 		getContentPane().setBackground(new Color(248, 248, 255));
 		setBackground(new Color(248, 248, 255));
-		setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\大三java项目\\myvcampus\\vcampus_moon\\images\\windows.jpg"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("images/windows.jpg"));
 		setFont(new Font("宋体", Font.PLAIN, 14));
 		setTitle("\u7BA1\u7406\u5458\u767B\u9646\u754C\u9762");
 		setBounds(100, 100, 733, 613);
@@ -46,7 +45,7 @@ public class ManagerPage extends JFrame{
 				button.setBackground(new Color(216, 191, 216));
 				button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {//退出登录
-						new LoginPage(client_manager);
+						new LoginPage(cthread);
 						dispose();
 					}
 				});

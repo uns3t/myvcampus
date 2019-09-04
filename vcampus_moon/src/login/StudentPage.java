@@ -7,7 +7,6 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
-import client.Client;
 import client.ClientThread;
 
 import java.awt.Toolkit;
@@ -18,13 +17,12 @@ public class StudentPage extends JFrame{
 
 	private ImageIcon image1;
 
-	public StudentPage(Client client_stu) {
-		initialize(client_stu);
+	public StudentPage(ClientThread cthread) {
+		initialize(cthread);
 	}
 
-	private void initialize(Client client_stu) {
-		ClientThread cthread = new ClientThread(client_stu);
-		setIconImage(Toolkit.getDefaultToolkit().getImage("E:\\大三java项目\\myvcampus\\vcampus_moon\\images\\windows.jpg"));
+	private void initialize(ClientThread cthread) {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("images/windows.jpg"));
 		setForeground(new Color(224, 255, 255));
 		getContentPane().setBackground(new Color(248, 248, 255));
 		setBackground(new Color(248, 248, 255));
@@ -46,7 +44,7 @@ public class StudentPage extends JFrame{
 		btnNewButton.addActionListener(new ActionListener() {//退出登录
 			public void actionPerformed(ActionEvent e) {
 				
-				new LoginPage(client_stu);
+				new LoginPage(cthread);
 				dispose();
 			}
 		});
