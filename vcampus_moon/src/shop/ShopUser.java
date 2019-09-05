@@ -1,6 +1,13 @@
 package shop;
 
-import java.awt.*;
+import client.Client;
+import client.ClientThread;
+import message.GoodsInfo;
+import message.ShopMessage;
+import message.StudentMessage;
+import message.Studentinfo;
+
+import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -8,10 +15,16 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
+import javax.swing.JLayeredPane;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.io.IOException;
+import java.util.ArrayList;
 
-public class ShopUser {
+public class ShopUser extends JFrame{
 
-    private JFrame frame;
+
     private JTextField textField;
     private JTextField textField_1;
     private JTextField textField_2;
@@ -21,80 +34,191 @@ public class ShopUser {
     private JTextField textField_6;
     private JTextField textField_7;
     private JTextField textField_8;
+    private JTextField textField_9;
+    private JButton btnNewButton_1;
+    private String name, id;
+    private int price,quantity,sales;
 
-    /**
-     * Launch the application.
-     */
-    public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    ShopUser window = new ShopUser();
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+
+   public ShopUser() {
+
+        //ClientThread cthread  = new ClientThread(client);
+       // ShopMessage list = (ShopMessage)cthread.getREMessage().getData();
+        initialize(/*ClientThread cthread*/);
     }
 
-    /**
-     * Create the application.
-     */
-    public ShopUser() {
-        initialize();
-    }
 
     /**
      * Initialize the contents of the frame.
      */
-    private void initialize() {
+    private void initialize(/*ClientThread cthread*/) {
+        //cthread.handleShowGoodsMessage();
+        //ShopMessage message = (ShopMessage)cthread.getREMessage().getData();
+        //ArrayList<GoodsInfo> GoodsInfo = message.getGoodsInfo();
 
-        frame = new JFrame();
-        frame.setBackground(SystemColor.activeCaption);
-        frame.getContentPane().setBackground(SystemColor.control);
-        frame.setTitle("\u5546\u54C1\u652F\u4ED8\u754C\u9762");
-        frame.setBounds(100, 100, 429, 294);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.getContentPane().setLayout(null);
-        frame.setVisible(true);
+        //GoodsInfo ginfo= GoodsInfo.get(0);
+        //name = ginfo.getGoods_name();
+        //id = ginfo.getGoods_id();
+       // price = ginfo.getGoods_price();
+       // quantity = ginfo.getGoods_quantity();
+        //sales = ginfo.getGoods_sales();
+
+        //name = textField_1.getText();
+        //id = textField_5.getText();
+       // price = Integer.parseInt(textField_2.getText());
+        //quantity = Integer.parseInt(textField_6.getText());
+        //sales = Integer.parseInt(textField_4.getText());
 
 
-        JLabel lblNewLabel = new JLabel("\u8D26\u53F7");
-        lblNewLabel.setBounds(81, 64, 48, 18);
-        frame.getContentPane().add(lblNewLabel);
+        getContentPane().setBackground(SystemColor.control);
+        setBackground(SystemColor.activeCaption);
+       setTitle("\u9009\u62E9\u5546\u54C1\u754C\u9762\uFF08\u7528\u6237\uFF09");
+        setBounds(100, 100, 492, 324);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+        setVisible(true);
 
-        JLabel lblNewLabel_1 = new JLabel("\u5BC6\u7801");
-        lblNewLabel_1.setBounds(81, 95, 48, 18);
-        frame.getContentPane().add(lblNewLabel_1);
+        JLayeredPane layeredPane = new JLayeredPane();
+        layeredPane.setBounds(-1, 0, 475, 277);
+        getContentPane().add(layeredPane);
+        layeredPane.setLayout(null);
 
-        textField = new JTextField();
-        textField.setText("\u8BF7\u8F93\u5165\u4F60\u7684\u8D26\u53F7");
-        textField.setBounds(161, 61, 139, 24);
-        frame.getContentPane().add(textField);
-        textField.setColumns(10);
-
-        textField_1 = new JTextField();
-        textField_1.setText("\u8BF7\u8F93\u5165\u4F60\u7684\u5BC6\u7801");
-        textField_1.setColumns(10);
-        textField_1.setBounds(161, 92, 139, 24);
-        frame.getContentPane().add(textField_1);
-
-        JButton btnNewButton = new JButton("\u786E\u8BA4");
+        JButton btnNewButton = new JButton("\u8D2D\u4E70");
+        btnNewButton.setBounds(302, 142, 113, 27);
+        layeredPane.setLayer(btnNewButton, 1);
+        layeredPane.add(btnNewButton);
         btnNewButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                new ShopBuy();
             }
         });
-        btnNewButton.setBackground(new Color(255, 170, 20));
-        btnNewButton.setBounds(81, 153, 90, 27);
-        frame.getContentPane().add(btnNewButton);
+        btnNewButton.setBackground(new Color(210, 180, 140));
 
-        JButton button = new JButton("\u53D6\u6D88");
-        button.setBackground(SystemColor.scrollbar);
-        button.setBounds(210, 153, 90, 27);
-        frame.getContentPane().add(button);
+        JButton button = new JButton("\u8D2D\u4E70");
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ShopBuy();
+            }
+        });
+        button.setBounds(302, 95, 113, 27);
+        layeredPane.setLayer(button, 1);
+        layeredPane.add(button);
+        button.setBackground(new Color(210, 180, 140));
+
+        JButton button_1 = new JButton("\u8D2D\u4E70");
+        button_1.setBounds(302, 118, 113, 27);
+        layeredPane.setLayer(button_1, 1);
+        layeredPane.add(button_1);
+        button_1.setBackground(new Color(210, 180, 140));
+
+        textField_7 = new JTextField();
+        textField_7.setBounds(52, 143, 86, 24);
+        layeredPane.add(textField_7);
+        textField_7.setColumns(10);
+
+        textField_8 = new JTextField();
+        textField_8.setBounds(137, 119, 86, 24);
+        layeredPane.setLayer(textField_8, 1);
+        layeredPane.add(textField_8);
+        textField_8.setColumns(10);
+
+        textField_6 = new JTextField();
+        textField_6.setBounds(221, 96, 86, 24);
+        layeredPane.setLayer(textField_6, 1);
+        layeredPane.add(textField_6);
+        textField_6.setColumns(10);
+
+        textField_5 = new JTextField();
+        textField_5.setBounds(137, 96, 86, 24);
+        layeredPane.setLayer(textField_5, 1);
+        layeredPane.add(textField_5);
+        textField_5.setColumns(10);
+
+        textField_3 = new JTextField();
+        textField_3.setBounds(52, 119, 86, 24);
+        layeredPane.setLayer(textField_3, 1);
+        layeredPane.add(textField_3);
+        textField_3.setColumns(10);
+
+        JLabel lblNewLabel = new JLabel("\u5546\u54C1\u7F16\u53F7");
+        lblNewLabel.setBounds(62, 65, 72, 18);
+        layeredPane.setLayer(lblNewLabel, 1);
+        layeredPane.add(lblNewLabel);
+        lblNewLabel.setBackground(new Color(210, 180, 140));
+
+        JLabel lblNewLabel_1 = new JLabel("\u5546\u54C1\u540D\u79F0");
+        lblNewLabel_1.setBounds(137, 65, 72, 18);
+        layeredPane.setLayer(lblNewLabel_1, 1);
+        layeredPane.add(lblNewLabel_1);
+        lblNewLabel_1.setBackground(new Color(210, 180, 140));
+
+        JLabel lblNewLabel_2 = new JLabel("\u5546\u54C1\u6570\u91CF");
+        lblNewLabel_2.setBounds(221, 65, 72, 18);
+        layeredPane.setLayer(lblNewLabel_2, 1);
+        layeredPane.add(lblNewLabel_2);
+        lblNewLabel_2.setBackground(new Color(210, 180, 140));
+
+        JLabel lblNewLabel_3 = new JLabel("\u64CD\u4F5C\u7C7B\u578B");
+        lblNewLabel_3.setBounds(320, 64, 72, 18);
+        layeredPane.setLayer(lblNewLabel_3, 1);
+        layeredPane.add(lblNewLabel_3);
+        lblNewLabel_3.setBackground(new Color(210, 180, 140));
+
+        textField = new JTextField();
+        textField.setBounds(221, 143, 86, 24);
+        layeredPane.add(textField);
+        textField.setColumns(10);
+
+        textField_1 = new JTextField();
+        textField_1.setBounds(52, 96, 86, 24);
+        layeredPane.setLayer(textField_1, 1);
+        layeredPane.add(textField_1);
+        textField_1.setColumns(10);
+
+        textField_2 = new JTextField();
+        textField_2.setBounds(137, 143, 86, 24);
+        layeredPane.setLayer(textField_2, 1);
+        layeredPane.add(textField_2);
+        textField_2.setColumns(10);
+
+        textField_4 = new JTextField();
+        textField_4.setBounds(0, 85, 86, -61);
+        layeredPane.setLayer(textField_4, 1);
+        layeredPane.add(textField_4);
+        textField_4.setColumns(10);
+
+        JLabel lblNewLabel_4 = new JLabel("\u80CC\u666F\u56FE\u7247");
+        lblNewLabel_4.setIcon(new ImageIcon("D:\\IDEA\\share\\myvcampus\\vcampus_moon\\images\\ShopBuy.jpg"));
+        lblNewLabel_4.setBounds(0, 0, 485, 277);
+        layeredPane.add(lblNewLabel_4);
+
+        textField_9 = new JTextField();
+        layeredPane.setLayer(textField_9, 1);
+        textField_9.setBounds(221, 119, 86, 24);
+        layeredPane.add(textField_9);
+        textField_9.setColumns(10);
+        button_1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new ShopBuy();
+            }
+        });
+
+        btnNewButton_1 = new JButton("\u8FD4\u56DE");
+        btnNewButton_1.setBackground(new Color(95, 158, 160));
+        btnNewButton_1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+
+        layeredPane.setLayer(btnNewButton_1, 1);
+        btnNewButton_1.setBounds(378, 223, 72, 27);
+        layeredPane.add(btnNewButton_1);
+
+
     }
 }
-
