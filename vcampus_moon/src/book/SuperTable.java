@@ -4,10 +4,8 @@ import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
 import org.omg.CORBA.PUBLIC_MEMBER;
-
-import Message.BookMessage;
-import Message.BorrowMessage;
-
+import client.*;
+import message.*;
 public class SuperTable extends JPanel {
 
 	public ArrayList<JLabel > TableHeadArray = new ArrayList<JLabel>();
@@ -335,7 +333,7 @@ public class SuperTable extends JPanel {
 
 
 
-	public SuperTable(int c,ArrayList<BorrowMessage> array)
+	public SuperTable(int c,ArrayList<BookBorrowMessage> array)
 	{
 		this.setLayout(null);
 		if (array.size()<=15)row=15;

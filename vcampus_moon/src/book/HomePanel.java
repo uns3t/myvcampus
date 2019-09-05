@@ -3,8 +3,11 @@ package book;
 import javax.swing.JPanel;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.util.*;
 import java.lang.*;
+import client.*;
+import message.*;
 
 public class HomePanel extends JPanel{
 	JLabel welcome=new JLabel("欢迎进入图书馆系统！");
@@ -13,9 +16,9 @@ public class HomePanel extends JPanel{
 	int admin=1;
 	ImageIcon imp=new ImageIcon("images/add_book_bt.png");
 	AddBook add_frame;
-	Client mClient
+	Client mClient;
 
-	public HomePanel(){
+	public HomePanel(Client client){
 		mClient = client;
 
 		this.setLayout(null);
@@ -46,9 +49,9 @@ public class HomePanel extends JPanel{
 				add_frame.confirm.addActionListener(new java.awt.event.ActionListener() {
 
 
-					public void actionPerformed(java.awt.event.ActionEvent e) {
+					public void actionPerformed(ActionEvent e) {
 
-						mClient.sendBookupdate(new Message("Bookupdate",0,new BookMessage(add_frame.BOOKNUMBER.getText(), "", add_frame.BOOKNAME.getText(), add_frame.location_input.getText(), add_frame.author_input.getText(), add_frame.press_input.getText(), 0, 0, 0, 0, 0, "")));
+						//mClient.sendBookupdate(new Message("Bookupdate",0,new BookMessage(add_frame.BOOKNUMBER.getText(), "", add_frame.BOOKNAME.getText(), add_frame.location_input.getText(), add_frame.author_input.getText(), add_frame.press_input.getText(), 0, 0, 0, 0, 0, "")));
 
 					}
 				});

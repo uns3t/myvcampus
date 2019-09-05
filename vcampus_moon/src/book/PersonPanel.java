@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.*;
 import java.lang.*;
+import message.*;
 
 public class PersonPanel extends JPanel{
 	JButton nextpage=new JButton("下一页");
@@ -31,14 +32,14 @@ public class PersonPanel extends JPanel{
 		//
 	}
 
-	void showPersonalBorrowPanle(/*ArrayList<BorrowMessage>*/String[] temp){
+	void showPersonalBorrowPanle(ArrayList<BookBorrowMessage> temp){
 		table =new SuperTable(7,temp);
 		table.setTableHeadHeight(23);
 		table.setCellSize(129, 45);
 
 		table.setTextTableHead(columnnames);
-		personalData=new String[temp.length][8];
-		for(int i=0;i<temp.length;i++)for(int j=0;j<7;j++)personalData[i][j]="1";
+		personalData=new String[temp.size()][8];
+		for(int i=0;i<temp.size();i++)for(int j=0;j<7;j++)personalData[i][j]="1";
 
 		table.setPreferredSize(new Dimension(900, table.getHeight()+45));
 		jsp=new JScrollPane(table);

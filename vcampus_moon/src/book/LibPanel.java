@@ -1,270 +1,233 @@
 package book;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import javax.swing.*;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.border.EmptyBorder;
+import java.awt.*;
+import java.util.*;
+import java.util.List;
+import client.*;
+import message.*;
 
-public class LibAdmin extends JFrame {
+public class LibPanel extends JPanel {
 
-	JLabel Book_id=new JLabel("图书编号:");
-	JLabel Book_name=new JLabel("书名:");
-	JLabel Book_total =new JLabel("总数量:");
-	JLabel Book_author =new JLabel("作者:");
-	//JLabel Book_press =new JLabel("出版社:");
-	JLabel  Book_introduction=new JLabel("简介:");
-	JLabel Book_borrow =new JLabel("可借本数:");
+	final HomePanel homePanel;
+	final PersonPanel personalPanel = new PersonPanel();
+	//final SearchPanel searchPanel;
+	final ButtonPanel btp = new ButtonPanel(3);
+	public int admin = 1;
+	JPanel topPanel = new JPanel();
+	Client mClient;
+	final JPanel centerPanel = new JPanel();
 
-	JFrame Order=new JFrame("确认预约");
-	JFrame ReturnBook=new JFrame("还书");
+	public LibPanel(Client client) {
+		mClient = client;
+		homePanel = new HomePanel(client);
+		//searchPanel = new SearchPanel(client);
+		btp.setBounds(0, 0, 900, 40);
+		this.add(btp, new Integer(1));
+		this.setLayout(null);
+		this.setBackground(Color.white);
+		//searchPanel.admin = this.admin;
+		topPanel.setLayout(null);
 
-	JLabel Message=new JLabel("请输入一卡通号");
+		topPanel.setBackground(Color.white);
+		topPanel.setBounds(0, 0, 900, 45);
 
-	//JButton Delete_button=new JButton("删除图书");
-	JButton Returnbook =new JButton("归还");
-	JButton Subscribe =new JButton("订阅");
-	JButton Save=new JButton("保存");
-	JButton Cance=new JButton("取消");
-	JButton CancelOrder=new JButton("取消");
-	JButton CancelReturn=new JButton("取消");
-	JButton Confirmreturnbook=new JButton("确认");
-	JButton ConfirmSubscribe=new JButton("确认");
+		centerPanel.setBackground(Color.WHITE);
+		centerPanel.setLayout(null);
+		centerPanel.setBounds(0, 45, 900, 700);
 
+		homePanel.setBackground(Color.white);
+		homePanel.setBounds(0, 50, 900, 650);
+		homePanel.setLayout(null);
+		this.add(homePanel);
 
-	JTextField BOOKID =new JTextField();
-	JTextField BOOKNAME =new JTextField();
-	JTextField ABLETOBORROW =new JTextField();
-	JTextField TOTAL =new JTextField();
-	JTextField Author_input= new JTextField();
-	//JTextField Press_input= new JTextField();
-	//JTextField Introduct_input= new JTextField();
-	JTextField IDinput= new JTextField();
-	//SearchPanel mPanel_searchPanel=new SearchPanel();
-	//SearchPanel mPanel_searchPanel=new SearchPanel();
-	int tablenumber;
-	String[] colname={"一卡通号","状态"};
-	String[][] borrowData=new String[100][2];
-	JTable borrow =new JTable(borrowData,colname);
-	//JScrollPane jsp=new JScrollPane(borrow);
+		//searchPanel.setBackground(Color.white);
 
+		final PButton jb1 = new PButton("首    页");
+		final PButton jb2 = new PButton("图书信息");
+		final PButton jb3 = new PButton("搜索图书");
+		if (admin == 1)
+			jb3.setText("管理图书");
+		final PButton jb4 = new PButton("个人记录");
+		jb1.setFocusPainted(false);
+		jb1.setBounds(0, 5, 300, 40);
+		jb1.setForeground(new Color(35, 164, 231));
+		jb1.setBackground(Color.white);
 
-	public LibAdmin() {
-		getContentPane().add(Book_name);	getContentPane().add(Book_id);getContentPane().add(Book_total);getContentPane().add(Book_borrow);
-		getContentPane().add(BOOKID);getContentPane().add(BOOKNAME);getContentPane().add(ABLETOBORROW);getContentPane().add(TOTAL);
-		getContentPane().add(Subscribe);getContentPane().add(Save);getContentPane().add(Cance);getContentPane().add(Returnbook);
-		getContentPane().add(Book_author);getContentPane().add(Author_input);/*getContentPane().add(Book_press);getContentPane().add(Press_input);
-		/*this.add(location);*/getContentPane().add(Book_introduction);getContentPane().add(Book_introduction);
-		//	getContentPane().add(jsp);getContentPane().add(Delete_button);
-		getContentPane().setLayout(null);
-		this.setLocationRelativeTo(null);
-		//for(int i=0;i<=5;i++)for(int j=0;j<=1;j++)borrowData[i][j]=mPanel_searchPanel.ALLData.get(0)[0][0];
-		borrow.setEnabled(false);
-		this.setBounds(0, 0, 415, 679);
-		Book_id.setBounds(60, 30, 100, 30);
-		Book_name.setBounds(60, 70, 100, 30);
-		Book_author.setBounds(60, 110, 100, 30);
-		//Book_press.setBounds(60, 150, 100, 30);
-		Book_total.setBounds(60, 150, 100, 30);
-		Book_borrow.setBounds(60, 190, 100, 30);
-		//Book_introduction.setBounds(60, 270, 100, 30);
-		//location.setBounds(60, 310, 100, 30);
-		BOOKID.setBounds(140, 32, 150, 30);
-		BOOKNAME.setBounds(140, 72, 150, 30);
-		Author_input.setBounds(140, 112, 150, 30);
-		//Press_input.setBounds(140, 152, 150, 30);
-		TOTAL.setBounds(140, 152, 150, 30);
-		ABLETOBORROW.setBounds(140, 192, 150, 30);
-		//Introduct_input.setBounds(140, 272, 150, 30);
-		//location_input.setBounds(140, 312, 150, 30);
-		//Delete_button.setBounds(121, 559, 119, 20);
-
-		//jsp.setBounds(60, 255, 263, 199);
-		Subscribe.setBounds(60, 469, 100, 30);
-		Returnbook.setBounds(190, 469, 100, 30);
-		Save.setBounds(60,514, 100, 30);
-		Cance.setBounds(190, 514, 100, 30);
-		this.setVisible(true);
-		Cance.addActionListener(new java.awt.event.ActionListener() {
+		jb1.addActionListener(new java.awt.event.ActionListener() {
 
 			public void actionPerformed(java.awt.event.ActionEvent e) {
+				resultPanel(homePanel);
 
-				close();
+				jb1.setForeground(new Color(35, 164, 231));
+				jb1.setBackground(Color.white);
+				jb2.setForeground(new Color(254, 254, 254));
+				jb2.setBackground(new Color(206, 206, 206));
+				jb3.setForeground(new Color(254, 254, 254));
+				jb3.setBackground(new Color(206, 206, 206));
+				jb4.setForeground(new Color(254, 254, 254));
+				jb4.setBackground(new Color(206, 206, 206));
+				removeThePanelExcept(homePanel);
+				addtop();
+				btp.DoSlide(0);
 
 			}
 
 		});
 
+		// jb2.setBounds(225, 5,225 , 40);
 
-		Save.addActionListener(new java.awt.event.ActionListener() {
 
+		jb3.setBounds(300, 5, 300, 40);
+		jb3.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
-
-				//save();
+				//resultPanel(searchPanel);
+				jb3.setForeground(new Color(35, 164, 231));
+				jb3.setBackground(Color.white);
+				jb1.setForeground(new Color(254, 254, 254));
+				jb1.setBackground(new Color(206, 206, 206));
+				jb2.setForeground(new Color(254, 254, 254));
+				jb2.setBackground(new Color(206, 206, 206));
+				jb4.setForeground(new Color(254, 254, 254));
+				jb4.setBackground(new Color(206, 206, 206));
+				//removeThePanelExcept(searchPanel);
+				addtop();
+				btp.DoSlide(1);
+//				searchPanel.jsp.setVisible(false);
+//				searchPanel.jsp.setVisible(true);
 
 			}
-
 		});
-		/*Delete_button.addActionListener(new java.awt.event.ActionListener() {
 
+		jb4.setBounds(600, 5, 300, 40);
+		jb4.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
+				resultPanel(personalPanel);
+				jb4.setForeground(new Color(35, 164, 231));
+				jb4.setBackground(Color.white);
+				jb1.setForeground(new Color(254, 254, 254));
+				jb1.setBackground(new Color(206, 206, 206));
+				jb3.setForeground(new Color(254, 254, 254));
+				jb3.setBackground(new Color(206, 206, 206));
+				jb2.setForeground(new Color(254, 254, 254));
+				jb2.setBackground(new Color(206, 206, 206));
+				removeThePanelExcept(personalPanel);
+				addtop();
+				ArrayList<BookBorrowMessage> temp = new ArrayList();
+				temp.add(new BookBorrowMessage());
+				temp.add(new BookBorrowMessage());
 
-				delete();
+				personalPanel.showPersonalBorrowPanle(temp);
+				btp.DoSlide(2);
 
+			}
+		});
+
+		topPanel.add(jb1);
+		topPanel.add(jb2);
+		topPanel.add(jb3);
+		topPanel.add(jb4);
+
+		this.add(topPanel);
+
+		this.add(topPanel);
+
+		this.add(centerPanel);
+		btp.DoSlide(0);
+
+	/*	mClient.messageThread.setlibaraylistener(new Libarycallback() {
+
+			@Override
+			public void getbooklist(ArrayList<BookMessage> mArrayList) {
+				System.out.println("zhazha");
+				if(mArrayList.size()==0){
+					JOptionPane.showMessageDialog(null, "没有结果", "不好意思TAT",JOptionPane.CLOSED_OPTION);
+				}
+				{
+
+	//
+//					searchPanel.sousuo();
+					searchPanel.showSearchresult(mArrayList);
+				}
+
+
+			}
+		});*/
+		String[] temp ;
+		//searchPanel.showSearchresult(temp);
+
+	}
+
+	// 滑动效果方法
+	public void resultPanel(final JPanel panel) {
+		panel.setBounds(0, 0, centerPanel.getWidth(), centerPanel.getHeight());// 设置滑动初始位置
+		int count = centerPanel.getComponentCount();// 获取centerPanel中控件数
+		List list = new ArrayList();//
+		for (Component comp : centerPanel.getComponents()) {
+			list.add(comp);// 给list赋值
+		}
+		if (count > 0) {// 如果centerPanel中控件数大于0就执行效果
+			for (int i = 0; i < count; i++) {
+				Component comp = centerPanel.getComponent(i);// 获得该位置的控件
+				if (comp instanceof JPanel) {// 判断控件类型
+					final JPanel currentPanel = (JPanel) comp;// 获得当前panel
+					if (currentPanel != panel) {
+						new Thread() {
+							public void run() {
+								Rectangle rec = currentPanel.getBounds();// 获得当前面板的位置信息
+								int y = -centerPanel.getWidth();
+
+								for (int i = 0; i <= centerPanel.getWidth(); i += 10) {
+									// 设置面板位置
+									currentPanel.setBounds(i, 0, centerPanel.getWidth(), centerPanel.getHeight());
+									panel.setBounds(y, 0, centerPanel.getWidth(), centerPanel.getHeight());
+									try {
+										Thread.sleep(3);
+									} catch (InterruptedException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									y += 10;
+								}
+								centerPanel.remove(currentPanel);// 移除當前面板
+								panel.setBounds(0, 0, centerPanel.getWidth(), centerPanel.getHeight());
+							}
+						}.start();
+						break;
+					}
+				}
+			}
+		}
+		if (!list.contains(panel)) {
+			centerPanel.add(panel, new Integer(3));// 添加要切换的面板
+		}
+		centerPanel.validate();// 重构内容面板
+		centerPanel.repaint();// 重绘内容面板
+	}
+
+	void removeThePanelExcept(JPanel a) {
+		if (homePanel != a) {
+			this.remove(homePanel);
 		}
 
-		});*/
+		if (personalPanel != a) {
+			this.remove(personalPanel);
+		}
 
-		Subscribe.addActionListener(new java.awt.event.ActionListener() {
-
-			public void actionPerformed(java.awt.event.ActionEvent e) {
-
-
-				Order.getContentPane().setLayout(null);
-				Order.setVisible(true);
-				Order.setLocationRelativeTo(null);
-				Order.setSize(300, 250);
-				Order.getContentPane().add(Message);
-				Order.getContentPane().add(ConfirmSubscribe);
-				Order.getContentPane().add(IDinput);
-				Order.getContentPane().add(CancelOrder);
-				Message.setBounds(90, 20, 300, 60);
-				IDinput.setBounds(80, 80, 127, 30);
-				ConfirmSubscribe.setBounds(30, 140, 100, 40);
-				CancelOrder.setBounds(160, 140, 100, 40);;
+//		if (searchPanel != a) {
+	//		this.remove(searchPanel);
+	//	}
 
 
-
-				CancelOrder.addActionListener(new java.awt.event.ActionListener() {
-
-					public void actionPerformed(java.awt.event.ActionEvent e) {
-
-						Order.setVisible(false);
-
-					}
-
-				});
-
-
-			}
-
-		});
-		Returnbook.addActionListener(new java.awt.event.ActionListener() {
-
-			public void actionPerformed(java.awt.event.ActionEvent e) {
-
-
-				ReturnBook.getContentPane().setLayout(null);
-				ReturnBook.setVisible(true);
-				ReturnBook.setLocationRelativeTo(null);
-				ReturnBook.setSize(300, 250);
-				ReturnBook.getContentPane().add(Message);
-				ReturnBook.getContentPane().add(Confirmreturnbook);
-				ReturnBook.getContentPane().add(IDinput);
-				ReturnBook.getContentPane().add(CancelReturn);
-				Message.setBounds(90, 20, 300, 60);
-				IDinput.setBounds(80, 80, 127, 30);
-				Confirmreturnbook.setBounds(30, 140, 100, 40);
-				CancelReturn.setBounds(160, 140, 100, 40);
-				Confirmreturnbook.addActionListener(new java.awt.event.ActionListener() {
-
-					public void actionPerformed(java.awt.event.ActionEvent e) {
-						String temp;
-						temp=IDinput.getText();
-
-						for (int i=0;i<=99;i++)if(temp.equals(borrowData[i][0])){
-							borrowData[i][0]="";borrowData[i][1]="";
-							borrow.setVisible(false);borrow.setVisible(true);
-						}
-
-
-
-					}
-
-				});
-				CancelReturn.addActionListener(new java.awt.event.ActionListener() {
-
-					public void actionPerformed(java.awt.event.ActionEvent e) {
-
-						ReturnBook.setVisible(false);
-
-					}
-
-				});
-
-
-
-
-			}
-
-		});
-
-
-
-
-
+		this.remove(topPanel);
 
 	}
 
-	/*protected void save(){
-			close();
-			mPanel_searchPanel.table.setTextTableCell(tablenumber, 5,ABLETOBORROW.getText());
-			mPanel_searchPanel.table.setTextTableCell(tablenumber, 1,BOOKNAME.getText());
-			mPanel_searchPanel.table.setTextTableCell(tablenumber, 0,BOOKID.getText());
-			mPanel_searchPanel.table.setTextTableCell(tablenumber, 4,TOTAL.getText());
-			mPanel_searchPanel.table.setTextTableCell(tablenumber, 2,Author_input.getText());
-			//mPanel_searchPanel.table.setTextTableCell(tablenumber, 3,Press_input.getText());
-		//	mPanel_searchPanel.table.setTextTableCell(tablenumber, 6,Introduct_input.getText());
-			//mPanel_searchPanel.table.setTextTableCell(tablenumber, 7,location_input.getText());
+	void addtop() {
+		this.add(topPanel);
 
-			mPanel_searchPanel.jsp.setVisible(false);
-			mPanel_searchPanel.jsp.setVisible(true);
-
-
-	}
-	protected void delete(){
-		close();
-		mPanel_searchPanel.table.setTextTableCell(tablenumber, 5,"");
-		mPanel_searchPanel.table.setTextTableCell(tablenumber, 1,"");
-		mPanel_searchPanel.table.setTextTableCell(tablenumber, 0,"");
-		mPanel_searchPanel.table.setTextTableCell(tablenumber, 4,"");
-		mPanel_searchPanel.table.setTextTableCell(tablenumber, 2,"");
-		mPanel_searchPanel.table.setTextTableCell(tablenumber, 3,"");
-		mPanel_searchPanel.table.setTextTableCell(tablenumber, 6,"");
-		mPanel_searchPanel.table.setTextTableCell(tablenumber, 7,"");
-
-		mPanel_searchPanel.jsp.setVisible(false);
-		mPanel_searchPanel.jsp.setVisible(true);
-
-
-}*/
-
-	public  void setbooknumber(String Booknumber){
-		BOOKNAME.setText(Booknumber);
-
-	}
-	public void setbookname(String Bookname){
-		BOOKNAME.setText(Bookname);
-	}
-	public void settotal(String Total){
-		TOTAL.setText(Total);
-	}
-	public void setabletoborrow(String Abletoborrow){
-		Book_borrow.setText(Abletoborrow);
-	}
-
-	/*public void setsearchpanel(SearchPanel m) {
-		mPanel_searchPanel = m;
-	}*/
-	public void close()
-	{
-		this.setVisible(false);
 	}
 
 }
+
