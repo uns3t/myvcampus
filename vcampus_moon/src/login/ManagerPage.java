@@ -5,13 +5,14 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 import java.awt.Color;
 import javax.swing.JLayeredPane;
 
-import client.Client;
 import client.ClientThread;
+import student.AdminStudentsPage;
 
 import javax.swing.JLabel;
 
@@ -105,8 +106,12 @@ public class ManagerPage extends JFrame{
 				button_4.setBackground(new Color(240, 248, 255));
 				button_4.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {//学籍管理
-						
-						
+						try {
+							new AdminStudentsPage(cthread);
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 					}
 				});
 				button_4.setFont(new Font("宋体", Font.BOLD, 20));
