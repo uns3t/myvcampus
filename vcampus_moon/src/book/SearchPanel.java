@@ -1,4 +1,4 @@
-package Book;
+package book;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -15,11 +15,11 @@ import javax.swing.JTextField;
 
 
 public class SearchPanel extends JPanel {
-	JButton back=new JButton("ÖØÐÂËÑË÷"); 
+	JButton back=new JButton("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"); 
 
 	JTextField input= new JTextField(); 
 
-	JButton search =new JButton("ËÑË÷"); 
+	JButton search =new JButton("ï¿½ï¿½ï¿½ï¿½"); 
 
 
 	String[][] searchData;
@@ -30,7 +30,7 @@ public class SearchPanel extends JPanel {
 	//ArrayList<BookMessage> bookmessage=new ArrayList();
 	ArrayList<SelectButton> select_button=new ArrayList();
 	int admin=1;
-	String[] columnNames = {"Í¼Êé±àºÅ","Í¼ÊéÃû³Æ","×÷Õß","³ö°æÉç","×Ü±¾Êý","¿É½è±¾Êý","¼ò½é","Ô¤Ô¼"};
+	String[] columnNames = {"Í¼ï¿½ï¿½ï¿½ï¿½","Í¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","ï¿½ï¿½ï¿½ï¿½","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","ï¿½Ü±ï¿½ï¿½ï¿½","ï¿½É½è±¾ï¿½ï¿½","ï¿½ï¿½ï¿½","Ô¤Ô¼"};
 	SuperTable table;
 	JScrollPane jsp;
 
@@ -50,20 +50,20 @@ public class SearchPanel extends JPanel {
 			select_button.get(i).setBounds(150+170*((i+2)%4), 180+70*((i+2)/4), 100, 30);
 			this.add(select_button.get(i));
 		}
-		select_button.get(0).setContent("ÊéÃû"); 
-		select_button.get(1).setContent("×÷Õß"); 
-		/*select_button.get(2).setContent("È«²¿·ÖÀà"); 
+		select_button.get(0).setContent("ï¿½ï¿½ï¿½ï¿½"); 
+		select_button.get(1).setContent("ï¿½ï¿½ï¿½ï¿½"); 
+		/*select_button.get(2).setContent("È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"); 
 		select_button.get(3).setContent("Ð¡Ëµ"); 
-		select_button.get(4).setContent("É¢ÎÄ"); 
-		select_button.get(5).setContent("Ê«¸è"); 
-		select_button.get(6).setContent("½ðÈÚ"); 
-		select_button.get(7).setContent("¼ÆËã»ú"); 
-		select_button.get(8).setContent("µç×ÓÀà"); 
-		select_button.get(9).setContent("ÎïÀí"); 
-		select_button.get(10).setContent("ÊýÑ§"); 
-		select_button.get(11).setContent("»¯Ñ§"); 
-		select_button.get(12).setContent("ÉúÎï"); 
-		select_button.get(13).setContent("ÍâÓï"); */
+		select_button.get(4).setContent("É¢ï¿½ï¿½"); 
+		select_button.get(5).setContent("Ê«ï¿½ï¿½"); 
+		select_button.get(6).setContent("ï¿½ï¿½ï¿½ï¿½"); 
+		select_button.get(7).setContent("ï¿½ï¿½ï¿½ï¿½ï¿½"); 
+		select_button.get(8).setContent("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"); 
+		select_button.get(9).setContent("ï¿½ï¿½ï¿½ï¿½"); 
+		select_button.get(10).setContent("ï¿½ï¿½Ñ§"); 
+		select_button.get(11).setContent("ï¿½ï¿½Ñ§"); 
+		select_button.get(12).setContent("ï¿½ï¿½ï¿½ï¿½"); 
+		select_button.get(13).setContent("ï¿½ï¿½ï¿½ï¿½"); */
 
 		select_button.get(0).setSelected(true);
 		select_button.get(0).setBounds(525, 155, 100, 30);
@@ -128,7 +128,7 @@ public class SearchPanel extends JPanel {
 		search.setContentAreaFilled(false);
 		search.setOpaque(false);
 		search.setBorderPainted(false);
-		search.setFont(new Font("Î¢ÈíÑÅºÚ", Font.BOLD,15));
+		search.setFont(new Font("Î¢ï¿½ï¿½ï¿½Åºï¿½", Font.BOLD,15));
 		
 		input.setFont(new Font("Dialog",Font.BOLD,16));
 
@@ -152,14 +152,14 @@ public class SearchPanel extends JPanel {
 	/*void showSearchresult(ArrayList<BookMessage> bookmessages){
 		table =new SuperTable(bookmessage, 9+admin);
 		table.setCellSize(100-10*admin, 45);
-		if(admin==1){table.setTextTableHead(9, "¹ÜÀí");}
+		if(admin==1){table.setTextTableHead(9, "ï¿½ï¿½ï¿½ï¿½");}
 		jsp =new JScrollPane(table);
 		
 		jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		jsp.setBackground(Color.white);
 		table.setTextTableHead(columnNames);
 		table.setButtonColumn(8, "Ô¤Ô¼");
-		table.setButtonColumn(9, "¹ÜÀí");
+		table.setButtonColumn(9, "ï¿½ï¿½ï¿½ï¿½");
 	//	table.ButtonArray.get(0).get(8).setBackground(Color.black);
 	
 	//	table.ButtonArray.get(8).get(0).setBackground(Color.black);
@@ -180,7 +180,7 @@ public class SearchPanel extends JPanel {
 		table.setTextTableAll(searchData);
 		for(int i=0;i<bookmessages.size();i++)
 		{	if(Integer.valueOf(table.getTextTableCell(i,5))==0)
-			{table.ButtonArray.get(i).get(8).setText("²»¿É½è");
+			{table.ButtonArray.get(i).get(8).setText("ï¿½ï¿½ï¿½É½ï¿½");
 		table.ButtonArray.get(i).get(8).setEnabled(false);}
 				}
 		
@@ -196,11 +196,11 @@ public class SearchPanel extends JPanel {
 				public void actionPerformed(java.awt.event.ActionEvent e) {
 					if(Integer.valueOf(table.getTextTableCell(j, 5))>0){
 
-					JOptionPane.showMessageDialog(null,"Ô¤Ô¼³É¹¦", "ÌáÊ¾ÐÅÏ¢",JOptionPane.CLOSED_OPTION);
+					JOptionPane.showMessageDialog(null,"Ô¤Ô¼ï¿½É¹ï¿½", "ï¿½ï¿½Ê¾ï¿½ï¿½Ï¢",JOptionPane.CLOSED_OPTION);
 					jsp.setVisible(false); jsp.setVisible(true);
 					int temp=Integer.parseInt(table.getTextTableCell(j, 5));
 					temp=temp-1;
-					if( temp<=0) {table.ButtonArray.get(j).get(8).setText("²»¿É½è");	table.ButtonArray.get(j).get(8).setEnabled(false);}
+					if( temp<=0) {table.ButtonArray.get(j).get(8).setText("ï¿½ï¿½ï¿½É½ï¿½");	table.ButtonArray.get(j).get(8).setEnabled(false);}
 					table.setTextTableCell(j, 5,String.valueOf(temp));
 					SearchPanel.this.setVisible(false);
 					SearchPanel.this.setVisible(true);
@@ -274,7 +274,7 @@ public class SearchPanel extends JPanel {
 		search.setContentAreaFilled(false);
 		search.setOpaque(false);
 		search.setBorderPainted(false);
-		search.setFont(new Font("Î¢ÈíÑÅºÚ", Font.BOLD,15));	
+		search.setFont(new Font("Î¢ï¿½ï¿½ï¿½Åºï¿½", Font.BOLD,15));	
 		input.setFont(new Font("Dialog",Font.BOLD,16));
 		for(int i=0;i<bookmessages.size();i++)for(int j=0;j<=7;j++)searchData[i][j]="";
 

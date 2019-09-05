@@ -483,8 +483,7 @@ public class StuStudentsPage extends JFrame{
 		textField_24.setEditable(true);
 		textField_25.setEditable(true);
 		textArea.setEditable(true);
-	
-		
+
 		button.setEnabled(true);
 		button_1.setEnabled(true);
 	}

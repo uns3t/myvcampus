@@ -1,4 +1,4 @@
-package Book;
+package book;
 
 
 import java.awt.Font;
@@ -27,32 +27,32 @@ public class SelectButton extends JButton{
 		content.setFont(new Font("ProFont",Font.BOLD,15));
 //		this.setOpaque(false);
 		this.setBorderPainted(false);
-		this.addActionListener(new java.awt.event.ActionListener() {// jb1ÊÂ¼ş
+		this.addActionListener(new java.awt.event.ActionListener() {// jb1äº‹ä»¶
 
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				is_selected=!is_selected;
 				if(is_selected==true){pic_located.setIcon(selected_pic);}
 				else{pic_located.setIcon(notselected_pic);}
-				
-					
-				
-				
+
+
+
+
 			}
-		
+
 		});
-		// TODO ×Ô¶¯Éú³ÉµÄ¹¹Ôìº¯Êı´æ¸ù
+		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ„é€ å‡½æ•°å­˜æ ¹
 	}
-	
+
 	public void setContent(String CONTENT) {
 		content.setText(CONTENT);
-		
+
 	}
-//	public static void main(String[] args) 
+	//	public static void main(String[] args)
 //	{  JFrame jf=new JFrame();
 //	jf.setVisible(true);
 //	jf.setSize(600,600);
 //	jf.setLayout(null);
-//	SelectButton a= new SelectButton("²âÊÔÎå¸ö×Ö");
+//	SelectButton a= new SelectButton("æµ‹è¯•äº”ä¸ªå­—");
 //	jf.add(a);
 //	a.setLocation(0, 0);
 //	
@@ -60,7 +60,7 @@ public class SelectButton extends JButton{
 //	}
 	public boolean getIsSelected() {
 		return is_selected;
-		
+
 	}
 	public void setSelected(boolean true_or_false){
 		is_selected=true_or_false;
