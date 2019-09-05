@@ -40,34 +40,31 @@ public class ShopUser extends JFrame{
     private int price,quantity,sales;
 
 
-   public ShopUser() {
-
-        //ClientThread cthread  = new ClientThread(client);
-       // ShopMessage list = (ShopMessage)cthread.getREMessage().getData();
-        initialize(/*ClientThread cthread*/);
+   public ShopUser(ClientThread cthread) {
+        initialize(cthread);
     }
 
 
     /**
      * Initialize the contents of the frame.
      */
-    private void initialize(/*ClientThread cthread*/) {
-        //cthread.handleShowGoodsMessage();
-        //ShopMessage message = (ShopMessage)cthread.getREMessage().getData();
-        //ArrayList<GoodsInfo> GoodsInfo = message.getGoodsInfo();
+    private void initialize(ClientThread cthread) {
+        cthread.handleShowGoodsMessage();
+        ShopMessage message = (ShopMessage)cthread.getREMessage().getData();
+        ArrayList<GoodsInfo> GoodsInfo = message.getGoodsInfo();
 
-        //GoodsInfo ginfo= GoodsInfo.get(0);
-        //name = ginfo.getGoods_name();
-        //id = ginfo.getGoods_id();
-       // price = ginfo.getGoods_price();
-       // quantity = ginfo.getGoods_quantity();
-        //sales = ginfo.getGoods_sales();
+        GoodsInfo ginfo= GoodsInfo.get(0);
+        name = ginfo.getGoods_name();
+        id = ginfo.getGoods_id();
+        price = ginfo.getGoods_price();
+        quantity = ginfo.getGoods_quantity();
+        sales = ginfo.getGoods_sales();
 
-        //name = textField_1.getText();
-        //id = textField_5.getText();
-       // price = Integer.parseInt(textField_2.getText());
-        //quantity = Integer.parseInt(textField_6.getText());
-        //sales = Integer.parseInt(textField_4.getText());
+        name = textField_1.getText();
+        id = textField_5.getText();
+        price = Integer.parseInt(textField_2.getText());
+        quantity = Integer.parseInt(textField_6.getText());
+        sales = Integer.parseInt(textField_4.getText());
 
 
         getContentPane().setBackground(SystemColor.control);

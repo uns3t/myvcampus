@@ -41,13 +41,12 @@ public class Shoppage extends JFrame{
     private final JLayeredPane layeredPane = new JLayeredPane();
 
 
-    public Shoppage(/*Client client_shop*/) {
+    public Shoppage(ClientThread cthread) {
 
-        initialize(/*client_shop*/);
+        initialize(cthread);
     }
 
-    private void initialize(/*Client client_shop*/) {
-        //ClientThread cthread = new ClientThread(/*client_shop*/);
+    private void initialize(ClientThread cthread) {
         setTitle("\u5546\u54C1\u7BA1\u7406\u754C\u9762(\u7BA1\u7406\u5458)");
         setBounds(100, 100, 414, 487);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -223,12 +222,12 @@ public class Shoppage extends JFrame{
         btnNewButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //cthread.handleAddGood(textField_1.getText(),textField.getText(),Integer.parseInt(textField_2.getText()),Integer.parseInt(textField_3.getText()),Integer.parseInt(textField_4.getText()));
-                // Message message = cthread.getREMessage();
-                //if(message.getResponse())
-                //   JOptionPane.showMessageDialog(new JFrame().getContentPane(), "上架成功","上架提示页面", JOptionPane.INFORMATION_MESSAGE);
-                //else
-                JOptionPane.showMessageDialog(new JFrame().getContentPane(), "上架不成功!","上架提示页面", JOptionPane.INFORMATION_MESSAGE);
+                cthread.handleAddGood(textField_1.getText(),textField.getText(),Integer.parseInt(textField_2.getText()),Integer.parseInt(textField_3.getText()),Integer.parseInt(textField_4.getText()));
+                 Message message = cthread.getREMessage();
+                if(message.getResponse())
+                   JOptionPane.showMessageDialog(new JFrame().getContentPane(), "上架成功","上架提示页面", JOptionPane.INFORMATION_MESSAGE);
+                else
+                	JOptionPane.showMessageDialog(new JFrame().getContentPane(), "上架不成功!","上架提示页面", JOptionPane.INFORMATION_MESSAGE);
             }
         });
 
@@ -241,12 +240,12 @@ public class Shoppage extends JFrame{
         btnNewButton_1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //cthread.handleDeleteGoodMessage(textField.getText());
-                //Message message2 = cthread.getREMessage();
-                //if(message2.getResponse())
-                //   JOptionPane.showMessageDialog(new JFrame().getContentPane(), "下架成功","下架提示页面", JOptionPane.INFORMATION_MESSAGE);
-                // else
-                JOptionPane.showMessageDialog(new JFrame().getContentPane(), "下架不成功!","下架提示页面", JOptionPane.INFORMATION_MESSAGE);
+                cthread.handleDeleteGoodMessage(textField.getText());
+                Message message2 = cthread.getREMessage();
+                if(message2.getResponse())
+                   JOptionPane.showMessageDialog(new JFrame().getContentPane(), "下架成功","下架提示页面", JOptionPane.INFORMATION_MESSAGE);
+                 else
+                	 JOptionPane.showMessageDialog(new JFrame().getContentPane(), "下架不成功!","下架提示页面", JOptionPane.INFORMATION_MESSAGE);
             }
         });
 
