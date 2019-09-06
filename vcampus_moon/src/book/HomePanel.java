@@ -14,12 +14,12 @@ public class HomePanel extends JPanel{
 	JLabel select= new JLabel("请选择上方功能。");
 	JButton add_Button=new JButton();
 	int admin=1;
-	ImageIcon imp=new ImageIcon("images/add_book_bt.png");
+	ImageIcon imp=new ImageIcon("images/timg.jpg");
 	AddBook add_frame;
-	Client mClient;
+	ClientThread mcthread;
 
-	public HomePanel(Client client){
-		mClient = client;
+	public HomePanel(ClientThread cthread){
+		mcthread = cthread;
 
 		this.setLayout(null);
 		//this.setTitle("首页");
@@ -32,7 +32,7 @@ public class HomePanel extends JPanel{
 		add_Button.setFont(new Font("微软雅黑",Font.ROMAN_BASELINE,20));
 		add_Button.setBorderPainted(false);
 		add_Button.setBackground(Color.white);
-		add_Button.setIcon(imp);
+		//add_Button.setIcon(imp);
 		welcome.setEnabled(true);
 
 
@@ -45,16 +45,16 @@ public class HomePanel extends JPanel{
 		add_Button.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 
-				add_frame=new AddBook();
-				add_frame.confirm.addActionListener(new java.awt.event.ActionListener() {
-
-
-					public void actionPerformed(ActionEvent e) {
-
-						//mClient.sendBookupdate(new Message("Bookupdate",0,new BookMessage(add_frame.BOOKNUMBER.getText(), "", add_frame.BOOKNAME.getText(), add_frame.location_input.getText(), add_frame.author_input.getText(), add_frame.press_input.getText(), 0, 0, 0, 0, 0, "")));
-
-					}
-				});
+				add_frame=new AddBook(mcthread);
+//				add_frame.confirm.addActionListener(new java.awt.event.ActionListener() {
+//
+//
+//					public void actionPerformed(ActionEvent e) {
+//
+//						//mClient.sendBookupdate(new Message("Bookupdate",0,new BookMessage(add_frame.BOOKNUMBER.getText(), "", add_frame.BOOKNAME.getText(), add_frame.location_input.getText(), add_frame.author_input.getText(), add_frame.press_input.getText(), 0, 0, 0, 0, 0, "")));
+//
+//					}
+//				});
 
 			}
 

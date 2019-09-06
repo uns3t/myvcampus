@@ -100,14 +100,14 @@ public class AddBook extends JFrame {
 				book_introduction=Introduct_input.getText();
 				total=TOTAL.getColumns();
 				borrowed=ABLETOBORROW.getColumns();
-//				if(isAdd)
-//				{
+				if(isAdd)
+				{
 					cthread.handleAddBookMessage(book_id,book_name,book_author,total,borrowed,book_introduction);
-//				}
-//				else
-//				{
-//					cthread.handleUpdateBookMessage(book_id,book_name,book_author,total,borrowed,book_introduction);
-//				}
+				}
+				else
+				{
+					cthread.handleUpdateBookMessage(book_id,book_name,book_author,total,borrowed,book_introduction);
+				}
 
 
 			}

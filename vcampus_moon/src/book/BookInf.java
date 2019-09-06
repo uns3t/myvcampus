@@ -1,27 +1,26 @@
 package book;
 
-import java.util.ArrayList;
+import client.*;
+import message.*;
 
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
-public class BookInfo extends JPanel {
+public class BookInf extends JFrame {
 	JButton nextpage=new JButton("下一页");
 	JButton previouspage=new JButton("上一页");
 	JLabel changeto=new JLabel("跳转至");
 	JLabel page=new JLabel("页");
 	JButton confirm=new JButton("确认");
 	JTextField pageinput= new JTextField();
-	String[][] bookData = new String[30][8];
-	String[] columnNames = {"图书编号","图书名称","作者","出版社","总数量","可借本数"};
+	String[][] bookData = new String[30][7];
+	String[] columnNames = {"图书编号","图书名称","作者","出版社","简介","总数量","可借本数"};
 	String[] columnnames={"预约借阅"};
 	String[][] nullData = new String[1][1];
 	
@@ -35,20 +34,41 @@ public class BookInfo extends JPanel {
 	JLabel currentpage=new JLabel(); 
 	ArrayList<String[][]> ALLData=new ArrayList();
 	
-	public BookInfo(){
+	public BookInf(ClientThread cthread){
 		this.setLayout(null);
 		this.setSize(900, 700);
 		BOOKINF.setEnabled(false);
 		nullData[0][0]=null;
-		String[][] testData1=new String[30][6];
-		String[][] testData2=new String[30][6];
+		String[][] testData=new String[30][6];
+		//String[][] testData2=new String[30][6];
 		//for(int i=0;i<=29;i++) for(int j=0;j<=5;j++) testData1[i][j]="0";
 		//ALLData.add(testData1);
 		//maxpage++;
 		//for(int i=0;i<=29;i++) for(int j=0;j<=5;j++) testData2[i][j]="0";
 		//ALLData.add(testData2);
 		//maxpage++;
-		
+
+		cthread.handleShowBookMessage();
+		Message message = cthread.getREMessage();
+		BookMessage boobmessage = (BookMessage)message.getData();
+		int num=boobmessage.getbook().size();
+		int pages=num/30;
+		ArrayList<BookInfo> booklist = boobmessage.getbook();
+		while (pages-->=0) {
+			for (int i = 0; num >= 0 && i <= 29; num--, i++) {
+				testData[i][0] = booklist.get(i).getBook_id();
+				testData[i][1] = booklist.get(i).getBook_name();
+				testData[i][2] = booklist.get(i).getBook_author();
+				testData[i][3] = booklist.get(i).getBook_press();
+				testData[i][4] = booklist.get(i).getBook_introduction();
+				Integer total = booklist.get(i).getBook_total();
+				testData[i][5] = total.toString();
+				Integer borrowed = booklist.get(i).getBook_borrowed();
+				testData[i][6] = borrowed.toString();
+			}
+		}
+		ALLData.add(testData);
+
 		for(int i=0;i<=29;i++) for(int j=0;j<=5;j++) bookData[i][j]=ALLData.get(0)[i][j];
 		currentpage.setText(pagenumber+1+"/"+maxpage+"页");
 		INFBOOK.setBounds(0,0,800,503);

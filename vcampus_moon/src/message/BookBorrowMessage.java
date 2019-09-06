@@ -9,7 +9,6 @@ public class BookBorrowMessage implements Serializable {
 
 
 
-
     public void setBook_id(String book_id) {
         Book_id = book_id;
     }
