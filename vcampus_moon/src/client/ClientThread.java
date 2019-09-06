@@ -448,6 +448,7 @@ public class ClientThread extends Thread {
 
     public boolean handleDeleteGoodMessage(String id){
         GoodsInfo goodsInfo = new GoodsInfo();
+        goodsInfo.setGoods_id(id);
         ShopMessage shopMessage = new ShopMessage();
         shopMessage.setType("DeleteGood");
         shopMessage.addGoodsInfo(goodsInfo);

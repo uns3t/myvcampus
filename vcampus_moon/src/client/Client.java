@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import login.*;
+import shop.*;
 
 import message.*;
 
@@ -13,32 +15,11 @@ public class Client{
 
     public static void main(String[] args) {
         Client client = new Client("127.0.0.1",10001);
+        ClientThread clientThread=new ClientThread(client);
         System.out.println("客户端连接");
-        ClientThread test = new ClientThread(client);
-        System.out.println("客户端线程");
+//        new LoginPage(clientThread);
 
-        test.handleLoginMessage("admin","admin");
-        Message message=(Message)test.getREMessage();
-        System.out.println(message.getResponse()+"登陆成功");
-
-        test.handleShowStudentMessage();
-        message=(Message)test.getREMessage();
-        StudentMessage studentMessage=(StudentMessage)message.getData();
-        Studentinfo studentinfo=(Studentinfo)studentMessage.getStudent().get(0);
-        System.out.println(studentinfo.Student_birthday);
-
-        test.handleAddStudentMessage("1","1","1","1","1","1","1","1","1","1","1");
-        message=(Message)test.getREMessage();
-        System.out.println(message.getResponse()+"添加成功");
-
-        test.handleUpdateStudentMessage("1","2","2","1","1","1","1","1","1","1","1");
-        message=(Message)test.getREMessage();
-        System.out.println(message.getResponse()+"修改成功");
-
-        test.handleDeleteStudentMessage("2");
-        message=(Message)test.getREMessage();
-        System.out.println(message.getResponse()+"删除成功");
-
+//        new ShopBuy(clientThread);
     }
 
     public Client(String hospIp,int port){

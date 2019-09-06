@@ -84,4 +84,32 @@ public class studentDAO {
         }
         return studentinlist;
     }
+
+    public ArrayList<Studentinfo> usrStudent(String usr_id) throws Exception{
+        ArrayList<Studentinfo> studentinlist=new ArrayList<Studentinfo>();
+        sql=con.prepareStatement("select * from Studenttbl where Student_id=?");
+        sql.setString(1,usr_id);
+        result=sql.executeQuery();
+        while (result.next()){
+//Student_id, Student_name, Student_college,Student_card,Student_phone,Student_type,Student_uid,Student_ins,Student_brith,Student_place,Student_sex) values (?, ?, ?,?,?,?,?,?,?,?,?)");
+            Studentinfo temp=new Studentinfo();
+            temp.setStudent_name(result.getString("Student_name"));
+            temp.setStudent_id(result.getString("Student_id"));
+            temp.setStudent_college(result.getString("Student_college"));
+            temp.setStudent_birthday(result.getString("Student_brith"));
+            temp.setStudent_card_id(result.getString("Student_uid"));
+            temp.setStudent_card_type(result.getString("Student_type"));
+            temp.setStudent_ins(result.getString("Student_ins"));
+            temp.setStudent_sex(result.getString("Student_sex"));
+            temp.setStudent_shengyuandi(result.getString("Student_place"));
+            temp.setStudent_onecardid(result.getString("Student_card"));
+            temp.setStudent_phone(result.getString("Student_phone"));
+
+            studentinlist.add(temp);
+        }
+        if(studentinlist.size()>=1){
+            return studentinlist;
+        }
+        return null;
+    }
 }

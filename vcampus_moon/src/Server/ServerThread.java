@@ -85,7 +85,9 @@ public class ServerThread extends Thread {
                 case "UsrUpdate":
                     updateusr(message);
                     break;
-
+                case "LogOut":
+                    exitlogin();
+                    break;
 
                 //学籍管理模块
                 case "Student":
@@ -102,6 +104,10 @@ public class ServerThread extends Thread {
 
                 case "UpdateStudent":
                     updatestudent(message);
+                    break;
+
+                case "UsrStudent":
+                    usrstudent();
                     break;
 
                 //图书馆模块
@@ -260,6 +266,10 @@ public class ServerThread extends Thread {
         }
     }
 
+    public void exitlogin(){
+        theUsr=null;
+    }
+
 //    -----------------------------图书馆模块--------------------------------------------
     public void Librarylist(){
         BookMessage bookMessage=new BookMessage();
@@ -370,6 +380,17 @@ public class ServerThread extends Thread {
         }catch (Exception e){}
 
     }
+
+    public void usrstudent(){
+        StudentMessage studentMessage=new StudentMessage();
+        try {
+            studentMessage.setStudentlist(toAccess.getstudent().usrStudent(theUsr));
+            Message msg=new Message("Student",studentMessage);
+            msg.setResponse(true);
+            oos.writeObject(msg);
+            oos.flush();
+        }catch (Exception e){}
+    }
     //-----------------------------------课程模块-------------------------------------------
     public void Courselist(){
         CourseMessage courseMessage=new CourseMessage();
@@ -461,6 +482,7 @@ public class ServerThread extends Thread {
         ShopMessage shopMessage=(ShopMessage) message.getData();
         GoodsInfo goodsInfo=(GoodsInfo)shopMessage.getGoodsInfo().get(0);
         try {
+            System.out.println(goodsInfo.getGoods_id());
             toAccess.getshop().deleteShop(goodsInfo.getGoods_id());
             message.setResponse(true);
             sendmsg(message);
