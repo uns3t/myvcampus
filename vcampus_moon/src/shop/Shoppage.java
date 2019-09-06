@@ -1,76 +1,269 @@
 package shop;
 
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import java.awt.Window.Type;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextPane;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JLayeredPane;
+import javax.swing.ImageIcon;
+import java.awt.SystemColor;
+
 import javax.swing.*;
-import java.awt.*;
+import java.awt.Window.Type;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.SystemColor;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.Color;
 
-public class Shoppage extends JFrame {
-    private JPanel c1, c2, c3, c4, c5, c6;
-    private JLabel j1, j2, j3, j4, j5, j6;
-    private JTextField tf1, tf2, tf3, tf4, tf5;
-    private JButton b1, b2, b3;
-
-    public Shoppage() {
-        super();
-        this.setLayout(new GridLayout(8, 3));
-
-        this.setTitle("商品详情界面");
-        c1 = new JPanel();
-        c2 = new JPanel();
-        c3 = new JPanel();
-        c4 = new JPanel();
-        c5 = new JPanel();
-        c6 = new JPanel();
-        //c7 = new JPanel();
-        //c8 = new JPanel();
-
-        this.add(c1);
-        this.add(c2);
-        this.add(c3);
-        this.add(c4);
-        this.add(c5);
-        this.add(c6);
-        //this.add(c7);
-        //this.add(c8);
+public class Shoppage extends JFrame{
 
 
-        j1 = new JLabel("商品名   :");
-        j1.setHorizontalAlignment(JLabel.LEFT);
-        j2 = new JLabel("商品编号 :",JLabel.LEFT);
-        j3 = new JLabel("标价     :",JLabel.LEFT);
-        j4 = new JLabel("库存     :",JLabel.LEFT);
-        j5 = new JLabel("销量     :",JLabel.LEFT);
-        j6 = new JLabel("操作类型: ",JLabel.LEFT);
-
-        tf1 = new JTextField( 20);
-        tf1.setHorizontalAlignment(JLabel.LEFT);
-        tf2 = new JTextField( 20);
-        tf3 = new JTextField(20);
-        tf4 = new JTextField( 20);
-        tf5 = new JTextField( 20);
-
-        b1 = new JButton("上架");
-        b2 = new JButton("下架");
-        b3 = new JButton("打折");
-
-        c1.add(j1);
-        c1.add(tf1);
-        c2.add(j2);
-        c2.add(tf2);
-        c3.add(j3);
-        c3.add(tf3);
-        c4.add(j4);
-        c4.add(tf4);
-        c5.add(j5);
-        c5.add(tf5);
-        c6.add(j6);
-        c6.add(b1);
-        c6.add(b2);
-        c6.add(b3);
+    private JTextField textField_1;
+    private JTextField textField;
+    private JTextField textField_2;
+    private JTextField textField_3;
+    private JTextField textField_4;
+    private final JLayeredPane layeredPane = new JLayeredPane();
 
 
-        setSize(500,400);
+    public Shoppage(/*Client client_shop*/) {
+
+        initialize(/*client_shop*/);
+    }
+
+    private void initialize(/*Client client_shop*/) {
+        //ClientThread cthread = new ClientThread(/*client_shop*/);
+        setTitle("\u5546\u54C1\u7BA1\u7406\u754C\u9762(\u7BA1\u7406\u5458)");
+        setBounds(100, 100, 414, 487);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
+        setVisible(true);
+        layeredPane.setBounds(-41, 0, 514, 440);
+        getContentPane().add(layeredPane);
         setVisible(true);
 
-        setLocationRelativeTo(null);
+        JLabel lblNewLabel_6 = new JLabel("\u80CC\u666F\u56FE\u7247");
+        lblNewLabel_6.setIcon(new ImageIcon("D:\\IDEA\\share\\myvcampus\\vcampus_moon\\images\\Shoppage.jpg"));
+        lblNewLabel_6.setBounds(40, -9, 1055, 578);
+        layeredPane.add(lblNewLabel_6);
+
+
+        JLabel lblNewLabel = new JLabel("\u5546\u54C1\u540D\u79F0");
+        layeredPane.setLayer(lblNewLabel, 1);
+        lblNewLabel.setBounds(71, 40, 72, 18);
+        layeredPane.add(lblNewLabel);
+
+        JLabel lblNewLabel_1 = new JLabel("\u5546\u54C1\u7F16\u53F7");
+        layeredPane.setLayer(lblNewLabel_1, 1);
+        lblNewLabel_1.setBounds(71, 80, 72, 18);
+        layeredPane.add(lblNewLabel_1);
+
+        JLabel lblNewLabel_2 = new JLabel("\u5546\u54C1\u6807\u4EF7");
+        layeredPane.setLayer(lblNewLabel_2, 1);
+        lblNewLabel_2.setBounds(72, 122, 72, 18);
+        layeredPane.add(lblNewLabel_2);
+
+        JLabel lblNewLabel_3 = new JLabel("\u9500\u91CF");
+        layeredPane.setLayer(lblNewLabel_3, 1);
+        lblNewLabel_3.setBounds(71, 166, 72, 18);
+        layeredPane.add(lblNewLabel_3);
+
+        JLabel lblNewLabel_4 = new JLabel("\u5E93\u5B58");
+        layeredPane.setLayer(lblNewLabel_4, 1);
+        lblNewLabel_4.setBounds(73, 210, 72, 18);
+        layeredPane.add(lblNewLabel_4);
+
+        textField_1 = new JTextField();//名称
+        textField_1.setBackground(new Color(255, 255, 255));
+        layeredPane.setLayer(textField_1, 1);
+        textField_1.setBounds(175, 35, 163, 24);
+        layeredPane.add(textField_1);
+        textField_1.setText("\u8BF7\u8F93\u5165\u5546\u54C1\u540D\u79F0");
+        textField_1.setColumns(10);
+        textField_1.addMouseListener(new MouseListener() {
+
+
+                                         @Override
+                                         public void mouseClicked(MouseEvent e) {
+                                             textField_1.setText("");
+                                         }
+
+                                         @Override
+                                         public void mousePressed(MouseEvent e) {
+
+                                         }
+
+                                         @Override
+                                         public void mouseReleased(MouseEvent e) {
+
+                                         }
+
+                                         @Override
+                                         public void mouseEntered(MouseEvent e) {
+
+                                         }
+
+                                         @Override
+                                         public void mouseExited(MouseEvent e) {
+
+                                         }
+                                     }
+        );
+
+        textField = new JTextField();//编号
+        layeredPane.setLayer(textField, 1);
+        textField.setBounds(176, 75, 162, 24);
+        layeredPane.add(textField);
+        textField.setText("\u8BF7\u8F93\u5165\u5546\u54C1\u7F16\u53F7");
+        textField.setColumns(10);
+        textField.addMouseListener(new MouseListener() {
+
+
+                                       @Override
+                                       public void mouseClicked(MouseEvent e) {
+                                           textField.setText("");
+                                       }
+
+                                       @Override
+                                       public void mousePressed(MouseEvent e) {
+
+                                       }
+
+                                       @Override
+                                       public void mouseReleased(MouseEvent e) {
+
+                                       }
+
+                                       @Override
+                                       public void mouseEntered(MouseEvent e) {
+
+                                       }
+
+                                       @Override
+                                       public void mouseExited(MouseEvent e) {
+
+                                       }
+                                   }
+        );
+
+        textField_2 = new JTextField();//标价
+        layeredPane.setLayer(textField_2, 1);
+        textField_2.setBounds(176, 119, 162, 24);
+        layeredPane.add(textField_2);
+        textField_2.setText("\u8BF7\u8F93\u5165\u5546\u54C1\u6807\u4EF7");
+        textField_2.setColumns(10);
+        textField_2.addMouseListener(new MouseListener() {
+
+
+                                         @Override
+                                         public void mouseClicked(MouseEvent e) {
+                                             textField_2.setText("");
+                                         }
+
+                                         @Override
+                                         public void mousePressed(MouseEvent e) {
+
+                                         }
+
+                                         @Override
+                                         public void mouseReleased(MouseEvent e) {
+
+                                         }
+
+                                         @Override
+                                         public void mouseEntered(MouseEvent e) {
+
+                                         }
+
+                                         @Override
+                                         public void mouseExited(MouseEvent e) {
+
+                                         }
+                                     }
+        );
+
+        textField_3 = new JTextField();//销量
+        layeredPane.setLayer(textField_3, 1);
+        textField_3.setBounds(176, 161, 163, 24);
+        layeredPane.add(textField_3);
+        textField_3.setColumns(10);
+
+        textField_4 = new JTextField();//库存
+        layeredPane.setLayer(textField_4, 1);
+        textField_4.setBounds(176, 207, 163, 24);
+        layeredPane.add(textField_4);
+        textField_4.setColumns(10);
+
+        JLabel lblNewLabel_5 = new JLabel("\u64CD\u4F5C\u7C7B\u578B");
+        layeredPane.setLayer(lblNewLabel_5, 1);
+        lblNewLabel_5.setBounds(72, 271, 72, 18);
+        layeredPane.add(lblNewLabel_5);
+
+        JButton btnNewButton = new JButton("\u4E0A\u67B6");//上架
+        btnNewButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //cthread.handleAddGood(textField_1.getText(),textField.getText(),Integer.parseInt(textField_2.getText()),Integer.parseInt(textField_3.getText()),Integer.parseInt(textField_4.getText()));
+                // Message message = cthread.getREMessage();
+                //if(message.getResponse())
+                //   JOptionPane.showMessageDialog(new JFrame().getContentPane(), "上架成功","上架提示页面", JOptionPane.INFORMATION_MESSAGE);
+                //else
+                JOptionPane.showMessageDialog(new JFrame().getContentPane(), "上架不成功!","上架提示页面", JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+        btnNewButton.setBackground(new Color(255, 165, 0));
+        layeredPane.setLayer(btnNewButton, 1);
+        btnNewButton.setBounds(177, 267, 78, 27);
+        layeredPane.add(btnNewButton);
+
+
+
+        JButton btnNewButton_1 = new JButton("\u4E0B\u67B6");//下架
+        btnNewButton_1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //cthread.handleDeleteGoodMessage(textField.getText());
+                //Message message2 = cthread.getREMessage();
+                //if(message2.getResponse())
+                //   JOptionPane.showMessageDialog(new JFrame().getContentPane(), "下架成功","下架提示页面", JOptionPane.INFORMATION_MESSAGE);
+                // else
+                JOptionPane.showMessageDialog(new JFrame().getContentPane(), "下架不成功!","下架提示页面", JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+        btnNewButton_1.setBackground(new Color(255, 165, 0));
+        layeredPane.setLayer(btnNewButton_1, 1);
+        btnNewButton_1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });;
+        btnNewButton_1.setBounds(284, 267, 78, 27);
+        layeredPane.add(btnNewButton_1);
+
+        JButton btnNewButton_2 = new JButton("\u8FD4\u56DE");
+        btnNewButton_2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+        btnNewButton_2.setBackground(new Color(144, 238, 144));
+        layeredPane.setLayer(btnNewButton_2, 1);
+        btnNewButton_2.setBounds(331, 338, 72, 27);
+        layeredPane.add(btnNewButton_2);
+
+
     }
 }
+
+
