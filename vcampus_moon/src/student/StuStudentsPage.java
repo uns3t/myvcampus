@@ -1,4 +1,4 @@
-﻿package student;
+package student;
 
 import javax.swing.*;
 import java.awt.Color;

@@ -464,6 +464,23 @@ public class ClientThread extends Thread {
         }
     }
 
+    public boolean handlePwdConfirm(String id, String pwd){
+        UsrMessage usrMessage = new UsrMessage();
+        usrMessage.setUsr_id(id);
+        usrMessage.setUsr_pwd(pwd);
+        usrMessage.setType("PwdConfirm");
+        Message message = new Message(usrMessage.getType(),usrMessage);
+        if (sendMessage(message)){
+            System.out.println("发送成功");
+            isWaiting = true;
+            return true;
+        }
+        else {
+            System.out.println("发送失败");
+            return false;
+        }
+    }
+
     //--------------------------------------------选课---------------------------------------------------
 
 

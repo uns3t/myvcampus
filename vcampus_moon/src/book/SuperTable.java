@@ -3,7 +3,7 @@ package book;
 import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
-import org.omg.CORBA.PUBLIC_MEMBER;
+//import org.omg.CORBA.PUBLIC_MEMBER;
 import client.*;
 import message.*;
 public class SuperTable extends JPanel {

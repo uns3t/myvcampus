@@ -1,10 +1,13 @@
 package client;
 
+import java.math.BigInteger;
 import java.net.Socket;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import login.*;
 import shop.*;
@@ -14,9 +17,20 @@ import message.*;
 public class Client{
 
     public static void main(String[] args) {
-        Client client = new Client("127.0.0.1",10001);
-        ClientThread clientThread=new ClientThread(client);
-        System.out.println("客户端连接");
+        String s = "8zhong14ban";
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(s.getBytes());
+            String pwd = new BigInteger(1,md.digest()).toString();
+            System.out.println(pwd);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(s.hashCode());
+//        Client client = new Client("127.0.0.1",10001);
+//        ClientThread clientThread=new ClientThread(client);
+//        System.out.println("客户端连接");
 //        new LoginPage(clientThread);
 
 //        new ShopBuy(clientThread);
