@@ -62,7 +62,7 @@ public class shopDAO {
         return goodslist;
     }
 
-    public void buygoods(String goods_id,int buy_num) throws Exception{
+    public void buygoods(String goods_id,int buy_num,String theusr) throws Exception{
         System.out.println("goods: "+goods_id);
         int goods_num=0;
         int goods_sales=0;
@@ -84,6 +84,12 @@ public class shopDAO {
             sql=con.prepareStatement("update Shoptbl set Goods_sales=? where Goods_id=?");
             sql.setString(1,goods_sales+"");
             sql.setString(2,goods_id);
+            sql.executeUpdate();
+
+            sql=con.prepareStatement("insert into Buytbl (Usr_id, Goods_id, Goods_num) values (?,?, ?)");
+            sql.setString(1,theusr);
+            sql.setString(2,goods_id);
+            sql.setString(3,buy_num+"");
             sql.executeUpdate();
         }
     }

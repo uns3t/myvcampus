@@ -1,21 +1,20 @@
 package Server;
-import java.io.IOException;
-import java.io.Serializable;
+import java.io.*;
 import java.net.BindException;
 import java.net.ServerSocket;
+import java.util.Date;
 import java.util.Vector;
 import java.net.Socket;
 
 
 public class Server extends Thread {
     private ServerSocket server;
-    private Vector<ServerThread> manyserver;
+    private static int Socketnum=0;
 
     public Server() {
         try {
             server = new ServerSocket(10001);
             System.out.println("主线程开始监听10001");
-            manyserver = new Vector<ServerThread>();
             this.start();
         }
         catch(Exception e) {
@@ -32,6 +31,7 @@ public class Server extends Thread {
         while(!server.isClosed()) {
             try {
                 Socket client = server.accept();//监听新的客户端
+                wrinlog(client);
 
                 ServerThread current = new ServerThread(client, this);
                 current.start();
@@ -40,6 +40,26 @@ public class Server extends Thread {
                 e.printStackTrace();
             }
         }
+    }
+
+
+
+    public void wrinlog(Socket client){
+
+        File temp=new File("./","log.txt");
+        try {
+            FileWriter fileWriter=new FileWriter(temp,true);
+            String date=new Date().toString();
+            fileWriter.write("\n当前连接数:   "+Socketnum+"\n");
+            fileWriter.write("当前时间:   "+date+"\n");
+            fileWriter.write("此连接客户端ip:   "+client.getInetAddress()+"\n");
+            fileWriter.write("连接客户端port:   "+client.getPort()+"\n"+"\n");
+            fileWriter.close();
+        }catch (Exception e){
+
+        }
+
+
     }
 
     public void close() {
@@ -53,37 +73,8 @@ public class Server extends Thread {
         }
     }
 
-    /**
-     * 返回当前已连接客户端数量
-     */
-    public int getSize() {
-        return manyserver.size();
-    }
 
-    /**
-     * 向向量中添加新的客户端
-     */
-    public int addClientConnection(ServerThread ct) {
-        manyserver.add(ct);
 
-        return manyserver.size();
-    }
-
-    /**
-     * 从向量中移除关闭的客户端
-     *
-     * @param ct 要关闭的客户端线程
-     * @return 关闭状态
-     */
-    public boolean closeClientConnection(ServerThread ct) {
-        if (manyserver.contains(ct)) {
-            manyserver.remove(ct);
-
-            return true;
-        }
-
-        return false;
-    }
 
     /**
      * 在向量中按登录用户ID寻找客户端

@@ -1,12 +1,13 @@
 package Server;
 
+
 import message.*;
 import DAO.*;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+
+import java.io.*;
 import java.net.Socket;
 import java.lang.Exception;
+import java.util.Date;
 
 
 public class ServerThread extends Thread {
@@ -153,6 +154,10 @@ public class ServerThread extends Thread {
                     updateshop(message);
                     break;
 
+                case "PwdConfirm":
+                    pwdconfrim(message);
+                    break;
+
                 //课程选择模块
                 case "Course":
                     Courselist();
@@ -186,7 +191,6 @@ public class ServerThread extends Thread {
 
                 client.close();
 
-                currentServer.closeClientConnection(this);//在服务器线程中关闭该客户端
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -202,6 +206,8 @@ public class ServerThread extends Thread {
         System.out.println("成功");
 
     }
+
+
 
     //------------------------------具体功能模块----------------------------------------------------
     //--------------------------------------------------------------------------------------------
@@ -453,6 +459,30 @@ public class ServerThread extends Thread {
     //--------------------------------------商店模块-----------------------------------------
 
 
+    public void pwdconfrim(Message message){
+        UsrMessage usrMessage =(UsrMessage) message.getData();
+        try {
+            int temp=toAccess.getusr().Logincheck(usrMessage.getUsr_id(), usrMessage.getUsr_pwd());
+            if(temp==1){
+                theUsr= usrMessage.getUsr_id();
+                message.setData(usrMessage);
+                message.setResponse(true);
+                sendmsg(message);
+            }else if(temp==0){
+                theUsr= usrMessage.getUsr_id();
+                message.setData(usrMessage);
+                message.setResponse(true);
+                sendmsg(message);
+            }else {
+                message.setResponse(false);
+                sendmsg(message);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
     public void Shoplist(){
         ShopMessage shopMessage=new ShopMessage();
         try {
@@ -496,7 +526,7 @@ public class ServerThread extends Thread {
         ShopMessage shopMessage=(ShopMessage) message.getData();
         GoodsInfo goodsInfo=(GoodsInfo)shopMessage.getGoodsInfo().get(0);
         try {
-            toAccess.getshop().buygoods(goodsInfo.getGoods_id(),goodsInfo.getGoods_quantity());
+            toAccess.getshop().buygoods(goodsInfo.getGoods_id(),goodsInfo.getGoods_quantity(),theUsr);
             message.setResponse(true);
             sendmsg(message);
         }catch (Exception e){
