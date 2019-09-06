@@ -1,238 +1,233 @@
-package Book;
+package book;
 
-import javax.swing.JPanel;
 import javax.swing.*;
-
-/*import CallBack.Libarycallback;
-import Connect.*;
-import PowfulPanel.*;*/
 
 import java.awt.*;
 import java.util.*;
 import java.util.List;
-
-//import Message.*;
+import client.*;
+import message.*;
 
 public class LibPanel extends JPanel {
 
+	final HomePanel homePanel;
+	final PersonPanel personalPanel = new PersonPanel();
+	//final SearchPanel searchPanel;
+	final ButtonPanel btp = new ButtonPanel(3);
+	public int admin = 1;
+	JPanel topPanel = new JPanel();
+	Client mClient;
+	final JPanel centerPanel = new JPanel();
+
+	public LibPanel(Client client) {
+		mClient = client;
+		homePanel = new HomePanel(client);
+		//searchPanel = new SearchPanel(client);
+		btp.setBounds(0, 0, 900, 40);
+		this.add(btp, new Integer(1));
+		this.setLayout(null);
+		this.setBackground(Color.white);
+		//searchPanel.admin = this.admin;
+		topPanel.setLayout(null);
+
+		topPanel.setBackground(Color.white);
+		topPanel.setBounds(0, 0, 900, 45);
+
+		centerPanel.setBackground(Color.WHITE);
+		centerPanel.setLayout(null);
+		centerPanel.setBounds(0, 45, 900, 700);
+
+		homePanel.setBackground(Color.white);
+		homePanel.setBounds(0, 50, 900, 650);
+		homePanel.setLayout(null);
+		this.add(homePanel);
+
+		//searchPanel.setBackground(Color.white);
+
+		final PButton jb1 = new PButton("È¶ñ    È°µ");
+		final PButton jb2 = new PButton("Âõæ‰π¶‰ø°ÊÅØ");
+		final PButton jb3 = new PButton("ÊêúÁ¥¢Âõæ‰π¶");
+		if (admin == 1)
+			jb3.setText("ÁÆ°ÁêÜÂõæ‰π¶");
+		final PButton jb4 = new PButton("‰∏™‰∫∫ËÆ∞ÂΩï");
+		jb1.setFocusPainted(false);
+		jb1.setBounds(0, 5, 300, 40);
+		jb1.setForeground(new Color(35, 164, 231));
+		jb1.setBackground(Color.white);
+
+		jb1.addActionListener(new java.awt.event.ActionListener() {
+
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				resultPanel(homePanel);
+
+				jb1.setForeground(new Color(35, 164, 231));
+				jb1.setBackground(Color.white);
+				jb2.setForeground(new Color(254, 254, 254));
+				jb2.setBackground(new Color(206, 206, 206));
+				jb3.setForeground(new Color(254, 254, 254));
+				jb3.setBackground(new Color(206, 206, 206));
+				jb4.setForeground(new Color(254, 254, 254));
+				jb4.setBackground(new Color(206, 206, 206));
+				removeThePanelExcept(homePanel);
+				addtop();
+				btp.DoSlide(0);
+
+			}
+
+		});
+
+		// jb2.setBounds(225, 5,225 , 40);
 
 
-		final HomePanel homePanel ;
-		final PersonPanel personalPanel = new PersonPanel();
-//		final BookinfPanel bookinfPanel = new BookinfPanel();
-		final SearchPanel searchPanel;
-		final Button btp = new Button();
-		public int admin = 1;
-		JPanel topPanel = new JPanel();
-		//Client mClient;
-		final JPanel centerPanel = new JPanel();
+		jb3.setBounds(300, 5, 300, 40);
+		jb3.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				//resultPanel(searchPanel);
+				jb3.setForeground(new Color(35, 164, 231));
+				jb3.setBackground(Color.white);
+				jb1.setForeground(new Color(254, 254, 254));
+				jb1.setBackground(new Color(206, 206, 206));
+				jb2.setForeground(new Color(254, 254, 254));
+				jb2.setBackground(new Color(206, 206, 206));
+				jb4.setForeground(new Color(254, 254, 254));
+				jb4.setBackground(new Color(206, 206, 206));
+				//removeThePanelExcept(searchPanel);
+				addtop();
+				btp.DoSlide(1);
+//				searchPanel.jsp.setVisible(false);
+//				searchPanel.jsp.setVisible(true);
 
-		public LibPanel(/*Client client*/) {
-			//mClient = client;
-			//homePanel = new HomePanel(client);
-			//searchPanel = new SearchPanel(client);
-			btp.setBounds(0, 5, 900, 40);
-			this.add(btp, new Integer(1));
-			this.setLayout(null);
-			this.setBackground(Color.white);
-			searchPanel.admin = this.admin;
-			topPanel.setLayout(null);
+			}
+		});
 
-			topPanel.setBackground(Color.white);
-			topPanel.setBounds(0, 0, 900, 45);
+		jb4.setBounds(600, 5, 300, 40);
+		jb4.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+				resultPanel(personalPanel);
+				jb4.setForeground(new Color(35, 164, 231));
+				jb4.setBackground(Color.white);
+				jb1.setForeground(new Color(254, 254, 254));
+				jb1.setBackground(new Color(206, 206, 206));
+				jb3.setForeground(new Color(254, 254, 254));
+				jb3.setBackground(new Color(206, 206, 206));
+				jb2.setForeground(new Color(254, 254, 254));
+				jb2.setBackground(new Color(206, 206, 206));
+				removeThePanelExcept(personalPanel);
+				addtop();
+				ArrayList<BookBorrowMessage> temp = new ArrayList();
+				temp.add(new BookBorrowMessage());
+				temp.add(new BookBorrowMessage());
 
-			centerPanel.setBackground(Color.WHITE);
-			centerPanel.setLayout(null);
-			centerPanel.setBounds(0, 45, 900, 700);
+				personalPanel.showPersonalBorrowPanle(temp);
+				btp.DoSlide(2);
 
-			homePanel.setBackground(Color.white);
-			homePanel.setBounds(0, 50, 900, 650);
-			homePanel.setLayout(null);
-			this.add(homePanel);
+			}
+		});
 
-		//	bookinfPanel.setBackground(Color.white);
-			searchPanel.setBackground(Color.white);
+		topPanel.add(jb1);
+		topPanel.add(jb2);
+		topPanel.add(jb3);
+		topPanel.add(jb4);
 
-			final SelectButton jb1 = new SelectButton(" ◊    “≥");
-			final SelectButton jb2 = new SelectButton("Õº È–≈œ¢");
-			final SelectButton jb3 = new SelectButton("À—À˜Õº È");
-			if (admin == 1)
-				jb3.setText("π‹¿ÌÕº È");
-			final SelectButton jb4 = new SelectButton("∏ˆ»Àº«¬º");
-			jb1.setFocusable(false);
-			jb1.setBounds(0, 5, 300, 40);
-			jb1.setForeground(new Color(35, 164, 231));
-			jb1.setBackground(Color.white);
-			jb1.addActionListener(new java.awt.event.ActionListener() {
+		this.add(topPanel);
 
-				public void actionPerformed(java.awt.event.ActionEvent e) {
-					resultPanel(homePanel);
+		this.add(topPanel);
 
-					jb1.setForeground(new Color(35, 164, 231));
-					jb1.setBackground(Color.white);
-					jb2.setForeground(new Color(254, 254, 254));
-					jb2.setBackground(new Color(206, 206, 206));
-					jb3.setForeground(new Color(254, 254, 254));
-					jb3.setBackground(new Color(206, 206, 206));
-					jb4.setForeground(new Color(254, 254, 254));
-					jb4.setBackground(new Color(206, 206, 206));
-					removeThePanelExcept(homePanel);
-					addtop();
-					btp.DoSlide(0);
+		this.add(centerPanel);
+		btp.DoSlide(0);
 
+	/*	mClient.messageThread.setlibaraylistener(new Libarycallback() {
+
+			@Override
+			public void getbooklist(ArrayList<BookMessage> mArrayList) {
+				System.out.println("zhazha");
+				if(mArrayList.size()==0){
+					JOptionPane.showMessageDialog(null, "Ê≤°ÊúâÁªìÊûú", "‰∏çÂ•ΩÊÑèÊÄùTAT",JOptionPane.CLOSED_OPTION);
+				}
+				{
+
+	//
+//					searchPanel.sousuo();
+					searchPanel.showSearchresult(mArrayList);
 				}
 
-			});
 
-			// jb2.setBounds(225, 5,225 , 40);
-
-
-			jb3.setBounds(300, 5, 300, 40);
-			jb3.addActionListener(new java.awt.event.ActionListener() {
-				public void actionPerformed(java.awt.event.ActionEvent e) {
-					resultPanel(searchPanel);
-					jb3.setForeground(new Color(35, 164, 231));
-					jb3.setBackground(Color.white);
-					jb1.setForeground(new Color(254, 254, 254));
-					jb1.setBackground(new Color(206, 206, 206));
-					jb2.setForeground(new Color(254, 254, 254));
-					jb2.setBackground(new Color(206, 206, 206));
-					jb4.setForeground(new Color(254, 254, 254));
-					jb4.setBackground(new Color(206, 206, 206));
-					removeThePanelExcept(searchPanel);
-					addtop();
-					btp.DoSlide(1);
-//					searchPanel.jsp.setVisible(false);
-//					searchPanel.jsp.setVisible(true);
-
-				}
-			});
-
-			jb4.setBounds(600, 5, 300, 40);
-			jb4.addActionListener(new java.awt.event.ActionListener() {
-				public void actionPerformed(java.awt.event.ActionEvent e) {
-					resultPanel(personalPanel);
-					jb4.setForeground(new Color(35, 164, 231));
-					jb4.setBackground(Color.white);
-					jb1.setForeground(new Color(254, 254, 254));
-					jb1.setBackground(new Color(206, 206, 206));
-					jb3.setForeground(new Color(254, 254, 254));
-					jb3.setBackground(new Color(206, 206, 206));
-					jb2.setForeground(new Color(254, 254, 254));
-					jb2.setBackground(new Color(206, 206, 206));
-					removeThePanelExcept(personalPanel);
-					addtop();
-					ArrayList<BorrowMessage> temp = new ArrayList();
-					temp.add(new BorrowMessage());
-					temp.add(new BorrowMessage());
-					personalPanel.showPersonalBorrowPanle(temp);
-					btp.DoSlide(2);
-
-				}
-			});
-
-			topPanel.add(jb1);
-			topPanel.add(jb2);
-			topPanel.add(jb3);
-			topPanel.add(jb4);
-
-			this.add(topPanel);
-
-			this.add(topPanel);
-
-			this.add(centerPanel);
-			btp.DoSlide(0);
-
-			mClient.messageThread.setlibaraylistener(new Libarycallback() {
-
-				@Override
-				public void getbooklist(ArrayList<BookMessage> mArrayList) {
-					System.out.println("zhazha");
-					if(mArrayList.size()==0){
-						JOptionPane.showMessageDialog(null, "√ª”–Ω·π˚", "≤ª∫√“‚ÀºTAT",JOptionPane.CLOSED_OPTION);
-					}
-					{
-					
-		//
-//						searchPanel.sousuo();
-						searchPanel.showSearchresult(mArrayList);
-					}
-					
-
-				}
-			});
-
-		}
-
-		// ª¨∂Ø–ßπ˚∑Ω∑®
-		public void resultPanel(final JPanel panel) {
-			panel.setBounds(0, 0, centerPanel.getWidth(), centerPanel.getHeight());// …Ë÷√ª¨∂Ø≥ı ºŒª÷√
-			int count = centerPanel.getComponentCount();// ªÒ»°centerPanel÷–øÿº˛ ˝
-			List list = new ArrayList();//
-			for (Component comp : centerPanel.getComponents()) {
-				list.add(comp);// ∏¯list∏≥÷µ
 			}
-			if (count > 0) {// »Áπ˚centerPanel÷–øÿº˛ ˝¥Û”⁄0æÕ÷¥–––ßπ˚
-				for (int i = 0; i < count; i++) {
-					Component comp = centerPanel.getComponent(i);// ªÒµ√∏√Œª÷√µƒøÿº˛
-					if (comp instanceof JPanel) {// ≈–∂œøÿº˛¿‡–Õ
-						final JPanel currentPanel = (JPanel) comp;// ªÒµ√µ±«∞panel
-						if (currentPanel != panel) {
-							new Thread() {
-								public void run() {
-									Rectangle rec = currentPanel.getBounds();// ªÒµ√µ±«∞√Ê∞ÂµƒŒª÷√–≈œ¢
-									int y = -centerPanel.getWidth();
+		});*/
+		String[] temp ;
+		//searchPanel.showSearchresult(temp);
 
-									for (int i = 0; i <= centerPanel.getWidth(); i += 10) {
-										// …Ë÷√√Ê∞ÂŒª÷√
-										currentPanel.setBounds(i, 0, centerPanel.getWidth(), centerPanel.getHeight());
-										panel.setBounds(y, 0, centerPanel.getWidth(), centerPanel.getHeight());
-										try {
-											Thread.sleep(3);
-										} catch (InterruptedException e) {
-											// TODO Auto-generated catch block
-											e.printStackTrace();
-										}
-										y += 10;
-									}
-									centerPanel.remove(currentPanel);// “∆≥˝Æî«∞√Ê∞Â
-									panel.setBounds(0, 0, centerPanel.getWidth(), centerPanel.getHeight());
-								}
-							}.start();
-							break;
-						}
-					}
-				}
-			}
-			if (!list.contains(panel)) {
-				centerPanel.add(panel, new Integer(3));// ÃÌº”“™«–ªªµƒ√Ê∞Â
-			}
-			centerPanel.validate();// ÷ÿππƒ⁄»›√Ê∞Â
-			centerPanel.repaint();// ÷ÿªÊƒ⁄»›√Ê∞Â
-		}
-
-		void removeThePanelExcept(JPanel a) {
-			if (homePanel != a) {
-				this.remove(homePanel);
-			}
-
-			if (personalPanel != a) {
-				this.remove(personalPanel);
-			}
-
-			if (searchPanel != a) {
-				this.remove(searchPanel);
-			}
-
-
-			this.remove(topPanel);
-
-		}
-
-		void addtop() {
-			this.add(topPanel);
-
-		}
-		
 	}
+
+	// ÊªëÂä®ÊïàÊûúÊñπÊ≥ï
+	public void resultPanel(final JPanel panel) {
+		panel.setBounds(0, 0, centerPanel.getWidth(), centerPanel.getHeight());// ËÆæÁΩÆÊªëÂä®ÂàùÂßã‰ΩçÁΩÆ
+		int count = centerPanel.getComponentCount();// Ëé∑ÂèñcenterPanel‰∏≠Êéß‰ª∂Êï∞
+		List list = new ArrayList();//
+		for (Component comp : centerPanel.getComponents()) {
+			list.add(comp);// ÁªôlistËµãÂÄº
+		}
+		if (count > 0) {// Â¶ÇÊûúcenterPanel‰∏≠Êéß‰ª∂Êï∞Â§ß‰∫é0Â∞±ÊâßË°åÊïàÊûú
+			for (int i = 0; i < count; i++) {
+				Component comp = centerPanel.getComponent(i);// Ëé∑ÂæóËØ•‰ΩçÁΩÆÁöÑÊéß‰ª∂
+				if (comp instanceof JPanel) {// Âà§Êñ≠Êéß‰ª∂Á±ªÂûã
+					final JPanel currentPanel = (JPanel) comp;// Ëé∑ÂæóÂΩìÂâçpanel
+					if (currentPanel != panel) {
+						new Thread() {
+							public void run() {
+								Rectangle rec = currentPanel.getBounds();// Ëé∑ÂæóÂΩìÂâçÈù¢ÊùøÁöÑ‰ΩçÁΩÆ‰ø°ÊÅØ
+								int y = -centerPanel.getWidth();
+
+								for (int i = 0; i <= centerPanel.getWidth(); i += 10) {
+									// ËÆæÁΩÆÈù¢Êùø‰ΩçÁΩÆ
+									currentPanel.setBounds(i, 0, centerPanel.getWidth(), centerPanel.getHeight());
+									panel.setBounds(y, 0, centerPanel.getWidth(), centerPanel.getHeight());
+									try {
+										Thread.sleep(3);
+									} catch (InterruptedException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+									y += 10;
+								}
+								centerPanel.remove(currentPanel);// ÁßªÈô§Áï∂ÂâçÈù¢Êùø
+								panel.setBounds(0, 0, centerPanel.getWidth(), centerPanel.getHeight());
+							}
+						}.start();
+						break;
+					}
+				}
+			}
+		}
+		if (!list.contains(panel)) {
+			centerPanel.add(panel, new Integer(3));// Ê∑ªÂä†Ë¶ÅÂàáÊç¢ÁöÑÈù¢Êùø
+		}
+		centerPanel.validate();// ÈáçÊûÑÂÜÖÂÆπÈù¢Êùø
+		centerPanel.repaint();// ÈáçÁªòÂÜÖÂÆπÈù¢Êùø
+	}
+
+	void removeThePanelExcept(JPanel a) {
+		if (homePanel != a) {
+			this.remove(homePanel);
+		}
+
+		if (personalPanel != a) {
+			this.remove(personalPanel);
+		}
+
+//		if (searchPanel != a) {
+	//		this.remove(searchPanel);
+	//	}
+
+
+		this.remove(topPanel);
+
+	}
+
+	void addtop() {
+		this.add(topPanel);
+
+	}
+
+}
 

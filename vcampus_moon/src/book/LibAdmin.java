@@ -1,4 +1,4 @@
-package Book;
+package book;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -14,29 +14,29 @@ import javax.swing.border.EmptyBorder;
 
 public class LibAdmin extends JFrame {
 
-	JLabel Book_id=new JLabel("Í¼Êé±àºÅ:");
-	JLabel Book_name=new JLabel("ÊéÃû:");
-	JLabel Book_total =new JLabel("×ÜÊıÁ¿:");
-	JLabel Book_author =new JLabel("×÷Õß:");
-	//JLabel Book_press =new JLabel("³ö°æÉç:");
-	//JLabel  Book_introduction=new JLabel("¼ò½é:");
-	JLabel Book_borrow =new JLabel("¿É½è±¾Êı:");
-	
-	JFrame Order=new JFrame("È·ÈÏÔ¤Ô¼");
-	JFrame ReturnBook=new JFrame("»¹Êé");
-	
-	JLabel Message=new JLabel("ÇëÊäÈëÒ»¿¨Í¨ºÅ");
+	JLabel Book_id=new JLabel("å›¾ä¹¦ç¼–å·:");
+	JLabel Book_name=new JLabel("ä¹¦å:");
+	JLabel Book_total =new JLabel("æ€»æ•°é‡:");
+	JLabel Book_author =new JLabel("ä½œè€…:");
+	//JLabel Book_press =new JLabel("å‡ºç‰ˆç¤¾:");
+	JLabel  Book_introduction=new JLabel("ç®€ä»‹:");
+	JLabel Book_borrow =new JLabel("å¯å€Ÿæœ¬æ•°:");
 
-	JButton Delete_button=new JButton("É¾³ıÍ¼Êé");
-	JButton Returnbook =new JButton("¹é»¹");
-	JButton Subscribe =new JButton("¶©ÔÄ");
-	JButton Save=new JButton("±£´æ");	
-	JButton Cance=new JButton("È¡Ïû");
-	JButton CancelOrder=new JButton("È¡Ïû");
-	JButton CancelReturn=new JButton("È¡Ïû");
-	JButton Confirmreturnbook=new JButton("È·ÈÏ");
-	JButton ConfirmSubscribe=new JButton("È·ÈÏ");
-	
+	JFrame Order=new JFrame("ç¡®è®¤é¢„çº¦");
+	JFrame ReturnBook=new JFrame("è¿˜ä¹¦");
+
+	JLabel Message=new JLabel("è¯·è¾“å…¥ä¸€å¡é€šå·");
+
+	//JButton Delete_button=new JButton("åˆ é™¤å›¾ä¹¦");
+	JButton Returnbook =new JButton("å½’è¿˜");
+	JButton Subscribe =new JButton("è®¢é˜…");
+	JButton Save=new JButton("ä¿å­˜");
+	JButton Cance=new JButton("å–æ¶ˆ");
+	JButton CancelOrder=new JButton("å–æ¶ˆ");
+	JButton CancelReturn=new JButton("å–æ¶ˆ");
+	JButton Confirmreturnbook=new JButton("ç¡®è®¤");
+	JButton ConfirmSubscribe=new JButton("ç¡®è®¤");
+
 
 	JTextField BOOKID =new JTextField();
 	JTextField BOOKNAME =new JTextField();
@@ -47,21 +47,21 @@ public class LibAdmin extends JFrame {
 	//JTextField Introduct_input= new JTextField();
 	JTextField IDinput= new JTextField();
 	//SearchPanel mPanel_searchPanel=new SearchPanel();
-	SearchPanel mPanel_searchPanel=new SearchPanel();
+	//SearchPanel mPanel_searchPanel=new SearchPanel();
 	int tablenumber;
-	String[] colname={"Ò»¿¨Í¨ºÅ","×´Ì¬"};
+	String[] colname={"ä¸€å¡é€šå·","çŠ¶æ€"};
 	String[][] borrowData=new String[100][2];
 	JTable borrow =new JTable(borrowData,colname);
-	JScrollPane jsp=new JScrollPane(borrow);
-	
-	
-	public LibAdmin() {		
+	//JScrollPane jsp=new JScrollPane(borrow);
+
+
+	public LibAdmin() {
 		getContentPane().add(Book_name);	getContentPane().add(Book_id);getContentPane().add(Book_total);getContentPane().add(Book_borrow);
 		getContentPane().add(BOOKID);getContentPane().add(BOOKNAME);getContentPane().add(ABLETOBORROW);getContentPane().add(TOTAL);
 		getContentPane().add(Subscribe);getContentPane().add(Save);getContentPane().add(Cance);getContentPane().add(Returnbook);
 		getContentPane().add(Book_author);getContentPane().add(Author_input);/*getContentPane().add(Book_press);getContentPane().add(Press_input);
-		/*this.add(location);getContentPane().add(Book_introduction);getContentPane().add(Introduct_input);*/
-		getContentPane().add(jsp);getContentPane().add(Delete_button);
+		/*this.add(location);*/getContentPane().add(Book_introduction);getContentPane().add(Book_introduction);
+		//	getContentPane().add(jsp);getContentPane().add(Delete_button);
 		getContentPane().setLayout(null);
 		this.setLocationRelativeTo(null);
 		//for(int i=0;i<=5;i++)for(int j=0;j<=1;j++)borrowData[i][j]=mPanel_searchPanel.ALLData.get(0)[0][0];
@@ -83,9 +83,9 @@ public class LibAdmin extends JFrame {
 		ABLETOBORROW.setBounds(140, 192, 150, 30);
 		//Introduct_input.setBounds(140, 272, 150, 30);
 		//location_input.setBounds(140, 312, 150, 30);
-		Delete_button.setBounds(121, 559, 119, 20);
-	
-		jsp.setBounds(60, 255, 263, 199);
+		//Delete_button.setBounds(121, 559, 119, 20);
+
+		//jsp.setBounds(60, 255, 263, 199);
 		Subscribe.setBounds(60, 469, 100, 30);
 		Returnbook.setBounds(190, 469, 100, 30);
 		Save.setBounds(60,514, 100, 30);
@@ -95,27 +95,23 @@ public class LibAdmin extends JFrame {
 
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 
-			close();
+				close();
 
-	
-			
-	
-	
-		}
+			}
 
 		});
-		
-		
+
+
 		Save.addActionListener(new java.awt.event.ActionListener() {
 
 			public void actionPerformed(java.awt.event.ActionEvent e) {
-			
-			save();
-	
-		}
+
+				//save();
+
+			}
 
 		});
-		Delete_button.addActionListener(new java.awt.event.ActionListener() {
+		/*Delete_button.addActionListener(new java.awt.event.ActionListener() {
 
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 			
@@ -123,8 +119,8 @@ public class LibAdmin extends JFrame {
 	
 		}
 
-		});
-		
+		});*/
+
 		Subscribe.addActionListener(new java.awt.event.ActionListener() {
 
 			public void actionPerformed(java.awt.event.ActionEvent e) {
@@ -142,25 +138,28 @@ public class LibAdmin extends JFrame {
 				IDinput.setBounds(80, 80, 127, 30);
 				ConfirmSubscribe.setBounds(30, 140, 100, 40);
 				CancelOrder.setBounds(160, 140, 100, 40);;
+
+
+
 				CancelOrder.addActionListener(new java.awt.event.ActionListener() {
 
 					public void actionPerformed(java.awt.event.ActionEvent e) {
 
 						Order.setVisible(false);
-			
-				}
+
+					}
 
 				});
-				
-	
-		}
+
+
+			}
 
 		});
 		Returnbook.addActionListener(new java.awt.event.ActionListener() {
 
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 
-	
+
 				ReturnBook.getContentPane().setLayout(null);
 				ReturnBook.setVisible(true);
 				ReturnBook.setLocationRelativeTo(null);
@@ -176,17 +175,17 @@ public class LibAdmin extends JFrame {
 				Confirmreturnbook.addActionListener(new java.awt.event.ActionListener() {
 
 					public void actionPerformed(java.awt.event.ActionEvent e) {
-					String temp;
-					temp=IDinput.getText();
+						String temp;
+						temp=IDinput.getText();
 
-					for (int i=0;i<=99;i++)if(temp.equals(borrowData[i][0])){
-						borrowData[i][0]="";borrowData[i][1]="";
-						borrow.setVisible(false);borrow.setVisible(true);
+						for (int i=0;i<=99;i++)if(temp.equals(borrowData[i][0])){
+							borrowData[i][0]="";borrowData[i][1]="";
+							borrow.setVisible(false);borrow.setVisible(true);
+						}
+
+
+
 					}
-						
-					
-			
-				}
 
 				});
 				CancelReturn.addActionListener(new java.awt.event.ActionListener() {
@@ -194,26 +193,26 @@ public class LibAdmin extends JFrame {
 					public void actionPerformed(java.awt.event.ActionEvent e) {
 
 						ReturnBook.setVisible(false);
-			
-				}
+
+					}
 
 				});
-				
 
-				
-	
-		}
+
+
+
+			}
 
 		});
-	
-		
-		
-		
-		
-		
+
+
+
+
+
+
 	}
 	
-	protected void save(){
+	/*protected void save(){
 			close();
 			mPanel_searchPanel.table.setTextTableCell(tablenumber, 5,ABLETOBORROW.getText());
 			mPanel_searchPanel.table.setTextTableCell(tablenumber, 1,BOOKNAME.getText());
@@ -244,11 +243,10 @@ public class LibAdmin extends JFrame {
 		mPanel_searchPanel.jsp.setVisible(true);
 	
 	
-}
+}*/
 
 	public  void setbooknumber(String Booknumber){
 		BOOKNAME.setText(Booknumber);
-		
 	}
 	public void setbookname(String Bookname){
 		BOOKNAME.setText(Bookname);
@@ -259,10 +257,10 @@ public class LibAdmin extends JFrame {
 	public void setabletoborrow(String Abletoborrow){
 		Book_borrow.setText(Abletoborrow);
 	}
-	
-	public void setsearchpanel(SearchPanel m) {
+
+	/*public void setsearchpanel(SearchPanel m) {
 		mPanel_searchPanel = m;
-	}
+	}*/
 	public void close()
 	{
 		this.setVisible(false);

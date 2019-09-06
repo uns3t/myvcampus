@@ -7,10 +7,13 @@ import java.awt.Image;
 import java.awt.SystemColor;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 import client.*;
 import message.StudentMessage;
+import message.Studentinfo;
+
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.BevelBorder;
 
@@ -26,20 +29,20 @@ public class AdminStudentsPage extends JFrame{
 	textField_22, textField_23, textField_24, textField_25, textField_28, textField_29, textField_30, textField_31, textField_36, textField_37;
 	private JLabel label, label_1, label_2, label_3, label_4, label_6, label_8, label_9, label_14, label_15, label_18;
 	private String name, sex, birthday, shengyuandi, id, onecardid, college, phone, cardtype, cardid, ins;
-	private JButton btnNewButton, button, button_1;
+	private JButton btnNewButton, button, button_1, button_2, button_3;
 	private JTextArea textArea;
 	private JTextField textField_26;
+	private boolean isAdd = false;
 
 	
-	public AdminStudentsPage(/*Client client*/)/* throws IOException*/ {
-//		ClientThread cthread  = new ClientThread(client);
-//		StudentMessage list = (StudentMessage)cthread.getREMessage().getData();
-		initialize(/*cthread*/);
+	public AdminStudentsPage(ClientThread cthread) throws IOException {
+		initialize(cthread);
 	}
 
 
-	private void initialize(/*ClientThread cthread*/) {
-//		InitializeText(cthread);
+	private void initialize(ClientThread cthread) {
+		cthread.handleShowStudentMessage();
+		ArrayList<Studentinfo> studentinfo = ((StudentMessage)cthread.getREMessage().getData()).getStudent();
 		
 		getContentPane().setBackground(new Color(224, 255, 255));
 		setBounds(100, 100, 1124, 764);
@@ -350,6 +353,7 @@ public class AdminStudentsPage extends JFrame{
 		layeredPane.add(textField_25);
 		
 		btnNewButton = new JButton("\u4FEE\u6539");
+		btnNewButton.setEnabled(false);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				OnBeClickedEdit();
@@ -424,30 +428,31 @@ public class AdminStudentsPage extends JFrame{
 		btnNewButton.setBackground(Color.WHITE);
 		btnNewButton.setFont(new Font("华文中宋", Font.PLAIN, 22));
 		layeredPane.setLayer(btnNewButton, 2);
-		btnNewButton.setBounds(392, 632, 108, 38);
+		btnNewButton.setBounds(327, 632, 108, 38);
 		layeredPane.add(btnNewButton);
 		
 		button = new JButton("\u786E\u5B9A");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				OnBeClickedConfirm(/*cthread*/);
+				OnBeClickedConfirm(cthread);
 			}
 		});
 		button.setEnabled(false);
 		layeredPane.setLayer(button, 2);
 		button.setFont(new Font("华文中宋", Font.PLAIN, 22));
-		button.setBounds(802, 632, 108, 38);
+		button.setBounds(693, 632, 108, 38);
 		layeredPane.add(button);
 		
 		button_1 = new JButton("\u8FD8\u539F");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				OnBeClickedRenew();
 			}
 		});
 		button_1.setEnabled(false);
 		layeredPane.setLayer(button_1, 2);
 		button_1.setFont(new Font("华文中宋", Font.PLAIN, 22));
-		button_1.setBounds(595, 632, 108, 38);
+		button_1.setBounds(509, 632, 108, 38);
 		layeredPane.add(button_1);
 		
 		textArea = new JTextArea("", 583, 110);
@@ -474,15 +479,75 @@ public class AdminStudentsPage extends JFrame{
 		textField_26.setBounds(455, 87, 181, 33);
 		layeredPane.add(textField_26);
 		
-		JButton button_2 = new JButton("\u786E\u5B9A");
+		button_2 = new JButton("\u786E\u5B9A");
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String input = textField_26.getText();
+				int count = 0;
+				for(Studentinfo stu : studentinfo)
+				{
+					if(stu.getStudent_id() == input)
+					{
+						InitializeText(stu);
+						btnNewButton.setEnabled(true);
+						button_3.setEnabled(true);
+						isAdd = false;
+						break;
+					}
+					count++;
+				}
+					
+				if(count == studentinfo.size())
+				{
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "没有该学生的学籍信息，请添加！","提示页面", JOptionPane.INFORMATION_MESSAGE);
+					btnNewButton.setEnabled(true);
+					isAdd = true;
+				}
 			}
 		});
 		layeredPane.setLayer(button_2, 2);
 		button_2.setFont(new Font("华文中宋", Font.PLAIN, 22));
 		button_2.setBounds(748, 83, 108, 38);
 		layeredPane.add(button_2);
+		
+		button_3 = new JButton("删除");
+		button_3.setEnabled(false);
+		button_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cthread.handleDeleteStudentMessage(textField_26.getText());
+				
+				if(cthread.getREMessage().getResponse())
+				{
+					textField_10.setText("");
+					textField_11.setText("");
+					textField_13.setText("");
+					textField_21.setText("");
+					textField_20.setText("");
+					textField_15.setText("");
+					textField_22.setText("");
+					textField_23.setText("");
+					textField_24.setText("");
+					textField_25.setText("");
+					textField_26.setText("");
+					textArea.setText("");
+					
+					btnNewButton.setEnabled(false);
+					button.setEnabled(false);
+					button_1.setEnabled(false);
+					button_3.setEnabled(false);
+					
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "删除成功！","提示页面", JOptionPane.INFORMATION_MESSAGE);
+				}
+				else
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "删除失败！","提示页面", JOptionPane.INFORMATION_MESSAGE);
+				
+			}
+		});
+		layeredPane.setLayer(button_3, 2);
+		button_3.setFont(new Font("华文中宋", Font.PLAIN, 22));
+		button_3.setBackground(Color.WHITE);
+		button_3.setBounds(871, 632, 108, 38);
+		layeredPane.add(button_3);
 	}
 	
 	
@@ -505,7 +570,7 @@ public class AdminStudentsPage extends JFrame{
 	}
 	
 	
-	private void OnBeClickedConfirm(/*ClientThread cthread*/) {
+	private void OnBeClickedConfirm(ClientThread cthread) {
 		name = textField_10.getText();
 		sex = textField_11.getText();
 		birthday = textField_13.getText();
@@ -517,27 +582,81 @@ public class AdminStudentsPage extends JFrame{
 		cardtype = textField_24.getText();
 		cardid = textField_25.getText();
 		ins = textArea.getText();
-//		cthread.handleUpdateStudentMessage(id, name, college, onecardid, cardtype, cardid, sex, shengyuandi, phone, ins, birthday);
+//		System.out.print(name+'\n'+sex+'\n'+birthday+'\n'+shengyuandi+'\n'+id+'\n'+onecardid+'\n'+college+'\n'+phone+'\n'+cardtype+'\n'+cardid+'\n'+ins+'\n');
 		
-		textField_10.setEditable(false);
-		textField_11.setEditable(false);
-		textField_13.setEditable(false);
-		textField_15.setEditable(false);
-		textField_20.setEditable(false);
-		textField_21.setEditable(false);
-		textField_22.setEditable(false);
-		textField_23.setEditable(false);
-		textField_24.setEditable(false);
-		textField_25.setEditable(false);
-		textArea.setEditable(false);
+		if(isAdd)
+		{
+			if(id == textField_26.getText())
+				cthread.handleAddStudentMessage(id, name, college, onecardid, cardtype, cardid, sex, shengyuandi, phone, ins, birthday);
+			else
+				JOptionPane.showMessageDialog(new JFrame().getContentPane(), "用户id不一致！","提示页面", JOptionPane.INFORMATION_MESSAGE);
+			
+		}
+		else
+			cthread.handleUpdateStudentMessage(id, name, college, onecardid, cardtype, cardid, sex, shengyuandi, phone, ins, birthday);
 		
-		button.setEnabled(false);
-		button_1.setEnabled(false);
+		if(cthread.getREMessage().getResponse())
+		{
+			JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改成功！","提示页面", JOptionPane.INFORMATION_MESSAGE);
+			textField_10.setEditable(false);
+			textField_11.setEditable(false);
+			textField_13.setEditable(false);
+			textField_15.setEditable(false);
+			textField_20.setEditable(false);
+			textField_21.setEditable(false);
+			textField_22.setEditable(false);
+			textField_23.setEditable(false);
+			textField_24.setEditable(false);
+			textField_25.setEditable(false);
+			textArea.setEditable(false);
+			
+			button.setEnabled(false);
+			button_1.setEnabled(false);
+		}
+		else
+			JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改失败！","提示页面", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
 	
-	private void InitializeText(ClientThread cthread) {
-		StudentMessage smessage = (StudentMessage)cthread.getREMessage().getData();
+	private void OnBeClickedRenew() {
+		textField_10.setText(name);
+		textField_11.setText(sex);
+		textField_13.setText(birthday);
+		textField_21.setText(shengyuandi);
+		textField_20.setText(id);
+		textField_15.setText(onecardid);
+		textField_22.setText(college);
+		textField_23.setText(phone);
+		textField_24.setText(cardtype);
+		textField_25.setText(cardid);
+		textArea.setText(ins);
+	}
+	
+	
+	private void InitializeText(Studentinfo stu) {
+		name = stu.getStudent_name();
+		sex = stu.getStudent_sex();
+		birthday = stu.getStudent_birthday();
+		onecardid = stu.getStudent_onecardid();
+		id = stu.getStudent_id();
+		shengyuandi = stu.getStudent_shengyuandi();
+		college = stu.getStudent_college();
+		phone = stu.getStudent_phone();
+		cardtype = stu.getStudent_card_type();
+		cardid = stu.getStudent_card_id();
+		ins = stu.getStudent_ins();
+		
+		textField_10.setText(name);
+		textField_11.setText(sex);
+		textField_13.setText(birthday);
+		textField_15.setText(onecardid);
+		textField_20.setText(id);
+		textField_21.setText(shengyuandi);
+		textField_22.setText(college);
+		textField_23.setText(phone);
+		textField_24.setText(cardtype);
+		textField_25.setText(cardid);
+		textArea.setText(ins);
 		
 	}
 }

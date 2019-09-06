@@ -5,9 +5,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import client.ClientThread;
+import student.StuStudentsPage;
 
 import java.awt.Toolkit;
 import javax.swing.JLayeredPane;
@@ -105,7 +107,12 @@ public class StudentPage extends JFrame{
 		button_2.setBackground(new Color(240, 248, 255));
 		button_2.addActionListener(new ActionListener() {//学籍管理
 			public void actionPerformed(ActionEvent e) {
-				//new StudentsPage();
+				try {
+					new StuStudentsPage(cthread);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				
 			}
 		});

@@ -1,4 +1,4 @@
-package Book;
+package book;
 
 import java.util.ArrayList;
 
@@ -12,7 +12,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-8
+
 public class BookInfo extends JPanel {
 	JButton nextpage=new JButton("下一页");
 	JButton previouspage=new JButton("上一页");
@@ -42,12 +42,12 @@ public class BookInfo extends JPanel {
 		nullData[0][0]=null;
 		String[][] testData1=new String[30][6];
 		String[][] testData2=new String[30][6];
-		for(int i=0;i<=29;i++) for(int j=0;j<=5;j++) testData1[i][j]="0";
+		//for(int i=0;i<=29;i++) for(int j=0;j<=5;j++) testData1[i][j]="0";
 		//ALLData.add(testData1);
-		maxpage++;
+		//maxpage++;
 		//for(int i=0;i<=29;i++) for(int j=0;j<=5;j++) testData2[i][j]="0";
-		ALLData.add(testData2);
-		maxpage++;
+		//ALLData.add(testData2);
+		//maxpage++;
 		
 		for(int i=0;i<=29;i++) for(int j=0;j<=5;j++) bookData[i][j]=ALLData.get(0)[i][j];
 		currentpage.setText(pagenumber+1+"/"+maxpage+"页");

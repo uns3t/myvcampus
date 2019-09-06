@@ -6,7 +6,6 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
-import client.Client;
 import client.ClientThread;
 import message.Message;
 
