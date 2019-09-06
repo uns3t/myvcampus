@@ -58,7 +58,7 @@ public class AddBook extends JFrame {
 	//HomePanel home_panle=new HomePanel();
 
 
-	public AddBook() {
+	public AddBook(ClientThread cthread) {
 		getContentPane().add(Book_name);	getContentPane().add(Book_id);getContentPane().add(Book_total);getContentPane().add(Book_borrow);
 		getContentPane().add(BOOKID);getContentPane().add(BOOKNAME);getContentPane().add(ABLETOBORROW);getContentPane().add(TOTAL);
 		;getContentPane().add(confirm);getContentPane().add(cancel);
@@ -92,6 +92,22 @@ public class AddBook extends JFrame {
 		confirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 //添加书籍响应
+				book_id=BOOKID.getText();
+				book_name=BOOKNAME.getText();
+				book_author=Author_input.getText();
+				book_press=Press_input.getText();
+				//book_total=TOTAL.getText();
+				book_introduction=Introduct_input.getText();
+				total=TOTAL.getColumns();
+				borrowed=ABLETOBORROW.getColumns();
+//				if(isAdd)
+//				{
+					cthread.handleAddBookMessage(book_id,book_name,book_author,total,borrowed,book_introduction);
+//				}
+//				else
+//				{
+//					cthread.handleUpdateBookMessage(book_id,book_name,book_author,total,borrowed,book_introduction);
+//				}
 
 
 			}
@@ -132,24 +148,24 @@ public class AddBook extends JFrame {
 
 
 
-	private void OnBeClickedConfirm(ClientThread cthread) {
-		book_id=BOOKID.getText();
-		book_name=BOOKNAME.getText();
-		book_author=Author_input.getText();
-		book_press=Press_input.getText();
-		//book_total=TOTAL.getText();
-		book_introduction=Introduct_input.getText();
-		total=TOTAL.getColumns();
-		borrowed=ABLETOBORROW.getColumns();
-		if(isAdd)
-		{
-			cthread.handleAddBookMessage(book_id,book_name,book_author,total,borrowed,book_introduction);
-		}
-		else
-		{
-			cthread.handleUpdateBookMessage(book_id,book_name,book_author,total,borrowed,book_introduction);
-		}
-	}
+//	private void OnBeClickedConfirm() {
+//		book_id=BOOKID.getText();
+//		book_name=BOOKNAME.getText();
+//		book_author=Author_input.getText();
+//		book_press=Press_input.getText();
+//		//book_total=TOTAL.getText();
+//		book_introduction=Introduct_input.getText();
+//		total=TOTAL.getColumns();
+//		borrowed=ABLETOBORROW.getColumns();
+//		if(isAdd)
+//		{
+//			cthread.handleAddBookMessage(book_id,book_name,book_author,total,borrowed,book_introduction);
+//		}
+//		else
+//		{
+//			cthread.handleUpdateBookMessage(book_id,book_name,book_author,total,borrowed,book_introduction);
+//		}
+//	}
 	public void close()
 	{
 		this.setVisible(false);
