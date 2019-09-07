@@ -10,7 +10,7 @@ public class Studentinfo implements Serializable {
     public String Student_birthday;
     public String Student_shengyuandi;
     public String Student_onecardid;
-    
+
     public String Student_phone;
     public String Student_card_type;
     public String Student_card_id;

@@ -79,10 +79,10 @@ public class courseDAO {
             sql=con.prepareStatement("select * from Coursetbl where Course_id"+"="+"'"+Course_id+"'");
             ResultSet res = sql.executeQuery();
             while (res.next()){
-                temp.setCourse_name(result.getString("Course_name"));
-                temp.setCourse_id(result.getString("Course_id"));
-                temp.setCourse_teacher(result.getString("Course_teacher"));
-                temp.setCourse_time(result.getString("Course_time"));
+                temp.setCourse_name(res.getString("Course_name"));
+                temp.setCourse_id(res.getString("Course_id"));
+                temp.setCourse_teacher(res.getString("Course_teacher"));
+                temp.setCourse_time(res.getString("Course_time"));
                 courselist.add(temp);
             }
         }
