@@ -68,4 +68,25 @@ public class courseDAO {
         sql.executeUpdate();
         return true;
     }
+
+    public ArrayList<CourseInfo> showCourseSelect(String usr_id) throws Exception{
+        ArrayList<CourseInfo> courselist=new ArrayList<CourseInfo>();
+        sql = con.prepareStatement("select * from CourseSelecttbl where Usr_id"+"="+"'"+usr_id+"'");
+        result=sql.executeQuery();
+        while (result.next()){
+            CourseInfo temp=new CourseInfo();
+            String Course_id = result.getString("Course_id");
+            sql=con.prepareStatement("select * from Coursetbl where Course_id"+"="+"'"+Course_id+"'");
+            ResultSet res = sql.executeQuery();
+            while (res.next()){
+                temp.setCourse_name(result.getString("Course_name"));
+                temp.setCourse_id(result.getString("Course_id"));
+                temp.setCourse_teacher(result.getString("Course_teacher"));
+                temp.setCourse_time(result.getString("Course_time"));
+                courselist.add(temp);
+            }
+        }
+
+        return courselist;
+    }
 }

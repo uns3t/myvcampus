@@ -575,6 +575,23 @@ public class ClientThread extends Thread {
             return false;
         }
     }
+
+    public boolean handleShowCourseTable(){
+        CourseInfo courseInfo = new CourseInfo();
+        CourseMessage courseMessage = new CourseMessage();
+        courseMessage.setType("CourseTable");
+        courseMessage.addCourseInfo(courseInfo);
+        Message message = new Message(courseMessage.getType(),courseMessage);
+        if (sendMessage(message)){
+            System.out.println("发送成功");
+            isWaiting = true;
+            return true;
+        }
+        else {
+            System.out.println("发送失败");
+            return false;
+        }
+    }
 }
 
 //例如调用handleShowBookMessage()

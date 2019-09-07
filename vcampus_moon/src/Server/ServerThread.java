@@ -1,13 +1,12 @@
 package Server;
 
-
 import message.*;
 import DAO.*;
-
-import java.io.*;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.lang.Exception;
-import java.util.Date;
 
 
 public class ServerThread extends Thread {
@@ -154,10 +153,6 @@ public class ServerThread extends Thread {
                     updateshop(message);
                     break;
 
-                case "PwdConfirm":
-                    pwdconfrim(message);
-                    break;
-
                 //课程选择模块
                 case "Course":
                     Courselist();
@@ -178,6 +173,9 @@ public class ServerThread extends Thread {
                 case "UpdateCourse":
                     updatecourse(message);
                     break;
+                case "CourseTable":
+                    courseTable(message);
+                    break;
             }
         }
     }
@@ -191,6 +189,7 @@ public class ServerThread extends Thread {
 
                 client.close();
 
+//                currentServer.closeClientConnection(this);//在服务器线程中关闭该客户端
 
             } catch (IOException e) {
                 e.printStackTrace();
@@ -206,8 +205,6 @@ public class ServerThread extends Thread {
         System.out.println("成功");
 
     }
-
-
 
     //------------------------------具体功能模块----------------------------------------------------
     //--------------------------------------------------------------------------------------------
@@ -276,7 +273,7 @@ public class ServerThread extends Thread {
         theUsr=null;
     }
 
-//    -----------------------------图书馆模块--------------------------------------------
+    //    -----------------------------图书馆模块--------------------------------------------
     public void Librarylist(){
         BookMessage bookMessage=new BookMessage();
         try {
@@ -352,8 +349,8 @@ public class ServerThread extends Thread {
         Studentinfo studentinfo=(Studentinfo) studentMessage.getStudent().get(0);
         try {
             toAccess.getstudent().addStudent(studentinfo.getStudent_id(),studentinfo.getStudent_name(),studentinfo.getStudent_college()
-            ,studentinfo.getStudent_onecardid(),studentinfo.getStudent_phone(),studentinfo.getStudent_card_type(),studentinfo.getStudent_card_id(),studentinfo.getStudent_ins(),
-            studentinfo.getStudent_birthday(),studentinfo.getStudent_shengyuandi(),studentinfo.getStudent_sex());
+                    ,studentinfo.getStudent_onecardid(),studentinfo.getStudent_phone(),studentinfo.getStudent_card_type(),studentinfo.getStudent_card_id(),studentinfo.getStudent_ins(),
+                    studentinfo.getStudent_birthday(),studentinfo.getStudent_shengyuandi(),studentinfo.getStudent_sex());
             message.setResponse(true);
             oos.writeObject(message);
             oos.flush();
@@ -456,31 +453,20 @@ public class ServerThread extends Thread {
         }
     }
 
-    //--------------------------------------商店模块-----------------------------------------
-
-
-    public void pwdconfrim(Message message){
-        UsrMessage usrMessage =(UsrMessage) message.getData();
+    public void courseTable(Message message){
+        CourseMessage courseMessage=new CourseMessage();
         try {
-            int temp=toAccess.getusr().Logincheck(usrMessage.getUsr_id(), usrMessage.getUsr_pwd());
-            if(temp==1){
-                theUsr= usrMessage.getUsr_id();
-                message.setData(usrMessage);
-                message.setResponse(true);
-                sendmsg(message);
-            }else if(temp==0){
-                theUsr= usrMessage.getUsr_id();
-                message.setData(usrMessage);
-                message.setResponse(true);
-                sendmsg(message);
-            }else {
-                message.setResponse(false);
-                sendmsg(message);
-            }
+            courseMessage.setCourselist(toAccess.getCourse().showCourseSelect(theUsr));
+            System.out.println("测试1");
+            Message msg=new Message("CourseTable",courseMessage);
+            msg.setResponse(true);
+            oos.writeObject(msg);
+            oos.flush();
         }catch (Exception e){
-            e.printStackTrace();
         }
     }
+
+    //--------------------------------------商店模块-----------------------------------------
 
 
     public void Shoplist(){
