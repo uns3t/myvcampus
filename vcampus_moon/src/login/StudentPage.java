@@ -10,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import client.ClientThread;
 import student.StuStudentsPage;
+import course.*;
 
 import java.awt.Toolkit;
 import javax.swing.JLayeredPane;
@@ -61,7 +62,7 @@ public class StudentPage extends JFrame{
 		btnNewButton_1.setBackground(new Color(240, 248, 255));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {//选课系统
-				
+				new StudentCoursePage(cthread);
 				
 			}
 		});

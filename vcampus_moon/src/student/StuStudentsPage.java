@@ -40,8 +40,9 @@ public class StuStudentsPage extends JFrame{
 		
 		getContentPane().setBackground(new Color(224, 255, 255));
 		setBounds(100, 100, 1124, 717);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
+		setVisible(true);
 		
 		lblNewLabel = new JLabel("\u4E2A\u4EBA\u57FA\u672C\u4FE1\u606F\u7EF4\u62A4");
 		lblNewLabel.setFont(new Font("华文楷体", Font.BOLD, 29));
