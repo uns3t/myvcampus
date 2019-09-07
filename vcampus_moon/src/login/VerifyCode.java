@@ -24,8 +24,8 @@ public class VerifyCode {
  
  
     /**
-     * Ê¹ÓÃÏµÍ³Ä¬ÈÏ×Ö·ûÔ´Éú³ÉÑéÖ¤Âë
-     * @param verifySize    ÑéÖ¤Âë³¤¶È
+     * ä½¿ç”¨ç³»ç»Ÿé»˜è®¤å­—ç¬¦æºç”ŸæˆéªŒè¯ç 
+     * @param verifySize    éªŒè¯ç é•¿åº¦
      * @return
      */
     public static String generateVerifyCode(int verifySize){
@@ -33,9 +33,9 @@ public class VerifyCode {
     }
     
     /**
-     * Ê¹ÓÃÖ¸¶¨Ô´Éú³ÉÑéÖ¤Âë
-     * @param verifySize    ÑéÖ¤Âë³¤¶È
-     * @param sources   ÑéÖ¤Âë×Ö·ûÔ´
+     * ä½¿ç”¨æŒ‡å®šæºç”ŸæˆéªŒè¯ç 
+     * @param verifySize    éªŒè¯ç é•¿åº¦
+     * @param sources   éªŒè¯ç å­—ç¬¦æº
      * @return
      */
     public static String generateVerifyCode(int verifySize, String sources){
@@ -52,7 +52,7 @@ public class VerifyCode {
     }
      
     /**
-     * Éú³ÉËæ»úÑéÖ¤ÂëÎÄ¼ş,²¢·µ»ØÑéÖ¤ÂëÖµ
+     * ç”ŸæˆéšæœºéªŒè¯ç æ–‡ä»¶,å¹¶è¿”å›éªŒè¯ç å€¼
      * @param w
      * @param h
      * @param outputFile
@@ -67,7 +67,7 @@ public class VerifyCode {
     }
      
     /**
-     * Êä³öËæ»úÑéÖ¤ÂëÍ¼Æ¬Á÷,²¢·µ»ØÑéÖ¤ÂëÖµ
+     * è¾“å‡ºéšæœºéªŒè¯ç å›¾ç‰‡æµ,å¹¶è¿”å›éªŒè¯ç å€¼
      * @param w
      * @param h
      * @param os
@@ -82,7 +82,7 @@ public class VerifyCode {
     }
      
     /**
-     * Éú³ÉÖ¸¶¨ÑéÖ¤ÂëÍ¼ÏñÎÄ¼ş
+     * ç”ŸæˆæŒ‡å®šéªŒè¯ç å›¾åƒæ–‡ä»¶
      * @param w
      * @param h
      * @param outputFile
@@ -108,7 +108,7 @@ public class VerifyCode {
     }
      
     /**
-     * Êä³öÖ¸¶¨ÑéÖ¤ÂëÍ¼Æ¬Á÷
+     * è¾“å‡ºæŒ‡å®šéªŒè¯ç å›¾ç‰‡æµ
      * @param w
      * @param h
      * @param os
@@ -132,16 +132,16 @@ public class VerifyCode {
         }
         Arrays.sort(fractions);
          
-        g2.setColor(Color.GRAY);// ÉèÖÃ±ß¿òÉ«
+        g2.setColor(Color.GRAY);// è®¾ç½®è¾¹æ¡†è‰²
         g2.fillRect(0, 0, w, h);
          
         Color c = getRandColor(200, 250);
-        g2.setColor(c);// ÉèÖÃ±³¾°É«
+        g2.setColor(c);// è®¾ç½®èƒŒæ™¯è‰²
         g2.fillRect(0, 2, w, h-4);
          
-        //»æÖÆ¸ÉÈÅÏß
+        //ç»˜åˆ¶å¹²æ‰°çº¿
         Random random = new Random();
-        g2.setColor(getRandColor(160, 200));// ÉèÖÃÏßÌõµÄÑÕÉ«
+        g2.setColor(getRandColor(160, 200));// è®¾ç½®çº¿æ¡çš„é¢œè‰²
         for (int i = 0; i < 20; i++) {
             int x = random.nextInt(w - 1);
             int y = random.nextInt(h - 1);
@@ -150,8 +150,8 @@ public class VerifyCode {
             g2.drawLine(x, y, x + xl + 40, y + yl + 20);
         }
          
-        // Ìí¼ÓÔëµã
-        float yawpRate = 0.05f;// ÔëÉùÂÊ
+        // æ·»åŠ å™ªç‚¹
+        float yawpRate = 0.05f;// å™ªå£°ç‡
         int area = (int) (yawpRate * w * h);
         for (int i = 0; i < area; i++) {
             int x = random.nextInt(w);
@@ -160,7 +160,7 @@ public class VerifyCode {
             image.setRGB(x, y, rgb);
         }
          
-        shear(g2, w, h, c);// Ê¹Í¼Æ¬Å¤Çú
+        shear(g2, w, h, c);// ä½¿å›¾ç‰‡æ‰­æ›²
  
         g2.setColor(getRandColor(100, 160));
         int fontSize = h-4;
