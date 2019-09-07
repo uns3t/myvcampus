@@ -16,22 +16,22 @@ import message.*;
 
 public class Client{
 
-    public static void main(String[] args) {
-        String s = "8zhong14ban";
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            md.update(s.getBytes());
-            String pwd = new BigInteger(1,md.digest()).toString();
-            System.out.println(pwd);
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(s.hashCode());
-//        Client client = new Client("127.0.0.1",10001);
-//        ClientThread clientThread=new ClientThread(client);
-//        System.out.println("客户端连接");
-//        new LoginPage(clientThread);
+    public static void main(String[] args) throws IOException {
+//        String s = "8zhong14ban";
+//        try {
+//            MessageDigest md = MessageDigest.getInstance("MD5");
+//            md.update(s.getBytes());
+//            String pwd = new BigInteger(1,md.digest()).toString();
+//            System.out.println(pwd);
+//        } catch (NoSuchAlgorithmException e) {
+//            e.printStackTrace();
+//        }
+//
+//        System.out.println(s.hashCode());
+        Client client = new Client("127.0.0.1",10001);
+        ClientThread clientThread=new ClientThread(client);
+        System.out.println("客户端连接");
+        new LoginPage(clientThread);
 
 //        new ShopBuy(clientThread);
     }
