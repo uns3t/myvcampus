@@ -11,6 +11,7 @@ import java.awt.Color;
 import client.ClientThread;
 import student.StuStudentsPage;
 import course.*;
+import shop.ShopUser;
 
 import java.awt.Toolkit;
 import javax.swing.JLayeredPane;
@@ -95,8 +96,7 @@ public class StudentPage extends JFrame{
 		button_1.setBackground(new Color(240, 248, 255));
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {//校园商店
-				
-				
+				new ShopUser(cthread);
 			}
 		});
 		button_1.setFont(new Font("宋体", Font.BOLD, 20));
