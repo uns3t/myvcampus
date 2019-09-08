@@ -202,6 +202,7 @@ public class StudentCoursePage extends JFrame{
 				if(textField_5.getText().equals(null) == false && textField_5.getText().equals("") == false && btnNewButton.isEnabled())
 				{
 					cthread.handleCourseSelectMessage(textField_5.getText());
+					cthread.getREMessage();
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "添加成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					btnNewButton.setEnabled(false);
 					btnNewButton_1.setEnabled(true);
@@ -225,6 +226,7 @@ public class StudentCoursePage extends JFrame{
 				if(textField_5.getText().equals(null) == false && textField_5.getText().equals("") == false && btnNewButton_1.isEnabled())
 				{
 					cthread.handleDeleteCourseSelectMessage(textField_5.getText());
+					cthread.getREMessage();
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "取消成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					btnNewButton.setEnabled(true);
 					btnNewButton_1.setEnabled(false);
@@ -311,6 +313,7 @@ public class StudentCoursePage extends JFrame{
 				if(textField_10.getText().equals(null) == false && textField_10.getText().equals("") == false && button_6.isEnabled())
 				{
 					cthread.handleCourseSelectMessage(textField_10.getText());
+					cthread.getREMessage();
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "添加成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_6.setEnabled(false);
 					button_7.setEnabled(true);
@@ -334,6 +337,7 @@ public class StudentCoursePage extends JFrame{
 				if(textField_10.getText().equals(null) == false && textField_10.getText().equals("") == false && button_7.isEnabled())
 				{
 					cthread.handleDeleteCourseSelectMessage(textField_10.getText());
+					cthread.getREMessage();
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "取消成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_6.setEnabled(true);
 					button_7.setEnabled(false);
@@ -421,6 +425,7 @@ public class StudentCoursePage extends JFrame{
 				if(textField_15.getText().equals(null) == false && textField_15.getText().equals("") == false && button_8.isEnabled())
 				{
 					cthread.handleCourseSelectMessage(textField_15.getText());
+					cthread.getREMessage();
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "添加成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_8.setEnabled(false);
 					button_9.setEnabled(true);
@@ -444,6 +449,7 @@ public class StudentCoursePage extends JFrame{
 				if(textField_15.getText().equals(null) == false && textField_15.getText().equals("") == false && button_9.isEnabled())
 				{
 					cthread.handleDeleteCourseSelectMessage(textField_15.getText());
+					cthread.getREMessage();
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "取消成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_8.setEnabled(true);
 					button_9.setEnabled(false);
@@ -531,6 +537,7 @@ public class StudentCoursePage extends JFrame{
 				if(textField_20.getText().equals(null) == false && textField_20.getText().equals("") == false && button.isEnabled())
 				{
 					cthread.handleCourseSelectMessage(textField_20.getText());
+					cthread.getREMessage();
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "添加成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button.setEnabled(false);
 					button_1.setEnabled(true);
@@ -554,6 +561,7 @@ public class StudentCoursePage extends JFrame{
 				if(textField_20.getText().equals(null) == false && textField_20.getText().equals("") == false && button_1.isEnabled())
 				{
 					cthread.handleDeleteCourseSelectMessage(textField_20.getText());
+					cthread.getREMessage();
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "取消成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button.setEnabled(true);
 					button_1.setEnabled(false);
@@ -641,6 +649,7 @@ public class StudentCoursePage extends JFrame{
 				if(textField_25.getText().equals(null) == false && textField_25.getText().equals("") == false && button_2.isEnabled())
 				{
 					cthread.handleCourseSelectMessage(textField_25.getText());
+					cthread.getREMessage();
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "添加成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_2.setEnabled(false);
 					button_3.setEnabled(true);
@@ -664,6 +673,7 @@ public class StudentCoursePage extends JFrame{
 				if(textField_25.getText().equals(null) == false && textField_25.getText().equals("") == false && button_3.isEnabled())
 				{
 					cthread.handleDeleteCourseSelectMessage(textField_25.getText());
+					cthread.getREMessage();
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "取消成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_2.setEnabled(true);
 					button_3.setEnabled(false);
@@ -752,6 +762,7 @@ public class StudentCoursePage extends JFrame{
 				if(textField_30.getText().equals(null) == false && textField_30.getText().equals("") == false && button_4.isEnabled())
 				{
 					cthread.handleCourseSelectMessage(textField_30.getText());
+					cthread.getREMessage();
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "添加成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_4.setEnabled(false);
 					button_5.setEnabled(true);
@@ -775,6 +786,7 @@ public class StudentCoursePage extends JFrame{
 				if(textField_30.getText().equals(null) == false && textField_30.getText().equals("") == false && button_5.isEnabled())
 				{
 					cthread.handleDeleteCourseSelectMessage(textField_30.getText());
+					cthread.getREMessage();
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "取消成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_4.setEnabled(true);
 					button_5.setEnabled(false);
@@ -863,6 +875,7 @@ public class StudentCoursePage extends JFrame{
 				if(textField_35.getText().equals(null) == false && textField_35.getText().equals("") == false && button_10.isEnabled())
 				{
 					cthread.handleCourseSelectMessage(textField_35.getText());
+					cthread.getREMessage();
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "添加成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_10.setEnabled(false);
 					button_11.setEnabled(true);
@@ -886,6 +899,7 @@ public class StudentCoursePage extends JFrame{
 				if(textField_35.getText().equals(null) == false && textField_35.getText().equals("") == false && button_11.isEnabled())
 				{
 					cthread.handleDeleteCourseSelectMessage(textField_35.getText());
+					cthread.getREMessage();
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "取消成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_10.setEnabled(true);
 					button_11.setEnabled(false);
@@ -974,6 +988,7 @@ public class StudentCoursePage extends JFrame{
 				if(textField_40.getText().equals(null) == false && textField_40.getText().equals("") == false && button_12.isEnabled())
 				{
 					cthread.handleCourseSelectMessage(textField_40.getText());
+					cthread.getREMessage();
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "添加成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_12.setEnabled(false);
 					button_13.setEnabled(true);
@@ -997,6 +1012,7 @@ public class StudentCoursePage extends JFrame{
 				if(textField_40.getText().equals(null) == false && textField_40.getText().equals("") == false && button_13.isEnabled())
 				{
 					cthread.handleDeleteCourseSelectMessage(textField_40.getText());
+					cthread.getREMessage();
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "取消成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_12.setEnabled(true);
 					button_13.setEnabled(false);
