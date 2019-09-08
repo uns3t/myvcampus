@@ -556,7 +556,6 @@ public class AdminStudentsPage extends JFrame{
 		textField_11.setEditable(true);
 		textField_13.setEditable(true);
 		textField_15.setEditable(true);
-		textField_20.setEditable(true);
 		textField_21.setEditable(true);
 		textField_22.setEditable(true);
 		textField_23.setEditable(true);
@@ -602,7 +601,6 @@ public class AdminStudentsPage extends JFrame{
 			textField_11.setEditable(false);
 			textField_13.setEditable(false);
 			textField_15.setEditable(false);
-			textField_20.setEditable(false);
 			textField_21.setEditable(false);
 			textField_22.setEditable(false);
 			textField_23.setEditable(false);
@@ -623,7 +621,6 @@ public class AdminStudentsPage extends JFrame{
 		textField_11.setText(sex);
 		textField_13.setText(birthday);
 		textField_21.setText(shengyuandi);
-		textField_20.setText(id);
 		textField_15.setText(onecardid);
 		textField_22.setText(college);
 		textField_23.setText(phone);
