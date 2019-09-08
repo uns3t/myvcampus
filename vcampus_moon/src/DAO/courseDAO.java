@@ -44,6 +44,12 @@ public class courseDAO {
         sql.executeUpdate();
     }
 
+    public void deletecourseSelect(String course_id,String user_id) throws Exception {
+        System.out.println("删除"+user_id+course_id);
+        sql=con.prepareStatement("DELETE FROM CourseSelecttbl WHERE Course_id"+"="+"'"+course_id+"' and Usr_id"+"="+"'"+user_id+"'");
+        sql.executeUpdate();
+    }
+
     public ArrayList<CourseInfo> listcourse() throws Exception{
         ArrayList<CourseInfo> courselist=new ArrayList<CourseInfo>();
         sql=con.prepareStatement("select * from Coursetbl");

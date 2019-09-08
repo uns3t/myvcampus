@@ -173,8 +173,13 @@ public class ServerThread extends Thread {
                 case "UpdateCourse":
                     updatecourse(message);
                     break;
+
                 case "CourseTable":
                     courseTable(message);
+                    break;
+
+                case "DeleteCourseSelect":
+                    deletecourseSelect(message);
                     break;
             }
         }
@@ -437,6 +442,18 @@ public class ServerThread extends Thread {
         CourseInfo courseInfo=(CourseInfo) courseMessage.getCourse().get(0);
         try {
             toAccess.getCourse().deletecourse(courseInfo.getCourse_id());
+            message.setResponse(true);
+            message.setTheUsr(theUsr);
+            sendmsg(message);
+        }catch (Exception e){
+        }
+    }
+
+    public void deletecourseSelect(Message message){
+        CourseMessage courseMessage=(CourseMessage) message.getData();
+        CourseInfo courseInfo=(CourseInfo) courseMessage.getCourse().get(0);
+        try {
+            toAccess.getCourse().deletecourseSelect(courseInfo.getCourse_id(),theUsr);
             message.setResponse(true);
             message.setTheUsr(theUsr);
             sendmsg(message);
