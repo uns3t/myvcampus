@@ -35,6 +35,9 @@ public class StudentCoursePage extends JFrame{
 	, button_11, button_12, button_13, btnNewButton_2, btnNewButton_3, button_14;
 	private JLabel lblNewLabel, lblNewLabel_1, lblNewLabel_2, label, lblNewLabel_3, label_1, lblNewLabel_4;
 	private ImageIcon image1;
+	private Message stu_courseMessage;
+	private CourseMessage mess;
+	private int person_course;
 	
 	public StudentCoursePage(ClientThread cthread) {
 		initialize(cthread);
@@ -119,10 +122,10 @@ public class StudentCoursePage extends JFrame{
 		
 		//得到学生个人课表
 		cthread.handleShowCourseTable();
-		Message stu_courseMessage = cthread.getREMessage();
-		CourseMessage mess = (CourseMessage)stu_courseMessage.getData();		
+		stu_courseMessage = cthread.getREMessage();
+		mess = (CourseMessage)stu_courseMessage.getData();		
 		stu_courseinfo = mess.getCourse();
-		int person_course = stu_courseinfo.size();
+		person_course = stu_courseinfo.size();
 		
 		textField_5 = new JTextField();
 		textField_5.setBackground(new Color(255, 255, 255));
@@ -202,6 +205,12 @@ public class StudentCoursePage extends JFrame{
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "添加成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					btnNewButton.setEnabled(false);
 					btnNewButton_1.setEnabled(true);
+					
+					cthread.handleShowCourseTable();
+					stu_courseMessage = cthread.getREMessage();
+					mess = (CourseMessage)stu_courseMessage.getData();		
+					stu_courseinfo = mess.getCourse();
+					person_course = stu_courseinfo.size();
 				}
 			}
 		});
@@ -219,6 +228,12 @@ public class StudentCoursePage extends JFrame{
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "取消成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					btnNewButton.setEnabled(true);
 					btnNewButton_1.setEnabled(false);
+					
+					cthread.handleShowCourseTable();
+					stu_courseMessage = cthread.getREMessage();
+					mess = (CourseMessage)stu_courseMessage.getData();		
+					stu_courseinfo = mess.getCourse();
+					person_course = stu_courseinfo.size();
 				}
 			}
 		});
@@ -299,6 +314,12 @@ public class StudentCoursePage extends JFrame{
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "添加成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_6.setEnabled(false);
 					button_7.setEnabled(true);
+					
+					cthread.handleShowCourseTable();
+					stu_courseMessage = cthread.getREMessage();
+					mess = (CourseMessage)stu_courseMessage.getData();		
+					stu_courseinfo = mess.getCourse();
+					person_course = stu_courseinfo.size();
 				}
 			}
 		});
@@ -316,6 +337,12 @@ public class StudentCoursePage extends JFrame{
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "取消成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_6.setEnabled(true);
 					button_7.setEnabled(false);
+					
+					cthread.handleShowCourseTable();
+					stu_courseMessage = cthread.getREMessage();
+					mess = (CourseMessage)stu_courseMessage.getData();		
+					stu_courseinfo = mess.getCourse();
+					person_course = stu_courseinfo.size();
 				}
 			}
 		});
@@ -397,6 +424,12 @@ public class StudentCoursePage extends JFrame{
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "添加成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_8.setEnabled(false);
 					button_9.setEnabled(true);
+					
+					cthread.handleShowCourseTable();
+					stu_courseMessage = cthread.getREMessage();
+					mess = (CourseMessage)stu_courseMessage.getData();		
+					stu_courseinfo = mess.getCourse();
+					person_course = stu_courseinfo.size();
 				}
 			}
 		});
@@ -414,6 +447,12 @@ public class StudentCoursePage extends JFrame{
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "取消成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_8.setEnabled(true);
 					button_9.setEnabled(false);
+					
+					cthread.handleShowCourseTable();
+					stu_courseMessage = cthread.getREMessage();
+					mess = (CourseMessage)stu_courseMessage.getData();		
+					stu_courseinfo = mess.getCourse();
+					person_course = stu_courseinfo.size();
 				}
 			}
 		});
@@ -495,6 +534,12 @@ public class StudentCoursePage extends JFrame{
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "添加成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button.setEnabled(false);
 					button_1.setEnabled(true);
+					
+					cthread.handleShowCourseTable();
+					stu_courseMessage = cthread.getREMessage();
+					mess = (CourseMessage)stu_courseMessage.getData();		
+					stu_courseinfo = mess.getCourse();
+					person_course = stu_courseinfo.size();
 				}
 			}
 		});
@@ -512,6 +557,12 @@ public class StudentCoursePage extends JFrame{
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "取消成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button.setEnabled(true);
 					button_1.setEnabled(false);
+					
+					cthread.handleShowCourseTable();
+					stu_courseMessage = cthread.getREMessage();
+					mess = (CourseMessage)stu_courseMessage.getData();		
+					stu_courseinfo = mess.getCourse();
+					person_course = stu_courseinfo.size();
 				}
 			}
 		});
@@ -593,6 +644,12 @@ public class StudentCoursePage extends JFrame{
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "添加成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_2.setEnabled(false);
 					button_3.setEnabled(true);
+					
+					cthread.handleShowCourseTable();
+					stu_courseMessage = cthread.getREMessage();
+					mess = (CourseMessage)stu_courseMessage.getData();		
+					stu_courseinfo = mess.getCourse();
+					person_course = stu_courseinfo.size();
 				}
 			}
 		});
@@ -610,6 +667,12 @@ public class StudentCoursePage extends JFrame{
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "取消成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_2.setEnabled(true);
 					button_3.setEnabled(false);
+					
+					cthread.handleShowCourseTable();
+					stu_courseMessage = cthread.getREMessage();
+					mess = (CourseMessage)stu_courseMessage.getData();		
+					stu_courseinfo = mess.getCourse();
+					person_course = stu_courseinfo.size();
 				}
 				
 			}
@@ -692,6 +755,12 @@ public class StudentCoursePage extends JFrame{
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "添加成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_4.setEnabled(false);
 					button_5.setEnabled(true);
+					
+					cthread.handleShowCourseTable();
+					stu_courseMessage = cthread.getREMessage();
+					mess = (CourseMessage)stu_courseMessage.getData();		
+					stu_courseinfo = mess.getCourse();
+					person_course = stu_courseinfo.size();
 				}
 			}
 		});
@@ -709,6 +778,12 @@ public class StudentCoursePage extends JFrame{
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "取消成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_4.setEnabled(true);
 					button_5.setEnabled(false);
+					
+					cthread.handleShowCourseTable();
+					stu_courseMessage = cthread.getREMessage();
+					mess = (CourseMessage)stu_courseMessage.getData();		
+					stu_courseinfo = mess.getCourse();
+					person_course = stu_courseinfo.size();
 				}
 				
 			}
@@ -791,6 +866,12 @@ public class StudentCoursePage extends JFrame{
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "添加成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_10.setEnabled(false);
 					button_11.setEnabled(true);
+					
+					cthread.handleShowCourseTable();
+					stu_courseMessage = cthread.getREMessage();
+					mess = (CourseMessage)stu_courseMessage.getData();		
+					stu_courseinfo = mess.getCourse();
+					person_course = stu_courseinfo.size();
 				}
 			}
 		});
@@ -808,6 +889,12 @@ public class StudentCoursePage extends JFrame{
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "取消成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_10.setEnabled(true);
 					button_11.setEnabled(false);
+					
+					cthread.handleShowCourseTable();
+					stu_courseMessage = cthread.getREMessage();
+					mess = (CourseMessage)stu_courseMessage.getData();		
+					stu_courseinfo = mess.getCourse();
+					person_course = stu_courseinfo.size();
 				}
 				
 			}
@@ -890,6 +977,12 @@ public class StudentCoursePage extends JFrame{
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "添加成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_12.setEnabled(false);
 					button_13.setEnabled(true);
+					
+					cthread.handleShowCourseTable();
+					stu_courseMessage = cthread.getREMessage();
+					mess = (CourseMessage)stu_courseMessage.getData();		
+					stu_courseinfo = mess.getCourse();
+					person_course = stu_courseinfo.size();
 				}
 			}
 		});
@@ -907,6 +1000,12 @@ public class StudentCoursePage extends JFrame{
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "取消成功!","提示页面", JOptionPane.INFORMATION_MESSAGE);
 					button_12.setEnabled(true);
 					button_13.setEnabled(false);
+					
+					cthread.handleShowCourseTable();
+					stu_courseMessage = cthread.getREMessage();
+					mess = (CourseMessage)stu_courseMessage.getData();		
+					stu_courseinfo = mess.getCourse();
+					person_course = stu_courseinfo.size();
 				}
 				
 			}
