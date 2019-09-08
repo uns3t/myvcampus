@@ -41,13 +41,10 @@ public class AdminStudentsPage extends JFrame{
 
 
 	private void initialize(ClientThread cthread) {
-		cthread.handleShowStudentMessage();
-		ArrayList<Studentinfo> studentinfo = ((StudentMessage)cthread.getREMessage().getData()).getStudent();
-		
 		getContentPane().setBackground(new Color(224, 255, 255));
 		setBounds(100, 100, 1124, 764);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
+		setVisible(true);
 		
 		lblNewLabel = new JLabel("\u5B66\u751F\u57FA\u672C\u4FE1\u606F\u7EF4\u62A4");
 		lblNewLabel.setFont(new Font("华文楷体", Font.BOLD, 29));
@@ -482,11 +479,14 @@ public class AdminStudentsPage extends JFrame{
 		button_2 = new JButton("\u786E\u5B9A");
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				cthread.handleShowStudentMessage();
+				ArrayList<Studentinfo> studentinfo = ((StudentMessage)cthread.getREMessage().getData()).getStudent();
+				
 				String input = textField_26.getText();
 				int count = 0;
 				for(Studentinfo stu : studentinfo)
 				{
-					if(stu.getStudent_id() == input)
+					if(stu.getStudent_id().equals(input))
 					{
 						InitializeText(stu);
 						btnNewButton.setEnabled(true);
@@ -500,6 +500,7 @@ public class AdminStudentsPage extends JFrame{
 				if(count == studentinfo.size())
 				{
 					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "没有该学生的学籍信息，请添加！","提示页面", JOptionPane.INFORMATION_MESSAGE);
+					textField_20.setText(input);
 					btnNewButton.setEnabled(true);
 					isAdd = true;
 				}
@@ -585,34 +586,52 @@ public class AdminStudentsPage extends JFrame{
 		
 		if(isAdd)
 		{
-			if(id == textField_26.getText())
-				cthread.handleAddStudentMessage(id, name, college, onecardid, cardtype, cardid, sex, shengyuandi, phone, ins, birthday);
+			cthread.handleAddStudentMessage(id, name, college, onecardid, cardtype, cardid, sex, shengyuandi, phone, ins, birthday);
+			
+			if(cthread.getREMessage().getResponse())
+			{
+				JOptionPane.showMessageDialog(new JFrame().getContentPane(), "添加成功！","提示页面", JOptionPane.INFORMATION_MESSAGE);
+				textField_10.setEditable(false);
+				textField_11.setEditable(false);
+				textField_13.setEditable(false);
+				textField_15.setEditable(false);
+				textField_21.setEditable(false);
+				textField_22.setEditable(false);
+				textField_23.setEditable(false);
+				textField_24.setEditable(false);
+				textField_25.setEditable(false);
+				textArea.setEditable(false);
+				
+				button.setEnabled(false);
+				button_1.setEnabled(false);
+			}
 			else
-				JOptionPane.showMessageDialog(new JFrame().getContentPane(), "用户id不一致！","提示页面", JOptionPane.INFORMATION_MESSAGE);
-			
+				JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改失败！","提示页面", JOptionPane.INFORMATION_MESSAGE);
 		}
 		else
-			cthread.handleUpdateStudentMessage(id, name, college, onecardid, cardtype, cardid, sex, shengyuandi, phone, ins, birthday);
-		
-		if(cthread.getREMessage().getResponse())
 		{
-			JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改成功！","提示页面", JOptionPane.INFORMATION_MESSAGE);
-			textField_10.setEditable(false);
-			textField_11.setEditable(false);
-			textField_13.setEditable(false);
-			textField_15.setEditable(false);
-			textField_21.setEditable(false);
-			textField_22.setEditable(false);
-			textField_23.setEditable(false);
-			textField_24.setEditable(false);
-			textField_25.setEditable(false);
-			textArea.setEditable(false);
+			cthread.handleUpdateStudentMessage(id, name, college, onecardid, cardtype, cardid, sex, shengyuandi, phone, ins, birthday);
 			
-			button.setEnabled(false);
-			button_1.setEnabled(false);
+			if(cthread.getREMessage().getResponse())
+			{
+				JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改成功！","提示页面", JOptionPane.INFORMATION_MESSAGE);
+				textField_10.setEditable(false);
+				textField_11.setEditable(false);
+				textField_13.setEditable(false);
+				textField_15.setEditable(false);
+				textField_21.setEditable(false);
+				textField_22.setEditable(false);
+				textField_23.setEditable(false);
+				textField_24.setEditable(false);
+				textField_25.setEditable(false);
+				textArea.setEditable(false);
+				
+				button.setEnabled(false);
+				button_1.setEnabled(false);
+			}
+			else
+				JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改失败！","提示页面", JOptionPane.INFORMATION_MESSAGE);
 		}
-		else
-			JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改失败！","提示页面", JOptionPane.INFORMATION_MESSAGE);
 	}
 	
 	

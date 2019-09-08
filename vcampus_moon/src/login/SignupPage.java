@@ -290,9 +290,9 @@ public class SignupPage extends JFrame{
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String S_code = textField_2.getText();
-				String S_id = textField_1.getText();
-				String S_pwd = String.valueOf(passwordField_1.getPassword());
-				String S_name = textField.getText();
+				String S_name = textField_1.getText();
+				//String S_pwd = String.valueOf(passwordField_1.getPassword());
+				String S_id = textField.getText();
 				
 				char[] str_1 = passwordField_1.getPassword();
 				String str1 = String.copyValueOf(str_1);
@@ -331,7 +331,8 @@ public class SignupPage extends JFrame{
 						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "密码不一致，注册失败！","注册提示页面", JOptionPane.INFORMATION_MESSAGE);
 					else
 					{
-						cthread.handleSignUpMessage(S_id, S_pwd, S_name);
+						System.out.print(S_id+str1+S_name);
+						cthread.handleSignUpMessage(S_id, str1, S_name);
 						Message simessage = cthread.getREMessage();
 						if(simessage.getResponse() == false)
 							JOptionPane.showMessageDialog(new JFrame().getContentPane(), "注册失败！","注册提示页面", JOptionPane.INFORMATION_MESSAGE);
