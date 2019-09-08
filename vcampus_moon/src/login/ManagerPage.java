@@ -12,6 +12,7 @@ import java.awt.Color;
 import javax.swing.JLayeredPane;
 
 import client.ClientThread;
+import course.ManagerCoursePage;
 import student.AdminStudentsPage;
 
 import javax.swing.JLabel;
@@ -46,7 +47,12 @@ public class ManagerPage extends JFrame{
 				button.setBackground(new Color(216, 191, 216));
 				button.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {//退出登录
-						new LoginPage(cthread);
+						try {
+							new LoginPage(cthread);
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 						dispose();
 					}
 				});
@@ -61,7 +67,7 @@ public class ManagerPage extends JFrame{
 				button_1.setBackground(new Color(240, 248, 255));
 				button_1.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {//选课系统
-						//new ManagerCoursePage();
+						new ManagerCoursePage(cthread);
 						
 					}
 				});
