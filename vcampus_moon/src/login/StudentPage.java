@@ -46,13 +46,16 @@ public class StudentPage extends JFrame{
 		btnNewButton.setBackground(new Color(216, 191, 216));
 		btnNewButton.addActionListener(new ActionListener() {//退出登录
 			public void actionPerformed(ActionEvent e) {
-				
-				new LoginPage(cthread);
+				try {
+					new LoginPage(cthread);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				dispose();
 			}
 		});
 		btnNewButton.setFont(new Font("宋体", Font.BOLD, 18));
-		
 		
 		JButton btnNewButton_1 = new JButton("\u9009\u8BFE\u7CFB\u7EDF");
 		btnNewButton_1.setOpaque(false);
