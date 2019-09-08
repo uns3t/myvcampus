@@ -42,17 +42,10 @@ public class usrDAO {
     }
 
     public boolean signup(String name,String pwd,String id) throws Exception{
-        String thepwd = null;
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-            md.update(pwd.getBytes());
-            thepwd = new BigInteger(1,md.digest()).toString();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
+
         sql = con.prepareStatement("insert into Usrtbl (Usr_id, pwd, Usr_name,isadmin) values (?, ?, ?,?)");
         sql.setString(1, id);
-        sql.setString(2, thepwd);
+        sql.setString(2, pwd);
         sql.setString(3, name);
         sql.setString(4, "false");
         sql.executeUpdate();
