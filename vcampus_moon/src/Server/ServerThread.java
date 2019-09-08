@@ -279,6 +279,7 @@ public class ServerThread extends Thread {
         try {
             bookMessage.setBooklist(toAccess.getBook().listBook());
             Message msg=new Message("Book",bookMessage);
+            msg.setTheUsr(theUsr);
             msg.setResponse(true);
             oos.writeObject(msg);
             oos.flush();
@@ -290,6 +291,7 @@ public class ServerThread extends Thread {
         BookBorrowMessage bookBorrowMessage=(BookBorrowMessage) message.getData();
         try {
             toAccess.getBook().addBookborrow(bookBorrowMessage.getBook_id(),theUsr);
+            message.setTheUsr(theUsr);
             message.setResponse(true);
             sendmsg(message);
         }catch (Exception e){
@@ -304,6 +306,7 @@ public class ServerThread extends Thread {
             toAccess.getBook().addBook(bookInfo.getBook_name(),bookInfo.getBook_id(),bookInfo.getBook_author(),bookInfo.getBook_press(),
                     bookInfo.getBook_total()+"",bookInfo.getBook_borrowed()+"",bookInfo.getBook_introduction());
             message.setResponse(true);
+            message.setTheUsr(theUsr);
             oos.writeObject(message);
             oos.flush();
         }catch (Exception e){}
@@ -314,6 +317,7 @@ public class ServerThread extends Thread {
         BookInfo bookInfo=(BookInfo) bookMessage.getbook().get(0);
         try {
             toAccess.getBook().deleteBook(bookInfo.getBook_id());
+            message.setTheUsr(theUsr);
             message.setResponse(true);
             oos.writeObject(message);
             oos.flush();
@@ -327,6 +331,7 @@ public class ServerThread extends Thread {
             toAccess.getBook().updateBook(bookInfo.getBook_name(),bookInfo.getBook_id(),bookInfo.getBook_author(),bookInfo.getBook_press(),
                     bookInfo.getBook_total()+"",bookInfo.getBook_borrowed()+"",bookInfo.getBook_introduction());
             message.setResponse(true);
+            message.setTheUsr(theUsr);
             oos.writeObject(message);
             oos.flush();
         }catch (Exception e){}
@@ -339,6 +344,7 @@ public class ServerThread extends Thread {
             studentMessage.setStudentlist(toAccess.getstudent().listStudent());
             Message msg=new Message("Student",studentMessage);
             msg.setResponse(true);
+            msg.setTheUsr(theUsr);
             oos.writeObject(msg);
             oos.flush();
         }catch (Exception e){}
@@ -352,6 +358,7 @@ public class ServerThread extends Thread {
                     ,studentinfo.getStudent_onecardid(),studentinfo.getStudent_phone(),studentinfo.getStudent_card_type(),studentinfo.getStudent_card_id(),studentinfo.getStudent_ins(),
                     studentinfo.getStudent_birthday(),studentinfo.getStudent_shengyuandi(),studentinfo.getStudent_sex());
             message.setResponse(true);
+            message.setTheUsr(theUsr);
             oos.writeObject(message);
             oos.flush();
         }catch (Exception e){}
@@ -364,6 +371,7 @@ public class ServerThread extends Thread {
         try {
             toAccess.getstudent().deleteStudent(studentinfo.getStudent_id());
             message.setResponse(true);
+            message.setTheUsr(theUsr);
             oos.writeObject(message);
             oos.flush();
         }catch (Exception e){}
@@ -378,6 +386,7 @@ public class ServerThread extends Thread {
                     ,studentinfo.getStudent_onecardid(),studentinfo.getStudent_phone(),studentinfo.getStudent_card_type(),studentinfo.getStudent_card_id(),studentinfo.getStudent_ins(),
                     studentinfo.getStudent_birthday(),studentinfo.getStudent_shengyuandi(),studentinfo.getStudent_sex());
             message.setResponse(true);
+            message.setTheUsr(theUsr);
             oos.writeObject(message);
             oos.flush();
         }catch (Exception e){}
@@ -390,6 +399,7 @@ public class ServerThread extends Thread {
             studentMessage.setStudentlist(toAccess.getstudent().usrStudent(theUsr));
             Message msg=new Message("Student",studentMessage);
             msg.setResponse(true);
+            msg.setTheUsr(theUsr);
             oos.writeObject(msg);
             oos.flush();
         }catch (Exception e){}
@@ -402,6 +412,7 @@ public class ServerThread extends Thread {
             System.out.println("测试1");
             Message msg=new Message("Course",courseMessage);
             msg.setResponse(true);
+            msg.setTheUsr(theUsr);
             oos.writeObject(msg);
             oos.flush();
         }catch (Exception e){
@@ -414,6 +425,7 @@ public class ServerThread extends Thread {
         try {
             toAccess.getCourse().addcourse(courseInfo.getCourse_name(),courseInfo.getCourse_id(),courseInfo.getCourse_teacher(),courseInfo.getCourse_time());
             message.setResponse(true);
+            message.setTheUsr(theUsr);
             sendmsg(message);
         }catch (Exception e){
 
@@ -426,6 +438,7 @@ public class ServerThread extends Thread {
         try {
             toAccess.getCourse().deletecourse(courseInfo.getCourse_id());
             message.setResponse(true);
+            message.setTheUsr(theUsr);
             sendmsg(message);
         }catch (Exception e){
         }
@@ -437,6 +450,7 @@ public class ServerThread extends Thread {
         try {
             toAccess.getCourse().addCourseSelect(courseInfo.getCourse_id(),theUsr);
             message.setResponse(true);
+            message.setTheUsr(theUsr);
             sendmsg(message);
         }catch (Exception e){
         }
@@ -448,6 +462,7 @@ public class ServerThread extends Thread {
         try {
             toAccess.getCourse().updatecourse(courseInfo.getCourse_name(),courseInfo.getCourse_id(),courseInfo.getCourse_teacher(),courseInfo.getCourse_time());
             message.setResponse(true);
+            message.setTheUsr(theUsr);
             sendmsg(message);
         }catch (Exception e){
         }
@@ -460,6 +475,7 @@ public class ServerThread extends Thread {
             System.out.println("测试1");
             Message msg=new Message("CourseTable",courseMessage);
             msg.setResponse(true);
+            message.setTheUsr(theUsr);
             oos.writeObject(msg);
             oos.flush();
         }catch (Exception e){
@@ -475,6 +491,7 @@ public class ServerThread extends Thread {
             shopMessage.setGoodslist(toAccess.getshop().listShop());
             Message msg=new Message("Shop",shopMessage);
             msg.setResponse(true);
+            msg.setTheUsr(theUsr);
             sendmsg(msg);
         }catch (Exception e){
 
@@ -488,6 +505,7 @@ public class ServerThread extends Thread {
             toAccess.getshop().addShop(goodsInfo.getGoods_id(),goodsInfo.getGoods_name(),goodsInfo.getGoods_price()+"",
                     goodsInfo.getGoods_quantity()+"",goodsInfo.getGoods_sales()+"");
             message.setResponse(true);
+            message.setTheUsr(theUsr);
             sendmsg(message);
         }catch (Exception e){
 
@@ -501,6 +519,7 @@ public class ServerThread extends Thread {
             System.out.println(goodsInfo.getGoods_id());
             toAccess.getshop().deleteShop(goodsInfo.getGoods_id());
             message.setResponse(true);
+            message.setTheUsr(theUsr);
             sendmsg(message);
         }catch (Exception e){
 
@@ -514,6 +533,7 @@ public class ServerThread extends Thread {
         try {
             toAccess.getshop().buygoods(goodsInfo.getGoods_id(),goodsInfo.getGoods_quantity(),theUsr);
             message.setResponse(true);
+            message.setTheUsr(theUsr);
             sendmsg(message);
         }catch (Exception e){
             e.printStackTrace();
@@ -527,6 +547,7 @@ public class ServerThread extends Thread {
             toAccess.getshop().updateShop(goodsInfo.getGoods_id(),goodsInfo.getGoods_name(),goodsInfo.getGoods_price()+"",
                     goodsInfo.getGoods_quantity()+"",goodsInfo.getGoods_sales()+"");
             message.setResponse(true);
+            message.setTheUsr(theUsr);
             sendmsg(message);
         }catch (Exception e){
 
