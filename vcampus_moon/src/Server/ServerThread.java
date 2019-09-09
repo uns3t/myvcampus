@@ -115,6 +115,13 @@ public class ServerThread extends Thread {
                     Librarylist();
                     break;
 
+                case "adminBookBorrowList":
+                    adminbookborrowlist(message);
+                    break;
+
+                case "usrBookBorrowList":
+                    break;
+
                 case "BookBorrow":
                     bookBorrow(message);
                     break;
@@ -338,6 +345,30 @@ public class ServerThread extends Thread {
             message.setResponse(true);
             message.setTheUsr(theUsr);
             oos.writeObject(message);
+            oos.flush();
+        }catch (Exception e){}
+    }
+
+    public void adminbookborrowlist(Message message){
+        BookMessage bookMessage=new BookMessage();
+        try {
+            bookMessage.setBooklist(toAccess.getBook().listBookBorrow());
+            Message msg=new Message("adminBookBorrowList",bookMessage);
+            msg.setTheUsr(theUsr);
+            msg.setResponse(true);
+            oos.writeObject(msg);
+            oos.flush();
+        }catch (Exception e){}
+    }
+
+    public void usrbookborrowlist(Message message){
+        BookMessage bookMessage=new BookMessage();
+        try {
+            bookMessage.setBooklist(toAccess.getBook().listUsrBookBorrow(theUsr));
+            Message msg=new Message("usrBookBorrowList",bookMessage);
+            msg.setTheUsr(theUsr);
+            msg.setResponse(true);
+            oos.writeObject(msg);
             oos.flush();
         }catch (Exception e){}
     }

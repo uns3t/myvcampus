@@ -348,6 +348,22 @@ public class ClientThread extends Thread {
         }
     }
 
+    public boolean handleBookReturnMessage(String book_id){
+        BookBorrowMessage bookBorrowMessage = new BookBorrowMessage();
+        bookBorrowMessage.setType("BookReturn");
+        bookBorrowMessage.setBook_id(book_id);
+        Message message = new Message(bookBorrowMessage.getType(),bookBorrowMessage);
+        if (sendMessage(message)){
+            System.out.println("发送成功");
+            isWaiting = true;
+            return true;
+        }
+        else {
+            System.out.println("发送失败");
+            return false;
+        }
+    }
+
     public boolean handleShowBookMessage(){
         BookMessage bookMessage = new BookMessage();
         bookMessage.setType("Book");
@@ -363,6 +379,35 @@ public class ClientThread extends Thread {
         }
     }
 
+    public boolean handleShowAdminBookBorrowMessage(){
+        BookMessage bookMessage = new BookMessage();
+        bookMessage.setType("adminBookBorrowList");
+        Message message = new Message(bookMessage.getType(),bookMessage);
+        if (sendMessage(message)){
+            System.out.println("发送成功");
+            isWaiting = true;
+            return true;
+        }
+        else {
+            System.out.println("发送失败");
+            return false;
+        }
+    }
+
+    public boolean handleShowUsrBookBorrowMessage(){
+        BookMessage bookMessage = new BookMessage();
+        bookMessage.setType("usrBookBorrowList");
+        Message message = new Message(bookMessage.getType(),bookMessage);
+        if (sendMessage(message)){
+            System.out.println("发送成功");
+            isWaiting = true;
+            return true;
+        }
+        else {
+            System.out.println("发送失败");
+            return false;
+        }
+    }
     //--------------------------------------------商店------------------------------------------------
 
 
@@ -544,7 +589,7 @@ public class ClientThread extends Thread {
         courseInfo.setCourse_teacher(teacher);
         courseInfo.setCourse_time(time);
         CourseMessage courseMessage = new CourseMessage();
-        courseMessage.setType("AddCourse");
+        courseMessage.setType("UpdateCourse");
         courseMessage.addCourseInfo(courseInfo);
         Message message = new Message(courseMessage.getType(),courseMessage);
         if (sendMessage(message)){

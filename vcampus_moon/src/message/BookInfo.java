@@ -10,6 +10,15 @@ public class BookInfo implements Serializable {
     private int Book_total;
     private int Book_borrowed;
     private String Book_introduction;
+    private String Book_borrowStartTime;
+
+    public void setBook_borrowStartTime(String book_borrowStartTime) {
+        Book_borrowStartTime = book_borrowStartTime;
+    }
+
+    public String getBook_borrowStartTime() {
+        return Book_borrowStartTime;
+    }
 
     public void setBook_press(String book_press) {
         Book_press = book_press;
