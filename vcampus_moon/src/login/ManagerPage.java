@@ -35,11 +35,11 @@ public class ManagerPage extends JFrame{
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		setVisible(true);
-		
+
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBounds(0, 0, 719, 576);
 		getContentPane().add(layeredPane);
-		
+
 				JButton button = new JButton("\u9000\u51FA\u767B\u5F55");
 				layeredPane.setLayer(button, 1);
 				button.setBounds(283, 477, 125, 63);
@@ -57,8 +57,8 @@ public class ManagerPage extends JFrame{
 					}
 				});
 				button.setFont(new Font("宋体", Font.BOLD, 18));
-				
-				
+
+
 				JButton button_1 = new JButton("课程系统");
 				button_1.setOpaque(false);
 				layeredPane.setLayer(button_1, 1);
@@ -68,12 +68,12 @@ public class ManagerPage extends JFrame{
 				button_1.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {//选课系统
 						new ManagerCoursePage(cthread);
-						
+
 					}
 				});
 				button_1.setFont(new Font("宋体", Font.BOLD, 20));
-				
-				
+
+
 				JButton button_2 = new JButton("\u56FE\u4E66\u9986");
 				button_2.setOpaque(false);
 				layeredPane.setLayer(button_2, 1);
@@ -83,12 +83,12 @@ public class ManagerPage extends JFrame{
 				button_2.setFont(new Font("宋体", Font.BOLD, 20));
 				button_2.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {//图书馆
-						
-						
+
+
 					}
 				});
-				
-				
+
+
 				JButton button_3 = new JButton("\u6821\u56ED\u5546\u5E97");
 				button_3.setOpaque(false);
 				layeredPane.setLayer(button_3, 1);
@@ -97,13 +97,13 @@ public class ManagerPage extends JFrame{
 				button_3.setBackground(new Color(240, 248, 255));
 				button_3.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {//校园商店
-						
-						
+
+
 					}
 				});
 				button_3.setFont(new Font("宋体", Font.BOLD, 20));
-				
-				
+
+
 				JButton button_4 = new JButton("\u5B66\u7C4D\u7BA1\u7406");
 				button_4.setOpaque(false);
 				layeredPane.setLayer(button_4, 1);
@@ -121,12 +121,12 @@ public class ManagerPage extends JFrame{
 					}
 				});
 				button_4.setFont(new Font("宋体", Font.BOLD, 20));
-				
+
 				image1 = new ImageIcon("images/teacher_photo.jpg");
 				JLabel lblNewLabel = new JLabel(image1);
 				lblNewLabel.setBounds(0, 0, 719, 576);
 				layeredPane.add(lblNewLabel);
-				
-		
+
+
 	}
 }

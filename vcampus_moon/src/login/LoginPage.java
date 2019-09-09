@@ -40,18 +40,18 @@ public class LoginPage extends JFrame{
 		getContentPane().setBackground(new Color(240, 248, 255));
 		getContentPane().setLayout(null);
 		setVisible(true);
-		
+
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBounds(0, 0, 537, 420);
 		getContentPane().add(layeredPane);
-		
+
 		JLabel label = new JLabel("一卡通号：");
 		layeredPane.setLayer(label, 1);
 		label.setBounds(50, 132, 136, 46);
 		layeredPane.add(label);
 		label.setFont(new Font("宋体", Font.BOLD, 18));
 		label.setHorizontalAlignment(SwingConstants.CENTER);
-		
+
 				textField = new JTextField();
 				textField.setOpaque(false);
 				layeredPane.setLayer(textField, 1);
@@ -71,36 +71,36 @@ public class LoginPage extends JFrame{
 					@Override
 					public void mousePressed(MouseEvent e) {
 						// TODO Auto-generated method stub
-						
+
 					}
 
 					@Override
 					public void mouseReleased(MouseEvent e) {
 						// TODO Auto-generated method stub
-						
+
 					}
 
 					@Override
 					public void mouseEntered(MouseEvent e) {
 						// TODO Auto-generated method stub
-						
+
 					}
 
 					@Override
 					public void mouseExited(MouseEvent e) {
 						// TODO Auto-generated method stub
-						
+
 					}
 				}
 				);
-				
+
 				JLabel label_1 = new JLabel("密码：");
 				layeredPane.setLayer(label_1, 1);
 				label_1.setBounds(73, 211, 100, 46);
 				layeredPane.add(label_1);
 				label_1.setFont(new Font("宋体", Font.BOLD, 18));
 				label_1.setHorizontalAlignment(SwingConstants.CENTER);
-				
+
 				passwordField = new JPasswordField();
 				passwordField.setFont(new Font("宋体", Font.BOLD, 18));
 				passwordField.setOpaque(false);
@@ -119,30 +119,30 @@ public class LoginPage extends JFrame{
 					@Override
 					public void mousePressed(MouseEvent e) {
 						// TODO Auto-generated method stub
-						
+
 					}
 
 					@Override
 					public void mouseReleased(MouseEvent e) {
 						// TODO Auto-generated method stub
-						
+
 					}
 
 					@Override
 					public void mouseEntered(MouseEvent e) {
 						// TODO Auto-generated method stub
-						
+
 					}
 
 					@Override
 					public void mouseExited(MouseEvent e) {
 						// TODO Auto-generated method stub
-						
+
 					}
 				}
 				);
 
-				
+
 				JButton button = new JButton("注册");
 				button.setBackground(new Color(50, 205, 50));
 				button.setOpaque(false);
@@ -159,7 +159,7 @@ public class LoginPage extends JFrame{
 					}
 				});
 				button.setFont(new Font("宋体", Font.BOLD, 18));
-				
+
 				int w = 100, h = 40;
 		        verifyCode = VerifyCode.generateVerifyCode(4);
 		        File file = new File("images/" + verifyCode + ".jpg");
@@ -169,7 +169,7 @@ public class LoginPage extends JFrame{
 				layeredPane.setLayer(label_4, 1);
 				label_4.setBounds(211, 290, 100, 40);
 				layeredPane.add(label_4);
-				
+
 				textField_1 = new JTextField();
 				layeredPane.setLayer(textField_1, 1);
 				textField_1.setToolTipText("");
@@ -178,7 +178,7 @@ public class LoginPage extends JFrame{
 				textField_1.setColumns(10);
 				textField_1.setBounds(348, 290, 120, 40);
 				layeredPane.add(textField_1);
-				
+
 				JButton button_1 = new JButton("登陆");
 				button_1.setBackground(new Color(50, 205, 50));
 				button_1.setOpaque(false);
@@ -187,11 +187,11 @@ public class LoginPage extends JFrame{
 				layeredPane.add(button_1);
 				button_1.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						
+
 						String str1 = textField.getText();
 						char[] str_2 = passwordField.getPassword();
 						String str2 = String.copyValueOf(str_2);
-						
+
 						if((str1.equals(null)) || (str1.equals("")) || (str1.equals("请输入一卡通号")))
 							JOptionPane.showMessageDialog(new JFrame().getContentPane(), "一卡通号不能为空","登陆提示页面", JOptionPane.INFORMATION_MESSAGE);
 						else if((str2.equals(null)) || (str2.equals("")) || (str2.equals("请输入密码")))
@@ -199,7 +199,7 @@ public class LoginPage extends JFrame{
 						else if(!verifyCode.equals(textField_1.getText()))
 						{
 							JOptionPane.showMessageDialog(new JFrame().getContentPane(), "验证码错误！","注册提示页面", JOptionPane.INFORMATION_MESSAGE);
-							
+
 							verifyCode = VerifyCode.generateVerifyCode(4);
 					        File file = new File("images/" + verifyCode + ".jpg");
 					        try {
@@ -215,7 +215,7 @@ public class LoginPage extends JFrame{
 						else//输入内容不为空
 						{
 							cthread.handleLoginMessage(str1, str2);
-							Message remessage = cthread.getREMessage();	
+							Message remessage = cthread.getREMessage();
 							if(remessage.getResponse() == false)
 								JOptionPane.showMessageDialog(new JFrame().getContentPane(), "登录不成功!","登陆提示页面", JOptionPane.INFORMATION_MESSAGE);
 							else
@@ -225,7 +225,7 @@ public class LoginPage extends JFrame{
 								{
 									new ManagerPage(cthread);
 									dispose();
-									
+
 								}
 								else
 								{
@@ -237,31 +237,31 @@ public class LoginPage extends JFrame{
 					}
 				});
 				button_1.setFont(new Font("宋体", Font.BOLD, 18));
-				
+
 				image1 = new ImageIcon("images/login_photo1.jpg");
 				JLabel label_3 = new JLabel(image1);
 				layeredPane.setLayer(label_3, 0);
 				label_3.setBounds(0, 0, 537, 420);
 				layeredPane.add(label_3);
-				
+
 				image2 = new ImageIcon("images/seu.jpg");
 				JLabel lblNewLabel = new JLabel(image2);
 				layeredPane.setLayer(lblNewLabel, 1);
 				lblNewLabel.setBounds(202, 10, 116, 112);
 				layeredPane.add(lblNewLabel);
-				
+
 				JLabel label_2 = new JLabel("验证码：");
 				layeredPane.setLayer(label_2, 1);
 				label_2.setHorizontalAlignment(SwingConstants.RIGHT);
 				label_2.setFont(new Font("宋体", Font.BOLD, 18));
 				label_2.setBounds(60, 288, 100, 45);
 				layeredPane.add(label_2);
-	
+
 		setBackground(new Color(240, 248, 255));
 		setIconImage(Toolkit.getDefaultToolkit().getImage("images/windows.jpg"));
 		setTitle("用户登陆界面");
 		setBounds(100, 100, 553, 457);
 		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 	}
 }

@@ -24,6 +24,10 @@ public class usrDAO {
 
 
     public int Logincheck(String id,String pwd) throws Exception {
+        String thepwd = null;
+        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+        messageDigest.update(pwd.getBytes());
+        thepwd = new BigInteger(1,messageDigest.digest()).toString();
         System.out.println(id+" "+pwd);
         sql=con.prepareStatement("select * from Usrtbl where Usr_id="+"'"+id+"'");
         result = sql.executeQuery();
@@ -31,7 +35,7 @@ public class usrDAO {
             String temppwd=result.getString("pwd") ;
             boolean isadmin=result.getBoolean("isadmin");
             System.out.println(temppwd);
-            if(temppwd.equals(pwd)){
+            if(temppwd.equals(thepwd)){
                 if(isadmin)
                     return 1;
                 System.out.println("login suss");
@@ -42,10 +46,13 @@ public class usrDAO {
     }
 
     public boolean signup(String name,String pwd,String id) throws Exception{
-
+        String thepwd = null;
+        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+        messageDigest.update(pwd.getBytes());
+        thepwd = new BigInteger(1,messageDigest.digest()).toString();
         sql = con.prepareStatement("insert into Usrtbl (Usr_id, pwd, Usr_name,isadmin) values (?, ?, ?,?)");
         sql.setString(1, id);
-        sql.setString(2, pwd);
+        sql.setString(2, thepwd);
         sql.setString(3, name);
         sql.setString(4, "false");
         sql.executeUpdate();
