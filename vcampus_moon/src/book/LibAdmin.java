@@ -1,268 +1,280 @@
-//package book;
-//
-//import java.awt.BorderLayout;
-//import java.awt.EventQueue;
-//import javax.swing.JButton;
-//import javax.swing.JFrame;
-//import javax.swing.JLabel;
-//import javax.swing.JPanel;
-//import javax.swing.JScrollPane;
-//import javax.swing.JTable;
-//import javax.swing.JTextField;
-//import javax.swing.border.EmptyBorder;
-//
-//public class LibAdmin extends JFrame {
-//
-//	JLabel Book_id=new JLabel("图书编号:");
-//	JLabel Book_name=new JLabel("书名:");
-//	JLabel Book_total =new JLabel("总数量:");
-//	JLabel Book_author =new JLabel("作者:");
-//	//JLabel Book_press =new JLabel("出版社:");
-//	JLabel  Book_introduction=new JLabel("简介:");
-//	JLabel Book_borrow =new JLabel("可借本数:");
-//
-//	JFrame Order=new JFrame("确认预约");
-//	JFrame ReturnBook=new JFrame("还书");
-//
-//	JLabel Message=new JLabel("请输入一卡通号");
-//
-//	//JButton Delete_button=new JButton("删除图书");
-//	JButton Returnbook =new JButton("归还");
-//	JButton Subscribe =new JButton("订阅");
-//	JButton Save=new JButton("保存");
-//	JButton Cance=new JButton("取消");
-//	JButton CancelOrder=new JButton("取消");
-//	JButton CancelReturn=new JButton("取消");
-//	JButton Confirmreturnbook=new JButton("确认");
-//	JButton ConfirmSubscribe=new JButton("确认");
-//
-//
-//	JTextField BOOKID =new JTextField();
-//	JTextField BOOKNAME =new JTextField();
-//	JTextField ABLETOBORROW =new JTextField();
-//	JTextField TOTAL =new JTextField();
-//	JTextField Author_input= new JTextField();
-//	//JTextField Press_input= new JTextField();
-//	//JTextField Introduct_input= new JTextField();
-//	JTextField IDinput= new JTextField();
-//	//SearchPanel mPanel_searchPanel=new SearchPanel();
-//	//SearchPanel mPanel_searchPanel=new SearchPanel();
-//	int tablenumber;
-//	String[] colname={"一卡通号","状态"};
-//	String[][] borrowData=new String[100][2];
-//	JTable borrow =new JTable(borrowData,colname);
-//	//JScrollPane jsp=new JScrollPane(borrow);
-//
-//
-//	public LibAdmin() {
-//		getContentPane().add(Book_name);	getContentPane().add(Book_id);getContentPane().add(Book_total);getContentPane().add(Book_borrow);
-//		getContentPane().add(BOOKID);getContentPane().add(BOOKNAME);getContentPane().add(ABLETOBORROW);getContentPane().add(TOTAL);
-//		getContentPane().add(Subscribe);getContentPane().add(Save);getContentPane().add(Cance);getContentPane().add(Returnbook);
-//		getContentPane().add(Book_author);getContentPane().add(Author_input);/*getContentPane().add(Book_press);getContentPane().add(Press_input);
-//		/*this.add(location);*/getContentPane().add(Book_introduction);getContentPane().add(Book_introduction);
-//		//	getContentPane().add(jsp);getContentPane().add(Delete_button);
-//		getContentPane().setLayout(null);
-//		this.setLocationRelativeTo(null);
-//		//for(int i=0;i<=5;i++)for(int j=0;j<=1;j++)borrowData[i][j]=mPanel_searchPanel.ALLData.get(0)[0][0];
-//		borrow.setEnabled(false);
-//		this.setBounds(0, 0, 415, 679);
-//		Book_id.setBounds(60, 30, 100, 30);
-//		Book_name.setBounds(60, 70, 100, 30);
-//		Book_author.setBounds(60, 110, 100, 30);
-//		//Book_press.setBounds(60, 150, 100, 30);
-//		Book_total.setBounds(60, 150, 100, 30);
-//		Book_borrow.setBounds(60, 190, 100, 30);
-//		//Book_introduction.setBounds(60, 270, 100, 30);
-//		//location.setBounds(60, 310, 100, 30);
-//		BOOKID.setBounds(140, 32, 150, 30);
-//		BOOKNAME.setBounds(140, 72, 150, 30);
-//		Author_input.setBounds(140, 112, 150, 30);
-//		//Press_input.setBounds(140, 152, 150, 30);
-//		TOTAL.setBounds(140, 152, 150, 30);
-//		ABLETOBORROW.setBounds(140, 192, 150, 30);
-//		//Introduct_input.setBounds(140, 272, 150, 30);
-//		//location_input.setBounds(140, 312, 150, 30);
-//		//Delete_button.setBounds(121, 559, 119, 20);
-//
-//		//jsp.setBounds(60, 255, 263, 199);
-//		Subscribe.setBounds(60, 469, 100, 30);
-//		Returnbook.setBounds(190, 469, 100, 30);
-//		Save.setBounds(60,514, 100, 30);
-//		Cance.setBounds(190, 514, 100, 30);
-//		this.setVisible(true);
-//		Cance.addActionListener(new java.awt.event.ActionListener() {
-//
-//			public void actionPerformed(java.awt.event.ActionEvent e) {
-//
-//				close();
-//
-//			}
-//
-//		});
-//
-//
-//		Save.addActionListener(new java.awt.event.ActionListener() {
-//
-//			public void actionPerformed(java.awt.event.ActionEvent e) {
-//
-//				//save();
-//
-//			}
-//
-//		});
-//		/*Delete_button.addActionListener(new java.awt.event.ActionListener() {
-//
-//			public void actionPerformed(java.awt.event.ActionEvent e) {
-//			
-//				delete();
-//	
-//		}
-//
-//		});*/
-//
-//		Subscribe.addActionListener(new java.awt.event.ActionListener() {
-//
-//			public void actionPerformed(java.awt.event.ActionEvent e) {
-//
-//
-//				Order.getContentPane().setLayout(null);
-//				Order.setVisible(true);
-//				Order.setLocationRelativeTo(null);
-//				Order.setSize(300, 250);
-//				Order.getContentPane().add(Message);
-//				Order.getContentPane().add(ConfirmSubscribe);
-//				Order.getContentPane().add(IDinput);
-//				Order.getContentPane().add(CancelOrder);
-//				Message.setBounds(90, 20, 300, 60);
-//				IDinput.setBounds(80, 80, 127, 30);
-//				ConfirmSubscribe.setBounds(30, 140, 100, 40);
-//				CancelOrder.setBounds(160, 140, 100, 40);;
-//
-//
-//
-//				CancelOrder.addActionListener(new java.awt.event.ActionListener() {
-//
-//					public void actionPerformed(java.awt.event.ActionEvent e) {
-//
-//						Order.setVisible(false);
-//
-//					}
-//
-//				});
-//
-//
-//			}
-//
-//		});
-//		Returnbook.addActionListener(new java.awt.event.ActionListener() {
-//
-//			public void actionPerformed(java.awt.event.ActionEvent e) {
-//
-//
-//				ReturnBook.getContentPane().setLayout(null);
-//				ReturnBook.setVisible(true);
-//				ReturnBook.setLocationRelativeTo(null);
-//				ReturnBook.setSize(300, 250);
-//				ReturnBook.getContentPane().add(Message);
-//				ReturnBook.getContentPane().add(Confirmreturnbook);
-//				ReturnBook.getContentPane().add(IDinput);
-//				ReturnBook.getContentPane().add(CancelReturn);
-//				Message.setBounds(90, 20, 300, 60);
-//				IDinput.setBounds(80, 80, 127, 30);
-//				Confirmreturnbook.setBounds(30, 140, 100, 40);
-//				CancelReturn.setBounds(160, 140, 100, 40);
-//				Confirmreturnbook.addActionListener(new java.awt.event.ActionListener() {
-//
-//					public void actionPerformed(java.awt.event.ActionEvent e) {
-//						String temp;
-//						temp=IDinput.getText();
-//
-//						for (int i=0;i<=99;i++)if(temp.equals(borrowData[i][0])){
-//							borrowData[i][0]="";borrowData[i][1]="";
-//							borrow.setVisible(false);borrow.setVisible(true);
-//						}
-//
-//
-//
-//					}
-//
-//				});
-//				CancelReturn.addActionListener(new java.awt.event.ActionListener() {
-//
-//					public void actionPerformed(java.awt.event.ActionEvent e) {
-//
-//						ReturnBook.setVisible(false);
-//
-//					}
-//
-//				});
-//
-//
-//
-//
-//			}
-//
-//		});
-//
-//
-//
-//
-//
-//
+package book;
+
+import client.ClientThread;
+import message.BookInfo;
+import message.BookMessage;
+import message.Message;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
+
+public class LibAdmin extends JPanel {
+
+//	public static void main(String[] args) {
+//		new LibAdmin();
 //	}
-//	
-//	/*protected void save(){
-//			close();
-//			mPanel_searchPanel.table.setTextTableCell(tablenumber, 5,ABLETOBORROW.getText());
-//			mPanel_searchPanel.table.setTextTableCell(tablenumber, 1,BOOKNAME.getText());
-//			mPanel_searchPanel.table.setTextTableCell(tablenumber, 0,BOOKID.getText());
-//			mPanel_searchPanel.table.setTextTableCell(tablenumber, 4,TOTAL.getText());
-//			mPanel_searchPanel.table.setTextTableCell(tablenumber, 2,Author_input.getText());
-//			//mPanel_searchPanel.table.setTextTableCell(tablenumber, 3,Press_input.getText());
-//		//	mPanel_searchPanel.table.setTextTableCell(tablenumber, 6,Introduct_input.getText());
-//			//mPanel_searchPanel.table.setTextTableCell(tablenumber, 7,location_input.getText());
-//			
-//			mPanel_searchPanel.jsp.setVisible(false);
-//			mPanel_searchPanel.jsp.setVisible(true);
-//		
-//		
-//	}
-//	protected void delete(){
-//		close();
-//		mPanel_searchPanel.table.setTextTableCell(tablenumber, 5,"");
-//		mPanel_searchPanel.table.setTextTableCell(tablenumber, 1,"");
-//		mPanel_searchPanel.table.setTextTableCell(tablenumber, 0,"");
-//		mPanel_searchPanel.table.setTextTableCell(tablenumber, 4,"");
-//		mPanel_searchPanel.table.setTextTableCell(tablenumber, 2,"");
-//		mPanel_searchPanel.table.setTextTableCell(tablenumber, 3,"");
-//		mPanel_searchPanel.table.setTextTableCell(tablenumber, 6,"");
-//		mPanel_searchPanel.table.setTextTableCell(tablenumber, 7,"");
-//		
-//		mPanel_searchPanel.jsp.setVisible(false);
-//		mPanel_searchPanel.jsp.setVisible(true);
-//	
-//	
-//}*/
-//
-//	public  void setbooknumber(String Booknumber){
-//		BOOKNAME.setText(Booknumber);
-//	}
-//	public void setbookname(String Bookname){
-//		BOOKNAME.setText(Bookname);
-//	}
-//	public void settotal(String Total){
-//		TOTAL.setText(Total);
-//	}
-//	public void setabletoborrow(String Abletoborrow){
-//		Book_borrow.setText(Abletoborrow);
-//	}
-//
-//	/*public void setsearchpanel(SearchPanel m) {
-//		mPanel_searchPanel = m;
-//	}*/
-//	public void close()
-//	{
-//		this.setVisible(false);
-//	}
-//
-//}
+
+	AddBook add_frame;
+	//BookInf program_frame;
+
+	int book_id;
+	String book_name;
+	String book_author;
+	String book_press;
+	String book_introduction;
+	String book_total;
+	String book_borrowed;
+
+	JLabel Book_id = new JLabel("图书编号:");
+	JLabel Book_name = new JLabel("书名:");
+	JLabel Book_total = new JLabel("总数量:");
+	JLabel Book_author = new JLabel("作者:");
+	JLabel Book_press = new JLabel("出版社:");
+	JLabel Book_borrow = new JLabel("可借本数:");
+
+	JFrame Order = new JFrame("确认预约");
+	JFrame ReturnBook = new JFrame("确认归还");
+	JFrame Book = new JFrame("书籍");
+
+	JLabel Message = new JLabel("请输入一卡通号");
+	JLabel Tip = new JLabel("请输入书籍号查询!");
+
+	JButton add_Button=new JButton("添加书籍");
+
+	JButton Program_Button=new JButton("更新");
+	JButton Delete_button = new JButton("删除");
+	JButton Returnbook = new JButton("归还");
+	JButton Subscribe = new JButton("订阅");
+	JButton Cance = new JButton("取消");
+	JButton Confirm = new JButton("确认");
+	JButton CancelOrder = new JButton("取消");
+	JButton CancelReturn = new JButton("取消");
+	JButton Confirmreturnbook = new JButton("确认");
+	JButton ConfirmSubscribe = new JButton("确认");
+
+	JTextField BOOKID = new JTextField();
+	JTextField IDinput = new JTextField();
+
+	int admin = 1;
+	ClientThread cthread;
+
+
+	public LibAdmin(ClientThread mcthread) {
+
+		cthread = mcthread;
+		cthread.handleShowBookMessage();
+		Message message = cthread.getREMessage();
+		BookMessage boobmessage = (BookMessage) message.getData();
+		ArrayList<BookInfo> booklist = boobmessage.getbook();
+
+		this.setBackground(new Color(240, 248, 255));
+		this.setBounds(0, 0, 350, 450);
+		this.setLayout(null);
+		add_Button.setBounds(420, 300, 150, 50);
+
+
+		this.setVisible(true);
+
+	//	add_Button.setFont(new Font("华文仿宋",Font.ROMAN_BASELINE,20));
+		//Program_Button.setFont(new Font("华文仿宋",Font.ROMAN_BASELINE,20));
+
+
+		add_Button.setBorderPainted(false);
+		add_Button.setBackground(new Color(240, 248, 255));
+		Program_Button.setBorderPainted(false);
+		Program_Button.setBackground(new Color(240, 248, 255));
+		Delete_button.setBorderPainted(false);
+		Delete_button.setBackground(new Color(240, 248, 255));
+		Returnbook.setBorderPainted(false);
+		Returnbook.setBackground(new Color(240, 248, 255));
+		Subscribe.setBorderPainted(false);
+		Subscribe.setBackground(new Color(240, 248, 255));
+
+
+		this.add(Book_id);
+		this.add(BOOKID);
+		this.add(Confirm);
+		this.add(Tip);
+		if(admin==1) {
+			this.add(add_Button);
+			//this.add(Program_Button);
+
+		}
+		Tip.setFont(new Font("微软雅黑", Font.ROMAN_BASELINE, 25));
+		Tip.setBounds(70, 30, 250, 50);
+		Confirm.setBounds(100, 220, 100, 30);
+		Book_id.setBounds(60, 150, 100, 30);
+		BOOKID.setBounds(140, 150, 150, 30);
+
+		Book_name.setBounds(60, 60, 100, 30);
+		Book_author.setBounds(60, 100, 100, 30);
+		Book_press.setBounds(60, 140, 100, 30);
+		Book_total.setBounds(60, 180, 100, 30);
+		Book_borrow.setBounds(60, 220, 100, 30);
+
+		Delete_button.setBounds(60, 350, 100, 30);
+
+		//jsp.setBounds(60, 255, 263, 199);
+		Subscribe.setBounds(60, 300, 100, 30);
+		Returnbook.setBounds(190, 300, 100, 30);
+		//Save.setBounds(60,514, 100, 30);
+		Cance.setBounds(200, 500, 80, 20);
+		Program_Button.setBounds(190, 350, 100, 30);
+
+		add_Button.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+
+				add_frame=new AddBook(mcthread,false);
+
+			}
+
+		});
+
+		Confirm.addActionListener(new java.awt.event.ActionListener() {
+
+			public void actionPerformed(java.awt.event.ActionEvent e) {
+
+
+				book_id = Integer.parseInt(BOOKID.getText());
+				booklist.get(book_id).getBook_borrowed();
+
+				book_name = booklist.get(book_id).getBook_name();
+				book_author = booklist.get(book_id).getBook_author();
+				book_press = booklist.get(book_id).getBook_press();
+				book_introduction = booklist.get(book_id).getBook_introduction();
+				Integer total = booklist.get(book_id).getBook_total();
+				book_total = total.toString();
+				Integer borrowed = booklist.get(book_id).getBook_borrowed();
+				book_borrowed = borrowed.toString();
+
+				JLabel BOOKNAME = new JLabel(book_name);
+				JLabel ABLETOBORROW = new JLabel(book_borrowed);
+				JLabel TOTAL = new JLabel(book_total);
+				JLabel Author_output = new JLabel(book_author);
+				JLabel Press_output = new JLabel(book_press);
+
+				BOOKNAME.setBounds(140, 60, 150, 30);
+				Author_output.setBounds(140, 100, 150, 30);
+				Press_output.setBounds(140, 140, 150, 30);
+				TOTAL.setBounds(140, 180, 150, 30);
+				ABLETOBORROW.setBounds(140, 220, 150, 30);
+
+//				testData[i][6] = borrowed.toString();
+				Book.getContentPane().setLayout(null);
+				Book.setVisible(true);
+				Book.setLocationRelativeTo(null);
+				Book.setBounds(0, 0, 350, 600);
+				Book.getContentPane().add(Book_name);
+				Book.getContentPane().add(Book_total);
+				Book.getContentPane().add(Book_borrow);
+				Book.getContentPane().add(BOOKNAME);
+				Book.getContentPane().add(ABLETOBORROW);
+				Book.getContentPane().add(TOTAL);
+				Book.getContentPane().add(Press_output);
+				Book.getContentPane().add(Book_press);
+				Book.getContentPane().add(Book_author);
+				Book.getContentPane().add(Author_output);
+				Book.getContentPane().add(Subscribe);
+				//Book.getContentPane().add(Cance);
+				Book.getContentPane().add(Returnbook);
+
+
+
+				if (admin == 1) {
+					Book.getContentPane().add(Delete_button);
+					Book.getContentPane().add(Program_Button);
+				}
+
+				Cance.addActionListener(new java.awt.event.ActionListener() {
+
+					public void actionPerformed(java.awt.event.ActionEvent e) {
+
+						close();
+					}
+
+				});
+
+				Delete_button.addActionListener(new java.awt.event.ActionListener() {
+
+					public void actionPerformed(java.awt.event.ActionEvent e) {
+
+						//close();
+						mcthread.handleDeleteBookMessage(BOOKID.getText());
+					}
+
+				});
+
+				Program_Button.addActionListener(new java.awt.event.ActionListener() {
+
+					public void actionPerformed(java.awt.event.ActionEvent e) {
+
+
+						add_frame=new AddBook(mcthread,true);
+					}
+
+				});
+
+				Subscribe.addActionListener(new java.awt.event.ActionListener() {
+
+					public void actionPerformed(java.awt.event.ActionEvent e) {
+
+						Order.getContentPane().setLayout(null);
+						Order.setVisible(true);
+						Order.setLocationRelativeTo(null);
+						Order.setSize(350, 250);
+						Order.getContentPane().add(Message);
+						Order.getContentPane().add(ConfirmSubscribe);
+						Order.getContentPane().add(IDinput);
+						Order.getContentPane().add(CancelOrder);
+						Message.setBounds(90, 20, 300, 60);
+						IDinput.setBounds(80, 80, 127, 30);
+						ConfirmSubscribe.setBounds(30, 140, 100, 40);
+						CancelOrder.setBounds(160, 140, 100, 40);
+
+
+						CancelOrder.addActionListener(new java.awt.event.ActionListener() {
+
+							public void actionPerformed(java.awt.event.ActionEvent e) {
+
+								Order.setVisible(false);
+
+							}
+
+						});
+
+						ConfirmSubscribe.addActionListener(new java.awt.event.ActionListener() {
+
+							public void actionPerformed(java.awt.event.ActionEvent e) {
+
+								mcthread.handleBookBorrowMessage(BOOKID.getText());
+
+							}
+
+						});
+
+
+					}
+
+				});
+			}
+
+
+		});
+	}
+		protected void delete () {
+			close();
+		}
+
+
+		public void setabletoborrow (String Abletoborrow){
+			Book_borrow.setText(Abletoborrow);
+		}
+
+
+		public void close () {
+			this.setVisible(false);
+		}
+
+
+}
