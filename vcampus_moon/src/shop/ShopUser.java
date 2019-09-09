@@ -56,16 +56,15 @@ public class ShopUser extends JFrame{
     private JLabel label_6;
     private JTextField textField_13;
     private JLabel label_7;
-    private JButton button_4;
-    private JButton button_5;
     private JTextField textField_20;
     private JTextField textField_24;
     private JTextField textField_25;
     private JTextField textField_26;
     private JTextField textField_27;
     private JTextField textField_28;
-    private ArrayList<GoodsInfo> goodsinfo, tempinfo;
+    private ArrayList<GoodsInfo> goodsinfo, tempinfo = new ArrayList<GoodsInfo>();
     private int number, pagenum, currentpage;
+    private JButton btnNewButton, button, button_1, button_2, button_3, button_4, button_5;
 
     /**
      * Launch the application.
@@ -83,23 +82,17 @@ public class ShopUser extends JFrame{
      * Initialize the contents of the frame.
      */
     private void initialize (ClientThread cthread) {
-        cthread.handleShowGoodsMessage();
+    	cthread.handleShowGoodsMessage();
         ShopMessage smessage = (ShopMessage)cthread.getREMessage().getData();
         goodsinfo = smessage.getGoodsInfo();
         number = goodsinfo.size();
         pagenum = (number + 4) / 5;
         currentpage = 1;
         
-        tempinfo.clear();
-        for(int i = (currentpage - 1) * 5; i < (currentpage * 5 < number ? currentpage * 5 : number); i++)
-        	tempinfo.add(goodsinfo.get(i));
-        initText();
-
         getContentPane().setBackground(SystemColor.control);
         setBackground(new Color(210, 180, 140));
         setTitle("\u9009\u62E9\u5546\u54C1\u754C\u9762\uFF08\u7528\u6237\uFF09");
         setBounds(100, 100, 1046, 615);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
         setVisible(true);
 
@@ -303,35 +296,60 @@ public class ShopUser extends JFrame{
         textField_23.setBounds(351, 407, 147, 54);
         layeredPane.add(textField_23);
         
-        JButton btnNewButton = new JButton("\u8D2D\u4E70");
+        btnNewButton = new JButton("\u8D2D\u4E70");
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		new ShopBuy(cthread, textField_8.getText(), Integer.valueOf(textField_6.getText()), Integer.valueOf(textField_24.getText()));
+        	}
+        });
         btnNewButton.setEnabled(false);
         layeredPane.setLayer(btnNewButton, 2);
         btnNewButton.setFont(new Font("宋体", Font.BOLD, 19));
         btnNewButton.setBounds(687, 203, 97, 41);
         layeredPane.add(btnNewButton);
         
-        JButton button = new JButton("\u8D2D\u4E70");
+        button = new JButton("\u8D2D\u4E70");
+        button.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		new ShopBuy(cthread, textField_9.getText(), Integer.valueOf(textField_11.getText()), Integer.valueOf(textField_25.getText()));
+        	}
+        });
         button.setEnabled(false);
         layeredPane.setLayer(button, 2);
         button.setFont(new Font("宋体", Font.BOLD, 19));
         button.setBounds(687, 255, 97, 41);
         layeredPane.add(button);
         
-        JButton button_1 = new JButton("\u8D2D\u4E70");
+        button_1 = new JButton("\u8D2D\u4E70");
+        button_1.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		new ShopBuy(cthread, textField_16.getText(), Integer.valueOf(textField_14.getText()), Integer.valueOf(textField_26.getText()));
+        	}
+        });
         button_1.setEnabled(false);
         layeredPane.setLayer(button_1, 2);
         button_1.setFont(new Font("宋体", Font.BOLD, 19));
         button_1.setBounds(687, 308, 97, 41);
         layeredPane.add(button_1);
         
-        JButton button_2 = new JButton("\u8D2D\u4E70");
+        button_2 = new JButton("\u8D2D\u4E70");
+        button_2.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		new ShopBuy(cthread, textField_17.getText(), Integer.valueOf(textField_19.getText()), Integer.valueOf(textField_27.getText()));
+        	}
+        });
         button_2.setEnabled(false);
         layeredPane.setLayer(button_2, 2);
         button_2.setFont(new Font("宋体", Font.BOLD, 19));
         button_2.setBounds(687, 361, 97, 41);
         layeredPane.add(button_2);
         
-        JButton button_3 = new JButton("\u8D2D\u4E70");
+        button_3 = new JButton("\u8D2D\u4E70");
+        button_3.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		new ShopBuy(cthread, textField_21.getText(), Integer.valueOf(textField_23.getText()), Integer.valueOf(textField_28.getText()));
+        	}
+        });
         button_3.setEnabled(false);
         layeredPane.setLayer(button_3, 2);
         button_3.setFont(new Font("宋体", Font.BOLD, 19));
@@ -350,9 +368,16 @@ public class ShopUser extends JFrame{
         label.setBounds(272, 10, 116, 112);
         layeredPane.add(label);
         
+        // 获取学生信息
+        cthread.handleShowStudentMessage();
+		Message stuMessage = cthread.getREMessage();
+		StudentMessage mess = (StudentMessage)stuMessage.getData();		
+		Studentinfo studentinfo = (Studentinfo) mess.getStudent().get(0);
+        
         textField_3 = new JTextField();
         layeredPane.setLayer(textField_3, 2);
         textField_3.setBorder(null);
+        textField_3.setText(studentinfo.getStudent_name());
         textField_3.setOpaque(true);
         textField_3.setHorizontalAlignment(SwingConstants.CENTER);
         textField_3.setFont(new Font("宋体", Font.BOLD, 20));
@@ -365,6 +390,7 @@ public class ShopUser extends JFrame{
         textField_5 = new JTextField();
         layeredPane.setLayer(textField_5, 2);
         textField_5.setBorder(null);
+        textField_5.setText(studentinfo.getStudent_id());
         textField_5.setOpaque(true);
         textField_5.setHorizontalAlignment(SwingConstants.CENTER);
         textField_5.setFont(new Font("宋体", Font.BOLD, 20));
@@ -394,34 +420,34 @@ public class ShopUser extends JFrame{
         
         textField_12 = new JTextField();
         layeredPane.setLayer(textField_12, 2);
-        textField_12.setText("1");
+        textField_12.setText(String.valueOf(currentpage));
         textField_12.setHorizontalAlignment(SwingConstants.CENTER);
         textField_12.setFont(new Font("宋体", Font.BOLD, 18));
         textField_12.setEditable(false);
         textField_12.setColumns(10);
         textField_12.setBackground(Color.WHITE);
-        textField_12.setBounds(136, 487, 43, 45);
+        textField_12.setBounds(97, 485, 43, 45);
         layeredPane.add(textField_12);
         
         label_4 = new JLabel("第");
         layeredPane.setLayer(label_4, 2);
         label_4.setHorizontalAlignment(SwingConstants.CENTER);
         label_4.setFont(new Font("宋体", Font.BOLD, 20));
-        label_4.setBounds(98, 487, 50, 45);
+        label_4.setBounds(59, 485, 50, 45);
         layeredPane.add(label_4);
         
         label_5 = new JLabel("页");
         layeredPane.setLayer(label_5, 2);
         label_5.setHorizontalAlignment(SwingConstants.CENTER);
         label_5.setFont(new Font("宋体", Font.BOLD, 18));
-        label_5.setBounds(164, 487, 50, 45);
+        label_5.setBounds(125, 485, 50, 45);
         layeredPane.add(label_5);
         
         label_6 = new JLabel("/共");
         layeredPane.setLayer(label_6, 2);
         label_6.setHorizontalAlignment(SwingConstants.CENTER);
         label_6.setFont(new Font("宋体", Font.BOLD, 18));
-        label_6.setBounds(200, 487, 50, 45);
+        label_6.setBounds(161, 485, 50, 45);
         layeredPane.add(label_6);
         
         textField_13 = new JTextField();
@@ -432,14 +458,14 @@ public class ShopUser extends JFrame{
         textField_13.setEditable(false);
         textField_13.setColumns(10);
         textField_13.setBackground(Color.WHITE);
-        textField_13.setBounds(242, 487, 43, 45);
+        textField_13.setBounds(203, 485, 43, 45);
         layeredPane.add(textField_13);
         
         label_7 = new JLabel("页");
         layeredPane.setLayer(label_7, 2);
         label_7.setHorizontalAlignment(SwingConstants.CENTER);
         label_7.setFont(new Font("宋体", Font.BOLD, 20));
-        label_7.setBounds(276, 487, 50, 45);
+        label_7.setBounds(237, 485, 50, 45);
         layeredPane.add(label_7);
         
         button_4 = new JButton("上一页");
@@ -448,18 +474,34 @@ public class ShopUser extends JFrame{
         		if(currentpage > 1)
         		{
         			currentpage--;
+        			tempinfo.clear();
+        		    for(int i = (currentpage - 1) * 5; i < (currentpage * 5 < number ? currentpage * 5 : number); i++)
+        		    	tempinfo.add(goodsinfo.get(i));
+        		    initText();
         		}
         	}
         });
         layeredPane.setLayer(button_4, 2);
         button_4.setFont(new Font("宋体", Font.BOLD, 20));
-        button_4.setBounds(367, 487, 104, 45);
+        button_4.setBounds(328, 485, 104, 45);
         layeredPane.add(button_4);
         
         button_5 = new JButton("下一页");
+        button_5.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		if(currentpage < pagenum)
+        		{
+        			currentpage++;
+        			tempinfo.clear();
+        		    for(int i = (currentpage - 1) * 5; i < (currentpage * 5 < number ? currentpage * 5 : number); i++)
+        		    	tempinfo.add(goodsinfo.get(i));
+        		    initText();
+        		}
+        	}
+        });
         layeredPane.setLayer(button_5, 2);
         button_5.setFont(new Font("宋体", Font.BOLD, 20));
-        button_5.setBounds(485, 487, 104, 45);
+        button_5.setBounds(446, 485, 104, 45);
         layeredPane.add(button_5);
         
         textField_20 = new JTextField();
@@ -522,6 +564,22 @@ public class ShopUser extends JFrame{
         textField_28.setBackground(Color.WHITE);
         textField_28.setBounds(497, 407, 147, 54);
         layeredPane.add(textField_28);
+        
+        JButton button_6 = new JButton("\u5237\u65B0");
+        button_6.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		initText();
+        	}
+        });
+        layeredPane.setLayer(button_6, 2);
+        button_6.setFont(new Font("宋体", Font.BOLD, 20));
+        button_6.setBounds(586, 485, 104, 45);
+        layeredPane.add(button_6);
+        
+        tempinfo.clear();
+        for(int i = (currentpage - 1) * 5; i < (currentpage * 5 < number ? currentpage * 5 : number); i++)
+        	tempinfo.add(goodsinfo.get(i));
+        initText();
     }
     
     
@@ -535,31 +593,164 @@ public class ShopUser extends JFrame{
     		textField_21.setText(tempinfo.get(4).getGoods_id());
     		textField_22.setText(tempinfo.get(4).getGoods_name());
     		textField_23.setText(String.valueOf(Integer.valueOf(tempinfo.get(4).getGoods_quantity()) - Integer.valueOf(tempinfo.get(4).getGoods_sales())));
-    		textField_28.setText(tempinfo.get(4).getGoods_name());
+    		textField_28.setText(String.valueOf(tempinfo.get(4).getGoods_price()));
+    		button_3.setEnabled(true);
     		
-    	case 4:
     		textField_17.setText(tempinfo.get(3).getGoods_id());
     		textField_18.setText(tempinfo.get(3).getGoods_name());
     		textField_19.setText(String.valueOf(Integer.valueOf(tempinfo.get(3).getGoods_quantity()) - Integer.valueOf(tempinfo.get(3).getGoods_sales())));
-    		textField_27.setText(tempinfo.get(3).getGoods_name());
+    		textField_27.setText(String.valueOf(tempinfo.get(3).getGoods_price()));
+    		button_2.setEnabled(true);
     		
-    	case 3:
     		textField_16.setText(tempinfo.get(2).getGoods_id());
     		textField_15.setText(tempinfo.get(2).getGoods_name());
     		textField_14.setText(String.valueOf(Integer.valueOf(tempinfo.get(2).getGoods_quantity()) - Integer.valueOf(tempinfo.get(2).getGoods_sales())));
-    		textField_26.setText(tempinfo.get(2).getGoods_name());
+    		textField_26.setText(String.valueOf(tempinfo.get(2).getGoods_price()));
+    		button_1.setEnabled(true);
     		
-    	case 2:
     		textField_9.setText(tempinfo.get(1).getGoods_id());
     		textField_10.setText(tempinfo.get(1).getGoods_name());
     		textField_11.setText(String.valueOf(Integer.valueOf(tempinfo.get(1).getGoods_quantity()) - Integer.valueOf(tempinfo.get(1).getGoods_sales())));
-    		textField_25.setText(tempinfo.get(1).getGoods_name());
+    		textField_25.setText(String.valueOf(tempinfo.get(1).getGoods_price()));
+    		button.setEnabled(true);
     		
-    	case 1:
     		textField_8.setText(tempinfo.get(0).getGoods_id());
     		textField_7.setText(tempinfo.get(0).getGoods_name());
     		textField_6.setText(String.valueOf(Integer.valueOf(tempinfo.get(0).getGoods_quantity()) - Integer.valueOf(tempinfo.get(0).getGoods_sales())));
-    		textField_24.setText(tempinfo.get(0).getGoods_name());
+    		textField_24.setText(String.valueOf(tempinfo.get(0).getGoods_price()));
+    		btnNewButton.setEnabled(true);
+    		
+    		break;
+    		
+    	case 4:
+    		textField_21.setText("");
+    		textField_22.setText("");
+    		textField_23.setText("");
+    		textField_28.setText("");
+    		button_3.setEnabled(false);
+    		
+    		textField_17.setText(tempinfo.get(3).getGoods_id());
+    		textField_18.setText(tempinfo.get(3).getGoods_name());
+    		textField_19.setText(String.valueOf(Integer.valueOf(tempinfo.get(3).getGoods_quantity()) - Integer.valueOf(tempinfo.get(3).getGoods_sales())));
+    		textField_27.setText(String.valueOf(tempinfo.get(3).getGoods_price()));
+    		button_2.setEnabled(true);
+    		
+    		textField_16.setText(tempinfo.get(2).getGoods_id());
+    		textField_15.setText(tempinfo.get(2).getGoods_name());
+    		textField_14.setText(String.valueOf(Integer.valueOf(tempinfo.get(2).getGoods_quantity()) - Integer.valueOf(tempinfo.get(2).getGoods_sales())));
+    		textField_26.setText(String.valueOf(tempinfo.get(2).getGoods_price()));
+    		button_1.setEnabled(true);
+    		
+    		textField_9.setText(tempinfo.get(1).getGoods_id());
+    		textField_10.setText(tempinfo.get(1).getGoods_name());
+    		textField_11.setText(String.valueOf(Integer.valueOf(tempinfo.get(1).getGoods_quantity()) - Integer.valueOf(tempinfo.get(1).getGoods_sales())));
+    		textField_25.setText(String.valueOf(tempinfo.get(1).getGoods_price()));
+    		button.setEnabled(true);
+    		
+    		textField_8.setText(tempinfo.get(0).getGoods_id());
+    		textField_7.setText(tempinfo.get(0).getGoods_name());
+    		textField_6.setText(String.valueOf(Integer.valueOf(tempinfo.get(0).getGoods_quantity()) - Integer.valueOf(tempinfo.get(0).getGoods_sales())));
+    		textField_24.setText(String.valueOf(tempinfo.get(0).getGoods_price()));
+    		btnNewButton.setEnabled(true);
+    		
+    		break;
+    		
+    	case 3:
+    		textField_21.setText("");
+    		textField_22.setText("");
+    		textField_23.setText("");
+    		textField_28.setText("");
+    		button_3.setEnabled(false);
+    		
+    		textField_17.setText("");
+    		textField_18.setText("");
+    		textField_19.setText("");
+    		textField_27.setText("");
+    		button_2.setEnabled(false);
+    		
+    		textField_16.setText(tempinfo.get(2).getGoods_id());
+    		textField_15.setText(tempinfo.get(2).getGoods_name());
+    		textField_14.setText(String.valueOf(Integer.valueOf(tempinfo.get(2).getGoods_quantity()) - Integer.valueOf(tempinfo.get(2).getGoods_sales())));
+    		textField_26.setText(String.valueOf(tempinfo.get(2).getGoods_price()));
+    		button_1.setEnabled(true);
+    		
+    		textField_9.setText(tempinfo.get(1).getGoods_id());
+    		textField_10.setText(tempinfo.get(1).getGoods_name());
+    		textField_11.setText(String.valueOf(Integer.valueOf(tempinfo.get(1).getGoods_quantity()) - Integer.valueOf(tempinfo.get(1).getGoods_sales())));
+    		textField_25.setText(String.valueOf(tempinfo.get(1).getGoods_price()));
+    		button.setEnabled(true);
+    		
+    		textField_8.setText(tempinfo.get(0).getGoods_id());
+    		textField_7.setText(tempinfo.get(0).getGoods_name());
+    		textField_6.setText(String.valueOf(Integer.valueOf(tempinfo.get(0).getGoods_quantity()) - Integer.valueOf(tempinfo.get(0).getGoods_sales())));
+    		textField_24.setText(String.valueOf(tempinfo.get(0).getGoods_price()));
+    		btnNewButton.setEnabled(true);
+    		
+    		break;
+    		
+    	case 2:
+    		textField_21.setText("");
+    		textField_22.setText("");
+    		textField_23.setText("");
+    		textField_28.setText("");
+    		button_3.setEnabled(false);
+    		
+    		textField_17.setText("");
+    		textField_18.setText("");
+    		textField_19.setText("");
+    		textField_27.setText("");
+    		button_2.setEnabled(false);
+    		
+    		textField_16.setText("");
+    		textField_15.setText("");
+    		textField_14.setText("");
+    		textField_26.setText("");
+    		button_1.setEnabled(false);
+    		
+    		textField_9.setText(tempinfo.get(1).getGoods_id());
+    		textField_10.setText(tempinfo.get(1).getGoods_name());
+    		textField_11.setText(String.valueOf(Integer.valueOf(tempinfo.get(1).getGoods_quantity()) - Integer.valueOf(tempinfo.get(1).getGoods_sales())));
+    		textField_25.setText(String.valueOf(tempinfo.get(1).getGoods_price()));
+    		button.setEnabled(true);
+    		
+    		textField_8.setText(tempinfo.get(0).getGoods_id());
+    		textField_7.setText(tempinfo.get(0).getGoods_name());
+    		textField_6.setText(String.valueOf(Integer.valueOf(tempinfo.get(0).getGoods_quantity()) - Integer.valueOf(tempinfo.get(0).getGoods_sales())));
+    		textField_24.setText(String.valueOf(tempinfo.get(0).getGoods_price()));
+    		btnNewButton.setEnabled(true);
+    		
+    		break;
+    		
+    	case 1:
+    		textField_21.setText("");
+    		textField_22.setText("");
+    		textField_23.setText("");
+    		textField_28.setText("");
+    		button_3.setEnabled(false);
+    		
+    		textField_17.setText("");
+    		textField_18.setText("");
+    		textField_19.setText("");
+    		textField_27.setText("");
+    		button_2.setEnabled(false);
+    		
+    		textField_16.setText("");
+    		textField_15.setText("");
+    		textField_14.setText("");
+    		textField_26.setText("");
+    		button_1.setEnabled(false);
+    		
+    		textField_9.setText("");
+    		textField_10.setText("");
+    		textField_11.setText("");
+    		textField_25.setText("");
+    		button.setEnabled(false);
+    		
+    		textField_8.setText(tempinfo.get(0).getGoods_id());
+    		textField_7.setText(tempinfo.get(0).getGoods_name());
+    		textField_6.setText(String.valueOf(Integer.valueOf(tempinfo.get(0).getGoods_quantity()) - Integer.valueOf(tempinfo.get(0).getGoods_sales())));
+    		textField_24.setText(String.valueOf(tempinfo.get(0).getGoods_price()));
+    		btnNewButton.setEnabled(true);
     		break;
     		
     	default:

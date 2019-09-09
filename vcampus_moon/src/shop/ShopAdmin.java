@@ -24,7 +24,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.Color;
 
-public class Shoppage extends JFrame{
+public class ShopAdmin extends JFrame{
 
 
     private JTextField textField_1;
@@ -35,7 +35,7 @@ public class Shoppage extends JFrame{
     private final JLayeredPane layeredPane = new JLayeredPane();
 
 
-    public Shoppage(/*Client client_shop*/) {
+    public ShopAdmin(/*Client client_shop*/) {
 
         initialize(/*client_shop*/);
     }
@@ -191,7 +191,7 @@ public class Shoppage extends JFrame{
                                      }
         );
 
-        textField_3 = new JTextField();//销量
+        textField_3 = new JTextField();//�?�?
         layeredPane.setLayer(textField_3, 1);
         textField_3.setBounds(176, 161, 163, 24);
         layeredPane.add(textField_3);
@@ -217,7 +217,7 @@ public class Shoppage extends JFrame{
                 //if(message.getResponse())
                 //   JOptionPane.showMessageDialog(new JFrame().getContentPane(), "上架成功","上架提示页面", JOptionPane.INFORMATION_MESSAGE);
                 //else
-                JOptionPane.showMessageDialog(new JFrame().getContentPane(), "上架不成功!","上架提示页面", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(new JFrame().getContentPane(), "上架不成�?!","上架提示页面", JOptionPane.INFORMATION_MESSAGE);
             }
         });
         btnNewButton.setBackground(new Color(255, 165, 0));
@@ -236,7 +236,7 @@ public class Shoppage extends JFrame{
                 //if(message2.getResponse())
                 //   JOptionPane.showMessageDialog(new JFrame().getContentPane(), "下架成功","下架提示页面", JOptionPane.INFORMATION_MESSAGE);
                 // else
-                JOptionPane.showMessageDialog(new JFrame().getContentPane(), "下架不成功!","下架提示页面", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(new JFrame().getContentPane(), "下架不成�?!","下架提示页面", JOptionPane.INFORMATION_MESSAGE);
             }
         });
         btnNewButton_1.setBackground(new Color(255, 165, 0));
