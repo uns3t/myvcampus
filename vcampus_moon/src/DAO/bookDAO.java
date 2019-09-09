@@ -122,25 +122,18 @@ public class bookDAO {
     }
 
     public void returnBook(String book_id, String usr_id) throws Exception {
-        if (deleteBookborrow(book_id,usr_id)){
-
-        }
-        sql=con.prepareStatement("select * from Borrowtbl WHERE Usr_id"+"="+"'"+usr_id+"'");
-        result=sql.executeQuery();
-        int borrowed_num=0;
-        int total_num=0;
-        while (result.next()){
-            borrowed_num=result.getInt("Book_borrowed");
-            total_num=result.getInt("Book_total");
-        }
-
-        if(total_num-borrowed_num>0){
-            borrowed_num++;
-            sql=con.prepareStatement("update Booktbl set Book_borrowed=? where Book_id=?");
-            sql.setString(1,borrowed_num+"");
-            sql.setString(2,book_id);
+        if (deleteBookborrow(book_id,usr_id)) {
+            sql = con.prepareStatement("select * from Borrowtbl WHERE Book_id" + "=" + "'" + book_id + "'");
+            result = sql.executeQuery();
+            int borrowed_num = 0;
+            while (result.next()) {
+                borrowed_num = result.getInt("Book_borrowed");
+            }
+            borrowed_num--;
+            sql = con.prepareStatement("update Booktbl set Book_borrowed=? where Book_id=?");
+            sql.setString(1, borrowed_num + "");
+            sql.setString(2, book_id);
             sql.executeUpdate();
-            deleteBookborrow(book_id,usr_id);
         }
     }
 

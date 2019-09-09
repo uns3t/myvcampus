@@ -138,6 +138,9 @@ public class ServerThread extends Thread {
                     updatebook(message);
                     break;
 
+                case "BookReturn":
+                    returnBook(message);
+                    break;
 
                 //商店模块
                 case "Shop":
@@ -363,6 +366,18 @@ public class ServerThread extends Thread {
         try {
             toAccess.getBook().updateBook(bookInfo.getBook_name(),bookInfo.getBook_id(),bookInfo.getBook_author(),bookInfo.getBook_press(),
                     bookInfo.getBook_total()+"",bookInfo.getBook_borrowed()+"",bookInfo.getBook_introduction());
+            message.setResponse(true);
+            message.setTheUsr(theUsr);
+            oos.writeObject(message);
+            oos.flush();
+        }catch (Exception e){}
+    }
+
+    public void returnBook(Message message){
+        BookMessage bookMessage=(BookMessage) message.getData();
+        BookInfo bookInfo=(BookInfo) bookMessage.getbook().get(0);
+        try {
+            toAccess.getBook().returnBook(bookInfo.getBook_id(),theUsr);
             message.setResponse(true);
             message.setTheUsr(theUsr);
             oos.writeObject(message);
