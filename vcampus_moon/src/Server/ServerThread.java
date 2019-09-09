@@ -160,6 +160,10 @@ public class ServerThread extends Thread {
                     updateshop(message);
                     break;
 
+                case "PwdConfirm":
+                    PwdConfirm(message);
+                    break;
+
                 //课程选择模块
                 case "Course":
                     Courselist();
@@ -235,6 +239,23 @@ public class ServerThread extends Thread {
             }else if(temp==0){
                 theUsr= usrMessage.getUsr_id();
                 usrMessage.set_isadmin(false);
+                message.setData(usrMessage);
+                message.setResponse(true);
+                sendmsg(message);
+            }else {
+                message.setResponse(false);
+                sendmsg(message);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void PwdConfirm(Message message){
+        UsrMessage usrMessage =(UsrMessage) message.getData();
+        try {
+            int temp=toAccess.getusr().Logincheck(theUsr, usrMessage.getUsr_pwd());
+            if(temp!=-1){
                 message.setData(usrMessage);
                 message.setResponse(true);
                 sendmsg(message);
