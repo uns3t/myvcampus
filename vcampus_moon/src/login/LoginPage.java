@@ -45,7 +45,7 @@ public class LoginPage extends JFrame{
 		layeredPane.setBounds(0, 0, 537, 420);
 		getContentPane().add(layeredPane);
 
-		JLabel label = new JLabel("一卡通号：");
+		JLabel label = new JLabel("学号：");
 		layeredPane.setLayer(label, 1);
 		label.setBounds(50, 132, 136, 46);
 		layeredPane.add(label);

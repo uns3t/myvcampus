@@ -359,13 +359,13 @@ public class ShopUser extends JFrame{
         JLabel lblNewLabel = new JLabel("\u7F51\u4E0A\u5546\u5E97v1.0");
         lblNewLabel.setFont(new Font("宋体", Font.BOLD, 24));
         layeredPane.setLayer(lblNewLabel, 2);
-        lblNewLabel.setBounds(458, 40, 220, 41);
+        lblNewLabel.setBounds(492, 40, 220, 41);
         layeredPane.add(lblNewLabel);
         
         ImageIcon image = new ImageIcon("images/seu.jpg");
         JLabel label = new JLabel(image);
         layeredPane.setLayer(label, 2);
-        label.setBounds(272, 10, 116, 112);
+        label.setBounds(306, 10, 116, 112);
         layeredPane.add(label);
         
         // 获取学生信息
@@ -568,6 +568,12 @@ public class ShopUser extends JFrame{
         JButton button_6 = new JButton("\u5237\u65B0");
         button_6.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
+        		cthread.handleShowGoodsMessage();
+                ShopMessage smessage = (ShopMessage)cthread.getREMessage().getData();
+                goodsinfo = smessage.getGoodsInfo();
+                tempinfo.clear();
+                for(int i = (currentpage - 1) * 5; i < (currentpage * 5 < number ? currentpage * 5 : number); i++)
+                	tempinfo.add(goodsinfo.get(i));
         		initText();
         	}
         });
@@ -592,31 +598,31 @@ public class ShopUser extends JFrame{
     	case 5:
     		textField_21.setText(tempinfo.get(4).getGoods_id());
     		textField_22.setText(tempinfo.get(4).getGoods_name());
-    		textField_23.setText(String.valueOf(Integer.valueOf(tempinfo.get(4).getGoods_quantity()) - Integer.valueOf(tempinfo.get(4).getGoods_sales())));
+    		textField_23.setText(String.valueOf(Integer.valueOf(tempinfo.get(4).getGoods_quantity())));
     		textField_28.setText(String.valueOf(tempinfo.get(4).getGoods_price()));
     		button_3.setEnabled(true);
     		
     		textField_17.setText(tempinfo.get(3).getGoods_id());
     		textField_18.setText(tempinfo.get(3).getGoods_name());
-    		textField_19.setText(String.valueOf(Integer.valueOf(tempinfo.get(3).getGoods_quantity()) - Integer.valueOf(tempinfo.get(3).getGoods_sales())));
+    		textField_19.setText(String.valueOf(Integer.valueOf(tempinfo.get(3).getGoods_quantity())));
     		textField_27.setText(String.valueOf(tempinfo.get(3).getGoods_price()));
     		button_2.setEnabled(true);
     		
     		textField_16.setText(tempinfo.get(2).getGoods_id());
     		textField_15.setText(tempinfo.get(2).getGoods_name());
-    		textField_14.setText(String.valueOf(Integer.valueOf(tempinfo.get(2).getGoods_quantity()) - Integer.valueOf(tempinfo.get(2).getGoods_sales())));
+    		textField_14.setText(String.valueOf(Integer.valueOf(tempinfo.get(2).getGoods_quantity())));
     		textField_26.setText(String.valueOf(tempinfo.get(2).getGoods_price()));
     		button_1.setEnabled(true);
     		
     		textField_9.setText(tempinfo.get(1).getGoods_id());
     		textField_10.setText(tempinfo.get(1).getGoods_name());
-    		textField_11.setText(String.valueOf(Integer.valueOf(tempinfo.get(1).getGoods_quantity()) - Integer.valueOf(tempinfo.get(1).getGoods_sales())));
+    		textField_11.setText(String.valueOf(Integer.valueOf(tempinfo.get(1).getGoods_quantity())));
     		textField_25.setText(String.valueOf(tempinfo.get(1).getGoods_price()));
     		button.setEnabled(true);
     		
     		textField_8.setText(tempinfo.get(0).getGoods_id());
     		textField_7.setText(tempinfo.get(0).getGoods_name());
-    		textField_6.setText(String.valueOf(Integer.valueOf(tempinfo.get(0).getGoods_quantity()) - Integer.valueOf(tempinfo.get(0).getGoods_sales())));
+    		textField_6.setText(String.valueOf(Integer.valueOf(tempinfo.get(0).getGoods_quantity())));
     		textField_24.setText(String.valueOf(tempinfo.get(0).getGoods_price()));
     		btnNewButton.setEnabled(true);
     		
@@ -631,25 +637,25 @@ public class ShopUser extends JFrame{
     		
     		textField_17.setText(tempinfo.get(3).getGoods_id());
     		textField_18.setText(tempinfo.get(3).getGoods_name());
-    		textField_19.setText(String.valueOf(Integer.valueOf(tempinfo.get(3).getGoods_quantity()) - Integer.valueOf(tempinfo.get(3).getGoods_sales())));
+    		textField_19.setText(String.valueOf(Integer.valueOf(tempinfo.get(3).getGoods_quantity())));
     		textField_27.setText(String.valueOf(tempinfo.get(3).getGoods_price()));
     		button_2.setEnabled(true);
     		
     		textField_16.setText(tempinfo.get(2).getGoods_id());
     		textField_15.setText(tempinfo.get(2).getGoods_name());
-    		textField_14.setText(String.valueOf(Integer.valueOf(tempinfo.get(2).getGoods_quantity()) - Integer.valueOf(tempinfo.get(2).getGoods_sales())));
+    		textField_14.setText(String.valueOf(Integer.valueOf(tempinfo.get(2).getGoods_quantity())));
     		textField_26.setText(String.valueOf(tempinfo.get(2).getGoods_price()));
     		button_1.setEnabled(true);
     		
     		textField_9.setText(tempinfo.get(1).getGoods_id());
     		textField_10.setText(tempinfo.get(1).getGoods_name());
-    		textField_11.setText(String.valueOf(Integer.valueOf(tempinfo.get(1).getGoods_quantity()) - Integer.valueOf(tempinfo.get(1).getGoods_sales())));
+    		textField_11.setText(String.valueOf(Integer.valueOf(tempinfo.get(1).getGoods_quantity())));
     		textField_25.setText(String.valueOf(tempinfo.get(1).getGoods_price()));
     		button.setEnabled(true);
     		
     		textField_8.setText(tempinfo.get(0).getGoods_id());
     		textField_7.setText(tempinfo.get(0).getGoods_name());
-    		textField_6.setText(String.valueOf(Integer.valueOf(tempinfo.get(0).getGoods_quantity()) - Integer.valueOf(tempinfo.get(0).getGoods_sales())));
+    		textField_6.setText(String.valueOf(Integer.valueOf(tempinfo.get(0).getGoods_quantity())));
     		textField_24.setText(String.valueOf(tempinfo.get(0).getGoods_price()));
     		btnNewButton.setEnabled(true);
     		
@@ -670,19 +676,19 @@ public class ShopUser extends JFrame{
     		
     		textField_16.setText(tempinfo.get(2).getGoods_id());
     		textField_15.setText(tempinfo.get(2).getGoods_name());
-    		textField_14.setText(String.valueOf(Integer.valueOf(tempinfo.get(2).getGoods_quantity()) - Integer.valueOf(tempinfo.get(2).getGoods_sales())));
+    		textField_14.setText(String.valueOf(Integer.valueOf(tempinfo.get(2).getGoods_quantity())));
     		textField_26.setText(String.valueOf(tempinfo.get(2).getGoods_price()));
     		button_1.setEnabled(true);
     		
     		textField_9.setText(tempinfo.get(1).getGoods_id());
     		textField_10.setText(tempinfo.get(1).getGoods_name());
-    		textField_11.setText(String.valueOf(Integer.valueOf(tempinfo.get(1).getGoods_quantity()) - Integer.valueOf(tempinfo.get(1).getGoods_sales())));
+    		textField_11.setText(String.valueOf(Integer.valueOf(tempinfo.get(1).getGoods_quantity())));
     		textField_25.setText(String.valueOf(tempinfo.get(1).getGoods_price()));
     		button.setEnabled(true);
     		
     		textField_8.setText(tempinfo.get(0).getGoods_id());
     		textField_7.setText(tempinfo.get(0).getGoods_name());
-    		textField_6.setText(String.valueOf(Integer.valueOf(tempinfo.get(0).getGoods_quantity()) - Integer.valueOf(tempinfo.get(0).getGoods_sales())));
+    		textField_6.setText(String.valueOf(Integer.valueOf(tempinfo.get(0).getGoods_quantity())));
     		textField_24.setText(String.valueOf(tempinfo.get(0).getGoods_price()));
     		btnNewButton.setEnabled(true);
     		
@@ -709,13 +715,13 @@ public class ShopUser extends JFrame{
     		
     		textField_9.setText(tempinfo.get(1).getGoods_id());
     		textField_10.setText(tempinfo.get(1).getGoods_name());
-    		textField_11.setText(String.valueOf(Integer.valueOf(tempinfo.get(1).getGoods_quantity()) - Integer.valueOf(tempinfo.get(1).getGoods_sales())));
+    		textField_11.setText(String.valueOf(Integer.valueOf(tempinfo.get(1).getGoods_quantity())));
     		textField_25.setText(String.valueOf(tempinfo.get(1).getGoods_price()));
     		button.setEnabled(true);
     		
     		textField_8.setText(tempinfo.get(0).getGoods_id());
     		textField_7.setText(tempinfo.get(0).getGoods_name());
-    		textField_6.setText(String.valueOf(Integer.valueOf(tempinfo.get(0).getGoods_quantity()) - Integer.valueOf(tempinfo.get(0).getGoods_sales())));
+    		textField_6.setText(String.valueOf(Integer.valueOf(tempinfo.get(0).getGoods_quantity())));
     		textField_24.setText(String.valueOf(tempinfo.get(0).getGoods_price()));
     		btnNewButton.setEnabled(true);
     		
@@ -748,7 +754,7 @@ public class ShopUser extends JFrame{
     		
     		textField_8.setText(tempinfo.get(0).getGoods_id());
     		textField_7.setText(tempinfo.get(0).getGoods_name());
-    		textField_6.setText(String.valueOf(Integer.valueOf(tempinfo.get(0).getGoods_quantity()) - Integer.valueOf(tempinfo.get(0).getGoods_sales())));
+    		textField_6.setText(String.valueOf(Integer.valueOf(tempinfo.get(0).getGoods_quantity())));
     		textField_24.setText(String.valueOf(tempinfo.get(0).getGoods_price()));
     		btnNewButton.setEnabled(true);
     		break;
