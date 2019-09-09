@@ -568,7 +568,7 @@ public class ClientThread extends Thread {
         courseInfo.setCourse_teacher(teacher);
         courseInfo.setCourse_time(time);
         CourseMessage courseMessage = new CourseMessage();
-        courseMessage.setType("UpdateCourse");
+        courseMessage.setType("AddCourse");
         courseMessage.addCourseInfo(courseInfo);
         Message message = new Message(courseMessage.getType(),courseMessage);
         if (sendMessage(message)){
