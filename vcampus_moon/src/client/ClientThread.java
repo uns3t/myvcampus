@@ -269,8 +269,9 @@ public class ClientThread extends Thread {
     //------------------------------------------------图书馆-------------------------------------------------
 
 
-    public boolean handleAddBookMessage(String id,String name,String author,int total,int borrowed,String introduction){
+    public boolean handleAddBookMessage(String id,String name,String author,int total,int borrowed,String introduction,String press){
         BookInfo bookInfo = new BookInfo();
+        bookInfo.setBook_press(press);
         bookInfo.setBook_id(id);
         bookInfo.setBook_author(author);
         bookInfo.setBook_name(name);
