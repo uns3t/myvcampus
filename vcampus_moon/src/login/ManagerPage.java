@@ -98,7 +98,6 @@ public class ManagerPage extends JFrame{
 				button_3.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {//校园商店
 
-
 					}
 				});
 				button_3.setFont(new Font("宋体", Font.BOLD, 20));

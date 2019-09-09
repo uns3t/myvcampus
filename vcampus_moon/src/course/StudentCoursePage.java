@@ -38,6 +38,7 @@ public class StudentCoursePage extends JFrame{
 	private Message stu_courseMessage;
 	private CourseMessage mess;
 	private int person_course;
+	private JLabel lblNewLabel_5;
 	
 	public StudentCoursePage(ClientThread cthread) {
 		initialize(cthread);
@@ -1103,6 +1104,7 @@ public class StudentCoursePage extends JFrame{
 					textField_8.setText(courseList.get(0 + disp).getCourse_teacher());
 					btnNewButton.setVisible(true);
 					btnNewButton_1.setVisible(true);
+					
 					//更新按钮状态
 					btnNewButton.setEnabled(true);
 					btnNewButton_1.setEnabled(false);
@@ -1510,6 +1512,11 @@ public class StudentCoursePage extends JFrame{
 		layeredPane.setLayer(lblNewLabel_4, 1);
 		lblNewLabel_4.setBounds(320, 21, 72, 43);
 		layeredPane.add(lblNewLabel_4);
+		
+		image1 = new ImageIcon("images/login_photo1.jpg");
+		lblNewLabel_5 = new JLabel(image1);
+		lblNewLabel_5.setBounds(0, 0, 884, 627);
+		layeredPane.add(lblNewLabel_5);
 		
 	}
 }

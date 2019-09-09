@@ -18,6 +18,7 @@ import message.Studentinfo;
 import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -30,6 +31,8 @@ public class Student_courseSelected extends JFrame{
 	private JLabel lblNewLabel, lblNewLabel_1, lblNewLabel_2, lblNewLabel_3, lblNewLabel_4, lblNewLabel_5;
 	private JButton btnNewButton, button;
 	private ArrayList<CourseInfo> courseInfo;
+	private ImageIcon image1;
+	private JLabel lblNewLabel_6;
 
 	public Student_courseSelected(ClientThread cthread) {
 		initialize(cthread);
@@ -45,6 +48,7 @@ public class Student_courseSelected extends JFrame{
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBounds(0, 0, 621, 398);
 		getContentPane().add(layeredPane);
+		
 		
 		//显示学生信息
 		cthread.handleShowStudentMessage();
@@ -455,5 +459,10 @@ public class Student_courseSelected extends JFrame{
 		button.setFont(new Font("宋体", Font.BOLD, 18));
 		button.setBounds(405, 320, 96, 44);
 		layeredPane.add(button);
+		
+		image1 = new ImageIcon("images/login_photo1.jpg");
+		lblNewLabel_6 = new JLabel(image1);
+		lblNewLabel_6.setBounds(0, 0, 631, 398);
+		layeredPane.add(lblNewLabel_6);
 	}
 }
