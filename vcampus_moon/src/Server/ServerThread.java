@@ -615,10 +615,17 @@ public class ServerThread extends Thread {
         ShopMessage shopMessage=(ShopMessage) message.getData();
         GoodsInfo goodsInfo=(GoodsInfo)shopMessage.getGoodsInfo().get(0);
         try {
-            toAccess.getshop().buygoods(goodsInfo.getGoods_id(),goodsInfo.getGoods_quantity(),theUsr);
-            message.setResponse(true);
-            message.setTheUsr(theUsr);
-            sendmsg(message);
+            if (toAccess.getshop().buygoods(goodsInfo.getGoods_id(),goodsInfo.getGoods_quantity(),theUsr)){
+                message.setResponse(true);
+                message.setTheUsr(theUsr);
+                sendmsg(message);
+            }
+            else {
+                message.setResponse(false);
+                message.setTheUsr(theUsr);
+                sendmsg(message);
+            }
+
         }catch (Exception e){
             e.printStackTrace();
         }
