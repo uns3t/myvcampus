@@ -13,6 +13,7 @@ import javax.swing.JLayeredPane;
 
 import client.ClientThread;
 import course.ManagerCoursePage;
+import shop.ShopAdmin;
 import student.AdminStudentsPage;
 
 import javax.swing.JLabel;
@@ -97,7 +98,7 @@ public class ManagerPage extends JFrame{
 				button_3.setBackground(new Color(240, 248, 255));
 				button_3.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {//校园商店
-
+						new ShopAdmin(cthread);
 					}
 				});
 				button_3.setFont(new Font("宋体", Font.BOLD, 20));

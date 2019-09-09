@@ -68,8 +68,8 @@ public class ShopBuy extends JFrame{
             		cthread.handleBuyMessage(goodsname, buyquant);
             		if(cthread.getREMessage().getResponse())
             		{
-            			//dispose();
             			JOptionPane.showMessageDialog(new JFrame().getContentPane(), "购买成功！共计花费" + price * buyquant + "元","购买提示页面", JOptionPane.INFORMATION_MESSAGE);
+            			dispose();
             		}
             		else
             			JOptionPane.showMessageDialog(new JFrame().getContentPane(), "购买失败！","购买提示页面", JOptionPane.INFORMATION_MESSAGE);

@@ -7,9 +7,7 @@ public class CourseInfo implements Serializable {
     private String Course_id;
     private String Course_teacher;
     private String Course_time;
-
-
-
+    
     public void setCourse_id(String course_id) {
         Course_id = course_id;
     }
@@ -25,8 +23,7 @@ public class CourseInfo implements Serializable {
     public void setCourse_time(String course_time) {
         Course_time = course_time;
     }
-
-
+    
 
     public String getCourse_id() {
         return Course_id;
