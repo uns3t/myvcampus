@@ -1,11 +1,5 @@
 package course;
-/**
- * 类 {@code ManagerCoursePage} 管理员课程管理界面.
- *
- * <p> 管理员课程管理界面
- *
- * @since 2019/8/19
- */
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -37,12 +31,12 @@ public class ManagerCoursePage extends JFrame{
 	textField_20, textField_21, textField_22, textField_23, textField_24, textField_25, textField_26, textField_27, textField_28, textField_29,
 	textField_30, textField_31, textField_32, textField_33, textField_34, textField_35, textField_36;
 	private JLabel lblNewLabel, lblNewLabel_1, lblNewLabel_2, lblNewLabel_3, label_3;
-	private JButton btnNewButton, btnNewButton_1, btnNewButton_2, btnNewButton_3, btnNewButton_4, button, button_1, button_2, button_3, button_4, button_5, button_6,
-	button_7, button_8, button_9, button_10, button_11;
+	private JButton btnNewButton, btnNewButton_1, btnNewButton_2, btnNewButton_3, btnNewButton_4, button, button_1, button_2, button_3, button_4, button_5,
+	button_6, button_7, button_8, button_9, button_10, button_11;
 	private Message showMess1;
 	private CourseMessage courseMess1;
 	private ArrayList<CourseInfo> courseList1;
-	private int total_course, maxPage, MPage;
+	private int total_course, maxPage;
 	private String update_id, update_name, update_time, update_teacher;
 	private ImageIcon image1;
 	
@@ -61,7 +55,7 @@ public class ManagerCoursePage extends JFrame{
 		layeredPane.setBounds(0, 0, 939, 584);
 		getContentPane().add(layeredPane);
 		
-		image1 = new ImageIcon("images/login_photo1.jpg");
+		image1 = new ImageIcon("images/manager_course_photo2.jpg");
 		label_3 = new JLabel(image1);
 		layeredPane.setLayer(label_3, 0);
 		label_3.setBounds(0, 0, 939, 584);
@@ -180,8 +174,7 @@ public class ManagerCoursePage extends JFrame{
 		maxPage = 1;
 		while(maxPage * perpage_course < total_course)
 			maxPage++;
-		MPage = maxPage;
-		textField_36.setText(String.valueOf(MPage));
+		textField_36.setText(String.valueOf(maxPage));
 		
 		lblNewLabel_3 = new JLabel("页");
 		lblNewLabel_3.setFont(new Font("宋体", Font.BOLD, 20));
@@ -301,18 +294,6 @@ public class ManagerCoursePage extends JFrame{
 					courseList1 = courseMess1.getCourse();
 					total_course = courseList1.size();
 					
-					if(total_course % perpage_course == 0)
-					{
-						
-						
-						
-						
-						
-						
-						
-						
-						
-					}
 				}
 			}
 		});
@@ -999,7 +980,7 @@ public class ManagerCoursePage extends JFrame{
 		btnNewButton = new JButton("上一页");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(Integer.parseInt(textField_35.getText()) > 1 && Integer.parseInt(textField_35.getText()) <= MPage)
+				if(Integer.parseInt(textField_35.getText()) > 1 && Integer.parseInt(textField_35.getText()) <= maxPage)
 				{
 					//更新当前页数
 					int result = Integer.parseInt(textField_35.getText()) - 1;
@@ -1106,7 +1087,7 @@ public class ManagerCoursePage extends JFrame{
 		btnNewButton_1 = new JButton("下一页");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(Integer.parseInt(textField_35.getText()) > 0 && Integer.parseInt(textField_35.getText()) < MPage)
+				if(Integer.parseInt(textField_35.getText()) > 0 && Integer.parseInt(textField_35.getText()) < maxPage)
 				{
 					//更新当前页面
 					int result = Integer.parseInt(textField_35.getText()) + 1;
@@ -1271,7 +1252,7 @@ public class ManagerCoursePage extends JFrame{
 				
 			}
 		});
-		btnNewButton_3.setFont(new Font("宋体", Font.BOLD, 20));
+		btnNewButton_3.setFont(new Font("宋体", Font.BOLD, 22));
 		layeredPane.setLayer(btnNewButton_3, 1);
 		btnNewButton_3.setBounds(272, 10, 141, 67);
 		layeredPane.add(btnNewButton_3);
@@ -1285,6 +1266,12 @@ public class ManagerCoursePage extends JFrame{
 				courseMess1 = (CourseMessage)showMess1.getData();
 				courseList1 = courseMess1.getCourse();
 				total_course = courseList1.size();
+				
+				//更新页数
+				maxPage = (total_course + 5) / perpage_course;
+				textField_36.setText(String.valueOf(maxPage));
+				if(Integer.parseInt(textField_35.getText()) > maxPage)
+					textField_35.setText(String.valueOf(maxPage));
 				
 				//重新显示课程列表
 				int disp = (Integer.parseInt(textField_35.getText()) - 1) * perpage_course;
@@ -1438,66 +1425,10 @@ public class ManagerCoursePage extends JFrame{
 					button_10.setVisible(false);
 					button_4.setVisible(false);
 				}
-				
-				//添加课程后，若页面不够显示，需要重新增加一个页面
-				if(total_course % perpage_course == 1)
-				{
-					//更改页面总数
-					maxPage = 1;
-					while(maxPage * perpage_course < total_course)
-						maxPage++;
-					MPage = maxPage;
-					textField_36.setText(String.valueOf(MPage));
-					textField_35.setText(String.valueOf(MPage));
-					
-					textField_5.setText(courseList1.get(total_course - 1).getCourse_id());
-					textField_6.setText(courseList1.get(total_course - 1).getCourse_name());
-					textField_7.setText(courseList1.get(total_course - 1).getCourse_time());
-					textField_8.setText(courseList1.get(total_course - 1).getCourse_teacher());
-					button_5.setVisible(true);
-					btnNewButton_2.setVisible(true);
-					button_5.setEnabled(true);
-					btnNewButton_2.setEnabled(true);
-					
-					textField_10.setText(null);
-					textField_11.setText(null);
-					textField_12.setText(null);
-					textField_13.setText(null);
-					button_6.setVisible(false);
-					button.setVisible(false);
-					
-					textField_15.setText(null);
-					textField_16.setText(null);
-					textField_17.setText(null);
-					textField_18.setText(null);
-					button_7.setVisible(false);
-					button_1.setVisible(false);
-					
-					textField_20.setText(null);
-					textField_21.setText(null);
-					textField_22.setText(null);
-					textField_23.setText(null);
-					button_8.setVisible(false);
-					button_2.setVisible(false);
-					
-					textField_25.setText(null);
-					textField_26.setText(null);
-					textField_27.setText(null);
-					textField_28.setText(null);
-					button_9.setVisible(false);
-					button_3.setVisible(false);
-					
-					textField_30.setText(null);
-					textField_31.setText(null);
-					textField_32.setText(null);
-					textField_33.setText(null);
-					button_10.setVisible(false);
-					button_4.setVisible(false);
-				}
 			}
 		});
 		layeredPane.setLayer(button_11, 1);
-		button_11.setFont(new Font("宋体", Font.BOLD, 20));
+		button_11.setFont(new Font("宋体", Font.BOLD, 22));
 		button_11.setBounds(469, 10, 141, 67);
 		layeredPane.add(button_11);
 	}

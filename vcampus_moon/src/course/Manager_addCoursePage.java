@@ -1,11 +1,5 @@
 package course;
-/**
- * 类 {@code Manager_addCoursePage} 管理员添加课程界面.
- *
- * <p> 管理员添加课程界面
- *
- * @since 2019/8/19
- */
+
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
@@ -282,14 +276,13 @@ public class Manager_addCoursePage extends JFrame{
 				dispose();
 			}
 		});
-		btnNewButton.setFont(new Font("宋体", Font.BOLD, 20));
+		btnNewButton.setFont(new Font("宋体", Font.BOLD, 22));
 		layeredPane.setLayer(btnNewButton, 1);
-		btnNewButton.setBounds(170, 263, 126, 52);
+		btnNewButton.setBounds(170, 263, 134, 60);
 		layeredPane.add(btnNewButton);
 		
-		image1 = new ImageIcon("images/login_photo1.jpg");
+		image1 = new ImageIcon("images/manager_course_photo1.jpg");
 		lblNewLabel_1 = new JLabel(image1);
-		lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setBounds(0, 0, 509, 388);
 		layeredPane.add(lblNewLabel_1);
 		

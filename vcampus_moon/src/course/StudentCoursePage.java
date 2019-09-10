@@ -1,11 +1,5 @@
 package course;
-/**
- * 类 {@code StudentCoursePage} 学生课程界面.
- *
- * <p> 学生课程界面
- *
- * @since 2019/8/19
- */
+
 import javax.swing.JFrame;
 
 import message.*;
@@ -1499,12 +1493,12 @@ public class StudentCoursePage extends JFrame{
 				new Student_courseSelected(cthread);
 			}
 		});
-		btnNewButton_2.setBackground(new Color(173, 216, 230));
+		btnNewButton_2.setBackground(new Color(211,225,239));
 		btnNewButton_2.setFont(new Font("宋体", Font.BOLD, 18));
 		layeredPane.setLayer(btnNewButton_2, 1);
 		btnNewButton_2.setBounds(632, 12, 176, 50);
 		layeredPane.add(btnNewButton_2);
-		
+
 		label_1 = new JLabel("学号:");
 		label_1.setFont(new Font("宋体", Font.BOLD, 18));
 		label_1.setHorizontalAlignment(SwingConstants.CENTER);
