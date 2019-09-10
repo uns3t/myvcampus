@@ -117,7 +117,7 @@ public class ShopUser extends JFrame{
         layeredPane.setLayer(textField, 2);
         textField.setText("\u5546\u54C1\u7F16\u53F7");
         textField.setHorizontalAlignment(SwingConstants.CENTER);
-        textField.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField.setEditable(false);
         textField.setColumns(10);
         textField.setBackground(new Color(224, 255, 255));
@@ -128,7 +128,7 @@ public class ShopUser extends JFrame{
         layeredPane.setLayer(textField_1, 2);
         textField_1.setText("\u5546\u54C1\u540D\u79F0");
         textField_1.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_1.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_1.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_1.setEditable(false);
         textField_1.setColumns(10);
         textField_1.setBackground(new Color(224, 255, 255));
@@ -139,7 +139,7 @@ public class ShopUser extends JFrame{
         layeredPane.setLayer(textField_2, 2);
         textField_2.setText("\u53EF\u8D2D\u4E70\u6570\u91CF");
         textField_2.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_2.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_2.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_2.setEditable(false);
         textField_2.setColumns(10);
         textField_2.setBackground(new Color(224, 255, 255));
@@ -149,7 +149,7 @@ public class ShopUser extends JFrame{
         textField_6 = new JTextField();
         layeredPane.setLayer(textField_6, 2);
         textField_6.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_6.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_6.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_6.setEditable(false);
         textField_6.setColumns(10);
         textField_6.setBackground(Color.WHITE);
@@ -159,7 +159,7 @@ public class ShopUser extends JFrame{
         textField_7 = new JTextField();
         layeredPane.setLayer(textField_7, 2);
         textField_7.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_7.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_7.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_7.setEditable(false);
         textField_7.setColumns(10);
         textField_7.setBackground(Color.WHITE);
@@ -169,7 +169,7 @@ public class ShopUser extends JFrame{
         textField_8 = new JTextField();
         layeredPane.setLayer(textField_8, 2);
         textField_8.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_8.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_8.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_8.setEditable(false);
         textField_8.setColumns(10);
         textField_8.setBackground(Color.WHITE);
@@ -179,7 +179,7 @@ public class ShopUser extends JFrame{
         textField_9 = new JTextField();
         layeredPane.setLayer(textField_9, 2);
         textField_9.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_9.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_9.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_9.setEditable(false);
         textField_9.setColumns(10);
         textField_9.setBackground(Color.WHITE);
@@ -189,7 +189,7 @@ public class ShopUser extends JFrame{
         textField_10 = new JTextField();
         layeredPane.setLayer(textField_10, 2);
         textField_10.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_10.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_10.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_10.setEditable(false);
         textField_10.setColumns(10);
         textField_10.setBackground(Color.WHITE);
@@ -199,7 +199,7 @@ public class ShopUser extends JFrame{
         textField_11 = new JTextField();
         layeredPane.setLayer(textField_11, 2);
         textField_11.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_11.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_11.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_11.setEditable(false);
         textField_11.setColumns(10);
         textField_11.setBackground(Color.WHITE);
@@ -209,7 +209,7 @@ public class ShopUser extends JFrame{
         textField_14 = new JTextField();
         layeredPane.setLayer(textField_14, 2);
         textField_14.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_14.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_14.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_14.setEditable(false);
         textField_14.setColumns(10);
         textField_14.setBackground(Color.WHITE);
@@ -219,7 +219,7 @@ public class ShopUser extends JFrame{
         textField_15 = new JTextField();
         layeredPane.setLayer(textField_15, 2);
         textField_15.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_15.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_15.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_15.setEditable(false);
         textField_15.setColumns(10);
         textField_15.setBackground(Color.WHITE);
@@ -229,7 +229,7 @@ public class ShopUser extends JFrame{
         textField_16 = new JTextField();
         layeredPane.setLayer(textField_16, 2);
         textField_16.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_16.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_16.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_16.setEditable(false);
         textField_16.setColumns(10);
         textField_16.setBackground(Color.WHITE);
@@ -239,7 +239,7 @@ public class ShopUser extends JFrame{
         textField_17 = new JTextField();
         layeredPane.setLayer(textField_17, 2);
         textField_17.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_17.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_17.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_17.setEditable(false);
         textField_17.setColumns(10);
         textField_17.setBackground(Color.WHITE);
@@ -249,7 +249,7 @@ public class ShopUser extends JFrame{
         textField_18 = new JTextField();
         layeredPane.setLayer(textField_18, 2);
         textField_18.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_18.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_18.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_18.setEditable(false);
         textField_18.setColumns(10);
         textField_18.setBackground(Color.WHITE);
@@ -259,7 +259,7 @@ public class ShopUser extends JFrame{
         textField_19 = new JTextField();
         layeredPane.setLayer(textField_19, 2);
         textField_19.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_19.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_19.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_19.setEditable(false);
         textField_19.setColumns(10);
         textField_19.setBackground(Color.WHITE);
@@ -269,7 +269,7 @@ public class ShopUser extends JFrame{
         textField_21 = new JTextField();
         layeredPane.setLayer(textField_21, 2);
         textField_21.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_21.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_21.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_21.setEditable(false);
         textField_21.setColumns(10);
         textField_21.setBackground(Color.WHITE);
@@ -279,7 +279,7 @@ public class ShopUser extends JFrame{
         textField_22 = new JTextField();
         layeredPane.setLayer(textField_22, 2);
         textField_22.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_22.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_22.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_22.setEditable(false);
         textField_22.setColumns(10);
         textField_22.setBackground(Color.WHITE);
@@ -289,7 +289,7 @@ public class ShopUser extends JFrame{
         textField_23 = new JTextField();
         layeredPane.setLayer(textField_23, 2);
         textField_23.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_23.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_23.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_23.setEditable(false);
         textField_23.setColumns(10);
         textField_23.setBackground(Color.WHITE);
@@ -304,7 +304,7 @@ public class ShopUser extends JFrame{
         });
         btnNewButton.setEnabled(false);
         layeredPane.setLayer(btnNewButton, 2);
-        btnNewButton.setFont(new Font("ËÎÌå", Font.BOLD, 19));
+        btnNewButton.setFont(new Font("å®‹ä½“", Font.BOLD, 19));
         btnNewButton.setBounds(687, 203, 97, 41);
         layeredPane.add(btnNewButton);
         
@@ -316,7 +316,7 @@ public class ShopUser extends JFrame{
         });
         button.setEnabled(false);
         layeredPane.setLayer(button, 2);
-        button.setFont(new Font("ËÎÌå", Font.BOLD, 19));
+        button.setFont(new Font("å®‹ä½“", Font.BOLD, 19));
         button.setBounds(687, 255, 97, 41);
         layeredPane.add(button);
         
@@ -328,7 +328,7 @@ public class ShopUser extends JFrame{
         });
         button_1.setEnabled(false);
         layeredPane.setLayer(button_1, 2);
-        button_1.setFont(new Font("ËÎÌå", Font.BOLD, 19));
+        button_1.setFont(new Font("å®‹ä½“", Font.BOLD, 19));
         button_1.setBounds(687, 308, 97, 41);
         layeredPane.add(button_1);
         
@@ -340,7 +340,7 @@ public class ShopUser extends JFrame{
         });
         button_2.setEnabled(false);
         layeredPane.setLayer(button_2, 2);
-        button_2.setFont(new Font("ËÎÌå", Font.BOLD, 19));
+        button_2.setFont(new Font("å®‹ä½“", Font.BOLD, 19));
         button_2.setBounds(687, 361, 97, 41);
         layeredPane.add(button_2);
         
@@ -352,12 +352,12 @@ public class ShopUser extends JFrame{
         });
         button_3.setEnabled(false);
         layeredPane.setLayer(button_3, 2);
-        button_3.setFont(new Font("ËÎÌå", Font.BOLD, 19));
+        button_3.setFont(new Font("å®‹ä½“", Font.BOLD, 19));
         button_3.setBounds(687, 414, 97, 41);
         layeredPane.add(button_3);
         
         JLabel lblNewLabel = new JLabel("\u7F51\u4E0A\u5546\u5E97v1.0");
-        lblNewLabel.setFont(new Font("ËÎÌå", Font.BOLD, 24));
+        lblNewLabel.setFont(new Font("å®‹ä½“", Font.BOLD, 24));
         layeredPane.setLayer(lblNewLabel, 2);
         lblNewLabel.setBounds(492, 40, 220, 41);
         layeredPane.add(lblNewLabel);
@@ -368,7 +368,7 @@ public class ShopUser extends JFrame{
         label.setBounds(306, 10, 116, 112);
         layeredPane.add(label);
         
-        // »ñÈ¡Ñ§ÉúÐÅÏ¢
+        // èŽ·å–å­¦ç”Ÿä¿¡æ¯
         cthread.handleShowStudentMessage();
 		Message stuMessage = cthread.getREMessage();
 		StudentMessage mess = (StudentMessage)stuMessage.getData();		
@@ -380,7 +380,7 @@ public class ShopUser extends JFrame{
         textField_3.setText(studentinfo.getStudent_name());
         textField_3.setOpaque(true);
         textField_3.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_3.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_3.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_3.setEditable(false);
         textField_3.setColumns(10);
         textField_3.setBackground(Color.WHITE);
@@ -393,7 +393,7 @@ public class ShopUser extends JFrame{
         textField_5.setText(studentinfo.getStudent_id());
         textField_5.setOpaque(true);
         textField_5.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_5.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_5.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_5.setEditable(false);
         textField_5.setColumns(10);
         textField_5.setBackground(Color.WHITE);
@@ -402,19 +402,19 @@ public class ShopUser extends JFrame{
         
         label_1 = new JLabel("\u7528\u6237\u4FE1\u606F\uFF1A");
         layeredPane.setLayer(label_1, 2);
-        label_1.setFont(new Font("ËÎÌå", Font.BOLD, 24));
+        label_1.setFont(new Font("å®‹ä½“", Font.BOLD, 24));
         label_1.setBounds(856, 121, 177, 41);
         layeredPane.add(label_1);
         
         label_2 = new JLabel("\u7528\u6237\u72B6\u6001\uFF1A");
         layeredPane.setLayer(label_2, 2);
-        label_2.setFont(new Font("ËÎÌå", Font.BOLD, 24));
+        label_2.setFont(new Font("å®‹ä½“", Font.BOLD, 24));
         label_2.setBounds(856, 353, 177, 41);
         layeredPane.add(label_2);
         
         label_3 = new JLabel("\u6B63\u5E38");
         layeredPane.setLayer(label_3, 2);
-        label_3.setFont(new Font("ËÎÌå", Font.BOLD, 24));
+        label_3.setFont(new Font("å®‹ä½“", Font.BOLD, 24));
         label_3.setBounds(886, 406, 124, 41);
         layeredPane.add(label_3);
         
@@ -422,31 +422,31 @@ public class ShopUser extends JFrame{
         layeredPane.setLayer(textField_12, 2);
         textField_12.setText(String.valueOf(currentpage));
         textField_12.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_12.setFont(new Font("ËÎÌå", Font.BOLD, 18));
+        textField_12.setFont(new Font("å®‹ä½“", Font.BOLD, 18));
         textField_12.setEditable(false);
         textField_12.setColumns(10);
         textField_12.setBackground(Color.WHITE);
         textField_12.setBounds(97, 485, 43, 45);
         layeredPane.add(textField_12);
         
-        label_4 = new JLabel("µÚ");
+        label_4 = new JLabel("ç¬¬");
         layeredPane.setLayer(label_4, 2);
         label_4.setHorizontalAlignment(SwingConstants.CENTER);
-        label_4.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        label_4.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         label_4.setBounds(59, 485, 50, 45);
         layeredPane.add(label_4);
         
-        label_5 = new JLabel("Ò³");
+        label_5 = new JLabel("é¡µ");
         layeredPane.setLayer(label_5, 2);
         label_5.setHorizontalAlignment(SwingConstants.CENTER);
-        label_5.setFont(new Font("ËÎÌå", Font.BOLD, 18));
+        label_5.setFont(new Font("å®‹ä½“", Font.BOLD, 18));
         label_5.setBounds(125, 485, 50, 45);
         layeredPane.add(label_5);
         
-        label_6 = new JLabel("/¹²");
+        label_6 = new JLabel("/å…±");
         layeredPane.setLayer(label_6, 2);
         label_6.setHorizontalAlignment(SwingConstants.CENTER);
-        label_6.setFont(new Font("ËÎÌå", Font.BOLD, 18));
+        label_6.setFont(new Font("å®‹ä½“", Font.BOLD, 18));
         label_6.setBounds(161, 485, 50, 45);
         layeredPane.add(label_6);
         
@@ -454,21 +454,21 @@ public class ShopUser extends JFrame{
         layeredPane.setLayer(textField_13, 2);
         textField_13.setText(String.valueOf(pagenum));
         textField_13.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_13.setFont(new Font("ËÎÌå", Font.BOLD, 18));
+        textField_13.setFont(new Font("å®‹ä½“", Font.BOLD, 18));
         textField_13.setEditable(false);
         textField_13.setColumns(10);
         textField_13.setBackground(Color.WHITE);
         textField_13.setBounds(203, 485, 43, 45);
         layeredPane.add(textField_13);
         
-        label_7 = new JLabel("Ò³");
+        label_7 = new JLabel("é¡µ");
         layeredPane.setLayer(label_7, 2);
         label_7.setHorizontalAlignment(SwingConstants.CENTER);
-        label_7.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        label_7.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         label_7.setBounds(237, 485, 50, 45);
         layeredPane.add(label_7);
         
-        button_4 = new JButton("ÉÏÒ»Ò³");
+        button_4 = new JButton("ä¸Šä¸€é¡µ");
         button_4.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		if(currentpage > 1)
@@ -482,11 +482,11 @@ public class ShopUser extends JFrame{
         	}
         });
         layeredPane.setLayer(button_4, 2);
-        button_4.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        button_4.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         button_4.setBounds(328, 485, 104, 45);
         layeredPane.add(button_4);
         
-        button_5 = new JButton("ÏÂÒ»Ò³");
+        button_5 = new JButton("ä¸‹ä¸€é¡µ");
         button_5.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		if(currentpage < pagenum)
@@ -500,7 +500,7 @@ public class ShopUser extends JFrame{
         	}
         });
         layeredPane.setLayer(button_5, 2);
-        button_5.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        button_5.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         button_5.setBounds(446, 485, 104, 45);
         layeredPane.add(button_5);
         
@@ -508,7 +508,7 @@ public class ShopUser extends JFrame{
         layeredPane.setLayer(textField_20, 2);
         textField_20.setText("\u5355\u4EF7");
         textField_20.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_20.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_20.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_20.setEditable(false);
         textField_20.setColumns(10);
         textField_20.setBackground(new Color(224, 255, 255));
@@ -518,7 +518,7 @@ public class ShopUser extends JFrame{
         textField_24 = new JTextField();
         layeredPane.setLayer(textField_24, 2);
         textField_24.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_24.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_24.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_24.setEditable(false);
         textField_24.setColumns(10);
         textField_24.setBackground(Color.WHITE);
@@ -528,7 +528,7 @@ public class ShopUser extends JFrame{
         textField_25 = new JTextField();
         layeredPane.setLayer(textField_25, 2);
         textField_25.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_25.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_25.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_25.setEditable(false);
         textField_25.setColumns(10);
         textField_25.setBackground(Color.WHITE);
@@ -538,7 +538,7 @@ public class ShopUser extends JFrame{
         textField_26 = new JTextField();
         layeredPane.setLayer(textField_26, 2);
         textField_26.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_26.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_26.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_26.setEditable(false);
         textField_26.setColumns(10);
         textField_26.setBackground(Color.WHITE);
@@ -548,7 +548,7 @@ public class ShopUser extends JFrame{
         textField_27 = new JTextField();
         layeredPane.setLayer(textField_27, 2);
         textField_27.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_27.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_27.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_27.setEditable(false);
         textField_27.setColumns(10);
         textField_27.setBackground(Color.WHITE);
@@ -558,7 +558,7 @@ public class ShopUser extends JFrame{
         textField_28 = new JTextField();
         layeredPane.setLayer(textField_28, 2);
         textField_28.setHorizontalAlignment(SwingConstants.CENTER);
-        textField_28.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        textField_28.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         textField_28.setEditable(false);
         textField_28.setColumns(10);
         textField_28.setBackground(Color.WHITE);
@@ -578,7 +578,7 @@ public class ShopUser extends JFrame{
         	}
         });
         layeredPane.setLayer(button_6, 2);
-        button_6.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+        button_6.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
         button_6.setBounds(586, 485, 104, 45);
         layeredPane.add(button_6);
         

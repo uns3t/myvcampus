@@ -36,7 +36,7 @@ public class ShopAdd extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel label = new JLabel("\u8BF7\u8F93\u5165\u5546\u54C1\u7F16\u53F7\uFF1A");
-		label.setFont(new Font("ÀŒÃÂ", Font.BOLD, 20));
+		label.setFont(new Font("ÂÆã‰Ωì", Font.BOLD, 20));
 		label.setBackground(SystemColor.inactiveCaption);
 		label.setBounds(64, 54, 166, 33);
 		contentPane.add(label);
@@ -47,7 +47,7 @@ public class ShopAdd extends JFrame {
 		contentPane.add(textField);
 		
 		JLabel label_1 = new JLabel("\u8BF7\u8F93\u5165\u5546\u54C1\u540D\u79F0\uFF1A");
-		label_1.setFont(new Font("ÀŒÃÂ", Font.BOLD, 20));
+		label_1.setFont(new Font("ÂÆã‰Ωì", Font.BOLD, 20));
 		label_1.setBackground(SystemColor.inactiveCaption);
 		label_1.setBounds(64, 123, 166, 33);
 		contentPane.add(label_1);
@@ -58,7 +58,7 @@ public class ShopAdd extends JFrame {
 		contentPane.add(textField_1);
 		
 		JLabel label_2 = new JLabel("\u8BF7\u8F93\u5165\u5546\u54C1\u4EF7\u683C\uFF1A");
-		label_2.setFont(new Font("ÀŒÃÂ", Font.BOLD, 20));
+		label_2.setFont(new Font("ÂÆã‰Ωì", Font.BOLD, 20));
 		label_2.setBackground(SystemColor.inactiveCaption);
 		label_2.setBounds(64, 192, 166, 33);
 		contentPane.add(label_2);
@@ -74,14 +74,14 @@ public class ShopAdd extends JFrame {
 				cthread.handleAddGood(textField_1.getText(), textField.getText(), Integer.valueOf(textField_2.getText()), Integer.valueOf(textField_3.getText()), 0);
 				if(cthread.getREMessage().getResponse())
 				{
-					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ÃÌº”≥…π¶£°","ÃÌº”Ã· æ“≥√Ê", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "Ê∑ªÂä†ÊàêÂäüÔºÅ","Ê∑ªÂä†ÊèêÁ§∫È°µÈù¢", JOptionPane.INFORMATION_MESSAGE);
 					dispose();
 				}
 				else
-					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ÃÌº” ß∞‹£°","ÃÌº”Ã· æ“≥√Ê", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "Ê∑ªÂä†Â§±Ë¥•ÔºÅ","Ê∑ªÂä†ÊèêÁ§∫È°µÈù¢", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
-		btnNewButton.setFont(new Font("ÀŒÃÂ", Font.BOLD, 20));
+		btnNewButton.setFont(new Font("ÂÆã‰Ωì", Font.BOLD, 20));
 		btnNewButton.setBounds(115, 334, 103, 38);
 		contentPane.add(btnNewButton);
 		
@@ -91,12 +91,12 @@ public class ShopAdd extends JFrame {
 				dispose();
 			}
 		});
-		button.setFont(new Font("ÀŒÃÂ", Font.BOLD, 20));
+		button.setFont(new Font("ÂÆã‰Ωì", Font.BOLD, 20));
 		button.setBounds(277, 334, 103, 38);
 		contentPane.add(button);
 		
 		JLabel label_3 = new JLabel("\u8BF7\u8F93\u5165\u5546\u54C1\u6570\u91CF\uFF1A");
-		label_3.setFont(new Font("ÀŒÃÂ", Font.BOLD, 20));
+		label_3.setFont(new Font("ÂÆã‰Ωì", Font.BOLD, 20));
 		label_3.setBackground(SystemColor.inactiveCaption);
 		label_3.setBounds(64, 261, 166, 33);
 		contentPane.add(label_3);

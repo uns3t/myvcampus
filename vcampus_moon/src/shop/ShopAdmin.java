@@ -86,7 +86,7 @@ public class ShopAdmin extends JFrame {
 		layeredPane.setLayer(textField, 2);
 		textField.setText("\u5546\u54C1\u7F16\u53F7");
 		textField.setHorizontalAlignment(SwingConstants.CENTER);
-		textField.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField.setEditable(false);
 		textField.setColumns(10);
 		textField.setBackground(new Color(224, 255, 255));
@@ -97,7 +97,7 @@ public class ShopAdmin extends JFrame {
 		layeredPane.setLayer(textField_1, 2);
 		textField_1.setText("\u5546\u54C1\u540D\u79F0");
 		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_1.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_1.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_1.setEditable(false);
 		textField_1.setColumns(10);
 		textField_1.setBackground(new Color(224, 255, 255));
@@ -108,7 +108,7 @@ public class ShopAdmin extends JFrame {
 		layeredPane.setLayer(textField_2, 2);
 		textField_2.setText("\u53EF\u8D2D\u4E70\u6570\u91CF");
 		textField_2.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_2.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_2.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_2.setEditable(false);
 		textField_2.setColumns(10);
 		textField_2.setBackground(new Color(224, 255, 255));
@@ -124,7 +124,7 @@ public class ShopAdmin extends JFrame {
 		textField_6 = new JTextField();
 		layeredPane.setLayer(textField_6, 2);
 		textField_6.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_6.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_6.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_6.setEditable(false);
 		textField_6.setColumns(10);
 		textField_6.setBackground(Color.WHITE);
@@ -134,7 +134,7 @@ public class ShopAdmin extends JFrame {
 		textField_7 = new JTextField();
 		layeredPane.setLayer(textField_7, 2);
 		textField_7.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_7.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_7.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_7.setEditable(false);
 		textField_7.setColumns(10);
 		textField_7.setBackground(Color.WHITE);
@@ -144,7 +144,7 @@ public class ShopAdmin extends JFrame {
 		textField_8 = new JTextField();
 		layeredPane.setLayer(textField_8, 2);
 		textField_8.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_8.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_8.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_8.setEditable(false);
 		textField_8.setColumns(10);
 		textField_8.setBackground(Color.WHITE);
@@ -154,7 +154,7 @@ public class ShopAdmin extends JFrame {
 		textField_9 = new JTextField();
 		layeredPane.setLayer(textField_9, 2);
 		textField_9.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_9.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_9.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_9.setEditable(false);
 		textField_9.setColumns(10);
 		textField_9.setBackground(Color.WHITE);
@@ -164,7 +164,7 @@ public class ShopAdmin extends JFrame {
 		textField_10 = new JTextField();
 		layeredPane.setLayer(textField_10, 2);
 		textField_10.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_10.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_10.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_10.setEditable(false);
 		textField_10.setColumns(10);
 		textField_10.setBackground(Color.WHITE);
@@ -174,7 +174,7 @@ public class ShopAdmin extends JFrame {
 		textField_11 = new JTextField();
 		layeredPane.setLayer(textField_11, 2);
 		textField_11.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_11.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_11.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_11.setEditable(false);
 		textField_11.setColumns(10);
 		textField_11.setBackground(Color.WHITE);
@@ -184,7 +184,7 @@ public class ShopAdmin extends JFrame {
 		textField_12 = new JTextField();
 		layeredPane.setLayer(textField_12, 2);
 		textField_12.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_12.setFont(new Font("ËÎÌå", Font.BOLD, 18));
+		textField_12.setFont(new Font("å®‹ä½“", Font.BOLD, 18));
 		textField_12.setEditable(false);
 		textField_12.setColumns(10);
 		textField_12.setBackground(Color.WHITE);
@@ -194,7 +194,7 @@ public class ShopAdmin extends JFrame {
 		textField_13 = new JTextField();
 		layeredPane.setLayer(textField_13, 2);
 		textField_13.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_13.setFont(new Font("ËÎÌå", Font.BOLD, 18));
+		textField_13.setFont(new Font("å®‹ä½“", Font.BOLD, 18));
 		textField_13.setEditable(false);
 		textField_13.setColumns(10);
 		textField_13.setBackground(Color.WHITE);
@@ -204,7 +204,7 @@ public class ShopAdmin extends JFrame {
 		textField_14 = new JTextField();
 		layeredPane.setLayer(textField_14, 2);
 		textField_14.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_14.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_14.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_14.setEditable(false);
 		textField_14.setColumns(10);
 		textField_14.setBackground(Color.WHITE);
@@ -214,7 +214,7 @@ public class ShopAdmin extends JFrame {
 		textField_15 = new JTextField();
 		layeredPane.setLayer(textField_15, 2);
 		textField_15.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_15.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_15.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_15.setEditable(false);
 		textField_15.setColumns(10);
 		textField_15.setBackground(Color.WHITE);
@@ -224,7 +224,7 @@ public class ShopAdmin extends JFrame {
 		textField_16 = new JTextField();
 		layeredPane.setLayer(textField_16, 2);
 		textField_16.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_16.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_16.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_16.setEditable(false);
 		textField_16.setColumns(10);
 		textField_16.setBackground(Color.WHITE);
@@ -234,7 +234,7 @@ public class ShopAdmin extends JFrame {
 		textField_17 = new JTextField();
 		layeredPane.setLayer(textField_17, 2);
 		textField_17.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_17.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_17.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_17.setEditable(false);
 		textField_17.setColumns(10);
 		textField_17.setBackground(Color.WHITE);
@@ -244,7 +244,7 @@ public class ShopAdmin extends JFrame {
 		textField_18 = new JTextField();
 		layeredPane.setLayer(textField_18, 2);
 		textField_18.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_18.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_18.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_18.setEditable(false);
 		textField_18.setColumns(10);
 		textField_18.setBackground(Color.WHITE);
@@ -254,7 +254,7 @@ public class ShopAdmin extends JFrame {
 		textField_19 = new JTextField();
 		layeredPane.setLayer(textField_19, 2);
 		textField_19.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_19.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_19.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_19.setEditable(false);
 		textField_19.setColumns(10);
 		textField_19.setBackground(Color.WHITE);
@@ -265,7 +265,7 @@ public class ShopAdmin extends JFrame {
 		layeredPane.setLayer(textField_20, 2);
 		textField_20.setText("\u5355\u4EF7");
 		textField_20.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_20.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_20.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_20.setEditable(false);
 		textField_20.setColumns(10);
 		textField_20.setBackground(new Color(224, 255, 255));
@@ -275,7 +275,7 @@ public class ShopAdmin extends JFrame {
 		textField_21 = new JTextField();
 		layeredPane.setLayer(textField_21, 2);
 		textField_21.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_21.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_21.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_21.setEditable(false);
 		textField_21.setColumns(10);
 		textField_21.setBackground(Color.WHITE);
@@ -285,7 +285,7 @@ public class ShopAdmin extends JFrame {
 		textField_22 = new JTextField();
 		layeredPane.setLayer(textField_22, 2);
 		textField_22.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_22.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_22.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_22.setEditable(false);
 		textField_22.setColumns(10);
 		textField_22.setBackground(Color.WHITE);
@@ -295,7 +295,7 @@ public class ShopAdmin extends JFrame {
 		textField_23 = new JTextField();
 		layeredPane.setLayer(textField_23, 2);
 		textField_23.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_23.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_23.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_23.setEditable(false);
 		textField_23.setColumns(10);
 		textField_23.setBackground(Color.WHITE);
@@ -305,7 +305,7 @@ public class ShopAdmin extends JFrame {
 		textField_24 = new JTextField();
 		layeredPane.setLayer(textField_24, 2);
 		textField_24.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_24.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_24.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_24.setEditable(false);
 		textField_24.setColumns(10);
 		textField_24.setBackground(Color.WHITE);
@@ -315,7 +315,7 @@ public class ShopAdmin extends JFrame {
 		textField_25 = new JTextField();
 		layeredPane.setLayer(textField_25, 2);
 		textField_25.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_25.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_25.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_25.setEditable(false);
 		textField_25.setColumns(10);
 		textField_25.setBackground(Color.WHITE);
@@ -325,7 +325,7 @@ public class ShopAdmin extends JFrame {
 		textField_26 = new JTextField();
 		layeredPane.setLayer(textField_26, 2);
 		textField_26.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_26.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_26.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_26.setEditable(false);
 		textField_26.setColumns(10);
 		textField_26.setBackground(Color.WHITE);
@@ -335,7 +335,7 @@ public class ShopAdmin extends JFrame {
 		textField_27 = new JTextField();
 		layeredPane.setLayer(textField_27, 2);
 		textField_27.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_27.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_27.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_27.setEditable(false);
 		textField_27.setColumns(10);
 		textField_27.setBackground(Color.WHITE);
@@ -345,7 +345,7 @@ public class ShopAdmin extends JFrame {
 		textField_28 = new JTextField();
 		layeredPane.setLayer(textField_28, 2);
 		textField_28.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_28.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		textField_28.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		textField_28.setEditable(false);
 		textField_28.setColumns(10);
 		textField_28.setBackground(Color.WHITE);
@@ -353,7 +353,7 @@ public class ShopAdmin extends JFrame {
 		layeredPane.add(textField_28);
 
 		lblNewLabel = new JLabel("\u7F51\u4E0A\u5546\u5E97\u7BA1\u7406\u7CFB\u7EDFv1.0");
-		lblNewLabel.setFont(new Font("ËÎÌå", Font.BOLD, 24));
+		lblNewLabel.setFont(new Font("å®‹ä½“", Font.BOLD, 24));
 		layeredPane.setLayer(lblNewLabel, 2);
 		lblNewLabel.setBounds(449, 40, 260, 41);
 		layeredPane.add(lblNewLabel);
@@ -370,31 +370,31 @@ public class ShopAdmin extends JFrame {
 		label.setBounds(263, 10, 116, 112);
 		layeredPane.add(label);
 
-		label_4 = new JLabel("µÚ");
+		label_4 = new JLabel("ç¬¬");
 		layeredPane.setLayer(label_4, 2);
 		label_4.setHorizontalAlignment(SwingConstants.CENTER);
-		label_4.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		label_4.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		label_4.setBounds(59, 485, 50, 45);
 		layeredPane.add(label_4);
 
-		label_5 = new JLabel("Ò³");
+		label_5 = new JLabel("é¡µ");
 		layeredPane.setLayer(label_5, 2);
 		label_5.setHorizontalAlignment(SwingConstants.CENTER);
-		label_5.setFont(new Font("ËÎÌå", Font.BOLD, 18));
+		label_5.setFont(new Font("å®‹ä½“", Font.BOLD, 18));
 		label_5.setBounds(125, 485, 50, 45);
 		layeredPane.add(label_5);
 
-		label_6 = new JLabel("/¹²");
+		label_6 = new JLabel("/å…±");
 		layeredPane.setLayer(label_6, 2);
 		label_6.setHorizontalAlignment(SwingConstants.CENTER);
-		label_6.setFont(new Font("ËÎÌå", Font.BOLD, 18));
+		label_6.setFont(new Font("å®‹ä½“", Font.BOLD, 18));
 		label_6.setBounds(161, 485, 50, 45);
 		layeredPane.add(label_6);
 
-		label_7 = new JLabel("Ò³");
+		label_7 = new JLabel("é¡µ");
 		layeredPane.setLayer(label_7, 2);
 		label_7.setHorizontalAlignment(SwingConstants.CENTER);
-		label_7.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		label_7.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		label_7.setBounds(237, 485, 50, 45);
 		layeredPane.add(label_7);
 
@@ -411,7 +411,7 @@ public class ShopAdmin extends JFrame {
 			}
 		});
 		layeredPane.setLayer(button, 2);
-		button.setFont(new Font("ËÎÌå", Font.BOLD, 19));
+		button.setFont(new Font("å®‹ä½“", Font.BOLD, 19));
 		button.setEnabled(false);
 		button.setBounds(663, 203, 97, 41);
 		layeredPane.add(button);
@@ -429,7 +429,7 @@ public class ShopAdmin extends JFrame {
 			}
 		});
 		layeredPane.setLayer(button_1, 2);
-		button_1.setFont(new Font("ËÎÌå", Font.BOLD, 19));
+		button_1.setFont(new Font("å®‹ä½“", Font.BOLD, 19));
 		button_1.setEnabled(false);
 		button_1.setBounds(663, 255, 97, 41);
 		layeredPane.add(button_1);
@@ -447,7 +447,7 @@ public class ShopAdmin extends JFrame {
 			}
 		});
 		layeredPane.setLayer(button_2, 2);
-		button_2.setFont(new Font("ËÎÌå", Font.BOLD, 19));
+		button_2.setFont(new Font("å®‹ä½“", Font.BOLD, 19));
 		button_2.setEnabled(false);
 		button_2.setBounds(663, 308, 97, 41);
 		layeredPane.add(button_2);
@@ -465,12 +465,12 @@ public class ShopAdmin extends JFrame {
 			}
 		});
 		layeredPane.setLayer(button_3, 2);
-		button_3.setFont(new Font("ËÎÌå", Font.BOLD, 19));
+		button_3.setFont(new Font("å®‹ä½“", Font.BOLD, 19));
 		button_3.setEnabled(false);
 		button_3.setBounds(663, 361, 97, 41);
 		layeredPane.add(button_3);
 
-		button_4 = new JButton("ÉÏÒ»Ò³");
+		button_4 = new JButton("ä¸Šä¸€é¡µ");
 		button_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (currentpage > 1) {
@@ -480,11 +480,11 @@ public class ShopAdmin extends JFrame {
 			}
 		});
 		layeredPane.setLayer(button_4, 2);
-		button_4.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		button_4.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		button_4.setBounds(328, 485, 104, 45);
 		layeredPane.add(button_4);
 
-		button_5 = new JButton("ÏÂÒ»Ò³");
+		button_5 = new JButton("ä¸‹ä¸€é¡µ");
 		button_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (currentpage < pagenum) {
@@ -494,7 +494,7 @@ public class ShopAdmin extends JFrame {
 			}
 		});
 		layeredPane.setLayer(button_5, 2);
-		button_5.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		button_5.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		button_5.setBounds(446, 485, 104, 45);
 		layeredPane.add(button_5);
 
@@ -505,7 +505,7 @@ public class ShopAdmin extends JFrame {
 			}
 		});
 		layeredPane.setLayer(button_6, 2);
-		button_6.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		button_6.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		button_6.setBounds(586, 485, 104, 45);
 		layeredPane.add(button_6);
 
@@ -514,9 +514,9 @@ public class ShopAdmin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				cthread.handleUpdateGood(textField_7.getText(), textField_8.getText(), Integer.valueOf(textField_24.getText()), Integer.valueOf(textField_6.getText()), 0);
 				if(cthread.getREMessage().getResponse())
-					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ÐÞ¸Ä³É¹¦£¡","ÐÞ¸ÄÌáÊ¾Ò³Ãæ", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ä¿®æ”¹æˆåŠŸï¼","ä¿®æ”¹æç¤ºé¡µé¢", JOptionPane.INFORMATION_MESSAGE);
 				else
-					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ÐÞ¸ÄÊ§°Ü£¡","ÐÞ¸ÄÌáÊ¾Ò³Ãæ", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ä¿®æ”¹å¤±è´¥ï¼","ä¿®æ”¹æç¤ºé¡µé¢", JOptionPane.INFORMATION_MESSAGE);
 				
 				button.setEnabled(true);
 				button_7.setEnabled(false);
@@ -530,7 +530,7 @@ public class ShopAdmin extends JFrame {
 			}
 		});
 		layeredPane.setLayer(button_7, 2);
-		button_7.setFont(new Font("ËÎÌå", Font.BOLD, 19));
+		button_7.setFont(new Font("å®‹ä½“", Font.BOLD, 19));
 		button_7.setEnabled(false);
 		button_7.setBounds(770, 203, 97, 41);
 		layeredPane.add(button_7);
@@ -538,22 +538,22 @@ public class ShopAdmin extends JFrame {
 		button_8 = new JButton("\u5220\u9664");
 		button_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int choice = JOptionPane.showConfirmDialog(new JFrame().getContentPane(), "È·ÈÏÉ¾³ý£¿", "ÌáÊ¾ÐÅÏ¢", JOptionPane.YES_NO_OPTION);
+				int choice = JOptionPane.showConfirmDialog(new JFrame().getContentPane(), "ç¡®è®¤åˆ é™¤ï¼Ÿ", "æç¤ºä¿¡æ¯", JOptionPane.YES_NO_OPTION);
 				if(choice == JOptionPane.YES_OPTION)
 				{
 					cthread.handleDeleteGoodMessage(textField_8.getText());
 					if(cthread.getREMessage().getResponse())
 					{
-						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "É¾³ý³É¹¦£¡","É¾³ýÌáÊ¾Ò³Ãæ", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "åˆ é™¤æˆåŠŸï¼","åˆ é™¤æç¤ºé¡µé¢", JOptionPane.INFORMATION_MESSAGE);
 						initText(cthread);
 					}
 					else
-						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "É¾³ýÊ§°Ü£¡","É¾³ýÌáÊ¾Ò³Ãæ", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "åˆ é™¤å¤±è´¥ï¼","åˆ é™¤æç¤ºé¡µé¢", JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 		});
 		layeredPane.setLayer(button_8, 2);
-		button_8.setFont(new Font("ËÎÌå", Font.BOLD, 19));
+		button_8.setFont(new Font("å®‹ä½“", Font.BOLD, 19));
 		button_8.setEnabled(false);
 		button_8.setBounds(877, 203, 97, 41);
 		layeredPane.add(button_8);
@@ -563,9 +563,9 @@ public class ShopAdmin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				cthread.handleUpdateGood(textField_10.getText(), textField_9.getText(), Integer.valueOf(textField_25.getText()), Integer.valueOf(textField_11.getText()), 0);
 				if(cthread.getREMessage().getResponse())
-					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ÐÞ¸Ä³É¹¦£¡","ÐÞ¸ÄÌáÊ¾Ò³Ãæ", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ä¿®æ”¹æˆåŠŸï¼","ä¿®æ”¹æç¤ºé¡µé¢", JOptionPane.INFORMATION_MESSAGE);
 				else
-					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ÐÞ¸ÄÊ§°Ü£¡","ÐÞ¸ÄÌáÊ¾Ò³Ãæ", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ä¿®æ”¹å¤±è´¥ï¼","ä¿®æ”¹æç¤ºé¡µé¢", JOptionPane.INFORMATION_MESSAGE);
 				
 				button_1.setEnabled(true);
 				button_9.setEnabled(false);
@@ -579,7 +579,7 @@ public class ShopAdmin extends JFrame {
 			}
 		});
 		layeredPane.setLayer(button_9, 2);
-		button_9.setFont(new Font("ËÎÌå", Font.BOLD, 19));
+		button_9.setFont(new Font("å®‹ä½“", Font.BOLD, 19));
 		button_9.setEnabled(false);
 		button_9.setBounds(770, 255, 97, 41);
 		layeredPane.add(button_9);
@@ -589,9 +589,9 @@ public class ShopAdmin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				cthread.handleUpdateGood(textField_15.getText(), textField_16.getText(), Integer.valueOf(textField_26.getText()), Integer.valueOf(textField_14.getText()), 0);
 				if(cthread.getREMessage().getResponse())
-					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ÐÞ¸Ä³É¹¦£¡","ÐÞ¸ÄÌáÊ¾Ò³Ãæ", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ä¿®æ”¹æˆåŠŸï¼","ä¿®æ”¹æç¤ºé¡µé¢", JOptionPane.INFORMATION_MESSAGE);
 				else
-					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ÐÞ¸ÄÊ§°Ü£¡","ÐÞ¸ÄÌáÊ¾Ò³Ãæ", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ä¿®æ”¹å¤±è´¥ï¼","ä¿®æ”¹æç¤ºé¡µé¢", JOptionPane.INFORMATION_MESSAGE);
 				
 				button_2.setEnabled(true);
 				button_10.setEnabled(false);
@@ -605,7 +605,7 @@ public class ShopAdmin extends JFrame {
 			}
 		});
 		layeredPane.setLayer(button_10, 2);
-		button_10.setFont(new Font("ËÎÌå", Font.BOLD, 19));
+		button_10.setFont(new Font("å®‹ä½“", Font.BOLD, 19));
 		button_10.setEnabled(false);
 		button_10.setBounds(770, 308, 97, 41);
 		layeredPane.add(button_10);
@@ -615,9 +615,9 @@ public class ShopAdmin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				cthread.handleUpdateGood(textField_18.getText(), textField_17.getText(), Integer.valueOf(textField_27.getText()), Integer.valueOf(textField_19.getText()), 0);
 				if(cthread.getREMessage().getResponse())
-					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ÐÞ¸Ä³É¹¦£¡","ÐÞ¸ÄÌáÊ¾Ò³Ãæ", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ä¿®æ”¹æˆåŠŸï¼","ä¿®æ”¹æç¤ºé¡µé¢", JOptionPane.INFORMATION_MESSAGE);
 				else
-					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ÐÞ¸ÄÊ§°Ü£¡","ÐÞ¸ÄÌáÊ¾Ò³Ãæ", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ä¿®æ”¹å¤±è´¥ï¼","ä¿®æ”¹æç¤ºé¡µé¢", JOptionPane.INFORMATION_MESSAGE);
 				
 				button_3.setEnabled(true);
 				button_11.setEnabled(false);
@@ -631,7 +631,7 @@ public class ShopAdmin extends JFrame {
 			}
 		});
 		layeredPane.setLayer(button_11, 2);
-		button_11.setFont(new Font("ËÎÌå", Font.BOLD, 19));
+		button_11.setFont(new Font("å®‹ä½“", Font.BOLD, 19));
 		button_11.setEnabled(false);
 		button_11.setBounds(770, 361, 97, 41);
 		layeredPane.add(button_11);
@@ -641,9 +641,9 @@ public class ShopAdmin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				cthread.handleUpdateGood(textField_22.getText(), textField_21.getText(), Integer.valueOf(textField_28.getText()), Integer.valueOf(textField_23.getText()), 0);
 				if(cthread.getREMessage().getResponse())
-					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ÐÞ¸Ä³É¹¦£¡","ÐÞ¸ÄÌáÊ¾Ò³Ãæ", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ä¿®æ”¹æˆåŠŸï¼","ä¿®æ”¹æç¤ºé¡µé¢", JOptionPane.INFORMATION_MESSAGE);
 				else
-					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ÐÞ¸ÄÊ§°Ü£¡","ÐÞ¸ÄÌáÊ¾Ò³Ãæ", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "ä¿®æ”¹å¤±è´¥ï¼","ä¿®æ”¹æç¤ºé¡µé¢", JOptionPane.INFORMATION_MESSAGE);
 				
 				button_17.setEnabled(true);
 				button_12.setEnabled(false);
@@ -657,7 +657,7 @@ public class ShopAdmin extends JFrame {
 			}
 		});
 		layeredPane.setLayer(button_12, 2);
-		button_12.setFont(new Font("ËÎÌå", Font.BOLD, 19));
+		button_12.setFont(new Font("å®‹ä½“", Font.BOLD, 19));
 		button_12.setEnabled(false);
 		button_12.setBounds(770, 414, 97, 41);
 		layeredPane.add(button_12);
@@ -665,22 +665,22 @@ public class ShopAdmin extends JFrame {
 		button_13 = new JButton("\u5220\u9664");
 		button_13.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int choice = JOptionPane.showConfirmDialog(new JFrame().getContentPane(), "È·ÈÏÉ¾³ý£¿", "ÌáÊ¾ÐÅÏ¢", JOptionPane.YES_NO_OPTION);
+				int choice = JOptionPane.showConfirmDialog(new JFrame().getContentPane(), "ç¡®è®¤åˆ é™¤ï¼Ÿ", "æç¤ºä¿¡æ¯", JOptionPane.YES_NO_OPTION);
 				if(choice == JOptionPane.YES_OPTION)
 				{
 					cthread.handleDeleteGoodMessage(textField_9.getText());
 					if(cthread.getREMessage().getResponse())
 					{
-						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "É¾³ý³É¹¦£¡","É¾³ýÌáÊ¾Ò³Ãæ", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "åˆ é™¤æˆåŠŸï¼","åˆ é™¤æç¤ºé¡µé¢", JOptionPane.INFORMATION_MESSAGE);
 						initText(cthread);
 					}
 					else
-						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "É¾³ýÊ§°Ü£¡","É¾³ýÌáÊ¾Ò³Ãæ", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "åˆ é™¤å¤±è´¥ï¼","åˆ é™¤æç¤ºé¡µé¢", JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 		});
 		layeredPane.setLayer(button_13, 2);
-		button_13.setFont(new Font("ËÎÌå", Font.BOLD, 19));
+		button_13.setFont(new Font("å®‹ä½“", Font.BOLD, 19));
 		button_13.setEnabled(false);
 		button_13.setBounds(877, 255, 97, 41);
 		layeredPane.add(button_13);
@@ -688,22 +688,22 @@ public class ShopAdmin extends JFrame {
 		button_14 = new JButton("\u5220\u9664");
 		button_14.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int choice = JOptionPane.showConfirmDialog(new JFrame().getContentPane(), "È·ÈÏÉ¾³ý£¿", "ÌáÊ¾ÐÅÏ¢", JOptionPane.YES_NO_OPTION);
+				int choice = JOptionPane.showConfirmDialog(new JFrame().getContentPane(), "ç¡®è®¤åˆ é™¤ï¼Ÿ", "æç¤ºä¿¡æ¯", JOptionPane.YES_NO_OPTION);
 				if(choice == JOptionPane.YES_OPTION)
 				{
 					cthread.handleDeleteGoodMessage(textField_16.getText());
 					if(cthread.getREMessage().getResponse())
 					{
-						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "É¾³ý³É¹¦£¡","É¾³ýÌáÊ¾Ò³Ãæ", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "åˆ é™¤æˆåŠŸï¼","åˆ é™¤æç¤ºé¡µé¢", JOptionPane.INFORMATION_MESSAGE);
 						initText(cthread);
 					}
 					else
-						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "É¾³ýÊ§°Ü£¡","É¾³ýÌáÊ¾Ò³Ãæ", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "åˆ é™¤å¤±è´¥ï¼","åˆ é™¤æç¤ºé¡µé¢", JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 		});
 		layeredPane.setLayer(button_14, 2);
-		button_14.setFont(new Font("ËÎÌå", Font.BOLD, 19));
+		button_14.setFont(new Font("å®‹ä½“", Font.BOLD, 19));
 		button_14.setEnabled(false);
 		button_14.setBounds(877, 308, 97, 41);
 		layeredPane.add(button_14);
@@ -711,22 +711,22 @@ public class ShopAdmin extends JFrame {
 		button_15 = new JButton("\u5220\u9664");
 		button_15.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int choice = JOptionPane.showConfirmDialog(new JFrame().getContentPane(), "È·ÈÏÉ¾³ý£¿", "ÌáÊ¾ÐÅÏ¢", JOptionPane.YES_NO_OPTION);
+				int choice = JOptionPane.showConfirmDialog(new JFrame().getContentPane(), "ç¡®è®¤åˆ é™¤ï¼Ÿ", "æç¤ºä¿¡æ¯", JOptionPane.YES_NO_OPTION);
 				if(choice == JOptionPane.YES_OPTION)
 				{
 					cthread.handleDeleteGoodMessage(textField_17.getText());
 					if(cthread.getREMessage().getResponse())
 					{
-						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "É¾³ý³É¹¦£¡","É¾³ýÌáÊ¾Ò³Ãæ", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "åˆ é™¤æˆåŠŸï¼","åˆ é™¤æç¤ºé¡µé¢", JOptionPane.INFORMATION_MESSAGE);
 						initText(cthread);
 					}
 					else
-						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "É¾³ýÊ§°Ü£¡","É¾³ýÌáÊ¾Ò³Ãæ", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "åˆ é™¤å¤±è´¥ï¼","åˆ é™¤æç¤ºé¡µé¢", JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 		});
 		layeredPane.setLayer(button_15, 2);
-		button_15.setFont(new Font("ËÎÌå", Font.BOLD, 19));
+		button_15.setFont(new Font("å®‹ä½“", Font.BOLD, 19));
 		button_15.setEnabled(false);
 		button_15.setBounds(877, 361, 97, 41);
 		layeredPane.add(button_15);
@@ -734,22 +734,22 @@ public class ShopAdmin extends JFrame {
 		button_16 = new JButton("\u5220\u9664");
 		button_16.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int choice = JOptionPane.showConfirmDialog(new JFrame().getContentPane(), "È·ÈÏÉ¾³ý£¿", "ÌáÊ¾ÐÅÏ¢", JOptionPane.YES_NO_OPTION);
+				int choice = JOptionPane.showConfirmDialog(new JFrame().getContentPane(), "ç¡®è®¤åˆ é™¤ï¼Ÿ", "æç¤ºä¿¡æ¯", JOptionPane.YES_NO_OPTION);
 				if(choice == JOptionPane.YES_OPTION)
 				{
 					cthread.handleDeleteGoodMessage(textField_21.getText());
 					if(cthread.getREMessage().getResponse())
 					{
-						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "É¾³ý³É¹¦£¡","É¾³ýÌáÊ¾Ò³Ãæ", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "åˆ é™¤æˆåŠŸï¼","åˆ é™¤æç¤ºé¡µé¢", JOptionPane.INFORMATION_MESSAGE);
 						initText(cthread);
 					}
 					else
-						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "É¾³ýÊ§°Ü£¡","É¾³ýÌáÊ¾Ò³Ãæ", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "åˆ é™¤å¤±è´¥ï¼","åˆ é™¤æç¤ºé¡µé¢", JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 		});
 		layeredPane.setLayer(button_16, 2);
-		button_16.setFont(new Font("ËÎÌå", Font.BOLD, 19));
+		button_16.setFont(new Font("å®‹ä½“", Font.BOLD, 19));
 		button_16.setEnabled(false);
 		button_16.setBounds(877, 414, 97, 41);
 		layeredPane.add(button_16);
@@ -767,7 +767,7 @@ public class ShopAdmin extends JFrame {
 			}
 		});
 		layeredPane.setLayer(button_17, 2);
-		button_17.setFont(new Font("ËÎÌå", Font.BOLD, 19));
+		button_17.setFont(new Font("å®‹ä½“", Font.BOLD, 19));
 		button_17.setEnabled(false);
 		button_17.setBounds(663, 414, 97, 41);
 		layeredPane.add(button_17);
@@ -780,7 +780,7 @@ public class ShopAdmin extends JFrame {
 			}
 		});
 		layeredPane.setLayer(button_18, 2);
-		button_18.setFont(new Font("ËÎÌå", Font.BOLD, 20));
+		button_18.setFont(new Font("å®‹ä½“", Font.BOLD, 20));
 		button_18.setBounds(749, 126, 147, 45);
 		layeredPane.add(button_18);
 
