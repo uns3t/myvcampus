@@ -1,5 +1,11 @@
 package book;
-
+/**
+ * 类 {@code BookInf} 展示图书界面.
+ *
+ * <p> 展示图书界面
+ *
+ * @since 2019/8/19
+ */
 import client.ClientThread;
 import message.BookInfo;
 import message.BookMessage;

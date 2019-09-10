@@ -1,6 +1,6 @@
 package client;
 /**
- * 类 {@code ClientThread} 前端消息处理的类.
+ * 类 {@code ClientThread} 为前端消息处理提供借口的类.
  *
  * <p> 通过使用该类的handle函数在客户端与服务器进行交互
  *
@@ -950,7 +950,7 @@ public class ClientThread extends Thread {
      * @see {@link ShopMessage}
      * @see {@link StudentMessage}
      * @see {@link UsrMessage}
-     * 
+     * @see {@link Client}
      */
 }
 

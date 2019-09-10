@@ -1,5 +1,11 @@
 package login;
-
+/**
+ * 类 {@code LoginPage} 用户登陆界面.
+ *
+ * <p> 用户登陆界面
+ *
+ * @since 2019/8/19
+ */
 import javax.swing.JFrame;
 import java.awt.Toolkit;
 import java.awt.Color;

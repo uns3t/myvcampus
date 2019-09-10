@@ -1,5 +1,11 @@
 package book;
-
+/**
+ * 类 {@code HomePanel} 图书馆首页.
+ *
+ * <p> 图书馆首页
+ *
+ * @since 2019/8/19
+ */
 import client.*;
 import message.*;
 import javax.swing.*;

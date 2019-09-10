@@ -1,5 +1,11 @@
 package course;
-
+/**
+ * 类 {@code Student_courseSelected} 学生选课界面.
+ *
+ * <p> 学生选课界面
+ *
+ * @since 2019/8/19
+ */
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 import java.awt.Toolkit;

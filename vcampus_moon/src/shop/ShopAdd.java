@@ -1,5 +1,11 @@
 package shop;
-
+/**
+ * 类 {@code ShopAdd} 添加商品界面.
+ *
+ * <p> 添加商品界面
+ *
+ * @since 2019/8/19
+ */
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 

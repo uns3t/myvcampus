@@ -1,5 +1,11 @@
 package login;
-
+/**
+ * 类 {@code ManagerPage} 管理员界面.
+ *
+ * <p> 管理员界面
+ *
+ * @since 2019/8/19
+ */
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;

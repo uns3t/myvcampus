@@ -1,5 +1,11 @@
 package course;
-
+/**
+ * 类 {@code Manager_addCoursePage} 管理员添加课程界面.
+ *
+ * <p> 管理员添加课程界面
+ *
+ * @since 2019/8/19
+ */
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;

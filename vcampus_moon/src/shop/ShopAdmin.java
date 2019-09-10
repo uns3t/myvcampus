@@ -1,5 +1,11 @@
 package shop;
-
+/**
+ * 类 {@code ShopAdmin} 管理员商店管理界面.
+ *
+ * <p> 管理员商店管理界面
+ *
+ * @since 2019/8/19
+ */
 import client.ClientThread;
 import message.*;
 
@@ -21,9 +27,6 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.Icon;
 
-/**
- * @author HP
- */
 public class ShopAdmin extends JFrame {
 	private JTextField textField, textField_1, textField_2, textField_4;
 	private JTextField textField_6;

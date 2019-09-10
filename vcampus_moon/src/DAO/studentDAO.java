@@ -1,4 +1,11 @@
 package DAO;
+/**
+ * 类 {@code studentDAO} 管理studenttbl的类.
+ *
+ * <p> 管理studenttbl
+ *
+ * @since 2019/8/19
+ */
 
 import java.lang.Exception;
 import java.sql.Connection;
@@ -15,6 +22,25 @@ public class studentDAO {
         this.con=c;
     }
 
+    /**
+     *
+     * <p>
+     *     添加学生学籍信息
+     * </p>
+     * @param student_id 学号
+     * @param student_name 姓名
+     * @param student_college 学院
+     * @param student_card 一卡通
+     * @param student_phone 电话
+     * @param student_type 证件类型
+     * @param student_uid 证件ID
+     * @param student_ins 简介
+     * @param student_brith 生日
+     * @param student_place 生源地
+     * @param student_sex 性别
+     * @return 是否成功
+     * @throws Exception sql异常
+     */
     public boolean addStudent(String student_id,String student_name,String student_college,String student_card,String student_phone,String student_type,
                               String student_uid,String student_ins,String student_brith,String student_place,String student_sex) throws Exception{
         sql = con.prepareStatement("insert into Studenttbl (Student_id, Student_name, Student_college,Student_card,Student_phone,Student_type,Student_uid,Student_ins,Student_brith,Student_place,Student_sex) values (?, ?, ?,?,?,?,?,?,?,?,?)");
@@ -34,7 +60,25 @@ public class studentDAO {
         return true;
     }
 
-
+    /**
+     *
+     * <p>
+     *     更新学生学籍信息
+     * </p>
+     * @param student_id 学号
+     * @param student_name 姓名
+     * @param student_college 学院
+     * @param student_card 一卡通
+     * @param student_phone 电话
+     * @param student_type 证件类型
+     * @param student_uid 证件ID
+     * @param student_ins 简介
+     * @param student_brith 生日
+     * @param student_place 生源地
+     * @param student_sex 性别
+     * @return 是否成功
+     * @throws Exception sql异常
+     */
     public boolean updateStudent(String student_id,String student_name,String student_college,String student_card,String student_phone,String student_type,
                               String student_uid,String student_ins,String student_brith,String student_place,String student_sex) throws Exception{
         sql = con.prepareStatement("update Studenttbl set Student_id=?, Student_name=?, Student_college=?,Student_card=?,Student_phone=?,Student_type=?,Student_uid=?,Student_ins=?,Student_brith=?,Student_place=?,Student_sex=?  where Student_id=?");
@@ -55,12 +99,28 @@ public class studentDAO {
         return true;
     }
 
+    /**
+     *
+     * <p>
+     *     删除学生学籍信息
+     * </p>
+     * @param student_id 学号
+     * @throws Exception sql异常
+     */
     public void deleteStudent(String student_id) throws Exception {
         System.out.println("删除"+student_id);
         sql=con.prepareStatement("DELETE FROM Studenttbl WHERE Student_id"+"="+"'"+student_id+"'");
         sql.executeUpdate();
     }
 
+    /**
+     *
+     * <p>
+     *     获得管理员端学生学籍信息
+     * </p>
+     * @return 管理员端学生学籍信息列表
+     * @throws Exception sql异常
+     */
     public ArrayList<Studentinfo> listStudent() throws Exception{
         ArrayList<Studentinfo> studentinlist=new ArrayList<Studentinfo>();
         sql=con.prepareStatement("select * from Studenttbl");
@@ -85,6 +145,15 @@ public class studentDAO {
         return studentinlist;
     }
 
+    /**
+     *
+     * <p>
+     *     获得用户端学籍信息
+     * </p>
+     * @param usr_id 用户ID
+     * @return 学籍信息列表
+     * @throws Exception sql异常
+     */
     public ArrayList<Studentinfo> usrStudent(String usr_id) throws Exception{
         ArrayList<Studentinfo> studentinlist=new ArrayList<Studentinfo>();
         sql=con.prepareStatement("select * from Studenttbl where Student_id=?");
@@ -112,4 +181,7 @@ public class studentDAO {
         }
         return null;
     }
+    /**
+     * @see {@link ToAccess}
+     */
 }

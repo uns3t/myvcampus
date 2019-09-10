@@ -1,5 +1,11 @@
 package Server;
-
+/**
+ * 类 {@code ServerThread} 服务器端消息处理的类.
+ *
+ * <p> 通过使用该类的handle函数在客户端与服务器进行交互
+ *
+ * @since 2019/8/19
+ */
 import message.*;
 import DAO.*;
 import java.io.IOException;
@@ -11,23 +17,20 @@ import java.lang.Exception;
 
 public class ServerThread extends Thread {
     private Server currentServer;
-    /**
-     * 客户端Socket
-     */
+
+    /** 客户端对象 {@value} */
     private Socket client;
-    /**
-     * Socket对象输入流
-     */
+
+    /** 输入流对象 {@value} */
     private ObjectInputStream ois;
-    /**
-     * Socket对象输出流
-     */
+
+    /** 输出流对象 {@value} */
     private ObjectOutputStream oos;
-    /**
-     * 当前登录用户
-     */
+
+    /** 当前登陆用户 {@value} */
     public static String theUsr;
 
+    /** 用于从数据库获得数据端ToAccess对象 {@value} */
     public static ToAccess toAccess;
 
 
@@ -218,6 +221,14 @@ public class ServerThread extends Thread {
 
     //-------------------------工具函数------------------------------------------------------------
 
+    /**
+     *
+     * <p>
+     *     发送处理结果端返回数据
+     * </p>
+     * @param message 返回给客户端的Message
+     * @throws Exception socket异常
+     */
     public void sendmsg(Message message)throws Exception{
         oos.writeObject(message);
         oos.flush();
@@ -229,6 +240,14 @@ public class ServerThread extends Thread {
     //--------------------------------------------------------------------------------------------
 
     //------------------------------用户模块-------------------------------------
+
+    /**
+     *
+     * <p>
+     *     登陆请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void Login(Message message){
         UsrMessage usrMessage =(UsrMessage) message.getData();
         try {
@@ -254,6 +273,13 @@ public class ServerThread extends Thread {
         }
     }
 
+    /**
+     *
+     * <p>
+     *     密码确认请求d返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void PwdConfirm(Message message){
         UsrMessage usrMessage =(UsrMessage) message.getData();
         try {
@@ -271,6 +297,13 @@ public class ServerThread extends Thread {
         }
     }
 
+    /**
+     *
+     * <p>
+     *     注册请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void Signup(Message message){
         UsrMessage signupMessage=(UsrMessage)message.getData();
         try {
@@ -283,6 +316,13 @@ public class ServerThread extends Thread {
         }
     }
 
+    /**
+     *
+     * <p>
+     *     删除用户请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void deleteusr(Message message){
         UsrMessage usrMessage=(UsrMessage)message.getData();
         try {
@@ -294,6 +334,13 @@ public class ServerThread extends Thread {
         }
     }
 
+    /**
+     *
+     * <p>
+     *     更新用户信息请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void updateusr(Message message){
         UsrMessage signupMessage=(UsrMessage)message.getData();
         try {
@@ -305,11 +352,24 @@ public class ServerThread extends Thread {
         }
     }
 
+    /**
+     *
+     * <p>
+     *     登出请求的操作函数
+     * </p>
+     */
     public void exitlogin(){
         theUsr=null;
     }
 
     //    -----------------------------图书馆模块--------------------------------------------
+
+    /**
+     *
+     * <p>
+     *     获得图书信息请求的返回函数
+     * </p>
+     */
     public void Librarylist(){
         BookMessage bookMessage=new BookMessage();
         try {
@@ -323,6 +383,13 @@ public class ServerThread extends Thread {
 
     }
 
+    /**
+     *
+     * <p>
+     *     借书请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void bookBorrow(Message message){
         BookBorrowMessage bookBorrowMessage=(BookBorrowMessage) message.getData();
         try {
@@ -335,6 +402,13 @@ public class ServerThread extends Thread {
         }
     }
 
+    /**
+     *
+     * <p>
+     *     添加图书请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void addbook(Message message){
         BookMessage bookMessage=(BookMessage) message.getData();
         BookInfo bookInfo=(BookInfo) bookMessage.getbook().get(0);
@@ -348,6 +422,13 @@ public class ServerThread extends Thread {
         }catch (Exception e){}
     }
 
+    /**
+     *
+     * <p>
+     *     删除图书请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void deletebook(Message message){
         BookMessage bookMessage=(BookMessage) message.getData();
         BookInfo bookInfo=(BookInfo) bookMessage.getbook().get(0);
@@ -360,6 +441,13 @@ public class ServerThread extends Thread {
         }catch (Exception e){}
     }
 
+    /**
+     *
+     * <p>
+     *     更新图书请求d返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void updatebook(Message message){
         BookMessage bookMessage=(BookMessage) message.getData();
         BookInfo bookInfo=(BookInfo) bookMessage.getbook().get(0);
@@ -373,6 +461,13 @@ public class ServerThread extends Thread {
         }catch (Exception e){}
     }
 
+    /**
+     *
+     * <p>
+     *     还书请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void returnBook(Message message){
         BookMessage bookMessage=(BookMessage) message.getData();
         BookInfo bookInfo=(BookInfo) bookMessage.getbook().get(0);
@@ -385,6 +480,13 @@ public class ServerThread extends Thread {
         }catch (Exception e){}
     }
 
+    /**
+     *
+     * <p>
+     *     获得管理员端借书信息请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void adminbookborrowlist(Message message){
         BookMessage bookMessage=new BookMessage();
         try {
@@ -397,6 +499,13 @@ public class ServerThread extends Thread {
         }catch (Exception e){}
     }
 
+    /**
+     *
+     * <p>
+     *     获得用户端借书信息请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void usrbookborrowlist(Message message){
         BookMessage bookMessage=new BookMessage();
         try {
@@ -410,6 +519,13 @@ public class ServerThread extends Thread {
     }
 
     //-------------------------------学籍管理----------------------------------------------
+
+    /**
+     *
+     * <p>
+     *     获得学生学籍信息请求的返回函数
+     * </p>
+     */
     public void Studentlist(){
         StudentMessage studentMessage=new StudentMessage();
         try {
@@ -422,6 +538,13 @@ public class ServerThread extends Thread {
         }catch (Exception e){}
     }
 
+    /**
+     *
+     * <p>
+     *     添加学生学籍信息请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void addstudent(Message message){
         StudentMessage studentMessage=(StudentMessage) message.getData();
         Studentinfo studentinfo=(Studentinfo) studentMessage.getStudent().get(0);
@@ -437,6 +560,13 @@ public class ServerThread extends Thread {
 
     }
 
+    /**
+     *
+     * <p>
+     *     删除学生学籍信息请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void deletestudent(Message message){
         StudentMessage studentMessage=(StudentMessage) message.getData();
         Studentinfo studentinfo=(Studentinfo) studentMessage.getStudent().get(0);
@@ -449,7 +579,13 @@ public class ServerThread extends Thread {
         }catch (Exception e){}
     }
 
-
+    /**
+     *
+     * <p>
+     *     更新学生学籍信息请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void updatestudent(Message message){
         StudentMessage studentMessage=(StudentMessage) message.getData();
         Studentinfo studentinfo=(Studentinfo) studentMessage.getStudent().get(0);
@@ -465,6 +601,12 @@ public class ServerThread extends Thread {
 
     }
 
+    /**
+     *
+     * <p>
+     *     获得用户端学生学籍信息请求的返回函数
+     * </p>
+     */
     public void usrstudent(){
         StudentMessage studentMessage=new StudentMessage();
         try {
@@ -477,6 +619,13 @@ public class ServerThread extends Thread {
         }catch (Exception e){}
     }
     //-----------------------------------课程模块-------------------------------------------
+
+    /**
+     *
+     * <p>
+     *     获得课程信息请求的返回函数
+     * </p>
+     */
     public void Courselist(){
         CourseMessage courseMessage=new CourseMessage();
         try {
@@ -491,6 +640,13 @@ public class ServerThread extends Thread {
         }
     }
 
+    /**
+     *
+     * <p>
+     *     添加课程信息请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void addcourse(Message message){
         CourseMessage courseMessage=(CourseMessage) message.getData();
         CourseInfo courseInfo=(CourseInfo) courseMessage.getCourse().get(0);
@@ -504,6 +660,13 @@ public class ServerThread extends Thread {
         }
     }
 
+    /**
+     *
+     * <p>
+     *     删除课程信息请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void deletecourse(Message message){
         CourseMessage courseMessage=(CourseMessage) message.getData();
         CourseInfo courseInfo=(CourseInfo) courseMessage.getCourse().get(0);
@@ -516,6 +679,13 @@ public class ServerThread extends Thread {
         }
     }
 
+    /**
+     *
+     * <p>
+     *     删除选课信息请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void deletecourseSelect(Message message){
         CourseMessage courseMessage=(CourseMessage) message.getData();
         CourseInfo courseInfo=(CourseInfo) courseMessage.getCourse().get(0);
@@ -528,6 +698,13 @@ public class ServerThread extends Thread {
         }
     }
 
+    /**
+     *
+     * <p>
+     *     选课请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void selectcourse(Message message){
         CourseMessage courseMessage=(CourseMessage) message.getData();
         CourseInfo courseInfo=(CourseInfo) courseMessage.getCourse().get(0);
@@ -540,6 +717,13 @@ public class ServerThread extends Thread {
         }
     }
 
+    /**
+     *
+     * <p>
+     *     更新课程信息请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void updatecourse(Message message){
         CourseMessage courseMessage=(CourseMessage) message.getData();
         CourseInfo courseInfo=(CourseInfo) courseMessage.getCourse().get(0);
@@ -552,6 +736,13 @@ public class ServerThread extends Thread {
         }
     }
 
+    /**
+     *
+     * <p>
+     *     获得学生课表请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void courseTable(Message message){
         CourseMessage courseMessage=new CourseMessage();
         try {
@@ -568,7 +759,12 @@ public class ServerThread extends Thread {
 
     //--------------------------------------商店模块-----------------------------------------
 
-
+    /**
+     *
+     * <p>
+     *     获得商品列表的请求的返回函数
+     * </p>
+     */
     public void Shoplist(){
         ShopMessage shopMessage=new ShopMessage();
         try {
@@ -582,6 +778,13 @@ public class ServerThread extends Thread {
         }
     }
 
+    /**
+     *
+     * <p>
+     *     添加商品信息请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void addshop(Message message){
         ShopMessage shopMessage=(ShopMessage) message.getData();
         GoodsInfo goodsInfo=(GoodsInfo)shopMessage.getGoodsInfo().get(0);
@@ -596,6 +799,13 @@ public class ServerThread extends Thread {
         }
     }
 
+    /**
+     *
+     * <p>
+     *     删除商品信息请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void deleteshop(Message message){
         ShopMessage shopMessage=(ShopMessage) message.getData();
         GoodsInfo goodsInfo=(GoodsInfo)shopMessage.getGoodsInfo().get(0);
@@ -610,6 +820,13 @@ public class ServerThread extends Thread {
         }
     }
 
+    /**
+     *
+     * <p>
+     *     购买商品请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void buyshop(Message message){
         System.out.println("buyshop function");
         ShopMessage shopMessage=(ShopMessage) message.getData();
@@ -631,6 +848,13 @@ public class ServerThread extends Thread {
         }
     }
 
+    /**
+     *
+     * <p>
+     *     更新商品信息请求的返回函数
+     * </p>
+     * @param message 得到的Message
+     */
     public void updateshop(Message message){
         ShopMessage shopMessage=(ShopMessage) message.getData();
         GoodsInfo goodsInfo=(GoodsInfo)shopMessage.getGoodsInfo().get(0);
@@ -644,5 +868,15 @@ public class ServerThread extends Thread {
 
         }
     }
-
+/**
+ * @see {@link Message}
+ * @see {@link BookMessage}
+ * @see {@link BookBorrowMessage}
+ * @see {@link CourseMessage}
+ * @see {@link ShopMessage}
+ * @see {@link StudentMessage}
+ * @see {@link UsrMessage}
+ * @see {@link Server}
+ * @see {@link ToAccess}
+ */
 }

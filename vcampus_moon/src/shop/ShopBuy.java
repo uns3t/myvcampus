@@ -1,5 +1,11 @@
 package shop;
-
+/**
+ * 类 {@code ShopBuy} 购买商品界面.
+ *
+ * <p> 购买商品界面
+ *
+ * @since 2019/8/19
+ */
 import javax.swing.*;
 
 import client.*;

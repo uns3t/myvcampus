@@ -1,5 +1,11 @@
 package DAO;
-
+/**
+ * 类 {@code usrDAO} 管理usertbl的类.
+ *
+ * <p> 管理usertbl
+ *
+ * @since 2019/8/19
+ */
 
 import java.lang.Exception;
 import java.math.BigInteger;
@@ -22,7 +28,16 @@ public class usrDAO {
         this.con=c;
     }
 
-
+    /**
+     *
+     * <p>
+     *     登陆检查
+     * </p>
+     * @param id 用户ID
+     * @param pwd 密码
+     * @return 是否成功以及是否为管理员（1为管理员，0为学生，-1为登陆失败）
+     * @throws Exception sql异常
+     */
     public int Logincheck(String id,String pwd) throws Exception {
         String thepwd = null;
         MessageDigest messageDigest = MessageDigest.getInstance("MD5");
@@ -45,6 +60,17 @@ public class usrDAO {
         return -1;
     }
 
+    /**
+     *
+     * <p>
+     *     注册
+     * </p>
+     * @param name 用户名
+     * @param pwd 密码
+     * @param id 用户ID
+     * @return 是否成功
+     * @throws Exception sql异常
+     */
     public boolean signup(String name,String pwd,String id) throws Exception{
         String thepwd = null;
         MessageDigest messageDigest = MessageDigest.getInstance("MD5");
@@ -59,6 +85,17 @@ public class usrDAO {
         return true;
     }
 
+    /**
+     *
+     * <p>
+     *     更新用户信息
+     * </p>
+     * @param name 用户名
+     * @param pwd 密码
+     * @param id 用户ID
+     * @return 是否成功
+     * @throws Exception sql异常
+     */
     public boolean updateusr(String name,String pwd,String id) throws Exception{
         sql = con.prepareStatement("update Usrtbl set Usr_id=?, pwd=?, Usr_name=? where Usr_id=?");
         sql.setString(1, id);
@@ -69,11 +106,22 @@ public class usrDAO {
         return true;
     }
 
+    /**
+     *
+     * <p>
+     *     删除用户信息
+     * </p>
+     * @param usr_id 用户ID
+     * @throws Exception sql异常
+     */
     public void deleteUsr(String usr_id) throws Exception {
         System.out.println("删除"+usr_id);
         sql=con.prepareStatement("DELETE FROM Usrtbl WHERE usr_id=?");
         sql.setString(1,usr_id);
         sql.executeUpdate();
     }
+    /**
+     * @see {@link ToAccess}
+     */
 
 }
