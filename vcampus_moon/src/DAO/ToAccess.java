@@ -40,6 +40,11 @@ public class ToAccess {
 
     //more
 
+    /**
+     * <p>
+     *     连接数据库
+     * </p>
+     */
     public void getcon() {
         try {
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");//加载ucanaccess驱动

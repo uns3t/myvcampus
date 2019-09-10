@@ -1,5 +1,11 @@
 package student;
-
+/**
+ * 类 {@code AdminStudentsPage} 管理员学籍管理界面.
+ *
+ * <p> 管理员学籍管理界面
+ *
+ * @since 2019/8/19
+ */
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;

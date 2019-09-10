@@ -1,5 +1,11 @@
 package course;
-
+/**
+ * 类 {@code ManagerCoursePage} 管理员课程管理界面.
+ *
+ * <p> 管理员课程管理界面
+ *
+ * @since 2019/8/19
+ */
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;

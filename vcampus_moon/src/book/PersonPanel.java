@@ -1,5 +1,11 @@
 package book;
-
+/**
+ * 类 {@code PersonPanel} 借书状态界面.
+ *
+ * <p> 借书状态界面
+ *
+ * @since 2019/8/19
+ */
 import message.BookBorrowMessage;
 
 import javax.swing.*;

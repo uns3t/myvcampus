@@ -1,5 +1,11 @@
 package book;
-
+/**
+ * 类 {@code SuperTable} 控件.
+ *
+ * <p> 控件
+ *
+ * @since 2019/8/19
+ */
 import client.*;
 import message.*;
 

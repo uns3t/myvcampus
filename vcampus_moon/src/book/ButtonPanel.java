@@ -1,5 +1,11 @@
 package book;
-
+/**
+ * 类 {@code ButtonPanel} 按钮.
+ *
+ * <p> 按钮
+ *
+ * @since 2019/8/19
+ */
 import javax.swing.*;
 import java.awt.*;
 

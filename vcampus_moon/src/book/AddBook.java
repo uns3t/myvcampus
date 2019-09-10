@@ -1,5 +1,11 @@
 package book;
-
+/**
+ * 类 {@code AddBook} 添加图书界面.
+ *
+ * <p> 添加图书界面
+ *
+ * @since 2019/8/19
+ */
 import client.ClientThread;
 
 import javax.swing.*;

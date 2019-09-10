@@ -1,5 +1,11 @@
 package shop;
-
+/**
+ * 类 {@code ShopUser} 商店界面.
+ *
+ * <p> 商店界面
+ *
+ * @since 2019/8/19
+ */
 import client.ClientThread;
 import message.*;
 
@@ -22,9 +28,7 @@ import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.Icon;
 
-/**
- * @author HP
- */
+
 public class ShopUser extends JFrame{
     private JTextField textField_4;
     private JTextField textField;

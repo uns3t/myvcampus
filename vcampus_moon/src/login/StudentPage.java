@@ -1,5 +1,11 @@
 package login;
-
+/**
+ * 类 {@code StudentPage} 学生主界面.
+ *
+ * <p> 学生主界面
+ *
+ * @since 2019/8/19
+ */
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;

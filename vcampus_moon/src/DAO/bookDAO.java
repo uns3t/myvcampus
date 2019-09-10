@@ -24,6 +24,21 @@ public class bookDAO {
         this.con=c;
     }
 
+    /**
+     *
+     * <p>
+     *     添加图书
+     * </p>
+     * @param book_name 书籍名称
+     * @param book_id 书籍编号
+     * @param book_author 书籍作者
+     * @param book_press 书籍出版社
+     * @param book_total 书籍总数
+     * @param book_borrowed 借书数量
+     * @param book_introduction 书籍简介
+     * @return 是否成功
+     * @throws Exception sql异常
+     */
     public boolean addBook(String book_name,String book_id,String book_author,String book_press,String book_total,String book_borrowed,String book_introduction) throws Exception{
         sql = con.prepareStatement("insert into Booktbl (Book_name, Book_id, Book_author,Book_press,Book_total,Book_borrowed,Book_introduction) values (?, ?, ?,?,?,?,?)");
 
@@ -38,7 +53,21 @@ public class bookDAO {
         return true;
     }
 
-
+    /**
+     *
+     * <p>
+     *     更新图书
+     * </p>
+     * @param book_name 书籍名称
+     * @param book_id 书籍编号
+     * @param book_author 书籍作者
+     * @param book_press 书籍出版社
+     * @param book_total 书籍总数
+     * @param book_borrowed 借书数量
+     * @param book_introduction 书籍简介
+     * @return 是否成功
+     * @throws Exception sql异常
+     */
     public boolean updateBook(String book_name,String book_id,String book_author,String book_press,String book_total,String book_borrowed,String book_introduction) throws Exception{
         sql = con.prepareStatement("update Booktbl set Book_name=?, Book_id=?, Book_author=?,Book_press=?,Book_total=?,Book_borrowed=?,Book_introduction=? where Book_id=?");
 
@@ -54,12 +83,28 @@ public class bookDAO {
         return true;
     }
 
+    /**
+     *
+     * <p>
+     *     删除图书
+     * </p>
+     * @param book_id 书籍编号
+     * @throws Exception sql异常
+     */
     public void deleteBook(String book_id) throws Exception {
         System.out.println("删除"+book_id);
         sql=con.prepareStatement("DELETE FROM Booktbl WHERE Book_id"+"="+"'"+book_id+"'");
         sql.executeUpdate();
     }
 
+    /**
+     *
+     * <p>
+     *     获得图书列表
+     * </p>
+     * @return 图书对象列表
+     * @throws Exception sql异常
+     */
     public ArrayList<BookInfo> listBook() throws Exception{
         ArrayList<BookInfo> booklist=new ArrayList<BookInfo>();
         sql=con.prepareStatement("select * from Booktbl");
@@ -78,6 +123,15 @@ public class bookDAO {
         return booklist;
     }
 
+    /**
+     *
+     * <p>
+     *     借书
+     * </p>
+     * @param book_id 书籍编号
+     * @param usr_id 用户id
+     * @throws Exception sql异常
+     */
     public void borrowBook(String book_id,String usr_id) throws Exception{
         sql=con.prepareStatement("select * from Booktbl where Book_id=?");
         sql.setString(1,book_id);
@@ -99,6 +153,14 @@ public class bookDAO {
         }
     }
 
+    /**
+     *
+     * <p>
+     *     获得借书列表
+     * </p>
+     * @return 管理员借书列表
+     * @throws SQLException sql异常
+     */
     public ArrayList<BookInfo> listBookBorrow() throws SQLException {
         ArrayList<BookInfo> booklist=new ArrayList<BookInfo>();
         sql=con.prepareStatement("select * from Borrowtbl");
@@ -113,6 +175,15 @@ public class bookDAO {
         return booklist;
     }
 
+    /**
+     *
+     * <p>
+     *     获得用户端借书列表
+     * </p>
+     * @param usr_id 用户ID
+     * @return 用户借书列表
+     * @throws SQLException sql异常
+     */
     public ArrayList<BookInfo> listUsrBookBorrow(String usr_id) throws SQLException {
         ArrayList<BookInfo> booklist=new ArrayList<BookInfo>();
         sql=con.prepareStatement("select * from Booktbl where Book_id"+"="+"'"+usr_id+"'");
@@ -127,6 +198,15 @@ public class bookDAO {
         return booklist;
     }
 
+    /**
+     *
+     * <p>
+     *     还书
+     * </p>
+     * @param book_id 书籍编号
+     * @param usr_id 用户ID
+     * @throws Exception sql异常
+     */
     public void returnBook(String book_id, String usr_id) throws Exception {
         if (deleteBookborrow(book_id,usr_id)) {
             sql = con.prepareStatement("select * from Borrowtbl WHERE Book_id" + "=" + "'" + book_id + "'");
@@ -143,6 +223,16 @@ public class bookDAO {
         }
     }
 
+    /**
+     *
+     * <p>
+     *     删除借书信息
+     * </p>
+     * @param book_id 书籍编号
+     * @param usr_id 用户ID
+     * @return 是否成功
+     * @throws Exception sql异常
+     */
     public boolean deleteBookborrow(String book_id, String usr_id) throws Exception{
         System.out.println("删除"+ book_id + " "+ usr_id);
         sql=con.prepareStatement("DELETE FROM Borrowtbl WHERE Book_id"+"="+"'"+book_id+"' and where Usr_id"+"="+"'"+usr_id+"'");
@@ -150,6 +240,16 @@ public class bookDAO {
         return true;
     }
 
+    /**
+     *
+     * <p>
+     *     添加借书信息
+     * </p>
+     * @param book_id 书籍编号
+     * @param usr_id 用户ID
+     * @return
+     * @throws Exception
+     */
     public boolean addBookborrow(String book_id,String usr_id) throws Exception{
         String time=new Date().toString();
         System.out.println(time);
@@ -161,4 +261,8 @@ public class bookDAO {
         sql.executeUpdate();
         return true;
     }
+
+    /**
+     * @see {@link ToAccess}
+     */
 }

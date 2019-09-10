@@ -1,5 +1,11 @@
 package course;
-
+/**
+ * 类 {@code StudentCoursePage} 学生课程界面.
+ *
+ * <p> 学生课程界面
+ *
+ * @since 2019/8/19
+ */
 import javax.swing.JFrame;
 
 import message.*;

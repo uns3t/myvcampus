@@ -1,5 +1,11 @@
 package book;
-
+/**
+ * 类 {@code LibAdmin} 书籍管理.
+ *
+ * <p> 书籍管理
+ *
+ * @since 2019/8/19
+ */
 import client.ClientThread;
 import message.BookInfo;
 import message.BookMessage;

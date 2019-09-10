@@ -1,5 +1,11 @@
 package login;
-
+/**
+ * 类 {@code VerifyCode} 验证码.
+ *
+ * <p> 验证码
+ *
+ * @since 2019/8/19
+ */
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
