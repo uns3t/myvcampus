@@ -1,5 +1,11 @@
 package DAO;
-
+/**
+ * 类 {@code courseDAO} 管理coursetbl的类.
+ *
+ * <p> 管理coursetbl
+ *
+ * @since 2019/8/19
+ */
 import java.lang.Exception;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,4 +1,11 @@
 package Server;
+/**
+ * 类 {@code Server} 服务器端.
+ *
+ * <p> 服务器端run开始监听
+ *
+ * @since 2019/8/19
+ */
 import java.io.*;
 import java.net.BindException;
 import java.net.ServerSocket;
@@ -71,14 +78,15 @@ public class Server extends Thread {
                 e.printStackTrace();
             }
         }
+
     }
 
 
+/**
+ * @see {@link ServerThread}
+ */
 
 
-    /**
-     * 在向量中按登录用户ID寻找客户端
-     */
 //    public boolean searchClientConnection(String curUser) {
 //        for (ServerThread ct: manyserver) {
 //            if (ct.curUser != null && ct.curUser.equals(curUser)) {

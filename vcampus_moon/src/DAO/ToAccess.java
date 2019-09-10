@@ -1,5 +1,11 @@
 package DAO;
-
+/**
+ * 类 {@code ToAccess} 连接数据库的类.
+ *
+ * <p> 通过该类连接数据库
+ *
+ * @since 2019/8/19
+ */
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.lang.Exception;
