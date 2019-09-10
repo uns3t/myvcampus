@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -69,12 +70,6 @@ public class ShopAdmin extends JFrame {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(ClientThread cthread) {
-		cthread.handleShowGoodsMessage();
-		ShopMessage smessage = (ShopMessage) cthread.getREMessage().getData();
-		goodsinfo = smessage.getGoodsInfo();
-		number = goodsinfo.size();
-		pagenum = (number + 4) / 5;
-
 		getContentPane().setBackground(SystemColor.control);
 		setBackground(new Color(210, 180, 140));
 		setTitle("\u9009\u62E9\u5546\u54C1\u754C\u9762\uFF08\u7528\u6237\uFF09");
@@ -86,12 +81,6 @@ public class ShopAdmin extends JFrame {
 		layeredPane.setBounds(-1, 0, 1056, 578);
 		getContentPane().add(layeredPane);
 		layeredPane.setLayout(null);
-
-		textField_4 = new JTextField();
-		textField_4.setBounds(0, 85, 86, -61);
-		layeredPane.setLayer(textField_4, 1);
-		layeredPane.add(textField_4);
-		textField_4.setColumns(10);
 
 		textField = new JTextField();
 		layeredPane.setLayer(textField, 2);
@@ -125,6 +114,12 @@ public class ShopAdmin extends JFrame {
 		textField_2.setBackground(new Color(224, 255, 255));
 		textField_2.setBounds(351, 143, 147, 54);
 		layeredPane.add(textField_2);
+		
+		textField_4 = new JTextField();
+		textField_4.setBounds(0, 85, 86, -61);
+		layeredPane.setLayer(textField_4, 1);
+		layeredPane.add(textField_4);
+		textField_4.setColumns(10);
 
 		textField_6 = new JTextField();
 		layeredPane.setLayer(textField_6, 2);
@@ -188,7 +183,6 @@ public class ShopAdmin extends JFrame {
 
 		textField_12 = new JTextField();
 		layeredPane.setLayer(textField_12, 2);
-		textField_12.setText(String.valueOf(currentpage));
 		textField_12.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_12.setFont(new Font("宋体", Font.BOLD, 18));
 		textField_12.setEditable(false);
@@ -199,7 +193,6 @@ public class ShopAdmin extends JFrame {
 
 		textField_13 = new JTextField();
 		layeredPane.setLayer(textField_13, 2);
-		textField_13.setText(String.valueOf(pagenum));
 		textField_13.setHorizontalAlignment(SwingConstants.CENTER);
 		textField_13.setFont(new Font("宋体", Font.BOLD, 18));
 		textField_13.setEditable(false);
@@ -267,6 +260,17 @@ public class ShopAdmin extends JFrame {
 		textField_19.setBackground(Color.WHITE);
 		textField_19.setBounds(351, 354, 147, 54);
 		layeredPane.add(textField_19);
+		
+		textField_20 = new JTextField();
+		layeredPane.setLayer(textField_20, 2);
+		textField_20.setText("\u5355\u4EF7");
+		textField_20.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_20.setFont(new Font("宋体", Font.BOLD, 20));
+		textField_20.setEditable(false);
+		textField_20.setColumns(10);
+		textField_20.setBackground(new Color(224, 255, 255));
+		textField_20.setBounds(497, 143, 147, 54);
+		layeredPane.add(textField_20);
 
 		textField_21 = new JTextField();
 		layeredPane.setLayer(textField_21, 2);
@@ -297,70 +301,7 @@ public class ShopAdmin extends JFrame {
 		textField_23.setBackground(Color.WHITE);
 		textField_23.setBounds(351, 407, 147, 54);
 		layeredPane.add(textField_23);
-
-		// 获取学生信息
-		cthread.handleShowStudentMessage();
-		Message stuMessage = cthread.getREMessage();
-		StudentMessage mess = (StudentMessage) stuMessage.getData();
-		Studentinfo studentinfo = (Studentinfo) mess.getStudent().get(0);
-
-		lblNewLabel = new JLabel("\u7F51\u4E0A\u5546\u5E97\u7BA1\u7406\u7CFB\u7EDFv1.0");
-		lblNewLabel.setFont(new Font("宋体", Font.BOLD, 24));
-		layeredPane.setLayer(lblNewLabel, 2);
-		lblNewLabel.setBounds(449, 40, 260, 41);
-		layeredPane.add(lblNewLabel);
 		
-		lblNewLabel_4 = new JLabel("");
-		layeredPane.setLayer(lblNewLabel_4, 0);
-		lblNewLabel_4.setIcon(new ImageIcon("D:\\IDEA\\share\\myvcampus\\vcampus_moon\\images\\ShopBuy.jpg"));
-		lblNewLabel_4.setBounds(0, 0, 1056, 578);
-		layeredPane.add(lblNewLabel_4);
-		
-		ImageIcon image = new ImageIcon("images/seu.jpg");
-		label = new JLabel(image);
-		layeredPane.setLayer(label, 2);
-		label.setBounds(263, 10, 116, 112);
-		layeredPane.add(label);
-
-		label_4 = new JLabel("第");
-		layeredPane.setLayer(label_4, 2);
-		label_4.setHorizontalAlignment(SwingConstants.CENTER);
-		label_4.setFont(new Font("宋体", Font.BOLD, 20));
-		label_4.setBounds(59, 485, 50, 45);
-		layeredPane.add(label_4);
-
-		label_5 = new JLabel("页");
-		layeredPane.setLayer(label_5, 2);
-		label_5.setHorizontalAlignment(SwingConstants.CENTER);
-		label_5.setFont(new Font("宋体", Font.BOLD, 18));
-		label_5.setBounds(125, 485, 50, 45);
-		layeredPane.add(label_5);
-
-		label_6 = new JLabel("/共");
-		layeredPane.setLayer(label_6, 2);
-		label_6.setHorizontalAlignment(SwingConstants.CENTER);
-		label_6.setFont(new Font("宋体", Font.BOLD, 18));
-		label_6.setBounds(161, 485, 50, 45);
-		layeredPane.add(label_6);
-
-		label_7 = new JLabel("页");
-		layeredPane.setLayer(label_7, 2);
-		label_7.setHorizontalAlignment(SwingConstants.CENTER);
-		label_7.setFont(new Font("宋体", Font.BOLD, 20));
-		label_7.setBounds(237, 485, 50, 45);
-		layeredPane.add(label_7);
-
-		textField_20 = new JTextField();
-		layeredPane.setLayer(textField_20, 2);
-		textField_20.setText("\u5355\u4EF7");
-		textField_20.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_20.setFont(new Font("宋体", Font.BOLD, 20));
-		textField_20.setEditable(false);
-		textField_20.setColumns(10);
-		textField_20.setBackground(new Color(224, 255, 255));
-		textField_20.setBounds(497, 143, 147, 54);
-		layeredPane.add(textField_20);
-
 		textField_24 = new JTextField();
 		layeredPane.setLayer(textField_24, 2);
 		textField_24.setHorizontalAlignment(SwingConstants.CENTER);
@@ -411,7 +352,64 @@ public class ShopAdmin extends JFrame {
 		textField_28.setBounds(497, 407, 147, 54);
 		layeredPane.add(textField_28);
 
+		lblNewLabel = new JLabel("\u7F51\u4E0A\u5546\u5E97\u7BA1\u7406\u7CFB\u7EDFv1.0");
+		lblNewLabel.setFont(new Font("宋体", Font.BOLD, 24));
+		layeredPane.setLayer(lblNewLabel, 2);
+		lblNewLabel.setBounds(449, 40, 260, 41);
+		layeredPane.add(lblNewLabel);
+		
+		lblNewLabel_4 = new JLabel("");
+		layeredPane.setLayer(lblNewLabel_4, 0);
+		lblNewLabel_4.setIcon(new ImageIcon("D:\\IDEA\\share\\myvcampus\\vcampus_moon\\images\\ShopBuy.jpg"));
+		lblNewLabel_4.setBounds(0, 0, 1056, 578);
+		layeredPane.add(lblNewLabel_4);
+		
+		ImageIcon image = new ImageIcon("images/seu.jpg");
+		label = new JLabel(image);
+		layeredPane.setLayer(label, 2);
+		label.setBounds(263, 10, 116, 112);
+		layeredPane.add(label);
+
+		label_4 = new JLabel("第");
+		layeredPane.setLayer(label_4, 2);
+		label_4.setHorizontalAlignment(SwingConstants.CENTER);
+		label_4.setFont(new Font("宋体", Font.BOLD, 20));
+		label_4.setBounds(59, 485, 50, 45);
+		layeredPane.add(label_4);
+
+		label_5 = new JLabel("页");
+		layeredPane.setLayer(label_5, 2);
+		label_5.setHorizontalAlignment(SwingConstants.CENTER);
+		label_5.setFont(new Font("宋体", Font.BOLD, 18));
+		label_5.setBounds(125, 485, 50, 45);
+		layeredPane.add(label_5);
+
+		label_6 = new JLabel("/共");
+		layeredPane.setLayer(label_6, 2);
+		label_6.setHorizontalAlignment(SwingConstants.CENTER);
+		label_6.setFont(new Font("宋体", Font.BOLD, 18));
+		label_6.setBounds(161, 485, 50, 45);
+		layeredPane.add(label_6);
+
+		label_7 = new JLabel("页");
+		layeredPane.setLayer(label_7, 2);
+		label_7.setHorizontalAlignment(SwingConstants.CENTER);
+		label_7.setFont(new Font("宋体", Font.BOLD, 20));
+		label_7.setBounds(237, 485, 50, 45);
+		layeredPane.add(label_7);
+
 		button = new JButton("\u4FEE\u6539");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				button.setEnabled(false);
+				button_7.setEnabled(true);
+				button_8.setEnabled(false);
+				
+				textField_7.setEditable(true);
+				textField_6.setEditable(true);
+				textField_24.setEditable(true);
+			}
+		});
 		layeredPane.setLayer(button, 2);
 		button.setFont(new Font("宋体", Font.BOLD, 19));
 		button.setEnabled(false);
@@ -421,6 +419,13 @@ public class ShopAdmin extends JFrame {
 		button_1 = new JButton("\u4FEE\u6539");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				button_1.setEnabled(false);
+				button_9.setEnabled(true);
+				button_13.setEnabled(false);
+				
+				textField_10.setEditable(true);
+				textField_11.setEditable(true);
+				textField_25.setEditable(true);
 			}
 		});
 		layeredPane.setLayer(button_1, 2);
@@ -430,6 +435,17 @@ public class ShopAdmin extends JFrame {
 		layeredPane.add(button_1);
 
 		button_2 = new JButton("\u4FEE\u6539");
+		button_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				button_2.setEnabled(false);
+				button_10.setEnabled(true);
+				button_14.setEnabled(false);
+				
+				textField_15.setEditable(true);
+				textField_14.setEditable(true);
+				textField_26.setEditable(true);
+			}
+		});
 		layeredPane.setLayer(button_2, 2);
 		button_2.setFont(new Font("宋体", Font.BOLD, 19));
 		button_2.setEnabled(false);
@@ -437,6 +453,17 @@ public class ShopAdmin extends JFrame {
 		layeredPane.add(button_2);
 
 		button_3 = new JButton("\u4FEE\u6539");
+		button_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				button_3.setEnabled(false);
+				button_11.setEnabled(true);
+				button_15.setEnabled(false);
+				
+				textField_18.setEditable(true);
+				textField_19.setEditable(true);
+				textField_27.setEditable(true);
+			}
+		});
 		layeredPane.setLayer(button_3, 2);
 		button_3.setFont(new Font("宋体", Font.BOLD, 19));
 		button_3.setEnabled(false);
@@ -448,10 +475,7 @@ public class ShopAdmin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (currentpage > 1) {
 					currentpage--;
-					tempinfo.clear();
-					for (int i = (currentpage - 1) * 5; i < (currentpage * 5 < number ? currentpage * 5 : number); i++)
-						tempinfo.add(goodsinfo.get(i));
-					initText();
+				initText(cthread);
 				}
 			}
 		});
@@ -465,10 +489,7 @@ public class ShopAdmin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (currentpage < pagenum) {
 					currentpage++;
-					tempinfo.clear();
-					for (int i = (currentpage - 1) * 5; i < (currentpage * 5 < number ? currentpage * 5 : number); i++)
-						tempinfo.add(goodsinfo.get(i));
-					initText();
+				initText(cthread);
 				}
 			}
 		});
@@ -480,13 +501,7 @@ public class ShopAdmin extends JFrame {
 		button_6 = new JButton("\u5237\u65B0");
 		button_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cthread.handleShowGoodsMessage();
-				ShopMessage smessage = (ShopMessage) cthread.getREMessage().getData();
-				goodsinfo = smessage.getGoodsInfo();
-				tempinfo.clear();
-				for (int i = (currentpage - 1) * 5; i < (currentpage * 5 < number ? currentpage * 5 : number); i++)
-					tempinfo.add(goodsinfo.get(i));
-				initText();
+				initText(cthread);
 			}
 		});
 		layeredPane.setLayer(button_6, 2);
@@ -495,6 +510,25 @@ public class ShopAdmin extends JFrame {
 		layeredPane.add(button_6);
 
 		button_7 = new JButton("\u786E\u8BA4");
+		button_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cthread.handleUpdateGood(textField_7.getText(), textField_8.getText(), Integer.valueOf(textField_24.getText()), Integer.valueOf(textField_6.getText()), 0);
+				if(cthread.getREMessage().getResponse())
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改成功！","修改提示页面", JOptionPane.INFORMATION_MESSAGE);
+				else
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改失败！","修改提示页面", JOptionPane.INFORMATION_MESSAGE);
+				
+				button.setEnabled(true);
+				button_7.setEnabled(false);
+				button_8.setEnabled(true);
+				
+				textField_7.setEditable(false);
+				textField_6.setEditable(false);
+				textField_24.setEditable(false);
+				
+				initText(cthread);
+			}
+		});
 		layeredPane.setLayer(button_7, 2);
 		button_7.setFont(new Font("宋体", Font.BOLD, 19));
 		button_7.setEnabled(false);
@@ -502,6 +536,22 @@ public class ShopAdmin extends JFrame {
 		layeredPane.add(button_7);
 
 		button_8 = new JButton("\u5220\u9664");
+		button_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int choice = JOptionPane.showConfirmDialog(new JFrame().getContentPane(), "确认删除？", "提示信息", JOptionPane.YES_NO_OPTION);
+				if(choice == JOptionPane.YES_OPTION)
+				{
+					cthread.handleDeleteGoodMessage(textField_8.getText());
+					if(cthread.getREMessage().getResponse())
+					{
+						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "删除成功！","删除提示页面", JOptionPane.INFORMATION_MESSAGE);
+						initText(cthread);
+					}
+					else
+						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "删除失败！","删除提示页面", JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
+		});
 		layeredPane.setLayer(button_8, 2);
 		button_8.setFont(new Font("宋体", Font.BOLD, 19));
 		button_8.setEnabled(false);
@@ -509,6 +559,25 @@ public class ShopAdmin extends JFrame {
 		layeredPane.add(button_8);
 
 		button_9 = new JButton("\u786E\u8BA4");
+		button_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cthread.handleUpdateGood(textField_10.getText(), textField_9.getText(), Integer.valueOf(textField_25.getText()), Integer.valueOf(textField_11.getText()), 0);
+				if(cthread.getREMessage().getResponse())
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改成功！","修改提示页面", JOptionPane.INFORMATION_MESSAGE);
+				else
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改失败！","修改提示页面", JOptionPane.INFORMATION_MESSAGE);
+				
+				button_1.setEnabled(true);
+				button_9.setEnabled(false);
+				button_13.setEnabled(true);
+				
+				textField_10.setEditable(false);
+				textField_11.setEditable(false);
+				textField_25.setEditable(false);
+				
+				initText(cthread);
+			}
+		});
 		layeredPane.setLayer(button_9, 2);
 		button_9.setFont(new Font("宋体", Font.BOLD, 19));
 		button_9.setEnabled(false);
@@ -516,6 +585,25 @@ public class ShopAdmin extends JFrame {
 		layeredPane.add(button_9);
 
 		button_10 = new JButton("\u786E\u8BA4");
+		button_10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cthread.handleUpdateGood(textField_15.getText(), textField_16.getText(), Integer.valueOf(textField_26.getText()), Integer.valueOf(textField_14.getText()), 0);
+				if(cthread.getREMessage().getResponse())
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改成功！","修改提示页面", JOptionPane.INFORMATION_MESSAGE);
+				else
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改失败！","修改提示页面", JOptionPane.INFORMATION_MESSAGE);
+				
+				button_2.setEnabled(true);
+				button_10.setEnabled(false);
+				button_14.setEnabled(true);
+				
+				textField_15.setEditable(false);
+				textField_14.setEditable(false);
+				textField_26.setEditable(false);
+				
+				initText(cthread);
+			}
+		});
 		layeredPane.setLayer(button_10, 2);
 		button_10.setFont(new Font("宋体", Font.BOLD, 19));
 		button_10.setEnabled(false);
@@ -523,6 +611,25 @@ public class ShopAdmin extends JFrame {
 		layeredPane.add(button_10);
 
 		button_11 = new JButton("\u786E\u8BA4");
+		button_11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cthread.handleUpdateGood(textField_18.getText(), textField_17.getText(), Integer.valueOf(textField_27.getText()), Integer.valueOf(textField_19.getText()), 0);
+				if(cthread.getREMessage().getResponse())
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改成功！","修改提示页面", JOptionPane.INFORMATION_MESSAGE);
+				else
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改失败！","修改提示页面", JOptionPane.INFORMATION_MESSAGE);
+				
+				button_3.setEnabled(true);
+				button_11.setEnabled(false);
+				button_15.setEnabled(true);
+				
+				textField_18.setEditable(false);
+				textField_19.setEditable(false);
+				textField_27.setEditable(false);
+				
+				initText(cthread);
+			}
+		});
 		layeredPane.setLayer(button_11, 2);
 		button_11.setFont(new Font("宋体", Font.BOLD, 19));
 		button_11.setEnabled(false);
@@ -530,6 +637,25 @@ public class ShopAdmin extends JFrame {
 		layeredPane.add(button_11);
 
 		button_12 = new JButton("\u786E\u8BA4");
+		button_12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cthread.handleUpdateGood(textField_22.getText(), textField_21.getText(), Integer.valueOf(textField_28.getText()), Integer.valueOf(textField_23.getText()), 0);
+				if(cthread.getREMessage().getResponse())
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改成功！","修改提示页面", JOptionPane.INFORMATION_MESSAGE);
+				else
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改失败！","修改提示页面", JOptionPane.INFORMATION_MESSAGE);
+				
+				button_17.setEnabled(true);
+				button_12.setEnabled(false);
+				button_16.setEnabled(true);
+				
+				textField_22.setEditable(false);
+				textField_23.setEditable(false);
+				textField_28.setEditable(false);
+				
+				initText(cthread);
+			}
+		});
 		layeredPane.setLayer(button_12, 2);
 		button_12.setFont(new Font("宋体", Font.BOLD, 19));
 		button_12.setEnabled(false);
@@ -537,6 +663,22 @@ public class ShopAdmin extends JFrame {
 		layeredPane.add(button_12);
 
 		button_13 = new JButton("\u5220\u9664");
+		button_13.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int choice = JOptionPane.showConfirmDialog(new JFrame().getContentPane(), "确认删除？", "提示信息", JOptionPane.YES_NO_OPTION);
+				if(choice == JOptionPane.YES_OPTION)
+				{
+					cthread.handleDeleteGoodMessage(textField_9.getText());
+					if(cthread.getREMessage().getResponse())
+					{
+						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "删除成功！","删除提示页面", JOptionPane.INFORMATION_MESSAGE);
+						initText(cthread);
+					}
+					else
+						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "删除失败！","删除提示页面", JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
+		});
 		layeredPane.setLayer(button_13, 2);
 		button_13.setFont(new Font("宋体", Font.BOLD, 19));
 		button_13.setEnabled(false);
@@ -544,6 +686,22 @@ public class ShopAdmin extends JFrame {
 		layeredPane.add(button_13);
 
 		button_14 = new JButton("\u5220\u9664");
+		button_14.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int choice = JOptionPane.showConfirmDialog(new JFrame().getContentPane(), "确认删除？", "提示信息", JOptionPane.YES_NO_OPTION);
+				if(choice == JOptionPane.YES_OPTION)
+				{
+					cthread.handleDeleteGoodMessage(textField_16.getText());
+					if(cthread.getREMessage().getResponse())
+					{
+						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "删除成功！","删除提示页面", JOptionPane.INFORMATION_MESSAGE);
+						initText(cthread);
+					}
+					else
+						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "删除失败！","删除提示页面", JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
+		});
 		layeredPane.setLayer(button_14, 2);
 		button_14.setFont(new Font("宋体", Font.BOLD, 19));
 		button_14.setEnabled(false);
@@ -553,6 +711,18 @@ public class ShopAdmin extends JFrame {
 		button_15 = new JButton("\u5220\u9664");
 		button_15.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int choice = JOptionPane.showConfirmDialog(new JFrame().getContentPane(), "确认删除？", "提示信息", JOptionPane.YES_NO_OPTION);
+				if(choice == JOptionPane.YES_OPTION)
+				{
+					cthread.handleDeleteGoodMessage(textField_17.getText());
+					if(cthread.getREMessage().getResponse())
+					{
+						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "删除成功！","删除提示页面", JOptionPane.INFORMATION_MESSAGE);
+						initText(cthread);
+					}
+					else
+						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "删除失败！","删除提示页面", JOptionPane.INFORMATION_MESSAGE);
+				}
 			}
 		});
 		layeredPane.setLayer(button_15, 2);
@@ -562,6 +732,22 @@ public class ShopAdmin extends JFrame {
 		layeredPane.add(button_15);
 
 		button_16 = new JButton("\u5220\u9664");
+		button_16.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int choice = JOptionPane.showConfirmDialog(new JFrame().getContentPane(), "确认删除？", "提示信息", JOptionPane.YES_NO_OPTION);
+				if(choice == JOptionPane.YES_OPTION)
+				{
+					cthread.handleDeleteGoodMessage(textField_21.getText());
+					if(cthread.getREMessage().getResponse())
+					{
+						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "删除成功！","删除提示页面", JOptionPane.INFORMATION_MESSAGE);
+						initText(cthread);
+					}
+					else
+						JOptionPane.showMessageDialog(new JFrame().getContentPane(), "删除失败！","删除提示页面", JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
+		});
 		layeredPane.setLayer(button_16, 2);
 		button_16.setFont(new Font("宋体", Font.BOLD, 19));
 		button_16.setEnabled(false);
@@ -569,11 +755,34 @@ public class ShopAdmin extends JFrame {
 		layeredPane.add(button_16);
 
 		button_17 = new JButton("\u4FEE\u6539");
+		button_17.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				button_17.setEnabled(false);
+				button_12.setEnabled(true);
+				button_16.setEnabled(false);
+				
+				textField_22.setEditable(true);
+				textField_23.setEditable(true);
+				textField_28.setEditable(true);
+			}
+		});
 		layeredPane.setLayer(button_17, 2);
 		button_17.setFont(new Font("宋体", Font.BOLD, 19));
 		button_17.setEnabled(false);
 		button_17.setBounds(663, 414, 97, 41);
 		layeredPane.add(button_17);
+		
+		JButton button_18 = new JButton("\u6DFB\u52A0\u5546\u54C1");
+		button_18.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new ShopAdd(cthread);
+				initText(cthread);
+			}
+		});
+		layeredPane.setLayer(button_18, 2);
+		button_18.setFont(new Font("宋体", Font.BOLD, 20));
+		button_18.setBounds(749, 126, 147, 45);
+		layeredPane.add(button_18);
 
 		initText(cthread);
 	}
