@@ -41,7 +41,7 @@ public class Student_courseSelected extends JFrame{
 	private void initialize(ClientThread cthread) {
 		setTitle("已选课程查询");
 		setIconImage(Toolkit.getDefaultToolkit().getImage("images/windows.jpg"));
-		setBounds(100, 100, 640, 440);
+		setBounds(100, 100, 631, 431);
 		getContentPane().setLayout(null);
 		setVisible(true);
 		
@@ -460,7 +460,7 @@ public class Student_courseSelected extends JFrame{
 		button.setBounds(405, 320, 96, 44);
 		layeredPane.add(button);
 		
-		image1 = new ImageIcon("images/login_photo1.jpg");
+		image1 = new ImageIcon("images/student_course_photo2.jpg");
 		lblNewLabel_6 = new JLabel(image1);
 		lblNewLabel_6.setBounds(0, 0, 631, 398);
 		layeredPane.add(lblNewLabel_6);

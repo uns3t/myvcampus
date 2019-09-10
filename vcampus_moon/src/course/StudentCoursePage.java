@@ -47,7 +47,7 @@ public class StudentCoursePage extends JFrame{
 	private void initialize(ClientThread cthread) {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("images/windows.jpg"));
 		setTitle("\u5B66\u751F\u9009\u8BFE\u7CFB\u7EDF\u754C\u9762");
-		setBounds(100, 100, 898, 663);
+		setBounds(100, 100, 898, 653);
 		getContentPane().setLayout(null);
 		setVisible(true);
 		
@@ -1513,7 +1513,7 @@ public class StudentCoursePage extends JFrame{
 		lblNewLabel_4.setBounds(320, 21, 72, 43);
 		layeredPane.add(lblNewLabel_4);
 		
-		image1 = new ImageIcon("images/login_photo1.jpg");
+		image1 = new ImageIcon("images/student_course_photo1.jpg");
 		lblNewLabel_5 = new JLabel(image1);
 		lblNewLabel_5.setBounds(0, 0, 884, 627);
 		layeredPane.add(lblNewLabel_5);
