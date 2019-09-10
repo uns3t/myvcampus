@@ -18,7 +18,8 @@ public class AddBook extends JFrame {
 	int total;
 	int borrowed;
 	private boolean isAdd = false;
-
+	ClientThread cthread;
+	
 	JLabel Book_id=new JLabel("图书编号:");
 	JLabel Book_name=new JLabel("书名:");
 	JLabel Book_total =new JLabel("总数量:");
@@ -42,7 +43,8 @@ public class AddBook extends JFrame {
 	//HomePanel home_panle=new HomePanel();
 
 
-	public AddBook(ClientThread cthread,boolean Add) {
+	public AddBook(ClientThread mcthread,boolean Add) {
+		cthread=mcthread;
 		isAdd=Add;
 		getContentPane().add(Book_name);	getContentPane().add(Book_id);getContentPane().add(Book_total);getContentPane().add(Book_borrow);
 		getContentPane().add(BOOKID);getContentPane().add(BOOKNAME);getContentPane().add(ABLETOBORROW);getContentPane().add(TOTAL);
@@ -75,6 +77,7 @@ public class AddBook extends JFrame {
 		this.setVisible(true);
 
 		confirm.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent e) {
 //添加书籍响应
 				book_id=BOOKID.getText();
@@ -83,35 +86,40 @@ public class AddBook extends JFrame {
 				book_press=Press_input.getText();
 				//book_total=TOTAL.getText();
 				book_introduction=Introduct_input.getText();
-				total=TOTAL.getColumns();
-				borrowed=ABLETOBORROW.getColumns();
-				if(isAdd)
+				total= Integer.parseInt(TOTAL.getText());
+				borrowed= Integer.parseInt(ABLETOBORROW.getText());
+				//borrowed=ABLETOBORROW.getColumns();
+				
+				if(isAdd==true)
 				{
-					cthread.handleAddBookMessage(book_id,book_name,book_author,total,borrowed,book_introduction);
+					cthread.handleAddBookMessage(book_id,book_name,book_author,total,borrowed,book_introduction,book_press);
+					System.out.println(12);
 				}
 				else
 				{
 					cthread.handleUpdateBookMessage(book_id,book_name,book_author,total,borrowed,book_introduction);
+					System.out.println("更新");
 				}
-
-//				if(cthread.getREMessage().getResponse())
-//				{
-//					//JTextField IDinput= new JTextField();
-//					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改成功！","提示页面", JOptionPane.INFORMATION_MESSAGE);
-//					BOOKID.setEditable(false);
-//					BOOKNAME.setEditable(false);
-//					TOTAL.setEditable(false);
-//					TOTAL.setEditable(false);
-//					Author_input.setEditable(false);
-//					Press_input.setEditable(false);
-//					Introduct_input.setEditable(false);
-//					ABLETOBORROW.setEditable(false);
-//					ABLETOBORROW.setEditable(false);
-//					confirm.setEnabled(false);
-//					cancel.setEnabled(false);
-//				}
-//				else
-//					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改失败！","提示页面", JOptionPane.INFORMATION_MESSAGE);
+				
+				
+				if(cthread.getREMessage().getResponse())
+				{
+					//JTextField IDinput= new JTextField();
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改成功！","提示页面", JOptionPane.INFORMATION_MESSAGE);
+					BOOKID.setEditable(false);
+					BOOKNAME.setEditable(false);
+					TOTAL.setEditable(false);
+					TOTAL.setEditable(false);
+					Author_input.setEditable(false);
+					Press_input.setEditable(false);
+					Introduct_input.setEditable(false);
+					ABLETOBORROW.setEditable(false);
+					ABLETOBORROW.setEditable(false);
+					confirm.setEnabled(false);
+					cancel.setEnabled(false);
+				}
+				else
+					JOptionPane.showMessageDialog(new JFrame().getContentPane(), "修改失败！","提示页面", JOptionPane.INFORMATION_MESSAGE);
 			}
 
 

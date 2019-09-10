@@ -6,9 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class HomePanel extends JPanel{
-	public static void main(String[] args) {
-		new HomePanel();
-	}
+
 
 	private JLayeredPane layeredPane;
 	JLabel welcome=new JLabel("欢迎进入图书馆系统！");
@@ -18,6 +16,7 @@ public class HomePanel extends JPanel{
 	JButton Program_Button=new JButton("书籍管理");
 
 	JLabel home;
+	JLabel lblNewLabel_1;
 	int admin=1;
 	ImageIcon imp;
 	AddBook add_frame;
@@ -29,21 +28,17 @@ public class HomePanel extends JPanel{
 		//mcthread = cthread;
 
 
-		this.setBackground(new Color(240, 248, 255));
+		//this.setBackground();
 		setBounds(100, 100, 1124, 717);
 		this.setLayout(null);
 
-		imp=new ImageIcon("images/bk1.png");
+		imp=new ImageIcon("vcampus_moon/images/timg.jpg");
 
-		welcome.setBounds(300,0,600,300);
-		welcome.setFont(new Font("微软雅黑",Font.ROMAN_BASELINE,40));
-		select.setBounds(250,318,750,300);
-		select.setFont(new Font("微软雅黑",Font.ROMAN_BASELINE,40));
 
 		add_Button.setBorderPainted(false);
 		add_Button.setBackground(new Color(240, 248, 255));
-		welcome.setBackground(new Color(240, 248, 255));
-		select.setBackground(new Color(240, 248, 255));
+//		welcome.setBackground(new Color(240, 248, 255));
+//		select.setBackground(new Color(240, 248, 255));
 		show_Button.setBorderPainted(false);
 		show_Button.setBackground(new Color(240, 248, 255));
 		Program_Button.setBorderPainted(false);
@@ -51,15 +46,39 @@ public class HomePanel extends JPanel{
 
 
 		home = new JLabel(imp);
-		home.setBounds(0, 0, 1110, 680);
+		home.setFont(new Font("宋体", Font.BOLD, 40));
+		home.setForeground(new Color(100, 149, 237));
+		home.setBounds( 0,0,1124, 717);
 
-		welcome.setEnabled(true);
+		layeredPane = new JLayeredPane();
+		layeredPane.setBackground(new Color(224, 255, 255));
+		layeredPane.setBounds(0, 0, 1110, 680);
+				welcome.setForeground(new Color(100, 149, 237));
+		
+		
+		//		layeredPane = new JLayeredPane();
+		//		layeredPane.setBackground(new Color(224, 255, 255));
+		//		layeredPane.setBounds(0, 0, 1110, 680);
+		//		layeredPane.add(home, JLayeredPane.DEFAULT_LAYER);
+		//		layeredPane.add(welcome, JLayeredPane.DEFAULT_LAYER);
+		//		layeredPane.add(select, JLayeredPane.DEFAULT_LAYER);
+		//		this.add(layeredPane);
+				welcome.setBounds(305,15,474,182);
+				welcome.setBackground(new Color(224, 255, 255));
+				welcome.setFont(new Font("微软雅黑",Font.ROMAN_BASELINE,40));
+				layeredPane.add(welcome, JLayeredPane.DEFAULT_LAYER);
+		select.setForeground(new Color(100, 149, 237));
+		select.setBounds(105,41,750,300);
+		select.setFont(new Font("微软雅黑",Font.ROMAN_BASELINE,40));
+		layeredPane.add(select, JLayeredPane.DEFAULT_LAYER);
 		select.setEnabled(true);
+		layeredPane.add(home, JLayeredPane.DEFAULT_LAYER);
+		this.add(layeredPane);
 
 	//	getContentPane().
-		this.add(home);
-		this.add(welcome);
-		this.add(select);
+	//	this.add(home);
+	//	this.add(welcome);
+	//	this.add(select);
 
 
 		this.setVisible(false);

@@ -29,11 +29,11 @@ public class LibPanel extends JFrame {
 
 		//searchPanel = new SearchPanel(client);
 		btp.setBounds(0, 0, 900, 40);
-		this.add(btp);
+		getContentPane().add(btp);
 
-		setBounds(100, 100, 900, 717);
+		setBounds(100, 100, 900, 613);
 		this.setBackground(new Color(240, 248, 255));
-		this.setLayout(null);
+		getContentPane().setLayout(null);
 		//this.setBackground(Color.white);
 
 		topPanel.setLayout(null);
@@ -46,9 +46,9 @@ public class LibPanel extends JFrame {
 		centerPanel.setBounds(0, 45, 900, 700);
 
 		homePanel.setBackground(Color.white);
-		homePanel.setBounds(0, 50, 900, 650);
+		homePanel.setBounds(0, 50, 878, 522);
 		homePanel.setLayout(null);
-		this.add(homePanel);
+		getContentPane().add(homePanel);
 
 		this.setVisible(true);
 		bookinfPanel.setBackground(Color.white);
@@ -114,14 +114,14 @@ public class LibPanel extends JFrame {
 		jb4.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent e) {
 				resultPanel(personalPanel);
-				jb3.setForeground(new Color(35, 164, 231));
-				jb3.setBackground(Color.white);
+				jb4.setForeground(new Color(35, 164, 231));
+				jb4.setBackground(Color.white);
 				jb1.setForeground(new Color(254, 254, 254));
 				jb1.setBackground(new Color(206, 206, 206));
 				jb2.setForeground(new Color(254, 254, 254));
 				jb2.setBackground(new Color(206, 206, 206));
-				jb4.setForeground(new Color(254, 254, 254));
-				jb4.setBackground(new Color(206, 206, 206));
+				jb3.setForeground(new Color(254, 254, 254));
+				jb3.setBackground(new Color(206, 206, 206));
 				removeThePanelExcept(personalPanel);
 				addtop();
 				btp.DoSlide(2);
@@ -159,31 +159,13 @@ public class LibPanel extends JFrame {
 		topPanel.add(jb4);
 		//topPanel.add(jb4);
 
-		this.add(topPanel);
+		getContentPane().add(topPanel);
 
 	//	this.add(topPanel);
 
-		this.add(centerPanel);
+		getContentPane().add(centerPanel);
 		btp.DoSlide(0);
 
-//		mClient.messageThread.setlibaraylistener(new Libarycallback() {
-//
-//			@Override
-//			public void getbooklist(ArrayList<BookMessage> mArrayList) {
-//				System.out.println("zhazha");
-//				if(mArrayList.size()==0){
-//					JOptionPane.showMessageDialog(null, "没有结果", "不好意思TAT",JOptionPane.CLOSED_OPTION);
-//				}
-//				{
-//
-//					//
-////					searchPanel.sousuo();
-//					searchPanel.showSearchresult(mArrayList);
-//				}
-//
-//
-//			}
-//		});
 
 	}
 
@@ -249,15 +231,12 @@ public class LibPanel extends JFrame {
 
 
 
-
-
-
 		this.remove(topPanel);
 
 	}
 
 	void addtop() {
-		this.add(topPanel);
+		getContentPane().add(topPanel);
 
 	}
 
