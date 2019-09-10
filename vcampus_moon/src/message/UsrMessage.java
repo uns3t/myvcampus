@@ -1,13 +1,31 @@
 package message;
 
+/**
+ * 类 {@code StudentMessage} 用户信息消息类.
+ *
+ * <p> 传输用户相关信息
+ *
+ * @since 2019/8/19
+ */
 import java.io.Serializable;
 
 public class UsrMessage implements Serializable{
+
+    /** 用户ID {@value} */
     private String Usr_id;
+
+    /** 用户密码 {@value} */
     private String Usr_pwd;
+
+    /** 用户名 {@value} */
     private String Usr_name;
+
+    /** 是否为管理员 {@value} */
     private boolean isadmin;
+
+    /** Message类型 {@value} */
     private String type = "Login";
+
     public void set_isadmin(boolean temp){
         isadmin=temp;
     }
@@ -22,4 +40,7 @@ public class UsrMessage implements Serializable{
     public String getType() {
         return type;
     }
+    /**
+     * @see {@link Message}
+     */
 }

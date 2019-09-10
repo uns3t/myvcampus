@@ -1,5 +1,11 @@
 package client;
-
+/**
+ * 类 {@code Client} 客户端.
+ *
+ * <p> 客户端作为程序主入口
+ *
+ * @since 2019/8/19
+ */
 import java.math.BigInteger;
 import java.net.Socket;
 import java.io.BufferedInputStream;
@@ -25,6 +31,18 @@ public class Client{
 //        new ShopBuy(clientThread);
     }
 
+    /**
+     * <p> 创建一个客户端
+     *
+     * <p><pre>{@code
+     * 演示如何使用该类
+     * 创建客户端传入IP地址和端口
+     * Client client = new Client(hostIp,port);
+     * }
+     * </pre>
+     * @param hospIp IP地址
+     * @param port 端口
+     */
     public Client(String hospIp,int port){
         connectServer(hospIp,port);
     }
@@ -60,4 +78,10 @@ public class Client{
     public Socket getSocket() {
         return socket;
     }
+
+    /**
+     * @see {@link ClientThread}
+     * @see {@link Server.Server}
+     * @see {@link Server.ServerThread}
+     */
 }

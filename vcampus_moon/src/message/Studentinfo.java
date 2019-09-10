@@ -1,20 +1,49 @@
 package message;
+
+/**
+ * 类 {@code Studentinfo} 学生学籍对象.
+ *
+ * <p> 存储学生学籍相关信息
+ *
+ * @since 2019/8/19
+ */
 import java.io.Serializable;
 
 
 public class Studentinfo implements Serializable {
+
+    /** 学生学号 {@value} */
     private String Student_id;
+
+    /** 学生姓名 {@value} */
     private String Student_name;
+
+    /** 学生学院 {@value} */
     private String Student_college;
+
+    /** 学生性别 {@value} */
     public String Student_sex;
+
+    /** 学生生日 {@value} */
     public String Student_birthday;
+
+    /** 生源地 {@value} */
     public String Student_shengyuandi;
+
+    /** 一卡通 {@value} */
     public String Student_onecardid;
 
+    /** 电话 {@value} */
     public String Student_phone;
+
+    /** 证件类型 {@value} */
     public String Student_card_type;
+
+    /** 证件ID {@value} */
     public String Student_card_id;
-    public String Student_ins;  //简介
+
+    /** 学生简介 {@value} */
+    public String Student_ins;
 
     public void setStudent_ins(String student_ins) {
         Student_ins = student_ins;
@@ -91,5 +120,8 @@ public class Studentinfo implements Serializable {
     public String getStudent_shengyuandi() {
         return Student_shengyuandi;
     }
-
+/**
+ *
+ * @see {@link StudentMessage}
+ */
 }

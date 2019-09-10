@@ -1,15 +1,39 @@
 package message;
 
+/**
+ * 类 {@code BookInfo} 书籍对象.
+ *
+ * <p> 存储书籍相关信息
+ *
+ * @since 2019/8/19
+ */
+
 import java.io.Serializable;
 
 public class BookInfo implements Serializable {
+
+    /** 书籍名称 {@value} */
     private String Book_name;
+
+    /** 书籍编号 {@value} */
     private String Book_id;
+
+    /** 书籍作者 {@value} */
     private String Book_author;
+
+    /** 出版社 {@value} */
     private String Book_press;
+
+    /** 书籍数量 {@value} */
     private int Book_total;
+
+    /** 借书数量 {@value} */
     private int Book_borrowed;
+
+    /** 书籍简介 {@value} */
     private String Book_introduction;
+
+    /** 借书起始时间 {@value} */
     private String Book_borrowStartTime;
 
     public void setBook_borrowStartTime(String book_borrowStartTime) {
@@ -80,4 +104,9 @@ public class BookInfo implements Serializable {
     public String getBook_introduction() {
         return Book_introduction;
     }
+
+    /**
+     *
+     * @see {@link BookMessage}
+     */
 }
