@@ -361,7 +361,8 @@ public class ShopAdmin extends JFrame {
 		lblNewLabel.setBounds(449, 40, 260, 41);
 		layeredPane.add(lblNewLabel);
 		
-		lblNewLabel_4 = new JLabel("");
+		ImageIcon image1 = new ImageIcon("images/shop_photo2.jpg");
+		lblNewLabel_4 = new JLabel(image1);
 		layeredPane.setLayer(lblNewLabel_4, 0);
 		lblNewLabel_4.setIcon(new ImageIcon("D:\\IDEA\\share\\myvcampus\\vcampus_moon\\images\\ShopBuy.jpg"));
 		lblNewLabel_4.setBounds(0, 0, 1056, 578);

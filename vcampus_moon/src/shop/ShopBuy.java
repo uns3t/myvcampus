@@ -44,7 +44,8 @@ public class ShopBuy extends JFrame{
         getContentPane().add(layeredPane);
         setVisible(true);
 
-        JLabel lblNewLabel = new JLabel("");
+        ImageIcon image1 = new ImageIcon("images/shop_photo1.jpg");
+        JLabel lblNewLabel = new JLabel(image1);
         lblNewLabel.setIcon(new ImageIcon("D:\\IDEA\\share\\myvcampus\\vcampus_moon\\images\\ShopUser.jpg"));
         lblNewLabel.setBounds(0, 0, 477, 307);
         layeredPane.add(lblNewLabel);

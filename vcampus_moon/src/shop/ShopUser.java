@@ -111,9 +111,9 @@ public class ShopUser extends JFrame{
         layeredPane.add(textField_4);
         textField_4.setColumns(10);
 
-        JLabel lblNewLabel_4 = new JLabel("");
+        ImageIcon image1 = new ImageIcon("images/shop_photo1.jpg");
+        JLabel lblNewLabel_4 = new JLabel(image1);
         layeredPane.setLayer(lblNewLabel_4, 0);
-        lblNewLabel_4.setIcon(new ImageIcon("D:\\IDEA\\share\\myvcampus\\vcampus_moon\\images\\ShopBuy.jpg"));
         lblNewLabel_4.setBounds(0, 0, 1033, 578);
         layeredPane.add(lblNewLabel_4);
         
@@ -478,6 +478,7 @@ public class ShopUser extends JFrame{
         		if(currentpage > 1)
         		{
         			currentpage--;
+        			textField_12.setText(String.valueOf(currentpage));
         			tempinfo.clear();
         		    for(int i = (currentpage - 1) * 5; i < (currentpage * 5 < number ? currentpage * 5 : number); i++)
         		    	tempinfo.add(goodsinfo.get(i));
@@ -496,6 +497,7 @@ public class ShopUser extends JFrame{
         		if(currentpage < pagenum)
         		{
         			currentpage++;
+        			textField_12.setText(String.valueOf(currentpage));
         			tempinfo.clear();
         		    for(int i = (currentpage - 1) * 5; i < (currentpage * 5 < number ? currentpage * 5 : number); i++)
         		    	tempinfo.add(goodsinfo.get(i));
